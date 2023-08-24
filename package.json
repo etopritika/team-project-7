@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "formik": "^2.4.3",
+    "modern-normalize": "^2.0.0",
     "nanoid": "^3.3.4",
     "notiflix": "^3.2.6",
     "react": "^18.1.0",
