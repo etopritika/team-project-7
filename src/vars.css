@@ -1,0 +1,15 @@
+:root {
+    --primary-text-color: #111111;
+    --secondary-text-color: #343434;
+    --title-text-color: #171820;
+    --white-color: #FFF;
+    --auth-background-color: #DCEBF7;
+    --blue-color: #3E85F3;
+    --blue2-color: #DCEBF7;
+    --pink-color: #FFD2DD;
+    --error-color: #DA1414;
+    --green-color: #3CBC81;
+    --gray-color: #84828A;
+    --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --tr-delay: 250ms;
+  }
