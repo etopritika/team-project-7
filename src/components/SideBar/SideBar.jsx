@@ -1,16 +1,16 @@
 import React from 'react';
-import AuthNavigate from '../AuthNavigate/AuthNavigate';
-import AuthSection from '../AuthSection/AuthSection';
-import UserNav from './UserNavigation/UserNav';
-import LogoutBtn from 'components/Buttons/LogoutBtn/LogoutBtn';
+// import AuthNavigate from '../AuthNavigate/AuthNavigate';
+// import AuthSection from '../AuthSection/AuthSection';
+// import UserNav from './UserNavigation/UserNav';
+// import LogoutBtn from 'components/Buttons/LogoutBtn/LogoutBtn';
 
 export default function SideBar() {
   const isLoggedIn = false; // Тимчасово
 
   return (
     <>
-
-      <AuthNavigate />
+    <div>SideBar</div>
+      {/* <AuthNavigate />
       {isLoggedIn ? (
         <div>
           <UserNav />
@@ -21,7 +21,7 @@ export default function SideBar() {
       )}
 
       <AuthNavigate />
-      {isLoggedIn ? <div>User Menu</div> : <AuthSection />}
+      {isLoggedIn ? <div>User Menu</div> : <AuthSection />} */}
 
     </>
   );

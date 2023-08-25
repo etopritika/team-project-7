@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import SideBar from './SideBar/SideBar';
+import AuthSection from "./AuthSection/AuthSection"
 
 export default function Layout() {
   return (
     <div style={{}}>
       <Suspense fallback={null}>
-        <SideBar />
+        <AuthSection/>
         <Outlet />
       </Suspense>
     </div>
