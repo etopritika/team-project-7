@@ -106,6 +106,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  border: none;
 }
 .button:focus {
   background: var(--hover-blue);
