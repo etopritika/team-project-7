@@ -2,13 +2,13 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import SideBar from './SideBar/SideBar';
 
-export default function Layout(){
+export default function Layout() {
   return (
-    <div style={{ }}>
+    <div style={{}}>
       <Suspense fallback={null}>
-        <SideBar/>
+        <SideBar />
         <Outlet />
       </Suspense>
     </div>
   );
-};
+}

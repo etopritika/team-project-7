@@ -1,14 +1,23 @@
+import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import AuthSection from '../AuthSection/AuthSection';
-// import useAuth from 'hooks';
+import UserNav from './UserNavigation/UserNav';
+import LogoutBtn from 'components/Buttons/LogoutBtn/LogoutBtn';
 
 export default function SideBar() {
-    // const { isLoggedIn } = useAuth();
-        const isLoggedIn = false; //Тимчасово
+  const isLoggedIn = false; // Тимчасово
+
   return (
     <>
       <Navigation />
-      {isLoggedIn ? <div>User Menu</div> : <AuthSection />}
+      {isLoggedIn ? (
+        <div>
+          <UserNav />
+          <LogoutBtn />
+        </div>
+      ) : (
+        <AuthSection />
+      )}
     </>
   );
 }
