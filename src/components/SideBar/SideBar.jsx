@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../Navigation/Navigation';
+import AuthNavigate from '../AuthNavigate/AuthNavigate';
 import AuthSection from '../AuthSection/AuthSection';
 import UserNav from './UserNavigation/UserNav';
 import LogoutBtn from 'components/Buttons/LogoutBtn/LogoutBtn';
@@ -9,7 +9,8 @@ export default function SideBar() {
 
   return (
     <>
-      <Navigation />
+
+      <AuthNavigate />
       {isLoggedIn ? (
         <div>
           <UserNav />
@@ -18,6 +19,10 @@ export default function SideBar() {
       ) : (
         <AuthSection />
       )}
+
+      <AuthNavigate />
+      {isLoggedIn ? <div>User Menu</div> : <AuthSection />}
+
     </>
   );
 }
