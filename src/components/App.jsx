@@ -2,7 +2,8 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
-import Layout from './Layout';
+// import Layout from './Layout';
+import { Suspense } from 'react';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -11,9 +12,9 @@ const AccountPage = lazy(() => import('../pages/AccountPage'));
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<MainPage />} />
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
         <Route
           path="/register"
           element={
@@ -32,7 +33,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/login" component={<AccountPage />} />
           }
         />
-      </Route>
-    </Routes>
+      </Routes>
+    </Suspense>
   );
 };
