@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const UserNav = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link to="/user/account">Account</Link>
+          <NavLink to="/account">Account</NavLink>
         </li>
         <li>
-          <Link to="/user/calendar">Calendar</Link>
+          <NavLink to="/calendar">Calendar</NavLink>
         </li>
         <li>
-          <Link to="/user/statistics">Statistics</Link>
+          <NavLink to="/statistics">Statistics</NavLink>
         </li>
       </ul>
     </nav>
