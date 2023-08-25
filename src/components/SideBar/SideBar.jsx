@@ -1,4 +1,4 @@
-import Navigation from '../Navigation/Navigation';
+import Navigation from '../AuthNavigate/Navigation';
 import AuthSection from '../AuthSection/AuthSection';
 // import useAuth from 'hooks';
 
