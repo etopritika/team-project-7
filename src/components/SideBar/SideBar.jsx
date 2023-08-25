@@ -1,4 +1,4 @@
-import Navigation from '../AuthNavigate/Navigation';
+import AuthNavigate from '../AuthNavigate/AuthNavigate';
 import AuthSection from '../AuthSection/AuthSection';
 // import useAuth from 'hooks';
 
@@ -7,7 +7,7 @@ export default function SideBar() {
         const isLoggedIn = false; //Тимчасово
   return (
     <>
-      <Navigation />
+      <AuthNavigate />
       {isLoggedIn ? <div>User Menu</div> : <AuthSection />}
     </>
   );
