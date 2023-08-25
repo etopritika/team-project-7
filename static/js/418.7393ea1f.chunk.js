@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_team_project=self.webpackChunkreact_team_project||[]).push([[418],{418:function(e,n,r){r.r(n),r.d(n,{default:function(){return s}});var t=r(87),c=r(184);function i(){return(0,c.jsxs)("div",{children:[(0,c.jsx)(t.OL,{to:"/register",children:"Register"}),(0,c.jsx)(t.OL,{to:"/login",children:"Log In"})]})}function s(){return(0,c.jsxs)("div",{children:[(0,c.jsx)(i,{}),(0,c.jsx)("span",{children:"MainPage"})]})}}}]);
+//# sourceMappingURL=418.7393ea1f.chunk.js.map
