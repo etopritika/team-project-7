@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import registerSchema from './Validation';
 import css from './RegisterForm.module.css';
-// import icons from '../../../img/icons.svg#log-in-01';
+import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 
 const initialState = {
@@ -140,15 +140,9 @@ export const RegisterForm = () => {
               </label>
               <button className={css.button} type="submit">
                 Sing Up
-                {/* <svg
-                  stroke="white"
-                  color="white"
-                  fill="white"
-                  width={'18px'}
-                  height={'18px'}
-                >
-                  <use> href={icons} </use>
-                </svg> */}
+                <svg className={css.icon}>
+                  <use xlinkHref={`${icons}#log-in-01`} />
+                </svg>
               </button>
             </Form>
           )}

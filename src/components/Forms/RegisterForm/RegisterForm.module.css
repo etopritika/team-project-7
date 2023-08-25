@@ -143,6 +143,8 @@
 }
 
 .icon {
+  stroke: var(--white-color);
+  fill: var(--main-blue-color);
   width: 18px;
   height: 18px;
   margin-left: 11px;
