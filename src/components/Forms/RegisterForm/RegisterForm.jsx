@@ -125,7 +125,7 @@ export const RegisterForm = () => {
                 >
                   <div className={css.spanIcon}>
                     {
-                      // icon
+                      // icon here
                     }
                   </div>
                 </button>
@@ -139,7 +139,7 @@ export const RegisterForm = () => {
               </label>
               <button className={css.button} type="submit">
                 Sing Up
-                {/* <FiLogIn className={css.icon} /> */}
+                {/* icon here /> */}
               </button>
             </Form>
           )}
