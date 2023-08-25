@@ -18,7 +18,7 @@ export const RegisterForm = () => {
   return (
     <>
       <div className={css.container}>
-        <div className={css.bgimages}></div>
+        <div className={css.bgImages}></div>
         <div className={css.bgImagesMsg}>
           <p className={css.bgImagesText}>
             Quickly <span className={css.span}>register</span> and familiarize

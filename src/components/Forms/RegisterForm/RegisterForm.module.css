@@ -157,7 +157,7 @@
 }
 
 @media screen and (min-width: 1300px) {
-  .bgimages {
+  .bgImages {
     background-image: url('../../../img/singup-goose-1x.png');
     background-repeat: no-repeat;
     bottom: 0;
