@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import registerSchema from './Validation';
 import css from './RegisterForm.module.css';
+// import icons from '../../../img/icons.svg#log-in-01';
+import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 
 const initialState = {
   name: '',
@@ -139,14 +140,22 @@ export const RegisterForm = () => {
               </label>
               <button className={css.button} type="submit">
                 Sing Up
-                {/* icon here /> */}
+                {/* <svg
+                  stroke="white"
+                  color="white"
+                  fill="white"
+                  width={'18px'}
+                  height={'18px'}
+                >
+                  <use> href={icons} </use>
+                </svg> */}
               </button>
             </Form>
           )}
         </Formik>
-        <Link className={css.link} to="/login">
-          Log In
-        </Link>
+        <div className={css.link}>
+          <AuthNavigate formType="register" />
+        </div>
       </div>
     </>
   );

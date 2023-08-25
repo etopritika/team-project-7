@@ -212,7 +212,7 @@
 }
 
 .spanIcon {
-  color: var(--main-blue-color);
+  color: white;
 }
 .spanIcon:focus {
   transform: scale(1.4);
