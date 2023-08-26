@@ -1,0 +1,50 @@
+@import "../../../vars.css";
+
+.button {
+  background: var(--main-blue-color);
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--white-color);
+  padding: 14px;
+  width: 100%;
+  margin-top: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+.button:focus {
+  background: var(--hover-blue);
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  transition-duration: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
+}
+.button:hover {
+  background: var(--hover-blue);
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  transition-duration: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
+}
+@media screen and (min-width: 768px) {
+  .button {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.icon {
+    stroke: var(--white-color);
+    fill: var(--main-blue-color);
+    width: 18px;
+    height: 18px;
+    margin-left: 11px;
+  }
+  @media screen and (min-width: 768px) {
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
