@@ -1,7 +1,9 @@
 import React from 'react';
 
 import SideBar from './SideBar/SideBar';
-import HeaderUser from './Header/Header';
+
+
+import { HeaderUser } from './Header/Header';
 import { Outlet } from 'react-router-dom';
 
 
