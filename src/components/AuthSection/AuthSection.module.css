@@ -1,0 +1,142 @@
+@import url(../../vars.css);
+
+.authSection {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #3e85f3;
+}
+
+.logo {
+  width: 142px;
+  height: 142px;
+
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.heroTitle {
+  color: var(--white-color);
+  text-shadow: 0px 9px 58px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
+
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 100px;
+    line-height: 130px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 120px;
+    line-height: 150px;
+  }
+}
+
+.heroTitleSpan {
+  margin-left: -2px;
+  margin-right: 3px;
+
+  color: var(--white-color);
+
+  font-size: 44px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 48px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: -4px;
+    margin-right: 7px;
+
+    font-size: 100px;
+    line-height: 130px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 120px;
+    line-height: 150px;
+  }
+}
+
+.authNav {
+  margin-top: 32px;
+  gap: 2px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row-reverse;
+  }
+}
+
+.linkLogin {
+  padding: 14px 32px;
+  gap: 6px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 16px;
+  color: var(--main-blue-color);
+  background: var(--white-color);
+  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+
+  transition: 0.2s;
+
+  &:hover,
+  &:focus {
+    background-color: var(--auth-bg-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 22px;
+  }
+}
+
+.iconLogin {
+  stroke: currentColor;
+  fill: none;
+}
+
+.linkRegister {
+  padding: 14px 32px;
+  gap: 6px;
+
+  color: var(--white-color);
+  text-shadow: 0px 9px 58px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
+
+  text-decoration-line: underline;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+
+  transition: 0.2s;
+
+  &:hover,
+  &:focus {
+    color: var(--auth-bg-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 22px;
+  }
+}

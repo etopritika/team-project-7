@@ -1,0 +1,39 @@
+@import url(../../vars.css);
+
+.reviewsSection {
+  margin-top: 64px;
+  padding: 0 20px;
+}
+
+.wrapper {
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+
+  color: var(--main-blue-color);
+
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  text-transform: uppercase;
+}
+
+.reviewItem {
+  margin-top: 40px;
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  cursor: pointer;
+}
