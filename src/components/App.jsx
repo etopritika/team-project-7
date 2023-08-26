@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import { Suspense } from 'react';
+import Spinner from "./Spinner/Spinner";
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -11,7 +12,7 @@ const AccountPage = lazy(() => import('../pages/AccountPage'));
 
 export const App = () => {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<Spinner />}>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route
