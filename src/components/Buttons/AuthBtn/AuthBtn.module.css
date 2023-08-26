@@ -1,3 +1,5 @@
+@import "../../../vars.css";
+
 .button {
   background: var(--main-blue-color);
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
@@ -17,10 +19,14 @@
 .button:focus {
   background: var(--hover-blue);
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  transition-duration: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
 }
 .button:hover {
   background: var(--hover-blue);
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  transition-duration: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
 }
 @media screen and (min-width: 768px) {
   .button {

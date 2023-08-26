@@ -1,3 +1,5 @@
+@import '../../vars.css';
+
 .navlink {
   font-weight: 600;
   font-size: 12px;
@@ -11,9 +13,11 @@
 
 .navlink:focus {
   transform: scale(1.2);
-  transition-duration: 500ms;
+  transition-duration: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
 }
 .navlink:hover {
   transform: scale(1.2);
-  transition-duration: 500ms;
+  transition-duration: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
 }
