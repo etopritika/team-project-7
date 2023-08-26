@@ -5,8 +5,8 @@ import ReviewSlider from '../components/ReviewsSlider/ReviewsSlider';
 export default function MainPage() {
   return (
     <>
-      {/* <AuthSection /> */}
-      {/* <Description /> */}
+      <AuthSection />
+      <Description />
       <ReviewSlider />
     </>
   );
