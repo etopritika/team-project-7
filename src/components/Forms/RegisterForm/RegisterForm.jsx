@@ -3,6 +3,7 @@ import registerSchema from './Validation';
 import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
+import AuthBtn from "../../Buttons/AuthBtn/AuthBtn";
 
 const initialState = {
   name: '',
@@ -138,12 +139,13 @@ export const RegisterForm = () => {
                   ></ErrorMessage>
                 </div>
               </label>
-              <button className={css.button} type="submit">
+              <AuthBtn title={"Sign Up"} icon={`${icons}#log-in-01`}/>
+              {/* <button className={css.button} type="submit">
                 Sign Up
                 <svg className={css.icon}>
                   <use xlinkHref={`${icons}#log-in-01`} />
                 </svg>
-              </button>
+              </button> */}
             </Form>
           )}
         </Formik>
