@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { FcOk } from 'react-icons/fc';
-import { MdOutlineLogin } from 'react-icons/md';
-import { BiErrorCircle } from 'react-icons/bi';
+// import { FcOk } from 'react-icons/fc';
+// import { MdOutlineLogin } from 'react-icons/md';
+// import { BiErrorCircle } from 'react-icons/bi';
 import registerSchema from '../RegisterForm/Validation';
 import css from '../RegisterForm/RegisterForm.module.css';
 import css2 from './LoginForm.module.css';
@@ -66,17 +66,17 @@ export const LoginForm = () => {
                     className={css.invalidFeedback}
                   ></ErrorMessage>
 
-                  {touched.email && errors.email ? (
+                  {/* {touched.email && errors.email ? (
                     <BiErrorCircle className={css2.iconError} />
                   ) : (
                     ''
-                  )}
+                  )} */}
                   {!errors.email && values.email !== '' ? (
                     <>
                       <p className={css2.success_message}>
                         This is an CORRECT email
                       </p>
-                      <FcOk className={css2.iconOk} />
+                      {/* <FcOk className={css2.iconOk} /> */}
                     </>
                   ) : (
                     ''
