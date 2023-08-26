@@ -79,11 +79,11 @@
   border: 1px solid var(--primary-text-color);
 }
 .input::-moz-placeholder {
-  color: #dce3e5;
+  color: var(--placeholder-color);
   font-size: 14px;
 }
 .input::placeholder {
-  color: #dce3e5;
+  color: var(--placeholder-color);
   font-size: 14px;
 }
 @media screen and (min-width: 768px) {
@@ -288,11 +288,11 @@
   border: 1px solid var(--primary-text-color);
 }
 .isInvalid::-moz-placeholder {
-  color: #dce3e5;
+  color: var(--placeholder-color);
   font-size: 14px;
 }
 .isInvalid::placeholder {
-  color: #dce3e5;
+  color: var(--placeholder-color);
   font-size: 14px;
 }
 @media screen and (min-width: 768px) {
@@ -325,11 +325,11 @@
   border: 1px solid var(--primary-text-color);
 }
 .isValid::-moz-placeholder {
-  color: #dce3e5;
+  color: var(--placeholder-color);
   font-size: 14px;
 }
 .isValid::placeholder {
-  color: #dce3e5;
+  color: var(--placeholder-color);
   font-size: 14px;
 }
 @media screen and (min-width: 768px) {

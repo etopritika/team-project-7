@@ -15,6 +15,7 @@
     --error-color: #DA1414;
     --green-color: #3CBC81;
     --gray-color: #84828A;
+    --placeholder-color: #DCE3E5;
     --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --tr-delay: 250ms;
   }
