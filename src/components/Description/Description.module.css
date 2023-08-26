@@ -1,0 +1,117 @@
+@import url(../../vars.css);
+
+.descrSection {
+  margin-top: 64px;
+  padding: 0 20px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 0 128px;
+  }
+}
+
+.descrList {
+  gap: 64px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.descrItem {
+  gap: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 228px;
+
+    &:nth-child(2) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.descrWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: flex-start;
+
+  @media screen and (min-width: 1440px) {
+    align-self: center;
+  }
+}
+
+.descrWrapperSidebar {
+  align-self: flex-end;
+
+  @media screen and (min-width: 1440px) {
+    align-self: center;
+  }
+}
+
+.descrNum {
+  color: var(--main-blue-color);
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -4px;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 104px;
+  }
+}
+
+.descrAccent {
+  margin-top: 14px;
+  padding: 8px 18px;
+
+  color: var(--main-blue-color);
+  background-color: var(--auth-bg-color);
+  border-radius: 44px;
+
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+
+.descrTitle {
+  margin-top: 8px;
+
+  color: var(--title-text-color);
+
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+
+.descrText {
+  /* width: 335px; */
+
+  margin-top: 14px;
+
+  color: var(--primary-text-color);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+
+  @media screen and (min-width: 768px) {
+    width: 275px;
+  }
+}
