@@ -33,7 +33,7 @@ export const RegisterForm = () => {
         >
           {({ errors, touched }) => (
             <Form autoComplete="off" className={css.form}>
-              <h1 className={css.title}>Sing Up</h1>
+              <h1 className={css.title}>Sign Up</h1>
               <label
                 className={
                   errors.name && touched.name
@@ -139,7 +139,7 @@ export const RegisterForm = () => {
                 </div>
               </label>
               <button className={css.button} type="submit">
-                Sing Up
+                Sign Up
                 <svg className={css.icon}>
                   <use xlinkHref={`${icons}#log-in-01`} />
                 </svg>
