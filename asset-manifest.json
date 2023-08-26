@@ -1,21 +1,28 @@
 {
   "files": {
     "main.css": "/team-project-7/static/css/main.bfeafdb8.css",
-    "main.js": "/team-project-7/static/js/main.fff351da.js",
+    "main.js": "/team-project-7/static/js/main.d4867a1f.js",
     "static/js/418.7393ea1f.chunk.js": "/team-project-7/static/js/418.7393ea1f.chunk.js",
-    "static/js/432.5e478f2a.chunk.js": "/team-project-7/static/js/432.5e478f2a.chunk.js",
+    "static/css/397.0d996809.chunk.css": "/team-project-7/static/css/397.0d996809.chunk.css",
+    "static/js/397.eb0beb3a.chunk.js": "/team-project-7/static/js/397.eb0beb3a.chunk.js",
     "static/js/637.0e770bbe.chunk.js": "/team-project-7/static/js/637.0e770bbe.chunk.js",
     "static/js/698.f09e26d1.chunk.js": "/team-project-7/static/js/698.f09e26d1.chunk.js",
+    "static/js/17.36bb71f8.chunk.js": "/team-project-7/static/js/17.36bb71f8.chunk.js",
+    "static/media/singup-goose-2x.png": "/team-project-7/static/media/singup-goose-2x.cea7fdcf90f85f3df3aa.png",
+    "static/media/singup-goose-1x.png": "/team-project-7/static/media/singup-goose-1x.dbe23e2677eb79ac066d.png",
+    "static/media/icons.svg": "/team-project-7/static/media/icons.72bd4398c589b8882bbb6d107a09aa09.svg",
     "index.html": "/team-project-7/index.html",
     "main.bfeafdb8.css.map": "/team-project-7/static/css/main.bfeafdb8.css.map",
-    "main.fff351da.js.map": "/team-project-7/static/js/main.fff351da.js.map",
+    "main.d4867a1f.js.map": "/team-project-7/static/js/main.d4867a1f.js.map",
     "418.7393ea1f.chunk.js.map": "/team-project-7/static/js/418.7393ea1f.chunk.js.map",
-    "432.5e478f2a.chunk.js.map": "/team-project-7/static/js/432.5e478f2a.chunk.js.map",
+    "397.0d996809.chunk.css.map": "/team-project-7/static/css/397.0d996809.chunk.css.map",
+    "397.eb0beb3a.chunk.js.map": "/team-project-7/static/js/397.eb0beb3a.chunk.js.map",
     "637.0e770bbe.chunk.js.map": "/team-project-7/static/js/637.0e770bbe.chunk.js.map",
-    "698.f09e26d1.chunk.js.map": "/team-project-7/static/js/698.f09e26d1.chunk.js.map"
+    "698.f09e26d1.chunk.js.map": "/team-project-7/static/js/698.f09e26d1.chunk.js.map",
+    "17.36bb71f8.chunk.js.map": "/team-project-7/static/js/17.36bb71f8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bfeafdb8.css",
-    "static/js/main.fff351da.js"
+    "static/js/main.d4867a1f.js"
   ]
 }
