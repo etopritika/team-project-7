@@ -140,12 +140,6 @@ export const RegisterForm = () => {
                 </div>
               </label>
               <AuthBtn title={"Sign Up"} icon={`${icons}#log-in-01`}/>
-              {/* <button className={css.button} type="submit">
-                Sign Up
-                <svg className={css.icon}>
-                  <use xlinkHref={`${icons}#log-in-01`} />
-                </svg>
-              </button> */}
             </Form>
           )}
         </Formik>
