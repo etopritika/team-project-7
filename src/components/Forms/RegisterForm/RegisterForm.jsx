@@ -147,9 +147,7 @@ export const RegisterForm = () => {
             </Form>
           )}
         </Formik>
-        <div className={css.link}>
-          <AuthNavigate formType="register" />
-        </div>
+        <AuthNavigate formType="register" />
       </div>
     </>
   );

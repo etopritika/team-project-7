@@ -123,25 +123,6 @@
   }
 }
 
-.link {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.16;
-  color: var(--main-blue-color);
-  text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
-    0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
-  margin: 18px auto;
-  text-decoration: underline;
-}
-.link:focus {
-  transform: scale(1.2);
-  transition-duration: 500ms;
-}
-.link:hover {
-  transform: scale(1.2);
-  transition-duration: 500ms;
-}
-
 .icon {
   stroke: var(--white-color);
   fill: var(--main-blue-color);
