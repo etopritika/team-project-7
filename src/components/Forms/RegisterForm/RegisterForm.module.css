@@ -22,6 +22,14 @@
   padding-left: 24px;
   width: 100%;
 }
+
+@media screen and (max-width: 767px) {
+  .form {
+    margin: 0 auto;
+    width: 335px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .form {
     margin: 0 auto;
