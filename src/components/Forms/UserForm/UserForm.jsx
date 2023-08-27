@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useAuth } from 'hooks/useAuth';
-import { useUpdateUserInfoMutation } from 'redux/auth/authApi';
+import { useUpdateUserInfo } from 'hooks/useUpdateUserInfo';
+import { useUpdateUserInfoMutation } from 'redux/Auth/authApi';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { userFormSchema } from './consts/userFormSchema';
 import { formatDate } from './utils/formatDate';
 import { userAvatarInput, userFormInputs } from './consts/userFormInputs';
 import { parse } from 'date-fns';
@@ -17,7 +18,7 @@ import css from './UserForm.module.css';
 const today = new Date();
 
 export const UserForm = () => {
-  const { name, email, phone, skype, birthday, userImgUrl } = useAuth();
+  const { name, email, phone, skype, birthday, userImgUrl } = useUpdateUserInfo();
   const [isDisabled, setIsDisabled] = useState(true);
   const [currentAvatarUrl, setCurrentAvatarUrl] = useState(userImgUrl);
   const [update, { isError, error, isSuccess }] = useUpdateUserInfoMutation();

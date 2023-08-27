@@ -1,3 +1,34 @@
+import styled from '@emotion/styled/macro';
+import facepaint from 'facepaint';
+
+export const BREAKPOINTS = [375, 768, 1440];
+
+const media = facepaint(BREAKPOINTS.map(bp => `@media (min-width: ${bp}px)`));
+
+export const Svg = styled.svg`
+  fill: transparent;
+  stroke: ${props => props.theme.componentPrimary};
+
+  @keyframes scale-up-hor-left {
+    0% {
+      -webkit-transform: scaleX(0.4);
+      transform: scaleX(0.4);
+      -webkit-transform-origin: 0% 0%;
+      transform-origin: 0% 0%;
+    }
+    100% {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+      -webkit-transform-origin: 0% 0%;
+      transform-origin: 0% 0%;
+    }
+  }
+  ${media({
+    width: ['18px', '18px', '20px', '20px'],
+    height: ['18px', '18px', '20px', '20px'],
+  })};
+`;
+
 export const StyledErrorMessage = styled.p`
   color: red;
   font-size: 12px;
