@@ -158,7 +158,7 @@
 }
 
 .spanIcon {
-  color: white;
+  color: var(--main-blue-color);
 }
 .spanIcon:focus {
   transform: scale(1.4);
@@ -246,9 +246,11 @@
 }
 
 .btnToggle {
+  border: none;
+  background-color: white;
   position: absolute;
   right: 20px;
-  bottom: 55px;
+  bottom: 51px;
 }
 
 .isValid {

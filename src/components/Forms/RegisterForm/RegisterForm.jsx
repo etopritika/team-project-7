@@ -1,14 +1,16 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-
+import React, { useState } from 'react';
+import { register } from '../../../redux/auth/authOperations';
 import registerSchema from './Validation';
 import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
-import { register } from 'redux/auth/authOperations';
-
-const initialState = {
+import { useNavigate } from 'react-router-dom';
+// from react-icons
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+const INITIAL_STATE = {
   name: '',
   email: '',
   password: '',
@@ -16,17 +18,36 @@ const initialState = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleShowPassword = () => {};
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(<AiFillEyeInvisible />);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleSubmit = e => {
-    dispatch(
-      register({
-        ...initialState
-      })
-    );
+  const handleShowPassword = () => {
+    if (type === 'password') {
+      setIcon(<AiFillEye />);
+      setType('text');
+    } else {
+      setIcon(<AiFillEyeInvisible />);
+      setType('password');
+    }
   };
 
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const response = await dispatch(register(values));
+      console.log('Registration successful:', response);
+      resetForm();
+      setIsLoggedIn(true);
+    } catch (error) {
+      console.error('Registration rejected:', error);
+    }
+  };
+
+  if (isLoggedIn) {
+    navigate('/user/calendar');
+  }
   return (
     <>
       <div className={css.container}>
@@ -39,7 +60,7 @@ export const RegisterForm = () => {
         </div>
         <Formik
           const
-          initialValues={initialState}
+          initialValues={INITIAL_STATE}
           validationSchema={registerSchema}
           onSubmit={handleSubmit}
         >
@@ -121,7 +142,7 @@ export const RegisterForm = () => {
                 <Field
                   id="password"
                   name="password"
-                  type="password"
+                  type={type}
                   placeholder="Enter password"
                   className={
                     errors.password && touched.password
@@ -136,11 +157,7 @@ export const RegisterForm = () => {
                   type="button"
                   onClick={handleShowPassword}
                 >
-                  <div className={css.spanIcon}>
-                    {
-                      // icon here
-                    }
-                  </div>
+                  <div className={css.spanIcon}>{icon}</div>
                 </button>
                 <div className={css.feedback}>
                   <ErrorMessage
