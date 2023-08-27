@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/team-project-7/static/css/main.9bb5ff49.css",
+    "main.css": "/team-project-7/static/css/main.e246e95c.css",
     "main.js": "/team-project-7/static/js/main.2963c469.js",
     "static/css/197.91ee8f36.chunk.css": "/team-project-7/static/css/197.91ee8f36.chunk.css",
     "static/js/197.5f044ff1.chunk.js": "/team-project-7/static/js/197.5f044ff1.chunk.js",
@@ -36,7 +36,7 @@
     "static/media/goose-login.png": "/team-project-7/static/media/goose-login.2db418b6ba73c6033221.png",
     "static/media/icons.svg": "/team-project-7/static/media/icons.2737df749ef9a5fff5cb319c9104bd0e.svg",
     "index.html": "/team-project-7/index.html",
-    "main.9bb5ff49.css.map": "/team-project-7/static/css/main.9bb5ff49.css.map",
+    "main.e246e95c.css.map": "/team-project-7/static/css/main.e246e95c.css.map",
     "main.2963c469.js.map": "/team-project-7/static/js/main.2963c469.js.map",
     "197.91ee8f36.chunk.css.map": "/team-project-7/static/css/197.91ee8f36.chunk.css.map",
     "197.5f044ff1.chunk.js.map": "/team-project-7/static/js/197.5f044ff1.chunk.js.map",
@@ -49,7 +49,7 @@
     "840.01da54af.chunk.js.map": "/team-project-7/static/js/840.01da54af.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9bb5ff49.css",
+    "static/css/main.e246e95c.css",
     "static/js/main.2963c469.js"
   ]
 }
