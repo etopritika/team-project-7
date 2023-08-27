@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from 'hooks/useAuth';
-import { useUpdateUserInfoMutation } from 'redux/Auth/authApi';
+import { useUpdateUserInfoMutation } from 'redux/auth/authApi';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { formatDate } from './utils/formatDate';
