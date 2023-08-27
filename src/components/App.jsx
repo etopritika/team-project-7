@@ -4,7 +4,7 @@ import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import { Suspense } from 'react';
 import Spinner from './Spinner/Spinner';
-import MainLayout from './MainLayout';
+import MainLayout from './MainLayout/MainLayout';
 import CalendarPage from 'pages/CalendarPage';
 import StatisticsPage from 'pages/StatisticsPage';
 import DayCalendarHead from './Calendar/DayCalendarHead/DayCalendarHead';
