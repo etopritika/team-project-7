@@ -1,17 +1,23 @@
 @import '../../vars.css';
 
-.fullPageWrapper {
+.mainLayoutstyle {
+  padding-left: 0px;
+  padding-right: 0px;
+  min-height: 100vh;
   background-color: var(--user-bg-color) ;
+  
 }
 
-.container {
-  padding: 20px;
-
-  /* @media screen and (min-width: 768px) {
-
-  } */
-
-
+@media screen and (min-width: 1440px) {
+  .mainLayoutstyle {
+    display: grid;
+    grid-template-columns: 289px 1fr;
+    padding-bottom: 0;
+  }
 }
+
+
+
+
 
 
