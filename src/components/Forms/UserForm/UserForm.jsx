@@ -27,11 +27,11 @@ export const UserForm = () => {
     if (isError && error?.status !== 413)
       notify(error?.data?.message || 'Sorry, something went wrong');
     if (isError && error.status === 413) notify('The image is too large');
-  }, [isError]);
+  }, [isError, error?.status, error?.data?.message]);
 
   useEffect(() => {
     if (isSuccess) navigate(0);
-  }, [isSuccess]);
+  }, [isSuccess, navigate]);
 
   const {
     register: reg,
@@ -79,7 +79,7 @@ export const UserForm = () => {
     };
 
     checkIsDirty();
-  }, [isDirty, dirtyFields]);
+  }, [isDirty, dirtyFields, currentAvatarUrl, error?.status, isError, userImgUrl]);
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)} autoComplete="false">
