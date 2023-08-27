@@ -1,0 +1,16 @@
+/* MainLayout.module.css */
+.fullPageWrapper {
+  background-color: white;
+}
+
+.container {
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 289px 1fr;
+  }
+
+
+}
+
+

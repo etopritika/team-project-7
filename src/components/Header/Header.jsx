@@ -1,22 +1,32 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import styles from './Header.module.css';
+import OpenSidebarBtn from 'components/Buttons/OpenSidebarBtn/OpenSidebarBtn';
 import AddFeedbackBtn from 'components/Buttons/AddFeedbackBtn/AddFeedbackBtn';
-import  OpenSidebarBtn  from 'components/Buttons/OpenSidebarBtn/OpenSidebarBtn';
+import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
 import UserInfo from 'components/UserInfo/UserInfo';
-import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
+import SideBar from 'components/SideBar/SideBar';
 
 
+function HeaderUser() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
 
-export const HeaderUser = ({ toggleBurgerMenu }) => {
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    setIsButtonVisible(false);
+  };
+
   return (
-    <div className={styles.header}>
-      <OpenSidebarBtn openBurgerMenu={toggleBurgerMenu} />
-     
+    <header className={styles.header}>
+      {isButtonVisible && <OpenSidebarBtn openBurgerMenu={toggleSidebar} />}
+      {isSidebarOpen && <SideBar />}
+      <div className={styles.userInfo}>
         <ThemeToggler />
         <AddFeedbackBtn />
         <UserInfo />
-      
-    </div>
+      </div>
+    </header>
   );
-};
+}
+
+export default HeaderUser;

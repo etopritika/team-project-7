@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ThemeToggler.module.css';
 
-export const ThemeToggler = () => {
+function ThemeToggler() {
   return (
     <>
       <button
@@ -13,4 +13,6 @@ export const ThemeToggler = () => {
       </button>
     </>
   );
-};
+}
+
+export default ThemeToggler;
