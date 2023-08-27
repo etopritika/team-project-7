@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectUserInfo } from 'redux/Auth/selectors';
-
+import { selectUserInfo } from 'redux/auth/selectors';
 
 export const useUpdateUserInfo = () => {
   const { name, email, phone, birthday, skype, userImgUrl } =

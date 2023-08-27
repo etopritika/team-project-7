@@ -6,7 +6,7 @@ import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
-import { register } from 'redux/Auth/authOperations';
+import { register } from 'redux/auth/authOperations';
 
 const initialState = {
   name: '',

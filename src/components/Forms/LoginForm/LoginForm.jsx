@@ -11,7 +11,7 @@ import css2 from './LoginForm.module.css';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import icons from '../../../img/icons.svg';
-import { logIn } from 'redux/Auth/authOperations';
+import { logIn } from 'redux/auth/authOperations';
 
 const initialState = {
   email: '',
