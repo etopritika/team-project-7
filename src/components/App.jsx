@@ -23,13 +23,19 @@ export const App = () => {
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/user/calendar" component={<RegisterPage />} />
+            <RestrictedRoute
+              redirectTo="/user/calendar"
+              component={<RegisterPage />}
+            />
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/user/calendar" component={<LoginPage />} />
+            <RestrictedRoute
+              redirectTo="/user/calendar"
+              component={<LoginPage />}
+            />
           }
         />
         <Route
@@ -70,5 +76,3 @@ export const App = () => {
     </Suspense>
   );
 };
-
-
