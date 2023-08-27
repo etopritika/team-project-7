@@ -104,6 +104,7 @@
   &:hover,
   &:focus {
     background-color: var(--auth-bg-color);
+    color: var(--hover-blue);
   }
 
   @media screen and (min-width: 768px) {
@@ -114,6 +115,7 @@
 .iconLogin {
   stroke: currentColor;
   fill: none;
+  /* color: currentColor; */
 }
 
 .linkRegister {

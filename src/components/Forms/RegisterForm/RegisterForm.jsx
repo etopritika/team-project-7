@@ -7,6 +7,7 @@ import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
+import { register } from 'redux/auth/authOperations';
 
 // from react-icons
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
