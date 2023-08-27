@@ -1,9 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import css from './AuthSection.module.css';
-
 import logo from '../../img/goose.png';
-
 import icons from '../../img/icons.svg';
 
 export default function AuthSection() {
@@ -12,7 +10,7 @@ export default function AuthSection() {
       <img src={logo} alt="logo" className={css.logo} />
 
       <h1 className={css.heroTitle}>
-        Go<span className={css.heroTitleSpan}>o</span>seTrack
+        G<span className={css.heroTitleSpan}>oo</span>seTrack
       </h1>
 
       <div className={css.authNav}>

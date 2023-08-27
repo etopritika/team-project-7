@@ -2,10 +2,9 @@
 
 .descrSection {
   margin-top: 64px;
-  padding: 0 20px;
 
   @media screen and (min-width: 1440px) {
-    padding: 0 128px;
+    padding: 0 108px;
   }
 }
 
