@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-
+import { logIn } from '../../../redux/auth/authOperations';
 // import { FcOk } from 'react-icons/fc';
 // import { MdOutlineLogin } from 'react-icons/md';
 // import { BiErrorCircle } from 'react-icons/bi';
@@ -11,7 +11,6 @@ import css2 from './LoginForm.module.css';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import icons from '../../../img/icons.svg';
-import { logIn } from 'redux/Auth/authOperations';
 
 const initialState = {
   email: '',
@@ -25,7 +24,7 @@ export const LoginForm = () => {
   const handleSubmit = () => {
     dispatch(
       logIn({
-        ...initialState,
+        ...initialState
       })
     );
   };

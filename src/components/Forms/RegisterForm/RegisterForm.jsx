@@ -1,12 +1,11 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-
+import { register } from '../../../redux/auth/authOperations';
 import registerSchema from './Validation';
 import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
-import { register } from 'redux/Auth/authOperations';
 
 const initialState = {
   name: '',
