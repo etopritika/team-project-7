@@ -1,5 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../../redux/auth/authOperations';
 // import { FcOk } from 'react-icons/fc';
 // import { MdOutlineLogin } from 'react-icons/md';
 // import { BiErrorCircle } from 'react-icons/bi';
@@ -16,9 +18,16 @@ const initialState = {
 };
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
   const handleShowPassword = () => {};
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    dispatch(
+      logIn({
+        ...initialState
+      })
+    );
+  };
 
   return (
     <>

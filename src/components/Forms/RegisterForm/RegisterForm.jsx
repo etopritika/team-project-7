@@ -1,9 +1,11 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { register } from '../../../redux/auth/authOperations';
 import registerSchema from './Validation';
 import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
-import AuthBtn from "../../Buttons/AuthBtn/AuthBtn";
+import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 
 const initialState = {
   name: '',
@@ -12,9 +14,17 @@ const initialState = {
 };
 
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
+
   const handleShowPassword = () => {};
 
-  const handleSubmit = () => {};
+  const handleSubmit = e => {
+    dispatch(
+      register({
+        ...initialState
+      })
+    );
+  };
 
   return (
     <>
@@ -139,7 +149,7 @@ export const RegisterForm = () => {
                   ></ErrorMessage>
                 </div>
               </label>
-              <AuthBtn title={"Sign Up"} icon={`${icons}#log-in-01`}/>
+              <AuthBtn title={'Sign Up'} icon={`${icons}#log-in-01`} />
             </Form>
           )}
         </Formik>
