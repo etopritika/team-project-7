@@ -1,0 +1,46 @@
+
+
+@import '../../vars.css';
+
+
+.toggleBtn {
+background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+
+.iconMoon {
+    fill: var(--main-blue-color);
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s;
+}
+
+
+.toggleBtn:hover .iconMoon {
+    fill: var(--hover-blue);
+    transform: scale(1.2);
+}
+
+
+@media (min-width: 376px) and (max-width: 768px) {
+    .iconMoon {
+        fill: var(--main-blue-color);
+        width: 24px;
+        height: 24px;
+        transition: fill 0.3s;
+    }
+}
+
+/* Стилі для ширини екрану від 769px до 1440px */
+@media (min-width: 769px) and (max-width: 1440px) {
+    .iconMoon {
+        fill: var(--main-blue-color);
+        width: 32px;
+        height: 32px;
+        transition: fill 0.3s;
+    }
+}
