@@ -1,15 +1,19 @@
 import React from 'react';
 import styles from './ThemeToggler.module.css';
+import icons from '../../img/icons.svg'
 
 function ThemeToggler() {
   return (
     <>
       <button
-        className={styles.toogleBtn}
+        className={styles.toggleBtn}
         type="button"
         // onClick=() => {}
       >
-        <span className={styles.hiddenTitle}>Theme Toggle</span>
+        <svg className={styles.iconMoon} >
+          <use href={icons + '#moon'}></use>
+
+        </svg>
       </button>
     </>
   );

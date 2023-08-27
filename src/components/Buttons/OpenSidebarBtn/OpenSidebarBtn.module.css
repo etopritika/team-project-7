@@ -1,11 +1,50 @@
+/* OpenSidebarBtn.module.css */
+
+@import '../../../vars.css';
 
 .buttonOpen {
-    display: block;
+  
   
     @media (min-width: 768px) {
       display: none;
     }
-  }
-  
+}
 
+.buttonOpen {
+  background-color:yellow;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.iconMenu {
+    fill: red; 
+    width: 24px;
+    height: 21px;
+    transition: fill 0.3s;
+}
+
+.buttonOpen:hover .iconMenu {
   
+    fill: var(--hover-blue);
+    transform: scale(1.2);
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+    .iconMenu {
+        fill: var(--main-blue-color);
+        width: 32px;
+        height: 32px;
+        transition: fill 0.3s;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1440px) {
+    .iconMenu {
+        fill: var(--main-blue-color);
+        width: 32px;
+        height: 32px;
+        transition: fill 0.3s;
+    }
+}

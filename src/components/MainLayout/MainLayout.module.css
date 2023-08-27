@@ -1,14 +1,15 @@
-/* MainLayout.module.css */
+@import '../../vars.css';
+
 .fullPageWrapper {
-  background-color: white;
+  background-color: var(--user-bg-color) ;
 }
 
 .container {
   padding: 20px;
 
-  @media screen and (min-width: 768px) {
-    grid-template-columns: 289px 1fr;
-  }
+  /* @media screen and (min-width: 768px) {
+
+  } */
 
 
 }

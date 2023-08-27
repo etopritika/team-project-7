@@ -6,7 +6,6 @@ import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
 import UserInfo from 'components/UserInfo/UserInfo';
 import SideBar from 'components/SideBar/SideBar';
 
-
 function HeaderUser() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
@@ -21,8 +20,9 @@ function HeaderUser() {
       {isButtonVisible && <OpenSidebarBtn openBurgerMenu={toggleSidebar} />}
       {isSidebarOpen && <SideBar />}
       <div className={styles.userInfo}>
-        <ThemeToggler />
+        
         <AddFeedbackBtn />
+        <ThemeToggler />
         <UserInfo />
       </div>
     </header>
