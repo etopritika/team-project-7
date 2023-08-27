@@ -7,7 +7,7 @@ import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
-
+import { useNavigate } from 'react-router-dom';
 // from react-icons
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 const INITIAL_STATE = {
@@ -18,8 +18,11 @@ const INITIAL_STATE = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(<AiFillEyeInvisible />);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleShowPassword = () => {
     if (type === 'password') {
@@ -36,11 +39,15 @@ export const RegisterForm = () => {
       const response = await dispatch(register(values));
       console.log('Registration successful:', response);
       resetForm();
+      setIsLoggedIn(true);
     } catch (error) {
       console.error('Registration rejected:', error);
     }
   };
 
+  if (isLoggedIn) {
+    navigate('/user/calendar');
+  }
   return (
     <>
       <div className={css.container}>
