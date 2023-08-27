@@ -1,7 +1,7 @@
 import { useUpdateUserInfo } from 'hooks/useUpdateUserInfo';
 import css from './UserInfo.module.css';
 
-export const UserInfo = () => {
+export default function UserInfo(){
   function getInitials(name) {
     if (name) {
       const initials = name
