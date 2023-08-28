@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import loginSchema from './Validation';
+import loginSchema from './loginFormValidation';
 import css from '../RegisterForm/RegisterForm.module.css';
 import css2 from './LoginForm.module.css';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
