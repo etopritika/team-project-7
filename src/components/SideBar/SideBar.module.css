@@ -19,7 +19,7 @@
 .sidebarstyle {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background-color:var(--white-color);
     height: 100%;
     width: 225px;

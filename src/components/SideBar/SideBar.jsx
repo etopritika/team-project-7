@@ -9,7 +9,7 @@ export default function SideBar() {
     <>
       <div className={styles.sidebarstyle}>
       <SideBarLogo />
-      <p className={styles.userPanName}>User Panel</p>
+      <h3 className={styles.userPanName}>User Panel</h3>
         <UserNav />
         <LogoutBtn />
       </div>
