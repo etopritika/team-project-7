@@ -4,15 +4,14 @@ import LogoutBtn from 'components/Buttons/LogoutBtn/LogoutBtn';
 import styles from './SideBar.module.css';
 import SideBarLogo from './SideBarLogo/SideBarLogo';
 
-export default function SideBar() {
+export default function SideBar({ isOpen }) {
   return (
-    <>
-      <div className={styles.sidebarstyle}>
+    <div className={`${styles.sidebarstyle} ${isOpen ? styles.isOpenSidebarTest : ''}`}>
       <SideBarLogo />
       <p className={styles.userPanName}>User Panel</p>
-        <UserNav />
-        <LogoutBtn />
-      </div>
-    </>
+      <UserNav />
+      <LogoutBtn />
+    </div>
   );
 }
+
