@@ -180,7 +180,12 @@
 }
 
 .invalidFeedback {
-  color: #dc3545;
+  color: var(--error-color);
+  font-size: 12px;
+}
+
+.validFeedback {
+  color: var(--green-color);
   font-size: 12px;
 }
 
