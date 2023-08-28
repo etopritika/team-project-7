@@ -100,26 +100,16 @@ export const LoginForm = () => {
                   </span>
                 )}
                 <div className={css.feedback}>
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className={css.invalidFeedback}
-                  ></ErrorMessage>
-
-                  {/* {touched.email && errors.email ? (
-                    <BiErrorCircle className={css2.iconError} />
+                  {touched.email && !errors.email ? (
+                    <div className={css.validFeedback}>
+                      This is an CORRECT email
+                    </div>
                   ) : (
-                    ''
-                  )} */}
-                  {!errors.email && values.email !== '' ? (
-                    <>
-                      <p className={css2.success_message}>
-                        This is an CORRECT email
-                      </p>
-                      {/* <FcOk className={css2.iconOk} /> */}
-                    </>
-                  ) : (
-                    ''
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className={css.invalidFeedback}
+                    ></ErrorMessage>
                   )}
                 </div>
               </label>

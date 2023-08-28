@@ -132,11 +132,17 @@ export const RegisterForm = () => {
                   </span>
                 )}
                 <div className={css.feedback}>
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className={css.invalidFeedback}
-                  ></ErrorMessage>
+                  {touched.email && !errors.email ? (
+                    <div className={css.validFeedback}>
+                      This is an CORRECT email
+                    </div>
+                  ) : (
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className={css.invalidFeedback}
+                    ></ErrorMessage>
+                  )}
                 </div>
               </label>
               <label
