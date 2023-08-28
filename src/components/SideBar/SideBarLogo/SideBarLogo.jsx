@@ -6,7 +6,7 @@ export default function SideBarLogo() {
   return (
     <>
       <div className={css.logoDiv}>
-        <img src={logo} className={css.logo}></img>
+        <img src={logo} alt="SideBarLogo" className={css.logo}></img>
         <h1 className={css.logoName}>
           G<i className={css.logoOO}>oo</i>seTrack
         </h1>
