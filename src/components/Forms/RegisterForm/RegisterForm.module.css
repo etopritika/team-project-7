@@ -253,7 +253,7 @@
 
 .validationIcon {
   border: none;
-  background-color: var(--white-color);
+  background-color: transparent;
   position: absolute;
   right: 20px;
   bottom: 43px;
@@ -261,12 +261,10 @@
 }
 
 .validIcon {
-  clip: auto;
   color: var(--green-color);
 }
 
 .invalidIcon {
-  display: inline;
   color: var(--error-color);
 }
 
