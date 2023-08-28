@@ -22,7 +22,6 @@ export const RegisterForm = () => {
 
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(<AiFillEyeInvisible />);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleShowPassword = () => {
     if (type === 'password') {
@@ -38,16 +37,13 @@ export const RegisterForm = () => {
     try {
       const response = await dispatch(register(values));
       console.log('Registration successful:', response);
+      await navigate('/user/calendar');
       resetForm();
-      setIsLoggedIn(true);
     } catch (error) {
       console.error('Registration rejected:', error);
     }
   };
 
-  if (isLoggedIn) {
-    navigate('/user/calendar');
-  }
   return (
     <>
       <div className={css.container}>

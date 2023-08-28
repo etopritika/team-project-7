@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom';
 // import { FcOk } from 'react-icons/fc';
 // import { MdOutlineLogin } from 'react-icons/md';
 // import { BiErrorCircle } from 'react-icons/bi';
@@ -13,21 +13,27 @@ import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import icons from '../../../img/icons.svg';
 import { logIn } from 'redux/auth/authOperations';
 
-const initialState = {
+const INITIAL_STATE = {
   email: '',
   password: '',
 };
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleShowPassword = () => {};
 
-  const handleSubmit = () => {
-    dispatch(
-      logIn({
-        ...initialState,
-      })
-    );
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const response = await dispatch(logIn(values));
+      console.log('Login successful:', response);
+      console.log("INITIAL_STATE: ", INITIAL_STATE)
+      await navigate('/user/calendar');
+      resetForm();
+    } catch (error) {
+      console.error('Login rejected:', error);
+    }
   };
 
   return (
@@ -37,7 +43,7 @@ export const LoginForm = () => {
 
         <Formik
           const
-          initialValues={initialState}
+          initialValues={INITIAL_STATE}
           validationSchema={registerSchema}
           onSubmit={handleSubmit}
         >
