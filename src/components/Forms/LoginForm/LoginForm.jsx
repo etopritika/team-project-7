@@ -10,7 +10,13 @@ import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import icons from '../../../img/icons.svg';
 import { logIn } from 'redux/auth/authOperations';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+// from react-icons
+import {
+  AiFillEye,
+  AiFillEyeInvisible,
+  AiOutlineCheckCircle,
+  AiOutlineExclamationCircle,
+} from 'react-icons/ai';
 
 const INITIAL_STATE = {
   email: '',
@@ -74,7 +80,7 @@ export const LoginForm = () => {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="nadiia@gmail.com"
+                  placeholder="Enter email"
                   value={values.email}
                   className={
                     errors.email && touched.email
@@ -84,6 +90,15 @@ export const LoginForm = () => {
                       : css.input
                   }
                 />
+                {touched.email && (
+                  <span className={css.validationIcon}>
+                    {errors.email ? (
+                      <AiOutlineExclamationCircle className={css.invalidIcon} />
+                    ) : (
+                      <AiOutlineCheckCircle className={css.validIcon} />
+                    )}
+                  </span>
+                )}
                 <div className={css.feedback}>
                   <ErrorMessage
                     name="email"
