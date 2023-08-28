@@ -9,12 +9,7 @@ import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import { useNavigate } from 'react-router-dom';
 // from react-icons
-import {
-  AiFillEye,
-  AiFillEyeInvisible,
-  AiOutlineCheckCircle,
-  AiOutlineExclamationCircle,
-} from 'react-icons/ai';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 const INITIAL_STATE = {
   name: '',
   email: '',
@@ -122,15 +117,6 @@ export const RegisterForm = () => {
                       : css.input
                   }
                 />
-                {touched.email && (
-                  <span className={css.validationIcon}>
-                    {errors.email ? (
-                      <AiOutlineExclamationCircle className={css.invalidIcon} />
-                    ) : (
-                      <AiOutlineCheckCircle className={css.validIcon} />
-                    )}
-                  </span>
-                )}
                 <div className={css.feedback}>
                   <ErrorMessage
                     name="email"
