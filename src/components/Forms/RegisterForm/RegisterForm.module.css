@@ -261,12 +261,10 @@
 }
 
 .validIcon {
-  clip: auto;
   color: var(--green-color);
 }
 
 .invalidIcon {
-  display: inline;
   color: var(--error-color);
 }
 
