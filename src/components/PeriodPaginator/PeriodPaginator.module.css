@@ -1,0 +1,60 @@
+@import '../../vars.css';
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons_container {
+    display: flex;
+    margin-left: 10px;
+}
+
+.button {
+    padding: 10px 10px;
+
+    background: var(-- white-color);
+    border: 1px solid rgba(220, 227, 229, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button_left {
+    border-radius: 8px 0 0 8px;
+    ;
+}
+
+.button_right {
+    border-radius: 0 8px 8px 0;
+}
+
+
+.name_container {
+    padding: 8px 12px;
+    background: var(--main-blue-color);
+    border-radius: 8px;
+}
+
+.name {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.12;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(-- white-color);
+}
+    
+
+.icon {
+  stroke: #DCE3E5; 
+   
+}
+
+.icon_active {
+   stroke: #343434;
+}
