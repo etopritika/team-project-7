@@ -78,7 +78,7 @@ export const LoginForm = () => {
                     : css.label
                 }
               >
-                Email
+                <p className={css.labelText}>Email</p>
                 <Field
                   id="email"
                   name="email"
@@ -125,7 +125,7 @@ export const LoginForm = () => {
                     : css.label
                 }
               >
-                Password
+                <p className={css.labelText}>Password</p>
                 <Field
                   id="password"
                   name="password"
