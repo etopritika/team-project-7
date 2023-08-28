@@ -2,16 +2,15 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { FcOk } from 'react-icons/fc';
-// import { MdOutlineLogin } from 'react-icons/md';
-// import { BiErrorCircle } from 'react-icons/bi';
-import registerSchema from '../RegisterForm/Validation';
+import React, { useState } from 'react';
+import loginSchema from './Validation';
 import css from '../RegisterForm/RegisterForm.module.css';
 import css2 from './LoginForm.module.css';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import icons from '../../../img/icons.svg';
 import { logIn } from 'redux/auth/authOperations';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const INITIAL_STATE = {
   email: '',
@@ -22,13 +21,24 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleShowPassword = () => {};
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(<AiFillEyeInvisible />);
+
+  const handleShowPassword = () => {
+    if (type === 'password') {
+      setIcon(<AiFillEye />);
+      setType('text');
+    } else {
+      setIcon(<AiFillEyeInvisible />);
+      setType('password');
+    }
+  };
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const response = await dispatch(logIn(values));
       console.log('Login successful:', response);
-      console.log("INITIAL_STATE: ", INITIAL_STATE)
+      console.log('INITIAL_STATE: ', INITIAL_STATE);
       await navigate('/user/calendar');
       resetForm();
     } catch (error) {
@@ -44,7 +54,7 @@ export const LoginForm = () => {
         <Formik
           const
           initialValues={INITIAL_STATE}
-          validationSchema={registerSchema}
+          validationSchema={loginSchema}
           onSubmit={handleSubmit}
         >
           {({ values, errors, touched }) => (
@@ -112,7 +122,7 @@ export const LoginForm = () => {
                 <Field
                   id="password"
                   name="password"
-                  type="password"
+                  type={type}
                   placeholder="Enter password"
                   className={
                     errors.password && touched.password
@@ -127,11 +137,7 @@ export const LoginForm = () => {
                   type="button"
                   onClick={handleShowPassword}
                 >
-                  <div className={css.spanIcon}>
-                    {
-                      // icon here
-                    }
-                  </div>
+                  <div className={css.spanIcon}>{icon}</div>
                 </button>
                 <div className={css.feedback}>
                   <ErrorMessage
