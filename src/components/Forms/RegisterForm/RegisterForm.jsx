@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import { register } from '../../../redux/auth/authOperations';
-import registerSchema from './Validation';
+import registerSchema from './registerFormValidation';
 import css from './RegisterForm.module.css';
 import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
