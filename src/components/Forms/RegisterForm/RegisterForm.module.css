@@ -159,6 +159,7 @@
 
 .spanIcon {
   color: var(--main-blue-color);
+  font-size: x-large;
 }
 .spanIcon:focus {
   transform: scale(1.4);
@@ -250,12 +251,31 @@
   }
 }
 
+.validationIcon {
+  border: none;
+  background-color: var(--white-color);
+  position: absolute;
+  right: 20px;
+  bottom: 43px;
+  font-size: x-large;
+}
+
+.validIcon {
+  clip: auto;
+  color: var(--green-color);
+}
+
+.invalidIcon {
+  display: inline;
+  color: var(--error-color);
+}
+
 .btnToggle {
   border: none;
   background-color: white;
   position: absolute;
   right: 20px;
-  bottom: 51px;
+  bottom: 43px;
 }
 
 .isValid {
