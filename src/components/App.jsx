@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import { Suspense } from 'react';
@@ -9,6 +11,7 @@ import CalendarPage from 'pages/CalendarPage';
 import StatisticsPage from 'pages/StatisticsPage';
 import DayCalendarHead from './Calendar/DayCalendarHead/DayCalendarHead';
 import NotFoundPage from 'pages/NotFoundPage';
+import {refreshUser} from "../redux/auth/authOperations";
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -16,6 +19,12 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const AccountPage = lazy(() => import('../pages/AccountPage'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Suspense fallback={<Spinner />}>
       <Routes>
