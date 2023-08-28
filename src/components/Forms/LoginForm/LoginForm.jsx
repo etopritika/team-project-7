@@ -42,8 +42,7 @@ export const LoginForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const response = await dispatch(logIn(values));
-      console.log('Status--->', response.status);
-      if (response.status === 200) {
+      if (!response.hasOwnProperty('error')) {
         console.log('Login successful:', response);
         await navigate('/user/calendar');
         resetForm();
