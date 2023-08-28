@@ -1,0 +1,44 @@
+@import '../../../vars.css';
+
+.icons {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: var(--gray-color);
+}
+
+.navUl {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 424px;
+}
+@media screen and (min-width: 1440px) {
+  .navUl {
+    margin-bottom: 439px;
+    gap: 16px;
+  }
+}
+
+.nav {
+  color: var(--gray-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  border-radius: 8px;
+
+  width: 100%;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.nav:hover {
+  color: var(--main-blue-color);
+  background-color: #d0e7fa;
+}
+.nav:hover .icons {
+  fill: var(--main-blue-color);
+}

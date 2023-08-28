@@ -1,0 +1,45 @@
+@import '../../../vars.css';
+
+.logo {
+    width: 36px;
+}
+@media screen and (max-width: 767px){ 
+    .logo {
+        width: 60px;
+    }
+}
+@media screen and (min-width: 1440px){ 
+    .logo {
+        width: 70px;
+    }
+}
+
+.logoDiv {
+    display: flex;
+    width: 136px;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+    .logoDiv{
+        width: 160px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .logoDiv{
+        width: 222px;
+    }
+}
+
+.logoName{
+    color: var(--main-blue-color);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.37;
+}
+@media screen and (min-width: 1440px){ 
+   .logoName{
+    font-size: 24px;
+   }
+}
