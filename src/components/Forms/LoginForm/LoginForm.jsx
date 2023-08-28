@@ -38,7 +38,6 @@ export const LoginForm = () => {
     try {
       const response = await dispatch(logIn(values));
       console.log('Login successful:', response);
-      console.log('INITIAL_STATE: ', INITIAL_STATE);
       await navigate('/user/calendar');
       resetForm();
     } catch (error) {
