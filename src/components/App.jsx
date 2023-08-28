@@ -7,16 +7,16 @@ import RestrictedRoute from './RestrictedRoute';
 import { Suspense } from 'react';
 import Spinner from './Spinner/Spinner';
 import MainLayout from './MainLayout/MainLayout';
-import CalendarPage from 'pages/CalendarPage';
-import StatisticsPage from 'pages/StatisticsPage';
 import DayCalendarHead from './Calendar/DayCalendarHead/DayCalendarHead';
-import NotFoundPage from 'pages/NotFoundPage';
-import {refreshUser} from "../redux/auth/authOperations";
+import { refreshUser } from '../redux/auth/authOperations';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const AccountPage = lazy(() => import('../pages/AccountPage'));
+const CalendarPage = lazy(() => import('../pages/CalendarPage'));
+const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -56,31 +56,32 @@ export const App = () => {
           <Route
             path="account"
             element={
-              <PrivateRoute redirectTo="/" component={<AccountPage />} />
+              <PrivateRoute redirectTo="/login" component={<AccountPage />} />
             }
           />
           <Route
             path="calendar"
             element={
-              <PrivateRoute redirectTo="/" component={<CalendarPage />} />
+              <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
             }
-          >
-            <Route
-              path="statistics"
-              element={
-                <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
-              }
-            />
-          </Route>
+          />
+          <Route
+            path="statistics"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<StatisticsPage />}
+              />
+            }
+          />
           <Route
             path="calendar/day/:current"
             element={
               <PrivateRoute redirectTo="/" component={<DayCalendarHead />} />
             }
           />
-
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

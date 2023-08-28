@@ -1,13 +1,14 @@
-import { UserForm } from 'components/Forms/UserForm/UserForm';
-import { Helmet } from 'react-helmet-async';
+// import { UserForm } from '../components/Forms/UserForm/UserForm';
+// import { Helmet } from 'react-helmet-async';
 
 export default function AccountPage() {
   return (
     <div>
-      <Helmet>
+      <span>AccountPage</span>
+      {/* <Helmet>
         <title>Account</title>
-      </Helmet>
-      <UserForm />
+      </Helmet> */}
+      {/* <UserForm /> */}
     </div>
   );
 }
