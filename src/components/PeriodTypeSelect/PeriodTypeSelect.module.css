@@ -1,0 +1,111 @@
+@import '../../vars.css';
+
+.periodTypeSelectMarkUp {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+    .periodTypeSelectMarkUp {
+        justify-content: flex-start;
+    }
+}
+
+.navLink_day {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: var(--main-blue-color);
+    background-color: #e3f3ff; 
+    align-items: center;
+
+    padding: 8px 25px;
+    border-radius: 0px 8px 8px 0px;
+}
+
+.navLink_day:hover {
+    color: var(--main-blue-color);
+    }
+
+@media screen and (min-width: 768px) {
+    .navLink_day {
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
+
+.activeLink_day {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: #cae8ff;
+    align-items: center;
+
+    padding: 8px 25px;
+    border-radius: 0px 8px 8px 0px;
+}
+
+@media screen and (min-width: 768px) {
+    .activeLink_day {
+        font-size: 16px;
+        line-height: 18px;
+        color: var(-- white-color); 
+            }
+}
+
+.navLink_month {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: var(--main-blue-color);
+    background-color: #e3f3ff;
+    align-items: center;
+    padding: 8px 16px;
+    border-right: 1px solid rgba(62, 133, 243, 0.2);
+    border-radius: 8px 0px 0px 8px;
+}
+
+.navLink_month:hover {
+    color: var(--main-blue-color);
+}
+
+@media screen and (min-width: 768px) {
+    .navLink_month {
+        font-size: 16px;
+        line-height: 18px;
+        color: var(--main-blue-color);
+           }
+}
+
+.activeLink_month {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: #cae8ff;
+    align-items: center;
+    padding: 8px 16px;
+    border-right: 1px solid rgba(62, 133, 243, 0.2);
+    border-radius: 8px 0px 0px 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .activeLink_month {
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
