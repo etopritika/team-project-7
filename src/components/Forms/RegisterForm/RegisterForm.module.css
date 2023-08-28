@@ -253,7 +253,7 @@
 
 .validationIcon {
   border: none;
-  background-color: var(--white-color);
+  background-color: transparent;
   position: absolute;
   right: 20px;
   bottom: 43px;
