@@ -1,4 +1,4 @@
-import { useUpdateUserInfo } from 'hooks/useUpdateUserInfo';
+import { useAuth } from '../../hooks/useAuth';
 import css from './UserInfo.module.css';
 
 export default function UserInfo(){
@@ -15,7 +15,7 @@ export default function UserInfo(){
     }
   }
 
-  const { name, avatar } = useUpdateUserInfo();
+  const { name, avatar } = useAuth();
 
   const displayName = avatar ? (
     <img src={avatar} alt="UserPicture" />
