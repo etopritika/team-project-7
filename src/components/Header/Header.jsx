@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 import OpenSidebarBtn from 'components/Buttons/OpenSidebarBtn/OpenSidebarBtn';
 import AddFeedbackBtn from 'components/Buttons/AddFeedbackBtn/AddFeedbackBtn';
@@ -10,6 +11,14 @@ import HeaderTitle from './HeaderTitle/HeaderTitle';
 function HeaderUser() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
+  const [currentPage, setCurrentPage] = useState('');
+  const location = useLocation();
+
+  useEffect(() => {
+  
+    const path = location.pathname.split('/').pop();
+    setCurrentPage(path);
+  }, [location.pathname]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -20,7 +29,7 @@ function HeaderUser() {
     <header className={styles.header}>
       {isButtonVisible && <OpenSidebarBtn openBurgerMenu={toggleSidebar} />}
       {isSidebarOpen && <SideBar />}
-      <HeaderTitle />
+      <HeaderTitle currentPage={currentPage} />
       <div className={styles.userInfo}>
         <AddFeedbackBtn />
         <ThemeToggler />
