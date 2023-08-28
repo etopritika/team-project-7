@@ -1,12 +1,22 @@
 @import '../../vars.css';
 
+.userPanName {
+    font-size: 12px;
+    margin-bottom: 24px;
+    color: var(--gray-color); 
+}
+@media screen and (max-width: 1439px) {
+    .userPanName {
+        font-size: 14px;
+        margin-bottom: 32px; 
+    }     
+}
 
 /* .sidebarstyle.is-open > div {
     transform: translateX(0px);
 } */
 
 .sidebarstyle {
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
