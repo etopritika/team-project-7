@@ -37,9 +37,13 @@ export const LoginForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const response = await dispatch(logIn(values));
-      console.log('Login successful:', response);
-      await navigate('/user/calendar');
-      resetForm();
+      if (response.status === 200) {
+        console.log('Login successful:', response);
+        await navigate('/user/calendar');
+        resetForm();
+      } else {
+        console.error('Login rejected:', response);
+      }
     } catch (error) {
       console.error('Login rejected:', error);
     }
@@ -74,7 +78,7 @@ export const LoginForm = () => {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="nadiia@gmail.com"
+                  placeholder="Enter email"
                   value={values.email}
                   className={
                     errors.email && touched.email
