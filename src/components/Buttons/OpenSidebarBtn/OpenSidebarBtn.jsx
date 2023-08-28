@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './OpenSidebarBtn.module.css';
-import icons from '../../../img/icons.svg';
+import { HiMenu } from 'react-icons/hi';
 
 export default function OpenSidebarBtn({ openBurgerMenu }) {
   const openSidebar = () => {
@@ -10,9 +10,7 @@ export default function OpenSidebarBtn({ openBurgerMenu }) {
 
   return (
     <button className={styles.buttonOpen} type="button" onClick={openSidebar}>
-      <svg className={styles.iconMenu}>
-        <use className={styles.iconMenu} href={icons + '#menu-01'}></use>
-      </svg>
+      <HiMenu className={styles.iconMenu} />
     </button>
   );
 }

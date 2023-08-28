@@ -1,0 +1,19 @@
+@import '../../../vars.css';
+
+.headerTitle {
+    display: none;
+}
+
+@media (min-width: 1440px) {
+
+    .headerTitle {
+        display: block;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 32px;
+        color: var(--primary-text-color);
+    }
+}
+

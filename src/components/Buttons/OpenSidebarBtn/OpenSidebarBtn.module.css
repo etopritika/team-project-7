@@ -1,17 +1,16 @@
-/* OpenSidebarBtn.module.css */
+
 
 @import '../../../vars.css';
 
 .buttonOpen {
   
-  
-    @media (min-width: 768px) {
+    @media (min-width: 1439px) {
       display: none;
     }
 }
 
 .buttonOpen {
-  background-color:rgb(0, 255, 136);
+  background-color:transparent;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -19,32 +18,28 @@
 }
 
 .iconMenu {
-    fill: red; 
+    fill: var(--secondary-text-color); 
     width: 24px;
-    height: 21px;
+    height: 24px;
     transition: fill 0.3s;
 }
 
 .buttonOpen:hover .iconMenu {
   
     fill: var(--hover-blue);
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
 }
 
-@media (min-width: 376px) and (max-width: 768px) {
+@media (max-width: 767) and (min-width: 1440) {
     .iconMenu {
-        fill: var(--main-blue-color);
         width: 32px;
         height: 32px;
         transition: fill 0.3s;
     }
 }
 
-@media (min-width: 769px) and (max-width: 1440px) {
+/* @media (min-width: 769px) and (max-width: 1440px) {
     .iconMenu {
-        fill: var(--main-blue-color);
-        width: 32px;
-        height: 32px;
-        transition: fill 0.3s;
+  
     }
-}
+} */

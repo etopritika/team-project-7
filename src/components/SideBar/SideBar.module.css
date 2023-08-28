@@ -1,0 +1,42 @@
+@import '../../vars.css';
+
+
+/* .sidebarstyle.is-open > div {
+    transform: translateX(0px);
+} */
+
+.sidebarstyle {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:var(--white-color);
+    height: 100%;
+    width: 225px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .sidebarstyle {
+        width: 289px;
+        padding: 24px 32px;
+    }
+}
+
+@media screen and (max-width: 1439px){
+    .sidebarstyle {
+        z-index:3;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        padding: 24px 20px;
+        background-color:var(--white-color);
+        transform: translateX(-100%);
+        transition-property: transform;
+        transition-duration: 250ms;
+        transition-timing-function: var(--transition-timing-function);
+    }
+    
+}
+
+

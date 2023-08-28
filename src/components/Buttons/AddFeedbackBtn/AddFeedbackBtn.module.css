@@ -17,12 +17,8 @@
 }
   
 
-@media (min-width: 376px) and (max-width: 768px) {
- 
-}
-  
 
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px)  {
     .feedbackBtn {
       
         border-radius: 15px;
