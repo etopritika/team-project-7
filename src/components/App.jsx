@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import Spinner from './Spinner/Spinner';
 import MainLayout from './MainLayout/MainLayout';
 import DayCalendarHead from './Calendar/DayCalendarHead/DayCalendarHead';
+import MonthCalendarHead from "./Calendar/MonthCalendarHead/MonthCalendarHead";
 import { refreshUser } from '../redux/auth/authOperations';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
@@ -16,7 +17,7 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const AccountPage = lazy(() => import('../pages/AccountPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,15 @@ export const App = () => {
   return (
     <Suspense fallback={<Spinner />}>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute
+              redirectTo="/user/calendar"
+              component={<MainPage />}
+            />
+          }
+        />
         <Route
           path="/register"
           element={
@@ -78,6 +87,12 @@ export const App = () => {
             path="calendar/day/:current"
             element={
               <PrivateRoute redirectTo="/" component={<DayCalendarHead />} />
+            }
+          />
+          <Route
+            path="calendar/month/:current"
+            element={
+              <PrivateRoute redirectTo="/" component={<MonthCalendarHead />} />
             }
           />
         </Route>

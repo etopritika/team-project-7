@@ -1,0 +1,33 @@
+@import '../../../vars.css';
+
+.button {
+  max-width: 153px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 14px 32px;
+  background-color: var(--main-blue-color);
+  color: var(--white-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+  border-radius: 16px;
+  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
+  border: none;
+  transition-delay: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    max-width: 211px;
+    font-size: 18px;
+    padding: 16px 48px;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+  }
+}
+
+.button:hover, .button:focus {
+  background-color: var(--hover-blue);
+}

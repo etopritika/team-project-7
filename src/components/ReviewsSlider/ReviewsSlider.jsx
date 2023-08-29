@@ -8,6 +8,9 @@ import css from './ReviewsSlider.module.css';
 import icons from '../../img/icons.svg';
 import reviews from './reviews.json';
 
+import { PiUserBold } from 'react-icons/pi';
+import { AiFillStar } from 'react-icons/ai';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -46,13 +49,14 @@ export default function ReviewsSlider() {
                         {avatar ? (
                           <img src={avatar} alt={name + 'avatar'} />
                         ) : (
-                          <svg
-                            className={css.avatarPlaceholder}
-                            width="30px"
-                            height="30px"
-                          >
-                            <use href={icons + '#ph_user'}></use>
-                          </svg>
+                          <PiUserBold size={30} />
+                          // <svg
+                          //   className={css.avatarPlaceholder}
+                          //   width="30px"
+                          //   height="30px"
+                          // >
+                          //   <use href={icons + '#ph_user'}></use>
+                          // </svg>
                         )}
                       </div>
 
@@ -60,9 +64,10 @@ export default function ReviewsSlider() {
                         <p className={css.userName}>{name}</p>
                         <div className={css.userRating}>
                           {Array.from({ length: 5 }, (_, idx) => (
-                            <svg key={idx} width="14px" height="14px">
-                              <use href={icons + '#star'}></use>
-                            </svg>
+                            // <svg key={idx} width="14px" height="14px">
+                            //   <use href={icons + '#star'}></use>
+                            // </svg>
+                            <AiFillStar key={idx} size={14} color="#ffac33" />
                           ))}
                         </div>
                       </div>

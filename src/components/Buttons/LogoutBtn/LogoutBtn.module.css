@@ -26,12 +26,12 @@
     background-color: var(--main-blue-color);
     transform: scale(1);
     transition-property: transform;
-    transition-duration: 150ms;
-    transition-timing-function: cubic-bezier(0, 0.11, 0.35, 2);
+    transition-duration: var(--tr-delay);
+    transition-timing-function: var(--transition-timing-function);
 }
 .LogoutBtn:hover,
 .LogoutBtn:focus{
-    transform: scale(1.1);
+    transform: var(--transition);
     background-color: #2B78EF;
 }
 

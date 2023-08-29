@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import icons from '../../../img/icons.svg';
 import css from './UserNav.module.css';
+import { BsBarChart } from 'react-icons/bs';
 
 function UserNav({ isCloseLink }) {
   return (
@@ -25,9 +26,9 @@ function UserNav({ isCloseLink }) {
         </li>
         <li>
           <Link to="/user/statistics" className={css.nav}>
-            <svg className={css.icons}>
-              <use href={icons + '#user-check-01'}></use>
-            </svg>
+            <div>
+              <BsBarChart className={css.icons} />
+            </div>
             Statistics
           </Link>
         </li>

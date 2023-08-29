@@ -7,11 +7,16 @@ import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
 import UserInfo from 'components/UserInfo/UserInfo';
 
 import HeaderTitle from './HeaderTitle/HeaderTitle';
+import Modal from 'components/Modal/Modal';
 
-
-function HeaderUser({ openBurgerMenu, isSidebarOpen }) {
+function Header({ openBurgerMenu, isSidebarOpen }) {
   const [currentPage, setCurrentPage] = useState('');
   const location = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(prevState => !prevState);
+  };
 
   useEffect(() => {
     const path = location.pathname.split('/').pop();
@@ -23,13 +28,21 @@ function HeaderUser({ openBurgerMenu, isSidebarOpen }) {
       {!isSidebarOpen && <OpenSidebarBtn openBurgerMenu={openBurgerMenu} />}
       <HeaderTitle currentPage={currentPage} />
       <div className={styles.userInfo}>
-        <AddFeedbackBtn />
+        <AddFeedbackBtn toggleModal={toggleModal} />
         <ThemeToggler />
         <UserInfo />
       </div>
+      {isModalOpen && (
+        <Modal toggleModal={toggleModal}>
+          <div>
+            <button type="button" onClick={toggleModal}>
+              Close
+            </button>
+          </div>
+        </Modal>
+      )}
     </header>
   );
 }
 
-
-export default HeaderUser;
+export default Header;

@@ -3,12 +3,12 @@ import { UserForm } from '../components/Forms/UserForm/UserForm';
 
 export default function AccountPage() {
   return (
-    <div>
+    <main>
       <span>AccountPage</span>
       {/* <Helmet>
         <title>Account</title>
       </Helmet> */}
       <UserForm />
-    </div>
+    </main>
   );
 }
