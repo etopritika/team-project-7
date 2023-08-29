@@ -42,3 +42,8 @@
 .nav:hover .icons {
   fill: var(--main-blue-color);
 }
+
+.nav.active{
+  color: var(--main-blue-color);
+  background-color: #d0e7fa;
+}
