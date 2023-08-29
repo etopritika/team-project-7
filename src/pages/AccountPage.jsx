@@ -1,4 +1,4 @@
-// import { UserForm } from '../components/Forms/UserForm/UserForm';
+import { UserForm } from '../components/Forms/UserForm/UserForm';
 // import { Helmet } from 'react-helmet-async';
 
 export default function AccountPage() {
@@ -8,7 +8,7 @@ export default function AccountPage() {
       {/* <Helmet>
         <title>Account</title>
       </Helmet> */}
-      {/* <UserForm /> */}
+      <UserForm />
     </main>
   );
 }

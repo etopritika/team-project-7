@@ -1,120 +1,220 @@
-// import { useEffect, useState } from 'react';
-// import { useUpdateUserInfo } from 'hooks/useUpdateUserInfo';
-// import { useUpdateUserInfoMutation } from 'redux/auth/authApi';
-// import { useForm } from 'react-hook-form';
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import { userFormSchema } from './consts/userFormSchema';
-// import { formatDate } from './utils/formatDate';
-// import { userAvatarInput, userFormInputs } from './consts/userFormInputs';
-// import { parse } from 'date-fns';
-// import { UserAvatarField } from './components/UserAvatarField/UserAvatarField';
-// import { FormFiled } from './components/FormFiled/FormField';
-// import { DatePicker } from './components/DatePicker/DatePicker';
-// import { Button } from './styles/components';
-// import { notify } from './utils/errorToast';
-// import { useNavigate } from 'react-router';
-// import css from './UserForm.module.css';
+import React, { useState } from 'react';
 
-// const today = new Date();
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser } from '../../../redux/auth/selectors';
+// import { updateUserProfile } from '../../../redux/auth/authOperations';
 
-// export const UserForm = () => {
-//   const { name, email, phone, skype, birthday, userImgUrl } = useUpdateUserInfo();
-//   const [isDisabled, setIsDisabled] = useState(true);
-//   const [currentAvatarUrl, setCurrentAvatarUrl] = useState(userImgUrl);
-//   const [update, { isError, error, isSuccess }] = useUpdateUserInfoMutation();
-//   const navigate = useNavigate();
+import { AiFillPlusCircle } from 'react-icons/ai';
 
-//   useEffect(() => {
-//     if (isError && error?.status !== 413)
-//       notify(error?.data?.message || 'Sorry, something went wrong');
-//     if (isError && error.status === 413) notify('The image is too large');
-//   }, [isError, error?.status, error?.data?.message]);
+import moment from 'moment';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { userFormValidation } from './consts/userFormValidation';
 
-//   useEffect(() => {
-//     if (isSuccess) navigate(0);
-//   }, [isSuccess, navigate]);
+import css from './UserForm.module.css';
+// import userAvatar from '../../images/icons/ph_user.svg';
+import DatePickerComponent from './components/DatePicker/DatePicker';
+import { Notify } from 'notiflix';
 
-//   const {
-//     register: reg,
-//     control,
-//     handleSubmit,
-//     formState: { errors, isDirty, dirtyFields },
-//   } = useForm({
-//     resolver: yupResolver(userFormSchema),
-//     defaultValues: {
-//       name,
-//       email,
-//       phone: !phone ? '' : phone,
-//       birthday: !birthday ? today : parse(birthday, 'yyyy-MM-dd', today),
-//       skype: !skype ? '' : skype,
-//       userImgUrl: !userImgUrl ? '' : userImgUrl,
-//     },
-//   });
+const userInfoKeys = ['userName', 'email', 'birthday', 'phone', 'telegram'];
 
-//   const onSubmit = async data => {
-//     const preparedBirthday =
-//       formatDate(data.birthday) === formatDate(today)
-//         ? null
-//         : formatDate(data.birthday);
-//     const preparedUserImgUrl = data.userImgUrl === '' ? null : currentAvatarUrl;
-//     const preparedPhone = data.phone === '' ? null : Number(data.phone);
-//     const preparedSkype = data.skype === '' ? null : data.skype;
-//     const preparedData = {
-//       ...data,
-//       phone: preparedPhone,
-//       skype: preparedSkype,
-//       birthday: preparedBirthday,
-//       userImgUrl: preparedUserImgUrl,
-//     };
-//     update(preparedData);
-//     setIsDisabled(true);
-//   };
+export function UserForm({ theme }) {
+  const dispatch = useDispatch();
+  const userInfo = useSelector(selectUser);
+  const [previewImageUrl, setPreviewImageUrl] = useState(null);
+  const [file, setFile] = useState(null);
 
-//   useEffect(() => {
-//     const checkIsDirty = () => {
-//       if (currentAvatarUrl === userImgUrl) {
-//         if (isDirty) setIsDisabled(false);
-//         if (!isDirty) setIsDisabled(true);
-//         if (isError && error?.status !== 413) setIsDisabled(true);
-//       }
-//     };
+  let initialUserInfo = {
+    phone: userInfo.phone || '',
+    telegram: userInfo.telegram || '',
+    userName: userInfo.userName,
+    email: userInfo.email,
+    birthday: userInfo.birthday,
+    avatarUpload: false,
+  };
 
-//     checkIsDirty();
-//   }, [isDirty, dirtyFields, currentAvatarUrl, error?.status, isError, userImgUrl]);
+  const submiting = async values => {
+    const formData = new FormData();
+    userInfoKeys.forEach(key => {
+      if (!values[key]) {
+        return;
+      }
+      if (key === 'birthday') {
+        const birthday = moment(values[key]).format('YYYY-MM-DD');
+        formData.append('birthday', birthday);
+        return;
+      }
+      formData.append(key, values[key]);
+    });
+    if (file) {
+      formData.append('avatar', file);
+    }
+    try {
+      // await dispatch(updateUserProfile(formData));
+      Notify.success('Success.Info updated.');
+    } catch (error) {
+      console.log(error);
+      Notify.error('Error.Something gone wrong.');
+    }
+  };
 
-//   return (
-//     <form className={css.form} onSubmit={handleSubmit(onSubmit)} autoComplete="false">
-//       <UserAvatarField
-//         userName={name}
-//         errors={errors}
-//         register={reg}
-//         currentAvatarUrl={currentAvatarUrl}
-//         setCurrentAvatarUrl={setCurrentAvatarUrl}
-//         setIsDisabled={setIsDisabled}
-//         {...userAvatarInput}
-//       />
-//       <div className={css.formbody}>
-//         {userFormInputs.map(input =>
-//           input.type !== 'date' ? (
-//             <FormFiled
-//               key={input.id}
-//               {...input}
-//               register={reg}
-//               errors={errors}
-//             />
-//           ) : (
-//             <DatePicker
-//               key={input.id}
-//               {...input}
-//               control={control}
-//               errors={errors}
-//             />
-//           )
-//         )}
-//       </div>
-//       <Button type="submit" function="save" disabled={isDisabled}>
-//         Save changes
-//       </Button>
-//     </form>
-//   );
-// };
+  const handleAvatarChange = (e, setFieldValue) => {
+    const userAvatarPreviewImg = e.target.files[0];
+    setFile(userAvatarPreviewImg);
+    const reader = new FileReader();
+    const blob = new Blob([userAvatarPreviewImg], {
+      type: userAvatarPreviewImg.type,
+    });
+    reader.readAsDataURL(blob);
+    reader.onload = () => {
+      setPreviewImageUrl(reader.result);
+      setFieldValue('avatar-upload', !!userAvatarPreviewImg);
+    };
+  };
+
+  return (
+    <section className={`${css.user_page} ${theme}`}>
+      <Formik
+        initialValues={initialUserInfo}
+        validationSchema={userFormValidation}
+        onSubmit={submiting}
+        enableReinitialize={true}
+      >
+        {formik => {
+          return (
+            <Form>
+              <div className={`${css.user_page__avatar_container} ${theme}`}>
+                <img
+                  className={`${css.user_page__avatar} ${theme}`}
+                  src={previewImageUrl || userInfo.avatar} // icon plus
+                  alt="User Avatar"
+                />
+                <div className={`${css.avatar_upload_container} ${theme}`}>
+                  <Field
+                    id="avatar-upload"
+                    name="avatar"
+                    type="file"
+                    accept="image/*"
+                    onChange={e => handleAvatarChange(e, formik.setFieldValue)}
+                    style={{ display: 'none' }}
+                  />
+                  <label
+                    htmlFor="avatar-upload"
+                    className={`${css.avatar_upload_btn} ${theme}`}
+                  ></label>
+                </div>
+                <h3 className={`${css.user_page__name} ${theme}`}>
+                  {userInfo.userName || 'Username'}
+                </h3>
+                <p className={`${css.user_page__role} ${theme}`}>User</p>
+              </div>
+              <div className={`${css.username_form} ${theme}`}>
+                <label
+                  htmlFor="userName"
+                  className={`${css.username_form__label} ${theme}`}
+                >
+                  Username
+                  <Field
+                    name="userName"
+                    type="text"
+                    className={
+                      `${css.username_form_input} ${theme}` +
+                      (formik.errors.userName && formik.touched.userName
+                        ? css.is_invalid
+                        : '')
+                    }
+                    placeholder="User name"
+                  />
+                  <ErrorMessage
+                    name="userName"
+                    component="div"
+                    className={css.invalid_feedback}
+                  />
+                </label>
+
+                <label
+                  htmlFor="birthday"
+                  className={`${css.username_form__label} ${theme}`}
+                >
+                  <p className={css.labelText}>Birthday</p>
+                  <DatePickerComponent
+                    name="birthday"
+                    birthday={formik.values.birthday}
+                    className={css.my_date_picker}
+                  />
+                  <ErrorMessage
+                    name="birthday"
+                    component="div"
+                    className={css.invalid_feedback}
+                  />
+                </label>
+
+                <label
+                  htmlFor="email"
+                  className={`${css.username_form__label} ${theme}`}
+                >
+                  <p className={css.labelText}>Email</p>
+                  <Field
+                    name="email"
+                    type="email"
+                    className={`${css.username_form_input} ${theme}`}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className={css.invalid_feedback}
+                  />
+                </label>
+                <label
+                  htmlFor="phone"
+                  className={`${css.username_form__label} ${theme}`}
+                >
+                  <p className={css.labelText}>Phone</p>
+                  <Field
+                    className={`${css.username_form_input} ${theme}`}
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    placeholder="Enter your phone"
+                  />
+                  <ErrorMessage
+                    name="phone"
+                    component="div"
+                    className={css.invalid_feedback}
+                  />
+                </label>
+
+                <label
+                  htmlFor="telegram"
+                  className={`${css.username_form__label} ${theme}`}
+                >
+                  Telegram:
+                  <Field
+                    className={`${css.username_form_input} ${theme}`}
+                    id="telegram"
+                    name="telegram"
+                    type="text"
+                    placeholder="Enter your Telegram link"
+                  />
+                  <ErrorMessage
+                    name="telegram"
+                    component="div"
+                    className={css.invalid_feedback}
+                  />
+                </label>
+                <button
+                  type="submit"
+                  className={`${css.username_form__submit} ${theme}`}
+                  disabled={
+                    formik.isSubmitting || !formik.touched || !formik.dirty
+                  }
+                >
+                  Save Changes
+                </button>
+              </div>
+            </Form>
+          );
+        }}
+      </Formik>
+    </section>
+  );
+}

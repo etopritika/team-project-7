@@ -1,42 +1,64 @@
-import React from 'react';
-import { Input, Label, StyledDatePicker } from './DatePicker.styled';
-import { Controller } from 'react-hook-form';
-import { ErrorMessage } from '@hookform/error-message';
-import { StyledErrorMessage } from 'styles/components';
-import locale from 'date-fns/locale/en-AU';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import React, { useCallback, useState } from 'react';
+import { useField } from 'formik';
 
-export const DatePicker = ({
-  control,
-  inputName,
-  label,
-  id,
-  placeholder,
-  errors,
-}) => {
+const today = new Date().toISOString().split('T')[0];
+
+const DatePickerComponent = ({ name = '', birthday }) => {
+  const [field, meta, helpers] = useField('date');
+  const { value } = meta;
+  const { setValue } = helpers;
+  const [currentMonth, setCurrentMonth] = useState(moment());
+
+  const isWeekend = useCallback(date => {
+    const day = moment(date).format('dddd');
+    return day === 'Saturday' || day === 'Sunday';
+  }, []);
+
+  const dayClassNames = useCallback(
+    date => {
+      const classNames = [];
+
+      const monthStart = moment(currentMonth).startOf('month');
+      const monthEnd = moment(currentMonth).endOf('month');
+
+      if (moment(date).isBefore(monthStart) || moment(date).isAfter(monthEnd)) {
+        classNames.push('outside-month');
+      }
+
+      if (isWeekend(date)) {
+        classNames.push('highlighted-weekend');
+      }
+
+      return classNames.join(' ');
+    },
+    [currentMonth, isWeekend]
+  );
+  const formatWeekDay = weekdayShort => weekdayShort.charAt(0);
+
+  const handleMonthChange = useCallback(date => {
+    setCurrentMonth(moment(date));
+  }, []);
+
+  const handleCloseDatePicker = useCallback(() => {
+    setCurrentMonth(value || new Date(birthday || today));
+  }, [value, birthday]);
+
   return (
-    <div>
-      <Label htmlFor={id}>{label}</Label>
-      <Controller
-        control={control}
-        name={inputName}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <StyledDatePicker
-            id={id}
-            placeholderText={placeholder}
-            onChange={onChange}
-            onBlur={onBlur}
-            selected={value}
-            closeOnScroll={e => e.target === document}
-            maxDate={new Date()}
-            dateFormat="dd/MM/yyyy"
-            customInput={<Input />}
-            locale={locale}
-          />
-        )}
-      />
-      <StyledErrorMessage>
-        <ErrorMessage errors={errors} name={inputName} />
-      </StyledErrorMessage>
-    </div>
+    <DatePicker
+      {...field}
+      selected={value || new Date(birthday || today)}
+      onChange={date => setValue(date)}
+      onMonthChange={handleMonthChange}
+      dayClassName={dayClassNames}
+      calendarStartDay={1}
+      placeholderText={birthday || 'Choose a date'}
+      formatWeekDay={formatWeekDay}
+      showPopperArrow={false}
+      onCalendarClose={handleCloseDatePicker}
+    />
   );
 };
+
+export default DatePickerComponent;
