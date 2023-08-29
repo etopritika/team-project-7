@@ -14,6 +14,8 @@
   border-radius: 16px;
   box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
   border: none;
+  transition-delay: var(--tr-delay);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 @media screen and (min-width: 768px) {
@@ -26,8 +28,6 @@
   }
 }
 
-.button:hover {
+.button:hover, .button:focus {
   background-color: var(--hover-blue);
-  transition-delay: var(--tr-delay);
-  transition-timing-function: var(--transition-timing-function);
 }
