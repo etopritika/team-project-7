@@ -6,35 +6,53 @@ import HeaderUser from 'components/Header/Header';
 
 
 function MainLayout() {
-  const userData = {
-    email: 'user@example.com',
-    name: 'John Doe',
-    id: 123,
-  };
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  });
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  useEffect(() => {
-    console.log('Fetching user data...');
-  }, []);
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Escape') {
+      closeSidebar();
+    }
+  };
 
   return (
     <div className="container">
-      <div className={`${styles.mainLayoutstyle} ${isSidebarOpen ? styles.isOpenSidebarTest : ''}`}>
+      <div
+        className={`${styles.mainLayoutstyle} ${
+          isSidebarOpen ? styles.isOpenSidebarTest : ''
+        }`}
+      >
+        {isSidebarOpen && <div className={styles.backdrop} onClick={closeSidebar} />}
+        
         <SideBar isOpen={isSidebarOpen} />
 
         <div>
-          <HeaderUser userData={userData} openBurgerMenu={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          <HeaderUser
+            openBurgerMenu={toggleSidebar}
+            isSidebarOpen={isSidebarOpen}
+          />
           <Outlet />
         </div>
       </div>
     </div>
   );
 }
+
 
 
 export default MainLayout;

@@ -26,3 +26,41 @@ function HeaderTitle({ currentPage }) {
 }
 
 export default HeaderTitle;
+
+
+// MODAL////////////////////////////////////////////////////////////////////
+
+// в index.html <div id='modal-root'><div/>
+
+// import { createPortal } from 'react'
+
+// const modalRoot = document.querySelector('#modal-root');
+
+// export default Modal  {
+
+// toggleModal = () => {
+//   setState(({ showModal }) => ({
+    
+//     showModal: !showModal,
+//   }));
+// }
+
+// componentDidMount() {
+//   window.addEventListener('keydawn', evt => {
+
+//     if (evt.code === "Escape") {
+      
+//     }
+//   })
+// }
+  
+//   return createPortal(
+
+  
+//     <div className='Modal__bacdrop'>
+//       <div className='Modal__content'>
+//       {Children}
+//       </div>
+//     </div>
+//   )
+// }
