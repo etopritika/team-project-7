@@ -49,6 +49,8 @@
 
   border-radius: 50%;
   background-color: var(--blue2-color);
+  color: var(--main-blue-color);
+  opacity: 0.5;
 }
 
 .avatarPlaceholder {

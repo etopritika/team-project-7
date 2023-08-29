@@ -28,7 +28,15 @@ export const App = () => {
   return (
     <Suspense fallback={<Spinner />}>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute
+              redirectTo="/user/calendar"
+              component={<MainPage />}
+            />
+          }
+        />
         <Route
           path="/register"
           element={
