@@ -9,7 +9,7 @@ import UserInfo from 'components/UserInfo/UserInfo';
 import HeaderTitle from './HeaderTitle/HeaderTitle';
 import Modal from 'components/Modal/Modal';
 
-function HeaderUser({ openBurgerMenu, isSidebarOpen }) {
+function Header({ openBurgerMenu, isSidebarOpen }) {
   const [currentPage, setCurrentPage] = useState('');
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,4 +45,4 @@ function HeaderUser({ openBurgerMenu, isSidebarOpen }) {
   );
 }
 
-export default HeaderUser;
+export default Header;

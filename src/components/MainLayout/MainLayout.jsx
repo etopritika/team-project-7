@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import styles from './MainLayout.module.css';
 import SideBar from 'components/SideBar/SideBar';
-import HeaderUser from 'components/Header/Header';
-
+import Header from 'components/Header/Header';
 
 function MainLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
-    
+
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
@@ -24,7 +23,7 @@ function MainLayout() {
     setIsSidebarOpen(false);
   };
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = event => {
     if (event.key === 'Escape') {
       closeSidebar();
     }
@@ -37,12 +36,14 @@ function MainLayout() {
           isSidebarOpen ? styles.isOpenSidebarTest : ''
         }`}
       >
-        {isSidebarOpen && <div className={styles.backdrop} onClick={toggleSidebar} />}
-        
+        {isSidebarOpen && (
+          <div className={styles.backdrop} onClick={toggleSidebar} />
+        )}
+
         <SideBar isOpen={isSidebarOpen} isClose={toggleSidebar} />
 
         <div>
-          <HeaderUser
+          <Header
             openBurgerMenu={toggleSidebar}
             isSidebarOpen={isSidebarOpen}
           />
@@ -52,7 +53,5 @@ function MainLayout() {
     </div>
   );
 }
-
-
 
 export default MainLayout;
