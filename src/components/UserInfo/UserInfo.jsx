@@ -3,7 +3,6 @@ import { useMemo } from 'react';
 import css from './UserInfo.module.css';
 
 export default function UserInfo(){
-  console.log("render");
   const { user } = useAuth();
   
   const {name, avatarURL} = user;
