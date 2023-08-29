@@ -18,5 +18,5 @@
     --gray-color: #84828A;
     --placeholder-color: #DCE3E5;
     --transition-timing-function: cubic-bezier(0, 0.11, 0.35, 2);
-    --tr-delay: 250ms;
+    --tr-delay: 150ms;
   }
