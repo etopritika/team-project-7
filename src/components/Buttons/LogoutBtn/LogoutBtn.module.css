@@ -9,9 +9,9 @@
     letter-spacing: -0.02em;
 
     cursor: pointer;
-    position: absolute;
+    /* position: absolute;
     bottom: 24px;
-    left: 20px;
+    left: 20px; */
     width: 130px;
     display: flex;
     gap: 6px;

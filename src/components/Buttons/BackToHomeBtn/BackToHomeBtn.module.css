@@ -16,6 +16,7 @@
   border: none;
   transition-delay: var(--tr-delay);
   transition-timing-function: var(--transition-timing-function);
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
