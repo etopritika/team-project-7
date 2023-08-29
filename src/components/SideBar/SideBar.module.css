@@ -37,6 +37,9 @@ display: none;
     width: 24px;
     height: 24px; 
 }
+.closeIcon:hover{
+    color: var(--main-blue-color);
+}
 
 .sidebarstyle {
     display: flex;
