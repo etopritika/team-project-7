@@ -4,9 +4,13 @@ import LogoutBtn from 'components/Buttons/LogoutBtn/LogoutBtn';
 import styles from './SideBar.module.css';
 import SideBarLogo from './SideBarLogo/SideBarLogo';
 
-export default function SideBar({ isOpen }) {
+export default function SideBar({ isOpen, isClose }) {
   return (
-    <div className={`${styles.sidebarstyle} ${isOpen ? styles.isOpenSidebarTest : ''}`}>
+    <div
+      className={`${styles.sidebarstyle} ${
+        isOpen ? styles.isOpenSidebarTest : ''
+      }`}
+    >
       <SideBarLogo />
       <p className={styles.userPanName}>User Panel</p>
       <UserNav />
@@ -14,4 +18,3 @@ export default function SideBar({ isOpen }) {
     </div>
   );
 }
-
