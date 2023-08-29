@@ -35,7 +35,7 @@
     z-index: 999;
     transition-property: transform;
         transition-duration: 250ms;
-        transition-timing-function: var(--transition-timing-function);
+        transition-timing-function: var
   }
 
 @media screen and (max-width: 1439px){
