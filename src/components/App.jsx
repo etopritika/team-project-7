@@ -16,7 +16,7 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const AccountPage = lazy(() => import('../pages/AccountPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage'));
 const StatisticsPage = lazy(() => import('../pages/StatisticsPage'));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();

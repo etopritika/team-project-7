@@ -1,0 +1,85 @@
+@import '../../vars.css';
+
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 252px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 503px;
+  }
+}
+
+.not__found__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.image {
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../../img/mobile-not-found.png');
+  width: 166px;
+  height: 180px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 768px) {
+  .image {
+    background-image: url('../../img/tablet-not-found.png');
+    width: 368px;
+    height: 414px;
+  }
+}
+
+.not__found__container span {
+  color: var(--main-blue-color);
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 150px;
+  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
+}
+
+@media screen and (min-width: 768px) {
+  .not__found__container span {
+    font-size: 200px;
+    line-height: 250px;
+  }
+}
+
+.text{
+    color: var(--primary-text-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    margin-top: 28px;
+    margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+    .text {
+      margin-top: 80px;
+      margin-bottom: 32px;
+    }
+  }
