@@ -13,7 +13,7 @@ export default function SideBar({ isOpen, isClose }) {
     >
       <SideBarLogo />
       <p className={styles.userPanName}>User Panel</p>
-      <UserNav />
+      <UserNav isCloseLink={isClose} />
       <LogoutBtn />
     </div>
   );

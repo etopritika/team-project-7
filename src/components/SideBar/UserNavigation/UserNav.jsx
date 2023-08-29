@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import icons from '../../../img/icons.svg';
-import css from './UserNav.module.css'
+import css from './UserNav.module.css';
 
-const UserNav = () => {
+function UserNav({ isCloseLink }) {
   return (
-<nav>
-      <ul className={css.navUl}>
+    <nav>
+      <ul onClick={isCloseLink} className={css.navUl}>
         <li>
           <Link to="/user/account" className={css.nav}>
             <svg className={css.icons}>
@@ -34,6 +34,6 @@ const UserNav = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default UserNav;
