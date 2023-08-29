@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { selectUser } from '../../../redux/auth/selectors';
 // import { updateUserProfile } from '../../../redux/auth/authOperations';
 
-import { AiFillPlusCircle } from 'react-icons/ai';
+// import { AiFillPlusCircle } from 'react-icons/ai';
 
 import moment from 'moment';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -18,7 +18,7 @@ import { Notify } from 'notiflix';
 const userInfoKeys = ['userName', 'email', 'birthday', 'phone', 'telegram'];
 
 export function UserForm({ theme }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const userInfo = useSelector(selectUser);
   const [previewImageUrl, setPreviewImageUrl] = useState(null);
   const [file, setFile] = useState(null);
