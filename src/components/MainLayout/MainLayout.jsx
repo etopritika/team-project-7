@@ -37,9 +37,9 @@ function MainLayout() {
           isSidebarOpen ? styles.isOpenSidebarTest : ''
         }`}
       >
-        {isSidebarOpen && <div className={styles.backdrop} onClick={closeSidebar} />}
+        {isSidebarOpen && <div className={styles.backdrop} onClick={toggleSidebar} />}
         
-        <SideBar isOpen={isSidebarOpen} isClose={closeSidebar} />
+        <SideBar isOpen={isSidebarOpen} isClose={toggleSidebar} />
 
         <div>
           <HeaderUser
