@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import Spinner from './Spinner/Spinner';
 import MainLayout from './MainLayout/MainLayout';
 import DayCalendarHead from './Calendar/DayCalendarHead/DayCalendarHead';
+import MonthCalendarHead from "./Calendar/MonthCalendarHead/MonthCalendarHead";
 import { refreshUser } from '../redux/auth/authOperations';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
@@ -86,6 +87,12 @@ export const App = () => {
             path="calendar/day/:current"
             element={
               <PrivateRoute redirectTo="/" component={<DayCalendarHead />} />
+            }
+          />
+          <Route
+            path="calendar/month/:current"
+            element={
+              <PrivateRoute redirectTo="/" component={<MonthCalendarHead />} />
             }
           />
         </Route>
