@@ -12,7 +12,31 @@
     }     
 }
 
+.closeBtn{
+    cursor: pointer;
+    position: absolute;
+    top: 36px;
+    right: 26px;
 
+    border: none;
+    background-color: #fff;
+}
+@media screen and (min-width: 768px){
+ .closeBtn{
+    top: 25px;
+    right: 20px;
+ }
+}
+@media screen and (min-width: 1440px){
+    .closeBtn{
+display: none;
+    }
+   }
+
+.closeIcon{
+    width: 24px;
+    height: 24px; 
+}
 
 .sidebarstyle {
     display: flex;
@@ -20,7 +44,7 @@
     /* justify-content: space-between; */
     background-color:var(--white-color);
     height: 100%;
-    width: 225px;
+    width: 290px;
 }
 
 
