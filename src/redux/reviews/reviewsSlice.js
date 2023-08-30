@@ -23,17 +23,18 @@ const reviewsSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  extraReducers: {
-    [fetchReviews.pending]: handlePending,
-    [fetchReviews.rejected]: handleRejected,
-    [fetchReviews.fulfilled](state, action) {
-      return {
-        ...state,
-        isLoading: false,
-        error: null,
-        items: action.payload,
-      };
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchReviews.pending, handlePending)
+      .addCase(fetchReviews.rejected, handleRejected)
+      .addCase(fetchReviews.fulfilled, (state, action) => {
+        return {
+          ...state,
+          isLoading: false,
+          error: null,
+          items: action.payload,
+        };
+      });
   },
 });
 
