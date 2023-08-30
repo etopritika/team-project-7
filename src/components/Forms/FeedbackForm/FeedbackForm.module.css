@@ -1,0 +1,166 @@
+.feedbackFormContainer {
+  padding: 32px;
+  position: relative;
+  background: var(--white-color);
+}
+
+@media (max-width: 480px) {
+  .feedbackFormContainer {
+    padding: 20px;
+  }
+}
+
+.feedbackFormCloseBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.feedbackFormTopSubtitle {
+  color: var(--secondary-text-color);
+  opacity: 0.8;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.16;
+}
+
+.feedbackFormSubtitle {
+  margin-bottom: 8px;
+  color: var(--secondary-text-color);
+  opacity: 0.8;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.16;
+}
+
+.feedbackFormInput {
+  margin-bottom: 18px;
+  width: 404px;
+  height: 127px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #f6f6f6;
+  resize: none;
+}
+
+@media (max-width: 480px) {
+  .feedbackFormInput {
+    width: calc(100vw - 80px);
+    height: 130px;
+  }
+}
+
+.feedbackFormInput::placeholder {
+  color: var(--secondary-text-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.feedbackFormStar {
+  cursor: pointer;
+  margin-bottom: 24px;
+  margin-right: 2px;
+}
+
+.feedbackFormBtnContainer {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.feedbackFormSaveBtn {
+  display: block;
+  width: 198px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: var(--main-blue-color);
+  color: var(--white-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .feedbackFormSaveBtn {
+    width: 100%;
+    max-width: 198px;
+    height: 42px;
+  }
+}
+
+.feedbackFormCancelBtn {
+  display: block;
+  width: 198px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: #e5edfa;
+  color: var(--secondary-text-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .feedbackFormCancelBtn {
+    width: 100%;
+    max-width: 198px;
+    height: 42px;
+  }
+}
+
+.feedbackFormReviewBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.feedbackFormTopBtnContainer {
+  display: flex;
+  gap: 8px;
+}
+
+.feedbackFormEditBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #e3f3ff;
+}
+
+.feedbackFormDeleteBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(234, 61, 101, 0.2);
+}
+
+.invalidFeedback {
+  color: var(--error-color);
+  font-size: 12px;
+  margin-bottom: 8px;
+}

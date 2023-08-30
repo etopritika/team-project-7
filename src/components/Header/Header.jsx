@@ -8,6 +8,7 @@ import UserInfo from 'components/UserInfo/UserInfo';
 
 import HeaderTitle from './HeaderTitle/HeaderTitle';
 import Modal from 'components/Modal/Modal';
+import FeedbackForm from 'components/Forms/FeedbackForm/FeedbackForm';
 
 function Header({ openBurgerMenu, isSidebarOpen }) {
   const [currentPage, setCurrentPage] = useState('');
@@ -34,11 +35,7 @@ function Header({ openBurgerMenu, isSidebarOpen }) {
       </div>
       {isModalOpen && (
         <Modal toggleModal={toggleModal}>
-          <div>
-            <button type="button" onClick={toggleModal}>
-              Close
-            </button>
-          </div>
+          <FeedbackForm toggleModal={toggleModal} />
         </Modal>
       )}
     </header>
