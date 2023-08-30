@@ -3,12 +3,12 @@
 .logo {
     width: 36px;
 }
-@media screen and (max-width: 767px){ 
+@media screen and (max-width: 767px){
     .logo {
         width: 60px;
     }
 }
-@media screen and (min-width: 1440px){ 
+@media screen and (min-width: 1440px){
     .logo {
         width: 70px;
     }
@@ -33,12 +33,12 @@
 }
 
 .logoName{
-    color: var(--main-blue-color);
+    color: var(--logo-color);
     font-size: 16px;
     font-weight: 700;
     line-height: 1.37;
 }
-@media screen and (min-width: 1440px){ 
+@media screen and (min-width: 1440px){
    .logoName{
     font-size: 24px;
    }
