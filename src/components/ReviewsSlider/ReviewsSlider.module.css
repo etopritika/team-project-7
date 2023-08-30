@@ -18,6 +18,7 @@
 
 .reviewItem {
   margin-top: 40px;
+  margin-bottom: 18px;
   padding: 24px;
 
   display: flex;
@@ -67,7 +68,6 @@
 
 .userRating {
   margin-top: 13px;
-  fill: #ffac33;
 }
 
 .reviewComment {
@@ -92,15 +92,21 @@
 
   cursor: pointer;
 
+  transition: var(--transition-timing-function);
+
   &:last-child {
     transform: scale(-1, 1);
   }
 
+  &:hover {
+    fill: var(--hover-blue);
+  }
+
   &:active {
-    transform: scale(0.9);
+    transform: var(--transition);
   }
 
   &:last-child:active {
-    transform: scale(-1, 0.9);
+    transform: scale(-0.9, 0.9);
   }
 }

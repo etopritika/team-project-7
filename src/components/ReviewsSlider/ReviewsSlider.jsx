@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchReviews } from 'redux/reviews/reviewsOperations';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Keyboard } from 'swiper/modules';
+
+import { selectReviews } from '../../redux/reviews/selectors';
+
+// import reviews from './reviews.json';
 
 import '../../index.css';
 import css from './ReviewsSlider.module.css';
 
-import icons from '../../img/icons.svg';
-import reviews from './reviews.json';
-
-import { PiUserBold } from 'react-icons/pi';
 import { AiFillStar } from 'react-icons/ai';
+import { PiUserBold } from 'react-icons/pi';
+import icons from '../../img/icons.svg';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 export default function ReviewsSlider() {
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectReviews);
+
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
+
   return (
     <div className="container">
       <section className={css.reviewsSection}>
@@ -22,7 +33,6 @@ export default function ReviewsSlider() {
           <h2 className={css.title}>Reviews</h2>
           <Swiper
             spaceBetween={30}
-            // centeredSlides={true}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
@@ -40,14 +50,14 @@ export default function ReviewsSlider() {
             keyboard={{ enabled: true }}
             modules={[Autoplay, Navigation, Keyboard]}
           >
-            {reviews.map(({ avatar, name, comment, rating }) => {
+            {reviews.map(({ avatarURL, name, text, rating, _id }) => {
               return (
-                <SwiperSlide key={name}>
+                <SwiperSlide key={_id}>
                   <div className={css.reviewItem}>
                     <div className={css.userInfo}>
                       <div className={css.userAvatar}>
-                        {avatar ? (
-                          <img src={avatar} alt={name + 'avatar'} />
+                        {avatarURL ? (
+                          <img src={avatarURL} alt={name + ' avatar'} />
                         ) : (
                           <PiUserBold size={30} />
                           // <svg
@@ -61,18 +71,22 @@ export default function ReviewsSlider() {
                       </div>
 
                       <div>
-                        <p className={css.userName}>{name}</p>
+                        <p className={css.userName}>{name ? name : 'Guest'}</p>
                         <div className={css.userRating}>
                           {Array.from({ length: 5 }, (_, idx) => (
                             // <svg key={idx} width="14px" height="14px">
                             //   <use href={icons + '#star'}></use>
                             // </svg>
-                            <AiFillStar key={idx} size={14} color="#ffac33" />
+                            <AiFillStar
+                              key={idx}
+                              size={14}
+                              color={idx < rating ? '#FFAC33' : '#CEC9C1'}
+                            />
                           ))}
                         </div>
                       </div>
                     </div>
-                    <p className={css.reviewComment}>{comment}</p>
+                    <p className={css.reviewComment}>{text}</p>
                   </div>
                 </SwiperSlide>
               );

@@ -27,7 +27,6 @@
     0px 47px 355px rgba(0, 0, 0, 0.07);
 
   font-size: 44px;
-  font-style: normal;
   font-weight: 700;
   line-height: 48px;
 
@@ -99,7 +98,7 @@
   line-height: 18px;
   letter-spacing: -0.28px;
 
-  transition: 0.2s;
+  transition: var(--transition-timing-function);
 
   &:hover,
   &:focus {
@@ -107,16 +106,19 @@
     color: var(--hover-blue);
   }
 
+  &:active {
+    transform: var(--transition);
+  }
+
   @media screen and (min-width: 768px) {
     padding: 14px 22px;
   }
 }
 
-.iconLogin {
+/* .iconLogin {
   stroke: currentColor;
   fill: none;
-  /* color: currentColor; */
-}
+/* } */
 
 .linkRegister {
   padding: 14px 32px;
@@ -131,11 +133,15 @@
   font-weight: 600;
   line-height: 14px;
 
-  transition: 0.2s;
+  transition: var(--transition-timing-function);
 
   &:hover,
   &:focus {
     color: var(--auth-bg-color);
+  }
+
+  &:active {
+    transform: var(--transition);
   }
 
   @media screen and (min-width: 768px) {
