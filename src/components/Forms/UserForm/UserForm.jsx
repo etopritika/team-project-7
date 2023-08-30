@@ -1,38 +1,44 @@
 import React, { useState } from 'react';
 
-import { useSelector} from 'react-redux';
-import { selectUser } from '../../../redux/auth/selectors';
-// import { updateUserProfile } from '../../../redux/auth/authOperations';
+import { IoIosArrowDown } from 'react-icons/io';
 
-// import { AiFillPlusCircle } from 'react-icons/ai';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser } from '../../../redux/auth/selectors';
+import { editData } from '../../../redux/auth/authOperations';
 
 import moment from 'moment';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { userFormValidation } from './consts/userFormValidation';
+import icons from '../../../img/icons.svg';
 
 import css from './UserForm.module.css';
-// import userAvatar from '../../images/icons/ph_user.svg';
-import DatePickerComponent from './components/DatePicker/DatePicker';
-import { Notify } from 'notiflix';
+import SaveChangesBtn from '../../Buttons/SaveChangesBtn/SaveChangesBtn';
 
-const userInfoKeys = ['userName', 'email', 'birthday', 'phone', 'telegram'];
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-export function UserForm({ theme }) {
-  // const dispatch = useDispatch();
+// import { Notify } from 'notiflix';
+
+const userInfoKeys = ['name', 'email', 'birthday', 'phone', 'telegram'];
+
+export function UserForm() {
+  const dispatch = useDispatch();
   const userInfo = useSelector(selectUser);
+
   const [previewImageUrl, setPreviewImageUrl] = useState(null);
   const [file, setFile] = useState(null);
 
-  let initialUserInfo = {
+  const initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
-    userName: userInfo.userName,
+    name: userInfo.name,
     email: userInfo.email,
-    birthday: userInfo.birthday,
-    avatarUpload: false,
+    birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
+    avatarURL: userInfo.avatarURL,
   };
 
-  const submiting = async values => {
+  const handleSubmit = async (values, { resetForm }) => {
+    console.log(values);
     const formData = new FormData();
     userInfoKeys.forEach(key => {
       if (!values[key]) {
@@ -49,12 +55,14 @@ export function UserForm({ theme }) {
       formData.append('avatar', file);
     }
     try {
-      // await dispatch(updateUserProfile(formData));
-      Notify.success('Success.Info updated.');
+      console.log(values);
+      dispatch(editData(formData));
+      // Notify.success('Success. Info updated.');
     } catch (error) {
-      console.log(error);
-      Notify.error('Error.Something gone wrong.');
+      // console.log(error);
+      // Notify.error('Error. Something gone wrong.');
     }
+    resetForm();
   };
 
   const handleAvatarChange = (e, setFieldValue) => {
@@ -72,144 +80,158 @@ export function UserForm({ theme }) {
   };
 
   return (
-    <section className={`${css.user_page} ${theme}`}>
+    <section className={css.user}>
       <Formik
         initialValues={initialUserInfo}
         validationSchema={userFormValidation}
-        onSubmit={submiting}
+        onSubmit={handleSubmit}
         enableReinitialize={true}
       >
-        {formik => {
+        {({ errors, touched, values, setFieldValue, setTouched }) => {
           return (
             <Form>
-              <div className={`${css.user_page__avatar_container} ${theme}`}>
-                <img
-                  className={`${css.user_page__avatar} ${theme}`}
-                  src={previewImageUrl || userInfo.avatar} // icon plus
-                  alt="User Avatar"
-                />
-                <div className={`${css.avatar_upload_container} ${theme}`}>
+              <div className={css.user__avatar_container}>
+                <div className={css.user__avatar}>
+                  {userInfo.avatarURL ? (
+                    <img
+                      src={
+                        typeof userInfo.avatarURL === 'string'
+                          ? userInfo.avatarURL
+                          : URL.createObjectURL(userInfo.avatarURL)
+                      }
+                      alt="avatar"
+                      className={css.circularAvatar}
+                    />
+                  ) : (
+                    <svg>
+                      <use href={icons + '#ph-user'}></use>
+                    </svg>
+                  )}
+                </div>
+
+                <div className={css.avatar_upload_container}>
                   <Field
                     id="avatar-upload"
                     name="avatar"
                     type="file"
                     accept="image/*"
-                    onChange={e => handleAvatarChange(e, formik.setFieldValue)}
+                    onChange={e => handleAvatarChange(e, setFieldValue)}
                     style={{ display: 'none' }}
                   />
                   <label
                     htmlFor="avatar-upload"
-                    className={`${css.avatar_upload_btn} ${theme}`}
+                    className={css.avatar_upload_btn}
                   ></label>
                 </div>
-                <h3 className={`${css.user_page__name} ${theme}`}>
-                  {userInfo.userName || 'Username'}
-                </h3>
-                <p className={`${css.user_page__role} ${theme}`}>User</p>
+                <h3 className={css.user__name}>{userInfo.name || 'user'}</h3>
+                <p className={css.user__role}>User</p>
               </div>
-              <div className={`${css.username_form} ${theme}`}>
-                <label
-                  htmlFor="userName"
-                  className={`${css.username_form__label} ${theme}`}
-                >
-                  Username
+              <div className={css.user_form}>
+                <label className={css.label}>
+                  <p className={css.labelText}>Username</p>
                   <Field
-                    name="userName"
+                    id="name"
+                    name="name"
                     type="text"
-                    className={
-                      `${css.username_form_input} ${theme}` +
-                      (formik.errors.userName && formik.touched.userName
-                        ? css.is_invalid
-                        : '')
-                    }
+                    className={css.user_form_input}
                     placeholder="User name"
                   />
-                  <ErrorMessage
-                    name="userName"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className={css.invalidFeedback}
+                    />
+                  </div>
                 </label>
-
-                <label
-                  htmlFor="birthday"
-                  className={`${css.username_form__label} ${theme}`}
-                >
+                <label htmlFor="birthday" className={css.label}>
                   <p className={css.labelText}>Birthday</p>
-                  <DatePickerComponent
-                    name="birthday"
-                    birthday={formik.values.birthday}
-                    className={css.my_date_picker}
-                  />
-                  <ErrorMessage
-                    name="birthday"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  <label>
+                    <DatePicker
+                      className={css.user_form_input}
+                      name="birthday"
+                      id="birthday"
+                      type="date"
+                      calendarStartDay={1}
+                      value={values.birthday}
+                      showMonthDropdown
+                      showYearDropdown
+                      dropdownMode="select"
+                      yearDropdownItemNumber={100}
+                      scrollableYearDropdown
+                      selected={new Date(values.birthday)}
+                      dateFormat="dd-MM-yyyy"
+                      onChange={e => {
+                        setFieldValue('birthday', e);
+                        setTouched({ ...touched, birthday: true });
+                      }}
+                      maxDate={new Date()}
+                    />
+                    <IoIosArrowDown />
+                  </label>
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="birthday"
+                      component="div"
+                      className={css.invalidFeedback}
+                    />
+                  </div>
                 </label>
-
-                <label
-                  htmlFor="email"
-                  className={`${css.username_form__label} ${theme}`}
-                >
+                <label htmlFor="email" className={css.label}>
                   <p className={css.labelText}>Email</p>
                   <Field
+                    id="email"
                     name="email"
                     type="email"
-                    className={`${css.username_form_input} ${theme}`}
+                    className={css.user_form_input}
                   />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className={css.invalidFeedback}
+                    />
+                  </div>
                 </label>
-                <label
-                  htmlFor="phone"
-                  className={`${css.username_form__label} ${theme}`}
-                >
+                <label htmlFor="phone" className={css.user_form__label}>
                   <p className={css.labelText}>Phone</p>
                   <Field
-                    className={`${css.username_form_input} ${theme}`}
                     id="phone"
                     name="phone"
                     type="text"
                     placeholder="Enter your phone"
+                    className={`${css.user_form_input} ${
+                      touched.phone && !errors.phone
+                        ? css.isValid
+                        : css.isInvalid
+                    }`}
                   />
-                  <ErrorMessage
-                    name="phone"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="phone"
+                      component="div"
+                      className={css.invalidFeedback}
+                    />
+                  </div>
                 </label>
-
-                <label
-                  htmlFor="telegram"
-                  className={`${css.username_form__label} ${theme}`}
-                >
-                  Telegram:
+                <label htmlFor="telegram" className={css.label}>
+                  <p className={css.labelText}>Telegram</p>
                   <Field
-                    className={`${css.username_form_input} ${theme}`}
                     id="telegram"
                     name="telegram"
                     type="text"
-                    placeholder="Enter your Telegram link"
+                    placeholder="Add a telegram nick"
+                    className={css.user_form_input}
                   />
-                  <ErrorMessage
-                    name="telegram"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="telegram"
+                      component="div"
+                      className={css.invalidFeedback}
+                    />
+                  </div>
                 </label>
-                <button
-                  type="submit"
-                  className={`${css.username_form__submit} ${theme}`}
-                  disabled={
-                    formik.isSubmitting || !formik.touched || !formik.dirty
-                  }
-                >
-                  Save Changes
-                </button>
+                <SaveChangesBtn />
               </div>
             </Form>
           );

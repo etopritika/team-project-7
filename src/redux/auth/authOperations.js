@@ -96,3 +96,20 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const editData = createAsyncThunk(
+  '/api/users/edit',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.patch('/api/users/edit', credentials);
+      // After successful registration, add the token to the HTTP header
+      setAuthHeader(res.data.token);
+      console.log('res.data:', res.data);
+      Notiflix.Notify.success('User data updated successfully!');
+      return res.data;
+    } catch (error) {
+      Notiflix.Notify.failure(`Something went wrong: ${error.message}`);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

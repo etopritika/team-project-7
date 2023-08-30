@@ -46,7 +46,6 @@ display: none;
 .sidebarstyle {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     background-color:var(--sidebar-background);
     height: 100%;
     width: 290px;
