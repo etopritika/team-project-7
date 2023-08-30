@@ -100,10 +100,18 @@ export const refreshUser = createAsyncThunk(
 export const editData = createAsyncThunk(
   '/api/users/edit',
   async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    // console.log(persistedToken);
+
+    if (persistedToken === null) {
+      // If there is no token, exit without performing any request
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
     try {
+      setAuthHeader(persistedToken);
       const res = await axios.patch('/api/users/edit', credentials);
-      // After successful registration, add the token to the HTTP header
-      setAuthHeader(res.data.token);
+      // setAuthHeader(res.data.token);
       console.log('res.data:', res.data);
       Notiflix.Notify.success('User data updated successfully!');
       return res.data;

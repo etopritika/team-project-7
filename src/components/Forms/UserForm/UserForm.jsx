@@ -38,7 +38,7 @@ export function UserForm() {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
+    // console.log(values);
     const formData = new FormData();
     userInfoKeys.forEach(key => {
       if (!values[key]) {
@@ -55,7 +55,7 @@ export function UserForm() {
       formData.append('avatar', file);
     }
     try {
-      console.log(values);
+      // console.log(values);
       dispatch(editData(formData));
       // Notify.success('Success. Info updated.');
     } catch (error) {
