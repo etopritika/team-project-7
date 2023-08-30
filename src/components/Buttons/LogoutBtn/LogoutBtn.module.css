@@ -31,7 +31,7 @@
 .LogoutBtn:hover,
 .LogoutBtn:focus {
   transform: var(--transition);
-  background-color: #2b78ef;
+  background-color: var(--hover-blue);
 }
 
 .icon {
