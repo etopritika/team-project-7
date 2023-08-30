@@ -3,7 +3,7 @@
 @import '../../../vars.css';
 
 .buttonOpen {
-  
+
     @media (min-width: 1439px) {
       display: none;
     }
@@ -18,14 +18,14 @@
 }
 
 .iconMenu {
-    fill: var(--secondary-text-color); 
+    fill: var(--btn-menu-color);
     width: 24px;
     height: 24px;
     transition: fill 0.3s;
 }
 
 .buttonOpen:hover .iconMenu {
-  
+
     fill: var(--hover-blue);
     /* transform: scale(1.2); */
 }
@@ -40,6 +40,6 @@
 
 /* @media (min-width: 769px) and (max-width: 1440px) {
     .iconMenu {
-  
+
     }
 } */

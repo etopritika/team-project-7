@@ -1,23 +1,55 @@
 :root {
-    --primary-text-color: #111111;
-    --secondary-text-color: #343434;
-    --title-text-color: #171820;
-    --white-color: #FFF;
-    --bg-color: #F7F6F9;
-    --dark-bg-color: #171820;
-    --auth-bg-color: #DCEBF7;
-    --user-bg-color:#EAEAEA;
-    --account-bg-color: #21222C;
-    --dark-sidebar-bg-color: #13151A;
-    --main-blue-color: #3E85F3;
-    --hover-blue: #2B78EF;
-    --blue2-color: #DCEBF7;
-    --pink-color: #FFD2DD;
-    --error-color: #DA1414;
-    --green-color: #3CBC81;
-    --gray-color: #84828A;
-    --placeholder-color: #DCE3E5;
-    --transition-timing-function: cubic-bezier(0, 0.11, 0.35, 2);
-    --tr-delay: 150ms;
-    --transition: scale(0.9);
-  }
+  --primary-text-color: #111111;
+  --secondary-text-color: #343434;
+  --title-text-color: #171820;
+  --white-color: #fff;
+  --bg-color: #f7f6f9;
+  --dark-bg-color: #171820;
+  --auth-bg-color: #dcebf7;
+  --user-bg-color: #eaeaea;
+  --account-bg-color: #21222c;
+  --dark-sidebar-bg-color: #13151a;
+  --main-blue-color: #3e85f3;
+  --hover-blue: #2b78ef;
+  --blue2-color: #dcebf7;
+  --pink-color: #ffd2dd;
+  --error-color: #da1414;
+  --green-color: #3cbc81;
+  --gray-color: #84828a;
+  --placeholder-color: #dce3e5;
+  --transition-timing-function: cubic-bezier(0, 0.11, 0.35, 2);
+  --tr-delay: 150ms;
+  --transition: scale(0.9);
+
+  --logo-color: #3e85f3;
+  --name-color: #343434;
+  --nav-color: #3e85f3;
+  --nav-background: #d0e7fa;
+  --sidebar-background: #fff;
+  --panel-color: #84828a;
+  --icon-close-color: #13151A;
+  --btn-close-color: #fff;
+  --btn-menu-color: #343434;
+
+}
+
+html[data-theme='dark'] {
+  --user-bg-color: #21222c;
+  --gray-color: #fff;
+
+  /* Navigation */
+  --logo-color: #fff;
+  --nav-color: #fff;
+  --nav-background: #3e85f3;
+  --sidebar-background: #13151a;
+  --icon-close-color: #fff;
+   --btn-close-color: #13151A;
+    --btn-menu-color: #fff;
+
+  /* UserInfo */
+  --name-color: #fff;
+
+  --primary-text-color: #fff;
+
+  /* feedbackBtn */
+}

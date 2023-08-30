@@ -36,14 +36,14 @@
   line-height: 1.2;
 }
 .nav:hover {
-  color: var(--main-blue-color);
-  background-color: #d0e7fa;
+  color: var(--nav-color);
+  background-color: var(--nav-background);
 }
 .nav:hover .icons {
-  fill: var(--main-blue-color);
+  fill: var(--nav-color);
 }
 
 .nav.active{
-  color: var(--main-blue-color);
-  background-color: #d0e7fa;
+  color: var(--nav-color);
+  background-color: var(--nav-background);
 }
