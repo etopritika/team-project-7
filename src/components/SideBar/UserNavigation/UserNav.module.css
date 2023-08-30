@@ -11,11 +11,11 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin-bottom: 424px;
+  /* margin-bottom: 424px; */
 }
 @media screen and (min-width: 1440px) {
   .navUl {
-    margin-bottom: 439px;
+    /* margin-bottom: 439px; */
     gap: 16px;
   }
 }
