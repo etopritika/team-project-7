@@ -27,7 +27,7 @@ export function UserForm() {
 
   const [previewImageUrl, setPreviewImageUrl] = useState(null);
   const [file, setFile] = useState(null);
-
+  console.log(previewImageUrl)
   const initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
