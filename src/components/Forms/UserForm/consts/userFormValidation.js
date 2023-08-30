@@ -1,19 +1,11 @@
-import * as Yup from 'yup';
+import { object, string, date } from 'yup';
 
-export const userFormValidation = Yup.object().shape({
-  userName: Yup.string()
-    .min(3, 'Too Short!')
-    .max(36, 'Too Long!')
-    .required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  phone: Yup.string().matches(
-    /^\+380\d{9}$/,
-    'Phone number must be in the format +380XXXXXXXXX'
-  ),
-  telegram: Yup.string().matches(
-    /^[a-zA-Z0-9_@]*$/,
-    'value contains only latin letters, numbers, underscore and "@" symbol'
-  ),
-  avatar: Yup.string('Invalid avatar'),
-  birthday: Yup.date(),
+export const userFormValidation = object({
+  name: string().max(40, 'too long!').required(),
+  birthday: date(),
+  email: string()
+    .matches(/^([a-z0-9_.-]+)@([a-z09_.-]+).([a-z]{2,6})$/, 'enter valid email')
+    .required(),
+  skype: string().max(30),
+  phone: string().matches(/^\+[\d-]+$/, 'number should start from +'),
 });

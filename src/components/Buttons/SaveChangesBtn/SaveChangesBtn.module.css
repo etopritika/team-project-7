@@ -1,0 +1,31 @@
+@import '../../../vars.css';
+
+.SaveChangesBtn {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  border: none;
+  color: var(--white-color);
+  display: grid;
+  grid-row: 5;
+  justify-self: center;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 40px auto;
+  isolation: isolate;
+  width: 262px;
+  height: 48px;
+  background: var(--main-blue-color);
+  border-radius: 16px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  cursor: pointer;
+  transition: box-shadow linear 350ms;
+}
+.SaveChangesBtn:hover,
+.SaveChangesBtn:focus {
+  /* transform: var(--transition); */
+  background-color: var(--hover-blue);
+}

@@ -1,4 +1,7 @@
 import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './DatePicker.module.css';
+
 import moment from 'moment';
 import React, { useCallback, useState } from 'react';
 import { useField } from 'formik';
@@ -35,6 +38,7 @@ const DatePickerComponent = ({ name = '', birthday }) => {
     },
     [currentMonth, isWeekend]
   );
+
   const formatWeekDay = weekdayShort => weekdayShort.charAt(0);
 
   const handleMonthChange = useCallback(date => {
@@ -47,16 +51,31 @@ const DatePickerComponent = ({ name = '', birthday }) => {
 
   return (
     <DatePicker
-      {...field}
-      selected={value || new Date(birthday || today)}
-      onChange={date => setValue(date)}
-      onMonthChange={handleMonthChange}
-      dayClassName={dayClassNames}
-      calendarStartDay={1}
-      placeholderText={birthday || 'Choose a date'}
-      formatWeekDay={formatWeekDay}
-      showPopperArrow={false}
-      onCalendarClose={handleCloseDatePicker}
+      className={isValid('birthday')}
+      id="birthday"
+      name="birthday"
+      views={['year', 'month', 'day']}
+      format="DD/MM/YYYY"
+      closeOnSelect={true}
+      disableFuture={true}
+      slotProps={{
+        popper: {
+          sx: PopperDateStyles,
+        },
+        textField: {
+          placeholder: user.birthday || `${currentDate}`,
+        },
+      }}
+      onChange={date => {
+        if (!date) setFieldValue('birthday', '');
+
+        setFieldValue('birthday', date);
+        setBirthdayDate(date);
+        setIsFormChanged(true);
+      }}
+      slots={{
+        openPickerIcon: KeyboardArrowDownIcon,
+      }}
     />
   );
 };
