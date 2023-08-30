@@ -4,7 +4,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/selectors';
-import { refreshUser } from '../../../redux/auth/authOperations';
+import { editData } from '../../../redux/auth/authOperations';
 
 import moment from 'moment';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -17,7 +17,7 @@ import SaveChangesBtn from '../../Buttons/SaveChangesBtn/SaveChangesBtn';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import { Notify } from 'notiflix';
+// import { Notify } from 'notiflix';
 
 const userInfoKeys = ['name', 'email', 'birthday', 'phone', 'telegram'];
 
@@ -56,11 +56,11 @@ export function UserForm() {
     }
     try {
       console.log(values);
-      dispatch(refreshUser(formData));
-      Notify.success('Success. Info updated.');
+      dispatch(editData(formData));
+      // Notify.success('Success. Info updated.');
     } catch (error) {
-      console.log(error);
-      Notify.error('Error. Something gone wrong.');
+      // console.log(error);
+      // Notify.error('Error. Something gone wrong.');
     }
     resetForm();
   };
