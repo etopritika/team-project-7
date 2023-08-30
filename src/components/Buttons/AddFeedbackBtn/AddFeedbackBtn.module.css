@@ -13,7 +13,9 @@
 }
 
 .feedbackBtn:hover {
-    background-color: var(--hover-blue); 
+    fill: var(--hover-blue);
+    transform: var(--transition);
+    transition: var(--tr-delay);
 }
   
 
