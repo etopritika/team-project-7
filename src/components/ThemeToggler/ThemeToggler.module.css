@@ -4,6 +4,9 @@
 
 
 .toggleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 background-color: transparent;
     border: none;
     padding: 0;
@@ -22,7 +25,8 @@ background-color: transparent;
 
 .toggleBtn:hover .iconMoon {
     fill: var(--hover-blue);
-    transform: scale(1.2);
+    transform: var(--transition);
+    transition: var(--tr-delay);
 }
 
 
@@ -31,7 +35,7 @@ background-color: transparent;
         fill: var(--main-blue-color);
         width: 24px;
         height: 24px;
-        transition: fill 0.3s;
+
     }
 }
 
@@ -41,6 +45,6 @@ background-color: transparent;
         fill: var(--main-blue-color);
         width: 32px;
         height: 32px;
-        transition: fill 0.3s;
+
     }
 }
