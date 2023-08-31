@@ -45,7 +45,7 @@
     font-size: 14px;
     line-height: 18px;
     text-decoration: none;
-    color: var(--white-color);
+    color: var(--main-blue-color);
     background-color: #cae8ff;
     align-items: center;
 
@@ -95,7 +95,7 @@
     font-size: 14px;
     line-height: 18px;
     text-decoration: none;
-    color: var(--white-color);
+    color: var(--main-blue-color);
     background-color: #cae8ff;
     align-items: center;
     padding: 8px 16px;
