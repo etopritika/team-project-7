@@ -19,7 +19,7 @@ export const PeriodTypeSelect = ({ activePage }) => {
   return (
     <div className={styles.periodTypeSelectMarkUp}>
       <NavLink
-        to={`month/${currentDate}`}
+        to={`/user/calendar/month/${currentDate}`}
         className={
           activePage === 'month'
             ? styles.activeLink_month
@@ -31,8 +31,8 @@ export const PeriodTypeSelect = ({ activePage }) => {
       <NavLink
         to={
           isToday
-            ? `day/${formattedToday}`
-            : `day/${currentDay}`
+            ? `/user/calendar/day/${formattedToday}`
+            : `/user/calendar/day/${currentDay}`
         }
         className={
           activePage === 'day' ? styles.activeLink_day : styles.navLink_day

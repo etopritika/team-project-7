@@ -16,8 +16,8 @@ export default function CalendarPage() {
   const formattedCurrentDate = format(urlDate, 'MMMMu');
 
   useEffect(() => {
-    if (location.pathname === '/calendar') {
-      navigate(`/calendar/month/${formattedCurrentDate}`);
+    if (location.pathname.includes('calendar')) {
+      navigate(`month/${formattedCurrentDate}`);
       return;
     }
   }, [formattedCurrentDate, navigate, location.pathname]);

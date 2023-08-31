@@ -7,8 +7,8 @@ import RestrictedRoute from './RestrictedRoute';
 import { Suspense } from 'react';
 import Spinner from './Spinner/Spinner';
 import MainLayout from './MainLayout/MainLayout';
-import DayCalendarHead from './Calendar/DayCalendarHead/DayCalendarHead';
-import MonthCalendarHead from "./Calendar/MonthCalendarHead/MonthCalendarHead";
+import ChoosedDay from '../components/ChoosedDay/ChoosedDay';
+import ChoosedMonth from "../components/ChoosedMonth/ChoosedMonth";
 import { refreshUser } from '../redux/auth/authOperations';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
@@ -86,13 +86,13 @@ export const App = () => {
           <Route
             path="calendar/day/:current"
             element={
-              <PrivateRoute redirectTo="/" component={<DayCalendarHead />} />
+              <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
             }
           />
           <Route
             path="calendar/month/:current"
             element={
-              <PrivateRoute redirectTo="/" component={<MonthCalendarHead />} />
+              <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
             }
           />
         </Route>
