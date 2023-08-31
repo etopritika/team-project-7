@@ -1,12 +1,13 @@
-import MonthCalendarHead from "../Calendar/MonthCalendarHead/MonthCalendarHead";
-import CalendarTable from "../Calendar/CalendarTable/CalendarTable"
+import React from 'react';
+// import CalendarTable from 'components/Calendar/CalendarTable/CalendarTable';
+import MonthCalendarHead from 'components/Calendar/MonthCalendarHead/MonthCalendarHead';
+import styles from './ChoosedMonth.module.css';
 
 export default function ChoosedMonth() {
   return (
-    <>
-      <span>ChoosedMonth</span>
-      <MonthCalendarHead/>
-      <CalendarTable/>
-    </>
+    <div className={styles.month_container}>
+      <MonthCalendarHead />
+      {/* <CalendarTable /> */}
+    </div>
   );
 }
