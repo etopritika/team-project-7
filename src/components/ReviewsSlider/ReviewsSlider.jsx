@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { fetchReviews } from 'redux/reviews/reviewsOperations';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Keyboard } from 'swiper/modules';
 
-import { selectReviews } from '../../redux/reviews/selectors';
-
-// import reviews from './reviews.json';
 
 import '../../index.css';
 import css from './ReviewsSlider.module.css';
@@ -19,11 +16,20 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 export default function ReviewsSlider() {
+  const [reviews, setReviews] = useState([]);
   const dispatch = useDispatch();
-  const reviews = useSelector(selectReviews);
 
   useEffect(() => {
-    dispatch(fetchReviews());
+    const fetchReviewsData = async () => {
+      try {
+        const fetchedReviews = await dispatch(fetchReviews());
+        setReviews(fetchedReviews.payload);
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+      }
+    };
+  
+    fetchReviewsData();
   }, [dispatch]);
 
   return (
