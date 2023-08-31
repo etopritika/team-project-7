@@ -33,7 +33,7 @@ export const App = () => {
           path="/"
           element={
             <RestrictedRoute
-              redirectTo="/user/calendar"
+              redirectTo="/user/account"
               component={<MainPage />}
             />
           }
@@ -42,7 +42,7 @@ export const App = () => {
           path="/register"
           element={
             <RestrictedRoute
-              redirectTo="/user/calendar"
+              redirectTo="/user/account"
               component={<RegisterPage />}
             />
           }
@@ -51,7 +51,7 @@ export const App = () => {
           path="/login"
           element={
             <RestrictedRoute
-              redirectTo="/user/calendar"
+              redirectTo="/user/account"
               component={<LoginPage />}
             />
           }
@@ -73,7 +73,20 @@ export const App = () => {
             element={
               <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
             }
+          >
+            <Route
+            path="day/:current"
+            element={
+              <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
+            }
           />
+          <Route
+            path="month/:current"
+            element={
+              <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
+            }
+          />
+          </Route>
           <Route
             path="statistics"
             element={
@@ -83,18 +96,7 @@ export const App = () => {
               />
             }
           />
-          <Route
-            path="calendar/day/:current"
-            element={
-              <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
-            }
-          />
-          <Route
-            path="calendar/month/:current"
-            element={
-              <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
-            }
-          />
+          
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

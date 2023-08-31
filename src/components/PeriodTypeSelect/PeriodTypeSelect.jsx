@@ -1,6 +1,3 @@
-// export default function PeriodTypeSelect(){
-//     return(<></>)
-
 import { NavLink } from 'react-router-dom';
 import { format, isSameMonth } from 'date-fns';
 import styles from './PeriodTypeSelect.module.css';
