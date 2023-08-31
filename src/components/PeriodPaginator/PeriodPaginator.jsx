@@ -1,6 +1,3 @@
-// export default function PeriodPaginator(){
-//     return(<></>)
-// }
 import { format, subDays, addDays, addMonths, subMonths } from 'date-fns';
 import { useState } from 'react';
 import { ReactComponent as IconShevronLeft } from '../../img/icons.svg#shevron-left';
