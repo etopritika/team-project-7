@@ -1,7 +1,6 @@
 @import '../../../vars.css';
 
 .user {
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   padding: 0 18px 0 18px;
@@ -33,7 +32,6 @@
 
 @media screen and (min-width: 767px) {
   .user__avatar_container {
-    /* display: block; */
     transform: none;
   }
 }
@@ -59,18 +57,12 @@
   border-radius: 50%;
   -o-object-fit: cover;
   object-fit: cover;
-  /* left: 50%;
-  top: 0%;
-  transform: translate(-50%, -50%);
-  z-index: 1; */
 }
 @media screen and (min-width: 767px) {
   .user__avatar {
-    /* position: relative; */
     width: 124px;
     height: 124px;
     margin-bottom: 20px;
-    /* transform: translate(-50%, 0); */
   }
 }
 
@@ -80,16 +72,12 @@
   height: 14px;
   bottom: -4px;
   right: 15px;
-  /* left: 52%; */
-  /* top: 3%; */
   z-index: 1;
-  /* background-image: url(../../images/avatarPlus.svg); */
 }
 @media screen and (min-width: 767px) {
   .avatar_upload_btn {
     width: 24px;
     height: 24px;
-    /* top: 58%; */
     bottom: -6px;
     right: 24px;
     background-repeat: no-repeat;
@@ -144,7 +132,6 @@
 .birthday__label {
   position: relative;
 }
-
 
 .user_form_input,
 input[type='text'] {
@@ -206,7 +193,6 @@ input[type='text'].is_invalid {
   width: 373px;
 }
 
-
 .custom__datepicker__arrow {
   position: absolute;
   bottom: 20px;
@@ -216,7 +202,6 @@ input[type='text'].is_invalid {
 }
 
 .isInvalidLabel {
-  /* position: relative; */
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
@@ -247,7 +232,6 @@ input[type='text'].is_invalid {
 }
 
 .label {
-  /* position: relative; */
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
@@ -334,4 +318,8 @@ input[type='text'].is_invalid {
   object-fit: cover;
   border: 2px solid var(--main-blue-color);
   border-radius: 50%;
+}
+.myCustomIcon {
+  width: 24px;
+  height: 24px;
 }
