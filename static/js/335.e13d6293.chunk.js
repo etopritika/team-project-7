@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_team_project=self.webpackChunkreact_team_project||[]).push([[335],{2335:function(e,n,t){t.r(n),t.d(n,{default:function(){return a}});var c=t(2791),r=t(7689),s=t(4952),u=t(184);function a(){return(0,u.jsxs)("div",{children:[(0,u.jsx)(s.Z,{}),(0,u.jsx)(c.Suspense,{fallback:null,children:(0,u.jsx)(r.j3,{})})]})}}}]);
-//# sourceMappingURL=335.e13d6293.chunk.js.map
