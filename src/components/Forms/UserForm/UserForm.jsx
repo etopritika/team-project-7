@@ -25,10 +25,10 @@ const userInfoKeys = ['name', 'email', 'birthday', 'phone', 'telegram'];
 export function UserForm() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUser);
-
-  const [previewImageUrl, setPreviewImageUrl] = useState(null);
+  
+  const [/*previewImageUrl*/, setPreviewImageUrl] = useState(null);
   const [file, setFile] = useState(null);
-  console.log(previewImageUrl)
+  
   const initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
