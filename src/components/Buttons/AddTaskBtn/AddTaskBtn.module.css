@@ -1,0 +1,24 @@
+@import url(../../../vars.css);
+
+.btn {
+  padding: 12px 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #e3f3ff;
+  color: var(--primary-text-color);
+  border: 1px dashed var(--main-blue-color);
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btnIcon {
+  stroke: currentColor;
+}

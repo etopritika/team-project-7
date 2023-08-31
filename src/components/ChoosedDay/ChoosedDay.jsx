@@ -1,9 +1,12 @@
-// import CalendarToolbar from '../Calendar/CalendarToolbar/CalendarToolbar';
+import CalendarToolbar from '../Calendar/CalendarToolbar/CalendarToolbar';
+import TasksColumnList from '../Tasks/TasksColumnList/TasksColumnList';
+
 
 export default function ChoosedDay() {
   return (
     <>
-      <span>ChoosedDay</span>
+      <CalendarToolbar />
+      <TasksColumnList />
     </>
   );
 }
