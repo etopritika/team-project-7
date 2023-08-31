@@ -16,6 +16,7 @@ import SaveChangesBtn from '../../Buttons/SaveChangesBtn/SaveChangesBtn';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import './custom-datepicker.css';
 
 // import { Notify } from 'notiflix';
 
@@ -107,9 +108,7 @@ export function UserForm() {
                       <use href={icons + '#ph-user'}></use>
                     </svg>
                   )}
-                </div>
-
-                <div className={css.avatar_upload_container}>
+                  <div className={css.avatar_upload_container}>
                   <Field
                     id="avatar-upload"
                     name="avatar"
@@ -123,6 +122,9 @@ export function UserForm() {
                     className={css.avatar_upload_btn}
                   ></label>
                 </div>
+                </div>
+
+                
                 <h3 className={css.user__name}>{userInfo.name || 'user'}</h3>
                 <p className={css.user__role}>User</p>
               </div>
@@ -146,7 +148,7 @@ export function UserForm() {
                 </label>
                 <label htmlFor="birthday" className={css.label}>
                   <p className={css.labelText}>Birthday</p>
-                  <label>
+                  <label className={css.birthday__label}>
                     <DatePicker
                       className={css.user_form_input}
                       name="birthday"
@@ -167,7 +169,7 @@ export function UserForm() {
                       }}
                       maxDate={new Date()}
                     />
-                    <IoIosArrowDown />
+                    <IoIosArrowDown className={css.custom__datepicker__arrow}/>
                   </label>
                   <div className={css.feedback}>
                     <ErrorMessage

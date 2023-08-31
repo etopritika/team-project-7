@@ -1,7 +1,7 @@
 @import '../../../vars.css';
 
 .user {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   padding: 0 18px 0 18px;
@@ -26,12 +26,14 @@
 
 .user__avatar_container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 767px) {
   .user__avatar_container {
-    display: block;
-    flex-direction: column;
+    /* display: block; */
     transform: none;
   }
 }
@@ -57,18 +59,18 @@
   border-radius: 50%;
   -o-object-fit: cover;
   object-fit: cover;
-  left: 50%;
+  /* left: 50%;
   top: 0%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 1; */
 }
 @media screen and (min-width: 767px) {
   .user__avatar {
-    position: relative;
+    /* position: relative; */
     width: 124px;
     height: 124px;
     margin-bottom: 20px;
-    transform: translate(-50%, 0);
+    /* transform: translate(-50%, 0); */
   }
 }
 
@@ -76,8 +78,10 @@
   position: absolute;
   width: 14px;
   height: 14px;
-  left: 52%;
-  top: 3%;
+  bottom: -4px;
+  right: 15px;
+  /* left: 52%; */
+  /* top: 3%; */
   z-index: 1;
   /* background-image: url(../../images/avatarPlus.svg); */
 }
@@ -85,7 +89,9 @@
   .avatar_upload_btn {
     width: 24px;
     height: 24px;
-    top: 58%;
+    /* top: 58%; */
+    bottom: -6px;
+    right: 24px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -127,7 +133,7 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
   .user_form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -135,6 +141,10 @@
     justify-content: center;
   }
 }
+.birthday__label {
+  position: relative;
+}
+
 
 .user_form_input,
 input[type='text'] {
@@ -196,8 +206,17 @@ input[type='text'].is_invalid {
   width: 373px;
 }
 
+
+.custom__datepicker__arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 14px;
+  width: 17px;
+  height: 17px;
+}
+
 .isInvalidLabel {
-  position: relative;
+  /* position: relative; */
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
@@ -228,7 +247,7 @@ input[type='text'].is_invalid {
 }
 
 .label {
-  position: relative;
+  /* position: relative; */
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
