@@ -1,42 +1,46 @@
+import React, { useState } from 'react';
 import { format, subDays, addDays, addMonths, subMonths } from 'date-fns';
-import { useState } from 'react';
-import { ReactComponent as IconShevronLeft } from '../../img/icons.svg#shevron-left';
-import { ReactComponent as IconShevronRight } from '../../img/icons.svg#shevron-right';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import styles from './PeriodPaginator.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useDate } from 'hooks/useDate';
 
 export const PeriodPaginator = ({ activePage }) => {
   const [activeBtn, setActiveBtn] = useState('');
+  const [visibleDate, setVisibleDate] = useState(useDate());
 
   const navigate = useNavigate();
-  const urlDate = useDate();
-
+  
   const handleNextDay = () => {
     setActiveBtn('next');
 
-    const date = addDays(urlDate, 1);
-    navigate(`day/${format(date, 'ddMMMyyyy')}`);
+    const newVisibleDate = addDays(visibleDate, 1);
+    setVisibleDate(newVisibleDate);
+    navigate(`/user/calendar/day/${format(newVisibleDate, 'ddMMMyyyy')}`);
   };
 
   const handlePrevDay = () => {
     setActiveBtn('prev');
 
-    const date = subDays(urlDate, 1);
-    navigate(`day/${format(date, 'ddMMMyyyy')}`);
+    const newVisibleDate = subDays(visibleDate, 1);
+    setVisibleDate(newVisibleDate);
+    navigate(`/user/calendar/day/${format(newVisibleDate, 'ddMMMyyyy')}`);
   };
 
   const handleNextMonth = () => {
     setActiveBtn('next');
-    const date = addMonths(urlDate, 1);
-    navigate(`month/${format(date, 'MMMMyyyy')}`);
+
+    const newVisibleDate = addMonths(visibleDate, 1);
+    setVisibleDate(newVisibleDate);
+    navigate(`/user/calendar/month/${format(newVisibleDate, 'MMMMyyyy')}`);
   };
 
   const handlePrevMonth = () => {
     setActiveBtn('prev');
 
-    const date = subMonths(urlDate, 1);
-    navigate(`month/${format(date, 'MMMMyyyy')}`);
+    const newVisibleDate = subMonths(visibleDate, 1);
+    setVisibleDate(newVisibleDate);
+    navigate(`/user/calendar/month/${format(newVisibleDate, 'MMMMyyyy')}`);
   };
 
   return (
@@ -44,7 +48,7 @@ export const PeriodPaginator = ({ activePage }) => {
       {activePage === 'month' && (
         <>
           <div className={styles.name_container}>
-            <h1 className={styles.name}>{format(urlDate, 'MMMM yyyy')}</h1>
+            <h1 className={styles.name}>{format(visibleDate, ' MMM yyyy')}</h1>
           </div>
           <div className={styles.buttons_container}>
             <button
@@ -52,7 +56,7 @@ export const PeriodPaginator = ({ activePage }) => {
               type="button"
               onClick={handlePrevMonth}
             >
-              <IconShevronLeft
+              <FiChevronLeft
                 className={
                   activeBtn === 'prev'
                     ? `${styles.icon_active}`
@@ -63,10 +67,9 @@ export const PeriodPaginator = ({ activePage }) => {
             <button
               className={`${styles.button} ${styles.button_right}`}
               type="button"
-              id={'2'}
               onClick={handleNextMonth}
             >
-              <IconShevronRight
+              <FiChevronRight
                 className={
                   activeBtn === 'next'
                     ? `${styles.icon_active}`
@@ -81,7 +84,7 @@ export const PeriodPaginator = ({ activePage }) => {
       {activePage === 'day' && (
         <>
           <div className={styles.name_container}>
-            <h1 className={styles.name}>{format(urlDate, 'd MMM yyyy')}</h1>
+            <h1 className={styles.name}>{format(visibleDate, 'd MMM yyyy')}</h1>
           </div>
           <div className={styles.buttons_container}>
             <button
@@ -89,7 +92,7 @@ export const PeriodPaginator = ({ activePage }) => {
               type="button"
               onClick={handlePrevDay}
             >
-              <IconShevronLeft
+              <FiChevronLeft
                 className={
                   activeBtn === 'prev'
                     ? `${styles.icon_active}`
@@ -102,7 +105,7 @@ export const PeriodPaginator = ({ activePage }) => {
               type="button"
               onClick={handleNextDay}
             >
-              <IconShevronRight
+              <FiChevronRight
                 className={
                   activeBtn === 'next'
                     ? `${styles.icon_active}`

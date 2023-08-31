@@ -31,7 +31,6 @@
     border-radius: 0 8px 8px 0;
 }
 
-
 .name_container {
     padding: 8px 12px;
     background: var(--main-blue-color);
@@ -46,15 +45,13 @@
     line-height: 1.12;
     text-align: center;
     text-transform: uppercase;
-    color: var(-- white-color);
+    color: white;
 }
-    
 
 .icon {
-  stroke: #DCE3E5; 
-   
+    stroke: var(--placeholder-color);
 }
 
 .icon_active {
-   stroke: #343434;
+    stroke: var(--name-color);
 }
