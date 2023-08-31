@@ -7,30 +7,33 @@
     justify-content: space-around;
     
     align-items: center;
-    margin-bottom: 15px;
     padding: 14px 0px;
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    border: 1px solid var(--placeholder-color);
     border-radius: 8px;
-    background-color: rgb(255, 255, 255);
+    background-color:var(--white-color);
     font-weight: 600;
     font-size: 14px;
     line-height: 1.286;
-    color: rgb(97, 97, 97);
+    color: var(--secondary-text-color);
   }
   
-  .day-of-week {
+  .day-of-week-header {
    
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
-  }
-  
-  .day-of-week-style {
     font-weight: 600;
     font-size: 16px;
     line-height: 1.125;
     text-transform: uppercase;
     color: rgb(97, 97, 97);
 
-  }
+}
+
+.month-calendar-head li:nth-last-child(-n+2) {
+
+  color:var(--main-blue-color); 
+}
+
+
