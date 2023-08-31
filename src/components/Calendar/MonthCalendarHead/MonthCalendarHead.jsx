@@ -1,3 +1,5 @@
-export default function MonthCalendarHead(){
-    return(<></>)
+export default function MonthCalendarHead() {
+  return (
+    <><span>MonthCalendarHead</span></>
+  );
 }
