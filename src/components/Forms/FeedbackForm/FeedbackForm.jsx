@@ -6,28 +6,41 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './FeedbackForm.module.css';
 import feedbackFormSchema from './feedbackFormValidation';
 import { useState } from 'react';
-
-const INITIAL_STATE = {
-  text: '',
-};
+import { useDispatch } from 'react-redux';
+import { createOwnReview } from 'redux/reviews/reviewsOperations';
+import { useSelector } from 'react-redux';
 
 export default function FeedbackForm({ toggleModal }) {
-  const [rating, setRating] = useState(null);
+  const ownReview = useSelector(state => state.reviews.ownReview);
+  const dispatch = useDispatch();
+  const [rating, setRating] = useState(ownReview.rating);
   const [hover, setHover] = useState(null);
 
-  const onSubmitReview = values => {
+  const onSubmitReview = async values => {
     const reviewData = {
       rating: rating,
       text: values.text,
     };
 
-    console.log(reviewData);
-    toggleModal();
+    try {
+      const data = await dispatch(createOwnReview(reviewData));
+      console.log(data);
+      if (!data.error) {
+        console.log(data.payload);
+        toggleModal();
+      } else {
+        console.error(data.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <Formik
-      initialValues={INITIAL_STATE}
+      initialValues={{
+        text: ownReview.text,
+      }}
       validationSchema={feedbackFormSchema}
       onSubmit={onSubmitReview}
     >

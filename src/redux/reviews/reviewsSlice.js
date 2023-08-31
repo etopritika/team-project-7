@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchReviews } from './reviewsOperations';
+import {
+  createOwnReview,
+  fetchOwnReview,
+  fetchReviews,
+} from './reviewsOperations';
 
 const handlePending = state => {
   return {
@@ -20,6 +24,7 @@ const reviewsSlice = createSlice({
   name: 'reviews',
   initialState: {
     items: [],
+    ownReview: { text: '', rating: 1 },
     isLoading: false,
     error: null,
   },
@@ -33,6 +38,25 @@ const reviewsSlice = createSlice({
           isLoading: false,
           error: null,
           items: action.payload,
+        };
+      })
+      .addCase(createOwnReview.pending, handlePending)
+      .addCase(createOwnReview.rejected, handleRejected)
+      .addCase(createOwnReview.fulfilled, (state, action) => {
+        return {
+          ...state,
+          isLoading: false,
+          error: null,
+          items: [...state.items, action.payload],
+        };
+      })
+      .addCase(fetchOwnReview.pending, handlePending)
+      .addCase(fetchOwnReview.rejected, handleRejected)
+      .addCase(fetchOwnReview.fulfilled, (state, action) => {
+        return {
+          isLoading: false,
+          error: null,
+          ownReview: action.payload,
         };
       });
   },

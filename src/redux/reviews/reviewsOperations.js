@@ -14,3 +14,27 @@ export const fetchReviews = createAsyncThunk(
     }
   }
 );
+
+export const fetchOwnReview = createAsyncThunk(
+  'reviews/fetchOwnReview',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get('/api/reviews/own');
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const createOwnReview = createAsyncThunk(
+  'reviews/addReview',
+  async ({ text, rating }, thunkAPI) => {
+    try {
+      const res = await axios.post('/api/reviews/own', { text, rating });
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
