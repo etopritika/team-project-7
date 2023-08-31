@@ -16,28 +16,27 @@ export const PeriodPaginator = ({ activePage }) => {
     setActiveBtn('next');
 
     const date = addDays(urlDate, 1);
-    navigate(`/user/calendar/day/${format(date, 'ddMMMyyyy')}`);
+    navigate(`day/${format(date, 'ddMMMyyyy')}`);
   };
 
   const handlePrevDay = () => {
     setActiveBtn('prev');
 
     const date = subDays(urlDate, 1);
-    navigate(`/user/calendar/day/${format(date, 'ddMMMyyyy')}`);
+    navigate(`day/${format(date, 'ddMMMyyyy')}`);
   };
 
   const handleNextMonth = () => {
     setActiveBtn('next');
-
     const date = addMonths(urlDate, 1);
-    navigate(`/user/calendar/month/${format(date, 'MMMMyyyy')}`);
+    navigate(`month/${format(date, 'MMMMyyyy')}`);
   };
 
   const handlePrevMonth = () => {
     setActiveBtn('prev');
 
     const date = subMonths(urlDate, 1);
-    navigate(`/user/calendar/month/${format(date, 'MMMMyyyy')}`);
+    navigate(`month/${format(date, 'MMMMyyyy')}`);
   };
 
   return (
