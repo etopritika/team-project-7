@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 import icons from '../../../img/icons.svg';
 import css from './UserNav.module.css';
 import { BsBarChart } from 'react-icons/bs';
+import { useDate } from '../../../hooks/useDate';
+import { format } from 'date-fns';
 
 function UserNav({ isCloseLink }) {
+  const urlDate = useDate();
+  const formattedCurrentDate = format(urlDate, 'MMMMu');
   return (
     <nav>
       <ul onClick={isCloseLink} className={css.navUl}>
@@ -17,7 +21,7 @@ function UserNav({ isCloseLink }) {
           </Link>
         </li>
         <li>
-          <Link to="/user/calendar" className={css.nav}>
+          <Link to={`/user/calendar/month/${formattedCurrentDate}`} className={css.nav}>
             <svg className={css.icons}>
               <use href={icons + '#calendar-check-02'}></use>
             </svg>
