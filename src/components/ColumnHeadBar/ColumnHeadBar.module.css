@@ -1,0 +1,38 @@
+@import url(../../vars.css);
+
+.wrapper {
+  min-width: 100%;
+  margin-bottom: 24px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: var(--primary-text-color);
+
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 50%;
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btnIcon {
+  stroke: currentColor;
+  fill: none;
+}

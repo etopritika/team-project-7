@@ -1,0 +1,21 @@
+@import url(../../../vars.css);
+
+.list {
+  display: flex;
+
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.listItem {
+  min-width: 335px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #fff;
+  border-radius: 8px;
+}
