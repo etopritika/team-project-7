@@ -59,13 +59,13 @@ const StatisticsChart = () => {
     setEvents(updatedEvents);
   };
 
-  const totalEvents = events.length;
-  const eventsOnSelectedDate = events.filter(
-    event => event.date.toDateString() === selectedDate?.toDateString()
-  );
+  // const totalEvents = events.length;
+  // const eventsOnSelectedDate = events.filter(
+  //   event => event.date.toDateString() === selectedDate?.toDateString()
+  // );
 
-  const eventsPercentage =
-    totalEvents > 0 ? (eventsOnSelectedDate.length / totalEvents) * 100 : 0;
+  // const eventsPercentage =
+  //   totalEvents > 0 ? (eventsOnSelectedDate.length / totalEvents) * 100 : 0;
 
   return (
     <div className="app">

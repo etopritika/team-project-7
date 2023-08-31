@@ -16,13 +16,13 @@ h1 {
   color: #05ca40ce;
 }
 
-.container {
+/* .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   margin-top: 2rem;
-}
+} */
 
 .calendar-container {
   flex: 1;
