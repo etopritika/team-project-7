@@ -50,33 +50,32 @@ export default function ReviewsSlider() {
             keyboard={{ enabled: true }}
             modules={[Autoplay, Navigation, Keyboard]}
           >
-            {reviews.map(({ avatarURL, name, text, rating, _id }) => {
+            {reviews.map(({ owner, text, rating, _id }) => {
               return (
                 <SwiperSlide key={_id}>
                   <div className={css.reviewItem}>
                     <div className={css.userInfo}>
                       <div className={css.userAvatar}>
-                        {avatarURL ? (
-                          <img src={avatarURL} alt={name + ' avatar'} />
+                        {owner ? (
+                          <img
+                            src={owner.avatarURL}
+                            alt={owner.name + ' avatar'}
+                            className={css.avatar}
+                          />
                         ) : (
-                          <PiUserBold size={30} />
-                          // <svg
-                          //   className={css.avatarPlaceholder}
-                          //   width="30px"
-                          //   height="30px"
-                          // >
-                          //   <use href={icons + '#ph_user'}></use>
-                          // </svg>
+                          <PiUserBold
+                            size={30}
+                            className={css.avatarPlaceholder}
+                          />
                         )}
                       </div>
 
                       <div>
-                        <p className={css.userName}>{name ? name : 'Guest'}</p>
+                        <p className={css.userName}>
+                          {owner ? owner.name : 'Guest'}
+                        </p>
                         <div className={css.userRating}>
                           {Array.from({ length: 5 }, (_, idx) => (
-                            // <svg key={idx} width="14px" height="14px">
-                            //   <use href={icons + '#star'}></use>
-                            // </svg>
                             <AiFillStar
                               key={idx}
                               size={14}
