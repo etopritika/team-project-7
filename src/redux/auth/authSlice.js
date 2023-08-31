@@ -9,13 +9,13 @@ import {
 
 const initialState = {
   user: {
+    _id: null,
     name: null,
     email: null,
     avatarURL: null,
     phone: null,
     skype: null,
     birthday: null,
-    _id: null,
   },
   token: null,
   isLoggedIn: false,
