@@ -11,9 +11,11 @@ const MonthCalendarHead = () => {
     'Sat',
     'Sun',
   ]);
-  const daysOfWeekA = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+
 
   const handleResize = () => {
+
+    const daysOfWeekA = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
     if (window.innerWidth < 768) {
       setDaysOfWeek(daysOfWeekA);
     } else {
