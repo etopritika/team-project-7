@@ -52,7 +52,7 @@ export default function FeedbackForm({ toggleModal }) {
               className={styles.feedbackFormCloseBtn}
               onClick={toggleModal}
             >
-              <IoCloseOutline size={24} color="#111111" />
+              <IoCloseOutline size={24}  />
             </button>
             <h3 className={styles.feedbackFormSubtitle}>Rating</h3>
             {[...Array(5)].map((star, index) => {

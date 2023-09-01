@@ -1,6 +1,7 @@
 :root {
   --primary-text-color: #111111;
   --secondary-text-color: #343434;
+  --secondary-background-color: #f7f6f9;
   --title-text-color: #171820;
   --white-color: #fff;
   --bg-color: #f7f6f9;
@@ -27,15 +28,25 @@
   --nav-background: #d0e7fa;
   --sidebar-background: #fff;
   --panel-color: #84828a;
-  --icon-close-color: #13151A;
+  --icon-close-color: #13151a;
   --btn-close-color: #fff;
   --btn-menu-color: #343434;
-
+  --btn-edit-feedback: #e3f3ff;
+  --background-user-page: #fff;
+  --label-user-page: #111111;
+  --border-user-color: rgba(17, 17, 17, 0.15);
+  --modal-background: #ffffff;
+  --subtitle-color: rgba(52, 52, 52, 0.8);
+  --input-background-color: #f6f6f6;
+  --input-form-text: #343434;
+  --btn-close-feedback: #111111;
 }
 
 html[data-theme='dark'] {
-  --user-bg-color: #21222c;
+  --user-bg-color: #171820;
   --gray-color: #fff;
+
+  --secondary-background-color: #171820;
 
   /* Navigation */
   --logo-color: #fff;
@@ -43,8 +54,8 @@ html[data-theme='dark'] {
   --nav-background: #3e85f3;
   --sidebar-background: #13151a;
   --icon-close-color: #fff;
-   --btn-close-color: #13151A;
-    --btn-menu-color: #fff;
+  --btn-close-color: #13151a;
+  --btn-menu-color: #fff;
 
   /* UserInfo */
   --name-color: #fff;
@@ -52,4 +63,16 @@ html[data-theme='dark'] {
   --primary-text-color: #fff;
 
   /* feedbackBtn */
+  /* UserForm */
+  --background-user-page: #21222c;
+  --label-user-page: rgba(250, 250, 250, 0.3);
+  --border-user-color: rgba(250, 250, 250, 0.15);
+
+  /* FeedbackForm */
+  --modal-background: #171820;
+  --subtitle-color: rgba(250, 250, 250, 0.3);
+  --input-background-color: rgba(250, 250, 250, 0.15);
+  --input-form-text: #fff;
+  --btn-close-feedback: #fff;
+  --btn-edit-feedback: #353647;
 }
