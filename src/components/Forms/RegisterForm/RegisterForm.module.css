@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .form {
     margin: 0 auto;
     max-width: 335px;
@@ -160,6 +160,8 @@
 .spanIcon {
   color: var(--main-blue-color);
   font-size: x-large;
+  height: 24px;
+  width: 24px;
 }
 .spanIcon:focus {
   transform: scale(1.4);
@@ -304,5 +306,5 @@
   background-color: inherit;
   position: absolute;
   right: 20px;
-  bottom: 43px;
+  bottom: 46px;
 }
