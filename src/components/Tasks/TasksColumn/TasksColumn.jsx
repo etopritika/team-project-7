@@ -4,7 +4,7 @@ import AddTaskBtn from '../../Buttons/AddTaskBtn/AddTaskBtn';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 
-export default function TasksColumn({ title }) {
+export default function TasksColumn({ title, tasks }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -12,8 +12,8 @@ export default function TasksColumn({ title }) {
   };
   return (
     <>
-      <ColumnHeadBar title={title} />
-      <ColumnTasksList />
+      <ColumnHeadBar title={title} toggleModal={toggleModal} />
+      <ColumnTasksList tasks={tasks} />
       <AddTaskBtn toggleModal={toggleModal} />
       {isModalOpen && (
         <Modal toggleModal={toggleModal}>

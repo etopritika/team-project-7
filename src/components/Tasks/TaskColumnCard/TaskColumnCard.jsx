@@ -1,3 +1,7 @@
-export default function TaskColumnCard() {
-  return <></>;
+export default function TaskColumnCard({ task }) {
+  return (
+    <>
+      <p>{task.title}</p>
+    </>
+  );
 }
