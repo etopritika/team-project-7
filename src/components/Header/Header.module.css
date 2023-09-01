@@ -10,9 +10,12 @@
     padding: 24px 32px 64px 32px;
     
   } */
+}
 
-  @media (min-width: 1440px) {
-    padding: 40px 32px 16px 32px;
+@media screen and (min-width: 1440px) {
+  .header {
+    padding-top: 40px;
+    margin-left: 32px;
   }
 }
 
@@ -20,5 +23,5 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-left: auto; 
+  margin-left: auto;
 }

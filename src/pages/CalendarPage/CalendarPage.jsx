@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import  CalendarToolbar  from '../components/Calendar/CalendarToolbar/CalendarToolbar';
+import  CalendarToolbar  from '../../components/Calendar/CalendarToolbar/CalendarToolbar';
 
 
 export default function CalendarPage() {
