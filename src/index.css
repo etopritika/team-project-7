@@ -6,7 +6,7 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--secondary-background-color);
+  background-color: var(--user-bg-color);
 }
 
 code {
