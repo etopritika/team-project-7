@@ -1,0 +1,123 @@
+.taskFormContainer {
+  padding: 40px 28px;
+  position: relative;
+  background-color: var(--modal-background);
+}
+
+.taskFormCloseBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--btn-close-feedback);
+}
+
+.taskFormSubtitle {
+  color: var(--subtitle-color);
+  opacity: 0.8;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.16;
+  margin-bottom: 8px;
+}
+
+.taskInput {
+  width: 340px;
+  height: 46px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: #f6f6f6;
+  border: none;
+  margin-bottom: 18px;
+}
+
+.taskInput::placeholder {
+  color: var(--secondary-text-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+.invalidFeedback {
+  .invalidFeedback {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+}
+
+.timeInputContainer {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.timeInput {
+  width: 163px;
+  height: 46px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: #f6f6f6;
+  border: none;
+  margin-bottom: 28px;
+}
+
+.radioBtnContainer {
+  margin-bottom: 32px;
+}
+
+.radioLabel {
+  margin-right: 16px;
+  color: var(--secondary-text-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+.radioInput {
+  margin-right: 4px;
+}
+
+.taskFormBtnContainer {
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.addBtn {
+  width: 178px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: var(--main-blue-color);
+  color: var(--white-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  width: 144px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: #e5edfa;
+  color: var(--secondary-text-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+  cursor: pointer;
+}

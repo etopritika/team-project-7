@@ -95,6 +95,7 @@ export default function FeedbackForm({ toggleModal }) {
                     name="rating"
                     value={currentRating}
                     onClick={() => setRating(currentRating)}
+                    className="inputRadio"
                   />
                   <FaStar
                     size={24}

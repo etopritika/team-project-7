@@ -69,7 +69,7 @@
   line-height: 1.28;
 }
 
-input[type='radio'] {
+.inputRadio {
   display: none;
 }
 
