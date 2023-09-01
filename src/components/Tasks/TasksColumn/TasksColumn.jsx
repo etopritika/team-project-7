@@ -3,6 +3,7 @@ import ColumnTasksList from '../../ColumnTasksList/ColumnTasksList';
 import AddTaskBtn from '../../Buttons/AddTaskBtn/AddTaskBtn';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
+import TaskForm from 'components/Forms/TaskForm/TaskForm';
 
 export default function TasksColumn({ title, tasks }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function TasksColumn({ title, tasks }) {
       <AddTaskBtn toggleModal={toggleModal} />
       {isModalOpen && (
         <Modal toggleModal={toggleModal}>
-          <div>Сюди треба розмістити таск-форм</div>
+          <TaskForm toggleModal={toggleModal} />
         </Modal>
       )}
     </>
