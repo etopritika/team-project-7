@@ -16,7 +16,7 @@
     padding: 40px 175px 40px 175px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
   .user {
     padding: 60px 165px 60px 165px;
     margin-top: 32px;

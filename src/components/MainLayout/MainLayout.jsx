@@ -42,7 +42,7 @@ function MainLayout() {
 
         <SideBar isOpen={isSidebarOpen} isClose={toggleSidebar} />
 
-        <div>
+        <div className={styles.content__wrapper}>
           <Header
             openBurgerMenu={toggleSidebar}
             isSidebarOpen={isSidebarOpen}

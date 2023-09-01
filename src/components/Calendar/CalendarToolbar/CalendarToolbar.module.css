@@ -6,6 +6,7 @@
     flex-direction: column;
     gap: 18px;
     margin-bottom: 24px;
+    margin-top: 64px;
 }
 
 @media screen and (min-width: 768px) {
@@ -16,8 +17,9 @@
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
     .wrapper {
         margin-bottom: 32px;
+        margin-top: 0;
     }
 }
