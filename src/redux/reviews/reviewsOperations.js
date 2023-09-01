@@ -38,3 +38,27 @@ export const createOwnReview = createAsyncThunk(
     }
   }
 );
+
+export const updateOwnReview = createAsyncThunk(
+  'reviews/updateReview',
+  async ({ text, rating }, thunkAPI) => {
+    try {
+      const res = await axios.patch('/api/reviews/own', { text, rating });
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const deleteOwnReview = createAsyncThunk(
+  'reviews/deleteReview',
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.delete('/api/reviews/own');
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
