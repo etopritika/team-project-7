@@ -1,7 +1,8 @@
 import { lazy } from 'react';
+import { Navigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import { Suspense } from 'react';
@@ -10,6 +11,8 @@ import MainLayout from './MainLayout/MainLayout';
 import ChoosedDay from '../components/ChoosedDay/ChoosedDay';
 import ChoosedMonth from "../components/ChoosedMonth/ChoosedMonth";
 import { refreshUser } from '../redux/auth/authOperations';
+import { format } from 'date-fns';
+import {useDate} from "../hooks/useDate"
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -21,6 +24,8 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
+  const currentDate = useDate();
+  const currentMonth = useMemo(() => format(currentDate, 'MMMMyyyy'), [currentDate]);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -74,6 +79,7 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<CalendarPage />} />
             }
           >
+            <Route index element={ <Navigate to={`month/${currentMonth}`} replace/>}/>
             <Route
             path="day/:current"
             element={
