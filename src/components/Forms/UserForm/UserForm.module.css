@@ -7,7 +7,7 @@
   padding: 0 18px 0 18px;
   margin-top: 95px;
   margin-bottom: 38px;
-  background: var(--white-color);
+  background: var(--background-user-page);
   border-radius: 16px;
 }
 @media screen and (min-width: 767px) {
@@ -154,13 +154,13 @@ input[type='text'] {
   margin-top: 8px;
   margin-bottom: 8px;
   padding: 14px 18px 14px 18px;
-  border: 1px solid rgba(17, 17, 17, 0.15);
+  border: 1px solid var( --border-user-color);
   border-radius: 8px;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
-  background-color: var(--white-color);
+  background-color: var(--background-user-page);
   color: var(--primary-text-color);
 }
 
@@ -251,7 +251,7 @@ input[type='text'].is_invalid {
   font-weight: 600;
   font-size: 12px;
   line-height: 1.25;
-  color: var(--primary-text-color);
+  color: var(--label-user-page);
   margin-bottom: 0px;
 }
 @media screen and (min-width: 768px) {

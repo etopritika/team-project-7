@@ -1,7 +1,7 @@
 .feedbackFormContainer {
   padding: 32px;
   position: relative;
-  background: var(--white-color);
+  background-color: var(--modal-background);
 }
 
 @media (max-width: 480px) {
@@ -17,10 +17,11 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  color: var(--btn-close-feedback);
 }
 
 .feedbackFormTopSubtitle {
-  color: var(--secondary-text-color);
+  color: var(--subtitle-color);
   opacity: 0.8;
   font-family: Inter;
   font-size: 12px;
@@ -31,7 +32,7 @@
 
 .feedbackFormSubtitle {
   margin-bottom: 8px;
-  color: var(--secondary-text-color);
+  color: var(--subtitle-color);
   opacity: 0.8;
   font-family: Inter;
   font-size: 12px;
@@ -47,8 +48,9 @@
   padding: 14px 18px;
   border: none;
   border-radius: 8px;
-  background: #f6f6f6;
+  background: var(--input-background-color);
   resize: none;
+  color: var(--input-form-text);
 }
 
 @media (max-width: 480px) {
@@ -148,7 +150,7 @@ input[type='radio'] {
   height: 30px;
   border-radius: 50%;
   border: none;
-  background: #e3f3ff;
+  background: var(--btn-edit-feedback);
 }
 
 .feedbackFormDeleteBtn {
