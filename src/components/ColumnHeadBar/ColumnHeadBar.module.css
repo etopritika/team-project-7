@@ -33,6 +33,6 @@
 }
 
 .btnIcon {
-  stroke: currentColor;
+  stroke: var(--primary-text-color);
   fill: none;
 }

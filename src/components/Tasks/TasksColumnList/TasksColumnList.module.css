@@ -16,6 +16,11 @@
   justify-content: center;
   align-items: center;
 
-  background-color: #fff;
   border-radius: 8px;
+  border: 1px solid var(--placeholder-color);
+  background: #fff;
+
+  @media screen and (min-width: 768px) {
+    min-width: 344px;
+  }
 }
