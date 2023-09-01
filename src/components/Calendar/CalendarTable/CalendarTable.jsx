@@ -6,7 +6,7 @@ import { format, isToday } from 'date-fns';
 import { useParams } from 'react-router-dom';
 
 export default function CalendarTable() {
-  const [, /*selectedDate*/ setSelectedDate] = useState(null);
+  const [/*selectedDate*/, setSelectedDate] = useState(null);
   const { current } = useParams();
 
   const dateClickHandler = date => {
@@ -17,11 +17,11 @@ export default function CalendarTable() {
     return isToday(date);
   };
 
-  const tileContent = ({ date }) => {
-    const currentDay = format(date, 'ddMMMMyyyy');
+ const tileContent = ({ date }) => {
+    const currentDay = format(date, 'MMMMyyyy');
     return (
       <Link
-        to={`/user/calendar/day/${currentDay}`}
+        to={/user/calendar/day/${currentDay}}
         className={styles['calendar-link']}
       >
         <div className={styles['calendar-link-content']}>
