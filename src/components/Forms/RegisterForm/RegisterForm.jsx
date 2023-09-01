@@ -8,6 +8,8 @@ import icons from '../../../img/icons.svg';
 import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../../../components/Spinner/Spinner';
+
 // from react-icons
 import {
   AiFillEye,
@@ -27,6 +29,7 @@ export const RegisterForm = () => {
 
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(<AiFillEyeInvisible />);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleShowPassword = () => {
     if (type === 'password') {
@@ -39,6 +42,7 @@ export const RegisterForm = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
+    setIsLoading(true);
     try {
       const response = await dispatch(register(values));
       console.log('Registration successful:', response);
@@ -46,11 +50,16 @@ export const RegisterForm = () => {
       resetForm();
     } catch (error) {
       console.error('Registration rejected:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <>
+      <div className={isLoading ? css.spinner : css.hidden}>
+        <Spinner />;
+      </div>
       <div className={css.container}>
         <div className={css.bgImages}></div>
         <div className={css.bgImagesMsg}>

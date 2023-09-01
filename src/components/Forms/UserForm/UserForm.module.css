@@ -141,7 +141,7 @@ input[type='text'] {
   margin-top: 8px;
   margin-bottom: 8px;
   padding: 14px 18px 14px 18px;
-  border: 1px solid var( --border-user-color);
+  border: 1px solid var(--border-user-color);
   border-radius: 8px;
   font-style: normal;
   font-weight: 600;
@@ -322,4 +322,5 @@ input[type='text'].is_invalid {
 .myCustomIcon {
   width: 24px;
   height: 24px;
+  z-index: 1;
 }
