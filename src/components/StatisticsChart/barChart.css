@@ -1,4 +1,4 @@
-/*.chart {
+.chart {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -202,6 +202,8 @@
   height: 440px;
   border: 0.8px solid #e3f3ff;
   border-radius: 29px;
+  margin-top: 142px;
+  margin-bottom: 104px;
 }
 .statistic_centr {
   display: flex;
@@ -211,4 +213,4 @@
 }
 .x-axis-span {
   margin-bottom: 10px;
-}*/
+}

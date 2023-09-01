@@ -1,0 +1,44 @@
+.event-container {
+  width: 1020px;
+  display: flex;
+  height: 624px;
+  justify-content: center;
+  background-color: #fff;
+  margin-left: 32px;
+  margin-right: 32px;
+  border-radius: 16px;
+}
+
+.dayCont {
+  margin-left: 600px;
+  position: absolute;
+  display: flex;
+  margin-top: 26px;
+  margin-top: 64px;
+}
+.statisticsByDay::marker {
+  color: #ffd2dd;
+}
+.statisticsByDay {
+  color: #343434;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  display: list-item;
+  font-weight: 400;
+  margin-right: 39px;
+  line-height: 18px;
+}
+.statisticsByMonth {
+  color: #343434;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  display: list-item;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.statisticsByMonth::marker {
+  color: #3e85f3;
+}
