@@ -141,3 +141,10 @@
     background-image: url('../../../img/goose-login-2x.png');
   }
 }
+.spinner {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

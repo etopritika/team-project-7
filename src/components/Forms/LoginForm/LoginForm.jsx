@@ -9,6 +9,7 @@ import AuthNavigate from '../../AuthNavigate/AuthNavigate';
 import AuthBtn from '../../Buttons/AuthBtn/AuthBtn';
 import icons from '../../../img/icons.svg';
 import { logIn } from 'redux/auth/authOperations';
+import Spinner from '../../../components/Spinner/Spinner';
 // from react-icons
 import {
   AiFillEye,
@@ -28,6 +29,7 @@ export const LoginForm = () => {
 
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(<AiFillEyeInvisible />);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleShowPassword = () => {
     if (type === 'password') {
@@ -40,6 +42,7 @@ export const LoginForm = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
+    setIsLoading(true);
     try {
       const response = await dispatch(logIn(values));
       if (!response.hasOwnProperty('error')) {
@@ -51,11 +54,16 @@ export const LoginForm = () => {
       }
     } catch (error) {
       console.error('Login rejected:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <>
+      <div className={isLoading ? css.spinner : css.hidden}>
+        <Spinner />;
+      </div>
       <div className={css.container}>
         <div className={css2.bgimages}></div>
 
