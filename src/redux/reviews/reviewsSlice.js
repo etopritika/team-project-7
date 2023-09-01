@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   createOwnReview,
+  deleteOwnReview,
   fetchOwnReview,
   fetchReviews,
+  updateOwnReview,
 } from './reviewsOperations';
 
 const handlePending = state => {
@@ -47,16 +49,40 @@ const reviewsSlice = createSlice({
           ...state,
           isLoading: false,
           error: null,
-          items: [...state.items, action.payload],
+          items: state.items
+            ? [...state.items, action.payload]
+            : [action.payload],
+          ownReview: action.payload,
         };
       })
       .addCase(fetchOwnReview.pending, handlePending)
       .addCase(fetchOwnReview.rejected, handleRejected)
       .addCase(fetchOwnReview.fulfilled, (state, action) => {
         return {
+          ...state,
+          isLoading: false,
+          error: null,
+          items: [...state.items, action.payload],
+          ownReview: action.payload,
+        };
+      })
+      .addCase(updateOwnReview.pending, handlePending)
+      .addCase(updateOwnReview.rejected, handleRejected)
+      .addCase(updateOwnReview.fulfilled, (state, action) => {
+        return {
+          ...state,
           isLoading: false,
           error: null,
           ownReview: action.payload,
+        };
+      })
+      .addCase(deleteOwnReview.pending, handlePending)
+      .addCase(deleteOwnReview.rejected, handleRejected)
+      .addCase(deleteOwnReview.fulfilled, (state, action) => {
+        return {
+          isLoading: false,
+          error: null,
+          ownReview: { text: '', rating: 1 },
         };
       });
   },

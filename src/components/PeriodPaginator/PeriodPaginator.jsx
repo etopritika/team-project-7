@@ -16,7 +16,7 @@ export const PeriodPaginator = ({ activePage }) => {
 
     const newVisibleDate = addDays(visibleDate, 1);
     setVisibleDate(newVisibleDate);
-    navigate(`/user/calendar/day/${format(newVisibleDate, 'ddMMMyyyy')}`);
+    navigate(`/user/calendar/day/${format(newVisibleDate, 'ddMMMMyyyy')}`);
   };
 
   const handlePrevDay = () => {
@@ -24,7 +24,7 @@ export const PeriodPaginator = ({ activePage }) => {
 
     const newVisibleDate = subDays(visibleDate, 1);
     setVisibleDate(newVisibleDate);
-    navigate(`/user/calendar/day/${format(newVisibleDate, 'ddMMMyyyy')}`);
+    navigate(`/user/calendar/day/${format(newVisibleDate, 'ddMMMMyyyy')}`);
   };
 
   const handleNextMonth = () => {
@@ -47,7 +47,7 @@ export const PeriodPaginator = ({ activePage }) => {
     <div className={styles.wrapper}>
       {activePage === 'month' && (
         <>
-          <div className={styles.name_container}>
+          <div className={styles.name_container_month}>
             <h1 className={styles.name}>{format(visibleDate, ' MMM yyyy')}</h1>
           </div>
           <div className={styles.buttons_container}>
@@ -83,7 +83,7 @@ export const PeriodPaginator = ({ activePage }) => {
 
       {activePage === 'day' && (
         <>
-          <div className={styles.name_container}>
+          <div className={styles.name_container_day}>
             <h1 className={styles.name}>{format(visibleDate, 'd MMM yyyy')}</h1>
           </div>
           <div className={styles.buttons_container}>

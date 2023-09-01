@@ -1,17 +1,11 @@
 
 
 .month_container {
-    width: 100%;
-    padding: 12px 20px 20px;
-
-    @media screen and (min-width: 768px) {
-    padding: 16px 32px 32px;
-}
-
-@media screen and (min-width: 768px) {
+  
+@media screen and (min-width: 1440px) {
 
 
-    padding: 16px 32px 32px;
+    padding-left:32px;
 }
 
 }

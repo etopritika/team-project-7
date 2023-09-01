@@ -109,6 +109,30 @@ input[type='radio'] {
   }
 }
 
+.feedbackFormEditSendBtn {
+  display: block;
+  width: 198px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: var(--main-blue-color);
+  color: var(--white-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .feedbackFormEditSendBtn {
+    width: 100%;
+    max-width: 198px;
+    height: 42px;
+  }
+}
+
 .feedbackFormCancelBtn {
   display: block;
   width: 198px;
@@ -151,6 +175,7 @@ input[type='radio'] {
   border-radius: 50%;
   border: none;
   background: var(--btn-edit-feedback);
+  cursor: pointer;
 }
 
 .feedbackFormDeleteBtn {
@@ -159,6 +184,7 @@ input[type='radio'] {
   border-radius: 50%;
   border: none;
   background: rgba(234, 61, 101, 0.2);
+  cursor: pointer;
 }
 
 .invalidFeedback {

@@ -1,126 +1,132 @@
-
+/* CalendarTable.module.css */
 @import '../../../vars.css';
-  
 
-  .calendar-wrapper {
-    margin-top: 20px; 
-    
-        
-       
-        background-color: rgba(220, 227, 229, 0.8);
-        width: 100%;
-        border: 1px solid rgba(220, 227, 229, 0.8);
-        border-radius: 8px;
-        overflow: hidden;
-  
-  }
-  
+.calendar-wrapper {
+  margin-top: 20px;
+  width: 100%;
+}
 
-  .selected-day {
-display: none;
-  }
-  
+.selected-day {
+  display: none;
+}
 
-  .calendar-link {
-    text-decoration: none;  
-  }
+.calendar-link {
+  text-decoration: none;
+}
 
-  .calendar-link-content {
-        min-width: 100%;
-        min-height: 94px;
-        padding: 8px 2px 2px;
-        background-color: rgb(255, 255, 255);
-        color: rgba(220, 227, 229, 0.8);
+.calendar-link-content {
+  min-width: 100%;
+  min-height: 94px;
+  background-color: var(--white-color);
+  border: 1px solid var(--auth-bg-color);
 
-
-        @media screen and (min-width: 768px) {
-
+  @media screen and (min-width: 768px) {
     min-height: 144px;
     padding: 4px;
-}
+  }
 
-@media screen and (min-width: 1440px) {
-
-    min-height: 104px;
+  @media screen and (min-width: 1440px) {
+    min-height: 125px;
     padding-left: 8px;
     padding-right: 8px;
+  }
 }
 
+.calendar-day-task {
+  list-style: none;
+  margin-top: 4px;
+}
 
-    }
+.todo-items {
+  position: relative;
+  background-color: var(--bg-color-to-do);
+  color: var(--main-blue-color);
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
 
-
-
-  .calendar-day-content {
-
-        list-style: none;
-        margin-top: 4px;
-
-  }
-  
-
-  .todo-text {
- 
-        position: relative;
-        background-color: rgb(220, 235, 247);
-        color: rgb(62, 133, 243);
-        border-radius: 8px;
-        font-size: 10px;
-        font-weight: 700;
-        padding: 4px 10px;
-
-        @media screen and (min-width: 768px) {
-
+  @media screen and (min-width: 768px) {
     font-size: 14px;
+  }
 }
-    }
-  
-    .todo-text:not(:last-child) {
-        margin-bottom: 2px;
-    }
-  
 
-  .date-content {
-   
-    padding: 8px 4px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+.todo-text:not(:last-child) {
+  margin-bottom: 2px;
+}
 
-        color: rgb(16, 15, 15);
-        border-radius: 6px;
-        width: 100%;
-        height: 100%;
-  
+.date-content {
+  padding: 8px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
 
-        @media screen and (min-width: 768px){
-
+  @media screen and (min-width: 768px) {
     border-radius: 8px;
+  }
 }
-  }
-  
 
-  .custom-calendar {
-    border: none; 
-  }
-
+.custom-calendar {
+  border: none;
+}
 
 .react-calendar .react-calendar__tile {
-    border: none;
-  }
-  
-
-  .custom-tile {
-
-    background-color: #f0f0f0; 
-  }
-  
- 
-  
+  border: none;
+}
 
 .react-calendar__tile--now {
-    background-color: transparent;
-    color: transparent; 
-    pointer-events: none; 
+  background-color: transparent;
+  color: transparent;
+  pointer-events: none;
+}
+
+.date-content-container-number {
+  width: 20px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    width: 27px;
+    height: 26px;
   }
-  
+}
+
+.date-content-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-text-color);
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1667;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    border-radius: 8px;
+  }
+}
+
+.current-date {
+  background-color: var(--nav-color);
+  color: white;
+  border-radius: 6px;
+
+  @media screen and (min-width: 768px) {
+    border-radius: 8px;
+  }
+}
+
+button {
+  border: 1px solid rgba(220, 227, 229, 0.6);
+}
+
+abbr {
+  display: none;
+}
