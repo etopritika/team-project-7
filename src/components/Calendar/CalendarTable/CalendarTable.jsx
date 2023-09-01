@@ -2,17 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './CalendarTable.module.css';
 import Calendar from 'react-calendar';
+import { format } from 'date-fns';
+import { useParams } from "react-router-dom";
 
 export default function CalendarTable() {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [/*selectedDate*/, setSelectedDate] = useState(null);
+  const {current} = useParams();
 
   const dateClickHandler = date => {
     setSelectedDate(date);
   };
 
-  const tileContent = ({ date }) => (
-    <Link
-      to={`/user/calendar/day/${date.toISOString()}`}
+  const tileContent = ({ date }) => {
+    const currentDay = format(date, 'ddMMMMyyyy');
+    return(<Link
+      to={`/user/calendar/day/${currentDay}`}
       className={styles['calendar-link']}
     >
       <div className={styles['calendar-link-content']}>
@@ -24,14 +28,13 @@ export default function CalendarTable() {
           <li className={styles['todo-text']}>To Do</li>
         </ul>
       </div>
-    </Link>
-  );
-
+    </Link>)
+  };
   return (
     <div className={styles['calendar-container']}>
       <div className={styles['calendar-wrapper']}>
         <Calendar
-          value={selectedDate}
+          value={current}
           onClickDay={dateClickHandler}
           tileClassName={() => styles['custom-tile']}
           tileContent={tileContent}
