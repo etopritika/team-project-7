@@ -18,10 +18,10 @@ export default function CalendarTable() {
   };
 
  const tileContent = ({ date }) => {
-    const currentDay = format(date, 'MMMMyyyy');
+    const currentDay = format(date, 'ddMMMMyyyy');
     return (
       <Link
-        to={/user/calendar/day/${currentDay}}
+        to={`/user/calendar/day/${currentDay}`}
         className={styles['calendar-link']}
       >
         <div className={styles['calendar-link-content']}>
