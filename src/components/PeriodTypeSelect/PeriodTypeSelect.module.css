@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 32px;
+    /* margin-left: 32px; */
 }
 
 @media screen and (min-width: 768px) {
     .periodTypeSelectMarkUp {
         justify-content: flex-start;
-        margin-right: 32px;
+        /* margin-right: 32px; */
     }
 }
 
