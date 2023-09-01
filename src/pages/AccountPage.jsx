@@ -4,10 +4,6 @@ import { UserForm } from '../components/Forms/UserForm/UserForm';
 export default function AccountPage() {
   return (
     <main>
-      <span>AccountPage</span>
-      {/* <Helmet>
-        <title>Account</title>
-      </Helmet> */}
       <UserForm />
     </main>
   );
