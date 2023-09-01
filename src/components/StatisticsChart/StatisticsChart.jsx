@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import './calendarStyles.css';
+import './statistickChart.css';
 import BarChart from './barChart';
+import { PeriodPaginator } from '../PeriodPaginator/PeriodPaginator';
 
 const StatisticsChart = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -68,91 +67,74 @@ const StatisticsChart = () => {
   //   totalEvents > 0 ? (eventsOnSelectedDate.length / totalEvents) * 100 : 0;
 
   return (
-    <div className="app">
-      <h1>Statistics</h1>
-      <div className="container">
-        <div className="calendar-container">
-          <Calendar
-            value={selectedDate}
-            onClickDay={dateClickHandler}
-            tileClassName={({ date }) =>
-              selectedDate &&
-              date.toDateString() === selectedDate.toDateString()
-                ? 'selected'
-                : events.some(
-                    event => event.date.toDateString() === date.toDateString()
-                  )
-                ? 'event-marked'
-                : ''
-            }
-          />
-        </div>
-        <div className="event-container">
-          {selectedDate && (
-            <div className="event-form">
-              <h2>Create Event</h2>
-              <p>Selected Date: {selectedDate.toDateString()}</p>
-              <input
-                type="text"
-                placeholder="Event Name"
-                value={eventName}
-                onChange={eventUpdateHandler}
-              />
-              <button className="create-btn" onClick={createEvent}>
-                Click Here to Add Event
-              </button>
-            </div>
-          )}
-          {events.length > 0 && selectedDate && (
-            <div className="event-list">
-              <h2>My Created Event List</h2>
-              <div className="event-cards">
-                {events.map(event => {
-                  if (
-                    event.date.toDateString() === selectedDate?.toDateString()
-                  ) {
-                    return (
-                      <div key={event.id} className="event-card">
-                        <div className="event-card-header">
-                          <span className="event-date">
-                            {event.date.toDateString()}
-                          </span>
-                          <div className="event-actions">
-                            <button
-                              className="update-btn"
-                              onClick={() =>
-                                updateEvent(event.id, prompt('Enter New Title'))
-                              }
-                            >
-                              Update Event
-                            </button>
-                            <button
-                              className="delete-btn"
-                              onClick={() => deleteEvent(event.id)}
-                            >
-                              Delete Event
-                            </button>
-                          </div>
-                        </div>
-                        <div className="event-card-body">
-                          <p className="event-title">{event.title}</p>
-                        </div>
-                      </div>
-                    );
-                  } else {
-                    return null;
-                  }
-                })}
-              </div>
-            </div>
-          )}
-          <BarChart
-            events={events}
-            selectedDate={selectedDate}
-            updateEvent={updateEvent}
-          />
-        </div>
+    <div className="event-container">
+      <div className="dayCont">
+        <p className="statisticsByDay">By Day</p>
+        <p className="statisticsByMonth">By Month</p>
       </div>
+      <PeriodPaginator />
+
+      {selectedDate && (
+        <div className="event-form">
+          <h2>Create Event</h2>
+          <p>Selected Date: {selectedDate.toDateString()}</p>
+          <input
+            type="text"
+            placeholder="Event Name"
+            value={eventName}
+            onChange={eventUpdateHandler}
+          />
+          <button className="create-btn" onClick={createEvent}>
+            Click Here to Add Event
+          </button>
+        </div>
+      )}
+      {events.length > 0 && selectedDate && (
+        <div className="event-list">
+          <h2>My Created Event List</h2>
+          <div className="event-cards">
+            {events.map(event => {
+              if (event.date.toDateString() === selectedDate?.toDateString()) {
+                return (
+                  <div key={event.id} className="event-card">
+                    <div className="event-card-header">
+                      <span className="event-date">
+                        {event.date.toDateString()}
+                      </span>
+                      <div className="event-actions">
+                        <button
+                          className="update-btn"
+                          onClick={() =>
+                            updateEvent(event.id, prompt('Enter New Title'))
+                          }
+                        >
+                          Update Event
+                        </button>
+                        <button
+                          className="delete-btn"
+                          onClick={() => deleteEvent(event.id)}
+                        >
+                          Delete Event
+                        </button>
+                      </div>
+                    </div>
+                    <div className="event-card-body">
+                      <p className="event-title">{event.title}</p>
+                    </div>
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </div>
+        </div>
+      )}
+      <BarChart
+        events={events}
+        selectedDate={selectedDate}
+        updateEvent={updateEvent}
+      />
     </div>
   );
 };

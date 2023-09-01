@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './barChart.css';
 
 const BarChart = ({ events, selectedDate, updateEvent }) => {
