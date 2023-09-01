@@ -26,6 +26,14 @@
 }
 .SaveChangesBtn:hover,
 .SaveChangesBtn:focus {
-  /* transform: var(--transition); */
   background-color: var(--hover-blue);
+}
+
+.disabled {
+  background-color: #d3d3d3;
+}
+
+.disabled:hover,
+.disabled:focus {
+  background-color: #d3d3d3;
 }

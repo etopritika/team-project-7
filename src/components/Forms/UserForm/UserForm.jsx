@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { IoIosArrowDown } from 'react-icons/io';
+import { AiFillPlusCircle } from 'react-icons/ai';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/selectors';
@@ -18,17 +19,16 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './custom-datepicker.css';
 
-// import { Notify } from 'notiflix';
-
 const userInfoKeys = ['name', 'email', 'birthday', 'phone', 'telegram'];
 
 export function UserForm() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUser);
-  
-  const [/*previewImageUrl*/, setPreviewImageUrl] = useState(null);
+  const [isFormChanged /*setIsFormChanged*/] = useState(false);
+
+  const [, /*previewImageUrl*/ setPreviewImageUrl] = useState(null);
   const [file, setFile] = useState(null);
-  
+
   const initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
@@ -39,7 +39,6 @@ export function UserForm() {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    // console.log(values);
     const formData = new FormData();
     userInfoKeys.forEach(key => {
       if (!values[key]) {
@@ -56,13 +55,8 @@ export function UserForm() {
       formData.append('avatar', file);
     }
     try {
-      // console.log(values);
       dispatch(editData(formData));
-      // Notify.success('Success. Info updated.');
-    } catch (error) {
-      // console.log(error);
-      // Notify.error('Error. Something gone wrong.');
-    }
+    } catch (error) {}
     resetForm();
   };
 
@@ -88,7 +82,7 @@ export function UserForm() {
         onSubmit={handleSubmit}
         enableReinitialize={true}
       >
-        {({ errors, touched, values, setFieldValue, setTouched }) => {
+        {({ errors, touched, values, dirty, setFieldValue, setTouched }) => {
           return (
             <Form>
               <div className={css.user__avatar_container}>
@@ -109,22 +103,38 @@ export function UserForm() {
                     </svg>
                   )}
                   <div className={css.avatar_upload_container}>
-                  <Field
-                    id="avatar-upload"
-                    name="avatar"
-                    type="file"
-                    accept="image/*"
-                    onChange={e => handleAvatarChange(e, setFieldValue)}
-                    style={{ display: 'none' }}
-                  />
-                  <label
-                    htmlFor="avatar-upload"
-                    className={css.avatar_upload_btn}
-                  ></label>
+                    <Field
+                      id="avatar-upload"
+                      name="avatar"
+                      type="file"
+                      accept="image/*"
+                      onChange={e => handleAvatarChange(e, setFieldValue)}
+                      style={{ display: 'none' }}
+                    />
+                    <label
+                      htmlFor="avatar-upload"
+                      className={css.avatar_upload_btn}
+                    >
+                      <div className={css.icons}>
+                        <input
+                          type="file"
+                          id="avatar"
+                          name="avatar"
+                          accept="image/*,.png,.jpg,.gif,.web"
+                          onChange={e => {
+                            const file = e.target.files[0];
+                            console.log(file);
+                            setFile(file);
+                          }}
+                          style={{ display: 'none' }}
+                        />
+                        <AiFillPlusCircle
+                          className={`${css.icon} ${css.myCustomIcon}`}
+                        />
+                      </div>
+                    </label>
+                  </div>
                 </div>
-                </div>
-
-                
                 <h3 className={css.user__name}>{userInfo.name || 'user'}</h3>
                 <p className={css.user__role}>User</p>
               </div>
@@ -146,6 +156,29 @@ export function UserForm() {
                     />
                   </div>
                 </label>
+
+                <label htmlFor="phone" className={css.user_form__label}>
+                  <p className={css.labelText}>Phone</p>
+                  <Field
+                    id="phone"
+                    name="phone"
+                    type="text"
+                    placeholder="Enter your phone"
+                    className={`${css.user_form_input} ${
+                      touched.phone && !errors.phone
+                        ? css.isValid
+                        : css.isInvalid
+                    }`}
+                  />
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="phone"
+                      component="div"
+                      className={css.invalidFeedback}
+                    />
+                  </div>
+                </label>
+
                 <label htmlFor="birthday" className={css.label}>
                   <p className={css.labelText}>Birthday</p>
                   <label className={css.birthday__label}>
@@ -169,7 +202,7 @@ export function UserForm() {
                       }}
                       maxDate={new Date()}
                     />
-                    <IoIosArrowDown className={css.custom__datepicker__arrow}/>
+                    <IoIosArrowDown className={css.custom__datepicker__arrow} />
                   </label>
                   <div className={css.feedback}>
                     <ErrorMessage
@@ -179,43 +212,7 @@ export function UserForm() {
                     />
                   </div>
                 </label>
-                <label htmlFor="email" className={css.label}>
-                  <p className={css.labelText}>Email</p>
-                  <Field
-                    id="email"
-                    name="email"
-                    type="email"
-                    className={css.user_form_input}
-                  />
-                  <div className={css.feedback}>
-                    <ErrorMessage
-                      name="email"
-                      component="div"
-                      className={css.invalidFeedback}
-                    />
-                  </div>
-                </label>
-                <label htmlFor="phone" className={css.user_form__label}>
-                  <p className={css.labelText}>Phone</p>
-                  <Field
-                    id="phone"
-                    name="phone"
-                    type="text"
-                    placeholder="Enter your phone"
-                    className={`${css.user_form_input} ${
-                      touched.phone && !errors.phone
-                        ? css.isValid
-                        : css.isInvalid
-                    }`}
-                  />
-                  <div className={css.feedback}>
-                    <ErrorMessage
-                      name="phone"
-                      component="div"
-                      className={css.invalidFeedback}
-                    />
-                  </div>
-                </label>
+
                 <label htmlFor="telegram" className={css.label}>
                   <p className={css.labelText}>Telegram</p>
                   <Field
@@ -233,7 +230,25 @@ export function UserForm() {
                     />
                   </div>
                 </label>
-                <SaveChangesBtn />
+
+                <label htmlFor="email" className={css.label}>
+                  <p className={css.labelText}>Email</p>
+                  <Field
+                    id="email"
+                    name="email"
+                    type="email"
+                    className={css.user_form_input}
+                  />
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className={css.invalidFeedback}
+                    />
+                  </div>
+                </label>
+
+                <SaveChangesBtn isChanged={!dirty && !isFormChanged} />
               </div>
             </Form>
           );
