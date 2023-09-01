@@ -1,0 +1,126 @@
+
+@import '../../../vars.css';
+  
+
+  .calendar-wrapper {
+    margin-top: 20px; 
+    
+        
+       
+        background-color: rgba(220, 227, 229, 0.8);
+        width: 100%;
+        border: 1px solid rgba(220, 227, 229, 0.8);
+        border-radius: 8px;
+        overflow: hidden;
+  
+  }
+  
+
+  .selected-day {
+display: none;
+  }
+  
+
+  .calendar-link {
+    text-decoration: none;  
+  }
+
+  .calendar-link-content {
+        min-width: 100%;
+        min-height: 94px;
+        padding: 8px 2px 2px;
+        background-color: rgb(255, 255, 255);
+        color: rgba(220, 227, 229, 0.8);
+
+
+        @media screen and (min-width: 768px) {
+
+    min-height: 144px;
+    padding: 4px;
+}
+
+@media screen and (min-width: 1440px) {
+
+    min-height: 104px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+
+    }
+
+
+
+  .calendar-day-content {
+
+        list-style: none;
+        margin-top: 4px;
+
+  }
+  
+
+  .todo-text {
+ 
+        position: relative;
+        background-color: rgb(220, 235, 247);
+        color: rgb(62, 133, 243);
+        border-radius: 8px;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 4px 10px;
+
+        @media screen and (min-width: 768px) {
+
+    font-size: 14px;
+}
+    }
+  
+    .todo-text:not(:last-child) {
+        margin-bottom: 2px;
+    }
+  
+
+  .date-content {
+   
+    padding: 8px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        color: rgb(16, 15, 15);
+        border-radius: 6px;
+        width: 100%;
+        height: 100%;
+  
+
+        @media screen and (min-width: 768px){
+
+    border-radius: 8px;
+}
+  }
+  
+
+  .custom-calendar {
+    border: none; 
+  }
+
+
+.react-calendar .react-calendar__tile {
+    border: none;
+  }
+  
+
+  .custom-tile {
+
+    background-color: #f0f0f0; 
+  }
+  
+ 
+  
+
+.react-calendar__tile--now {
+    background-color: transparent;
+    color: transparent; 
+    pointer-events: none; 
+  }
+  
