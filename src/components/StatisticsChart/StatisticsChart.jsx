@@ -8,9 +8,9 @@ const StatisticsChart = () => {
   const [eventName, setEventName] = useState('');
   const [events, setEvents] = useState([]);
 
-  const dateClickHandler = date => {
-    setSelectedDate(date);
-  };
+  // const dateClickHandler = date => {
+  //   setSelectedDate(date);
+  // };
 
   const eventUpdateHandler = event => {
     setEventName(event.target.value);
