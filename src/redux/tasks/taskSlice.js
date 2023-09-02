@@ -3,7 +3,12 @@ import { fetchTasks } from './taskOperations';
 // , addTask, editTask, deleteTask
 
 const initialState = {
-  items: [],
+  // items: [
+  //   { name: toDo, tasks: [] },
+  //   { name: inProgress, tasks: [] },
+  //   { name: done, tasks: [] },
+  // ],
+  items: { toDo: [], inProgress: [], done: [] },
   isLoading: false,
   error: null,
 };

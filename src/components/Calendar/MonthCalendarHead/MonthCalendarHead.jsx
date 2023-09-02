@@ -12,9 +12,7 @@ const MonthCalendarHead = () => {
     'Sun',
   ]);
 
-
   const handleResize = () => {
-
     const daysOfWeekA = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
     if (window.innerWidth < 768) {
       setDaysOfWeek(daysOfWeekA);
@@ -24,15 +22,15 @@ const MonthCalendarHead = () => {
   };
 
   useEffect(() => {
-    handleResize(); 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <ul className={styles['month-calendar-head']}>
-      {daysOfWeek.map((day, index) => (
-        <li key={index} className={styles['day-of-week-header']}>
+      {daysOfWeek.map(day => (
+        <li key={day} className={styles['day-of-week-header']}>
           {day}
         </li>
       ))}

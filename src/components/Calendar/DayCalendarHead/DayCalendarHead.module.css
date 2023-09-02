@@ -1,0 +1,28 @@
+@import '../../../vars.css';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background-color: var(--white-color);
+  border-radius: 8px;
+  border: 1px solid rgba(var(--placeholder-color), 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 10px 32px;
+  }
+}
+
+.list__btn {
+  color: var(--secondary-text-color);
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 18px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
