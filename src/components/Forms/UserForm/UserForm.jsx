@@ -19,23 +19,47 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './custom-datepicker.css';
 
-const userInfoKeys = ['name', 'email', 'birthday', 'phone', 'telegram'];
+const userInfoKeys = [
+  'name',
+  'email',
+  'birthday',
+  'phone',
+  'telegram',
+  'avatarURL',
+];
 
 export function UserForm() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUser);
-  const [isFormChanged /*setIsFormChanged*/] = useState(false);
 
-  const [, /*previewImageUrl*/ setPreviewImageUrl] = useState(null);
+  const [isFormChanged, setIsFormChanged] = useState(false);
+
+  // const [avatarURL, setAvatarURL] = useState(null);
   const [file, setFile] = useState(null);
 
+  // const initialUserInfo = {
+  //   phone: userInfo.phone || '',
+  //   telegram: userInfo.telegram || '',
+  //   name: userInfo.name,
+  //   email: userInfo.email,
+  //   birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
+  //   avatarURL: userInfo.avatar,
+  // };
+  // const initialUserInfo = {
+  //   phone: userInfo.phone || '',
+  //   telegram: userInfo.telegram || '',
+  //   name: userInfo.name,
+  //   email: userInfo.email,
+  //   birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
+  //   avatarURL: userInfo.avatar || null, // Додайте null як початкове значення.
+  // };
   const initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
     name: userInfo.name,
     email: userInfo.email,
     birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
-    avatarURL: userInfo.avatarURL,
+    avatarURL: userInfo.avatar || null, // Додайте null як початкове значення.
   };
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -49,29 +73,16 @@ export function UserForm() {
         formData.append('birthday', birthday);
         return;
       }
+      console.log('-------------->', values);
       formData.append(key, values[key]);
     });
     if (file) {
-      formData.append('avatar', file);
+      formData.append('avatarURL', file);
     }
     try {
       dispatch(editData(formData));
     } catch (error) {}
     resetForm();
-  };
-
-  const handleAvatarChange = (e, setFieldValue) => {
-    const userAvatarPreviewImg = e.target.files[0];
-    setFile(userAvatarPreviewImg);
-    const reader = new FileReader();
-    const blob = new Blob([userAvatarPreviewImg], {
-      type: userAvatarPreviewImg.type,
-    });
-    reader.readAsDataURL(blob);
-    reader.onload = () => {
-      setPreviewImageUrl(reader.result);
-      setFieldValue('avatar-upload', !!userAvatarPreviewImg);
-    };
   };
 
   return (
@@ -92,7 +103,7 @@ export function UserForm() {
                       src={
                         typeof userInfo.avatarURL === 'string'
                           ? userInfo.avatarURL
-                          : URL.createObjectURL(userInfo.avatarURL)
+                          : URL.createObjectURL(userInfo.avatar)
                       }
                       alt="avatar"
                       className={css.circularAvatar}
@@ -103,31 +114,45 @@ export function UserForm() {
                     </svg>
                   )}
                   <div className={css.avatar_upload_container}>
+                    {/* <Field
+                      id="avatar-upload"
+                      name="avatar"
+                      type="file"
+                      accept="image/*"
+                      // onChange={e => {
+                      //   const file = e.target.files[0];
+                      //   setFile(file);
+                      //   setIsFormChanged(true);
+                      //   setFieldValue('avatarURL', URL.createObjectURL(file)); // Оновлюємо значення avatarURL
+                      // }}
+                      onChange={e => {
+                        const file = e.target.files[0];
+                        setFile(file);
+                        setIsFormChanged(true);
+                        setFieldValue('avatarURL', URL.createObjectURL(file)); // Оновлюємо значення avatarURL
+                      }}
+                      style={{ display: 'none' }}
+                    /> */}
+
                     <Field
                       id="avatar-upload"
                       name="avatar"
                       type="file"
                       accept="image/*"
-                      onChange={e => handleAvatarChange(e, setFieldValue)}
+                      onChange={e => {
+                        const file = e.target.files[0];
+                        setFile(file);
+                        setIsFormChanged(true);
+                        setFieldValue('avatarURL', URL.createObjectURL(file));
+                      }}
                       style={{ display: 'none' }}
                     />
+
                     <label
                       htmlFor="avatar-upload"
                       className={css.avatar_upload_btn}
                     >
                       <div className={css.icons}>
-                        <input
-                          type="file"
-                          id="avatar"
-                          name="avatar"
-                          accept="image/*,.png,.jpg,.gif,.web"
-                          onChange={e => {
-                            const file = e.target.files[0];
-                            console.log(file);
-                            setFile(file);
-                          }}
-                          style={{ display: 'none' }}
-                        />
                         <AiFillPlusCircle
                           className={`${css.icon} ${css.myCustomIcon}`}
                         />
