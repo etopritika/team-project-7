@@ -94,9 +94,9 @@
   height: 18px;
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 18px;
-  color: var(--secondary-text-color);
+  color: var(--input-form-text);
   margin-bottom: 8px;
 }
 
@@ -107,7 +107,7 @@
   height: 14px;
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 14px;
   color: var(--secondary-text-color);
   flex: none;
@@ -232,8 +232,8 @@ input[type='text'].is_invalid {
 }
 
 .label {
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--label-user-page);
   margin-bottom: 0px;

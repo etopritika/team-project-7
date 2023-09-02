@@ -41,6 +41,7 @@
   --input-background-color: #f6f6f6;
   --input-form-text: #343434;
   --btn-close-feedback: #111111;
+  --color-border-form: #E3F3FF;
 }
 
 html[data-theme='dark'] {
@@ -76,4 +77,9 @@ html[data-theme='dark'] {
   --input-form-text: #fff;
   --btn-close-feedback: #fff;
   --btn-edit-feedback: #353647;
+
+
+/* Statistic */
+--color-border-form: rgba(227, 243, 255, 0.15);
+
 }

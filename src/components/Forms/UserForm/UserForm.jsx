@@ -140,7 +140,7 @@ export function UserForm() {
               </div>
               <div className={css.user_form}>
                 <label className={css.label}>
-                  <p className={css.labelText}>Username</p>
+                  <p className={css.labelText}>User Name</p>
                   <Field
                     id="name"
                     name="name"
@@ -157,7 +157,7 @@ export function UserForm() {
                   </div>
                 </label>
 
-                <label htmlFor="phone" className={css.user_form__label}>
+                <label htmlFor="phone" className={css.label}>
                   <p className={css.labelText}>Phone</p>
                   <Field
                     id="phone"
@@ -195,7 +195,7 @@ export function UserForm() {
                       yearDropdownItemNumber={100}
                       scrollableYearDropdown
                       selected={new Date(values.birthday)}
-                      dateFormat="dd-MM-yyyy"
+                      dateFormat="dd/MM/yyyy"
                       onChange={e => {
                         setFieldValue('birthday', e);
                         setTouched({ ...touched, birthday: true });
@@ -213,13 +213,13 @@ export function UserForm() {
                   </div>
                 </label>
 
-                <label htmlFor="telegram" className={css.label}>
-                  <p className={css.labelText}>Telegram</p>
+                <label htmlFor="Skype" className={css.label}>
+                  <p className={css.labelText}>Skype</p>
                   <Field
-                    id="telegram"
-                    name="telegram"
+                    id="skype"
+                    name="skype"
                     type="text"
-                    placeholder="Add a telegram nick"
+                    placeholder="Add a skype number"
                     className={css.user_form_input}
                   />
                   <div className={css.feedback}>
