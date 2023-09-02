@@ -130,3 +130,10 @@ button {
 abbr {
   display: none;
 }
+
+
+
+.other-month {
+  opacity: 0.5; 
+  pointer-events: none;
+}
