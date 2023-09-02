@@ -1,3 +1,8 @@
+// CalendarToolbar.js
+
+// CalendarToolbar.js
+
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { PeriodPaginator } from '../../PeriodPaginator/PeriodPaginator';
 import { PeriodTypeSelect } from '../../PeriodTypeSelect/PeriodTypeSelect';
@@ -8,11 +13,10 @@ export default function CalendarToolbar() {
 
   const activePage = () => {
     let active;
-    if(location.pathname.includes("month")){
-      active = 'month'
-    }
-    else if(location.pathname.includes("day")){
-      active = 'day'
+    if (location.pathname.includes('month')) {
+      active = 'month';
+    } else if (location.pathname.includes('day')) {
+      active = 'day';
     }
     return active;
   };
@@ -23,5 +27,4 @@ export default function CalendarToolbar() {
       <PeriodTypeSelect activePage={activePage()} />
     </div>
   );
-};
-
+}

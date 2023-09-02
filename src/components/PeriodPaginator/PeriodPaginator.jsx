@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+// CalendarToolbar.js
+
+// PeriodPaginator.js
+
+import React, { useState, useEffect } from 'react';
 import { format, subDays, addDays, addMonths, subMonths } from 'date-fns';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import styles from './PeriodPaginator.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useDate } from 'hooks/useDate';
+import { useLocation } from 'react-router-dom'; 
 
 export const PeriodPaginator = ({ activePage }) => {
   const [activeBtn, setActiveBtn] = useState('');
   const [visibleDate, setVisibleDate] = useState(useDate());
 
   const navigate = useNavigate();
-  
+  const location = useLocation(); 
+
+  useEffect(() => {
+    const currentDateFromUrl = new Date(location.pathname.split('/').pop());
+    if (!isNaN(currentDateFromUrl.getTime())) {
+      setVisibleDate(currentDateFromUrl);
+    }
+  }, [location]); 
+
   const handleNextDay = () => {
     setActiveBtn('next');
 
