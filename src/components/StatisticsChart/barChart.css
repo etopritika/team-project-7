@@ -74,7 +74,7 @@
   position: absolute;
 }
 .tasks_text {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -107,7 +107,7 @@
 }
 
 .bar-label {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
@@ -120,7 +120,7 @@
 }
 
 .nameBar {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -132,7 +132,7 @@
   margin-bottom: -20px;
 }
 .nameBar_progress {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -144,7 +144,7 @@
   margin-bottom: -20px;
 }
 .nameBar_done {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -160,6 +160,7 @@
   justify-content: center;
   margin-top: -28px;
   flex-direction: column-reverse;
+  color:var(--primary-text-color);
 }
 
 .x-axis span {
@@ -200,7 +201,7 @@
   align-items: center;
   width: 860px;
   height: 440px;
-  border: 0.8px solid #e3f3ff;
+  border: 0.8px solid var(--color-border-form);
   border-radius: 29px;
   margin-top: 142px;
   margin-bottom: 104px;

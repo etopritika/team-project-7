@@ -3,7 +3,7 @@
   display: flex;
   height: 624px;
   justify-content: center;
-  background-color: #fff;
+  background-color: var(--background-user-page);
   margin-left: 32px;
   margin-right: 32px;
   border-radius: 16px;
@@ -20,7 +20,7 @@
   color: #ffd2dd;
 }
 .statisticsByDay {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -30,7 +30,7 @@
   line-height: 18px;
 }
 .statisticsByMonth {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
