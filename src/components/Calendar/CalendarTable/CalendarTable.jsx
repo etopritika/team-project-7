@@ -5,12 +5,13 @@ import Calendar from 'react-calendar';
 import { format, isToday, addMonths, subMonths } from 'date-fns';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import tasks from "../CalendarTable/tasks.json"
 
 export default function CalendarTable() {
   const [, /*selectedDate*/ setSelectedDate] = useState(null);
   const { current } = useParams();
 
-  const tasks = useSelector(state => state.tasks.items);
+  // const tasks = useSelector(state => state.tasks.items);
 
   const dateClickHandler = date => {
     setSelectedDate(date);
