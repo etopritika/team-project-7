@@ -27,7 +27,7 @@ function Header({ openBurgerMenu, isSidebarOpen }) {
   };
 
   useEffect(() => {
-    const path = location.pathname.split('/').pop();
+    const path = location.pathname;
     setCurrentPage(path);
   }, [location.pathname]);
 
