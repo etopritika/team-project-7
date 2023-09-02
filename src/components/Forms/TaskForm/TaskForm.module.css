@@ -70,21 +70,38 @@
 
 .radioBtnContainer {
   margin-bottom: 32px;
+  display: flex;
+  /* gap: 16px; */
 }
 
 .radioLabel {
-  margin-right: 16px;
+  position: relative;
+  padding-right: 16px;
+  /* display: flex; */
+  align-items: center;
   color: var(--secondary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.28;
+
+  cursor: pointer;
 }
 
 .radioInput {
   margin-right: 4px;
+  cursor: pointer;
 }
+
+/* .radioSpan{
+  position: absolute;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: orangered;
+} */
 
 .taskFormBtnContainer {
   display: flex;
@@ -93,6 +110,10 @@
 }
 
 .addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   width: 178px;
   height: 48px;
   border-radius: 8px;
@@ -120,4 +141,10 @@
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+}
+
+
+.btnIcon{
+  width: 18px;
+  height: 18px;
 }
