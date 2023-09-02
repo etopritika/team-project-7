@@ -82,7 +82,7 @@ export default function FeedbackForm({ toggleModal }) {
               className={styles.feedbackFormCloseBtn}
               onClick={toggleModal}
             >
-              <IoCloseOutline size={24} />
+              <IoCloseOutline size={24} className={styles.close} />
             </button>
             <h3 className={styles.feedbackFormSubtitle}>Rating</h3>
             {[...Array(5)].map((star, index) => {
@@ -95,7 +95,7 @@ export default function FeedbackForm({ toggleModal }) {
                     name="rating"
                     value={currentRating}
                     onClick={() => setRating(currentRating)}
-                    className="inputRadio"
+                    className={styles.inputRadio}
                   />
                   <FaStar
                     size={24}
@@ -121,14 +121,14 @@ export default function FeedbackForm({ toggleModal }) {
                       className={styles.feedbackFormEditBtn}
                       onClick={handleEditBtn}
                     >
-                      <SlPencil size={16} color="#3E85F3" />
+                      <SlPencil size={16} />
                     </button>
                     <button
                       type="button"
                       className={styles.feedbackFormDeleteBtn}
                       onClick={handleDeleteBtn}
                     >
-                      <BiTrash size={16} color="#EA3D65" />
+                      <BiTrash size={16} />
                     </button>
                   </>
                 )}
