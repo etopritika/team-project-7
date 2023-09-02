@@ -34,32 +34,15 @@ export function UserForm() {
 
   const [isFormChanged, setIsFormChanged] = useState(false);
 
-  // const [avatarURL, setAvatarURL] = useState(null);
   const [file, setFile] = useState(null);
 
-  // const initialUserInfo = {
-  //   phone: userInfo.phone || '',
-  //   telegram: userInfo.telegram || '',
-  //   name: userInfo.name,
-  //   email: userInfo.email,
-  //   birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
-  //   avatarURL: userInfo.avatar,
-  // };
-  // const initialUserInfo = {
-  //   phone: userInfo.phone || '',
-  //   telegram: userInfo.telegram || '',
-  //   name: userInfo.name,
-  //   email: userInfo.email,
-  //   birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
-  //   avatarURL: userInfo.avatar || null, // Додайте null як початкове значення.
-  // };
   const initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
     name: userInfo.name,
     email: userInfo.email,
     birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
-    avatarURL: userInfo.avatar || null, // Додайте null як початкове значення.
+    avatarURL: userInfo.avatar || null,
   };
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -73,14 +56,14 @@ export function UserForm() {
         formData.append('birthday', birthday);
         return;
       }
-      console.log('-------------->', values);
       formData.append(key, values[key]);
     });
     if (file) {
-      formData.append('avatarURL', file);
+      formData.append('avatar', file);
     }
     try {
       dispatch(editData(formData));
+      console.log(formData);
     } catch (error) {}
     resetForm();
   };
@@ -114,36 +97,21 @@ export function UserForm() {
                     </svg>
                   )}
                   <div className={css.avatar_upload_container}>
-                    {/* <Field
-                      id="avatar-upload"
-                      name="avatar"
-                      type="file"
-                      accept="image/*"
-                      // onChange={e => {
-                      //   const file = e.target.files[0];
-                      //   setFile(file);
-                      //   setIsFormChanged(true);
-                      //   setFieldValue('avatarURL', URL.createObjectURL(file)); // Оновлюємо значення avatarURL
-                      // }}
-                      onChange={e => {
-                        const file = e.target.files[0];
-                        setFile(file);
-                        setIsFormChanged(true);
-                        setFieldValue('avatarURL', URL.createObjectURL(file)); // Оновлюємо значення avatarURL
-                      }}
-                      style={{ display: 'none' }}
-                    /> */}
-
                     <Field
                       id="avatar-upload"
                       name="avatar"
                       type="file"
                       accept="image/*"
-                      onChange={e => {
+                      onChange={async e => {
                         const file = e.target.files[0];
                         setFile(file);
-                        setIsFormChanged(true);
                         setFieldValue('avatarURL', URL.createObjectURL(file));
+                        const formData = new FormData();
+                        formData.append('avatar', file);
+                        try {
+                          dispatch(editData(formData));
+                        } catch {}
+                        setIsFormChanged(false);
                       }}
                       style={{ display: 'none' }}
                     />

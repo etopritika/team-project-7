@@ -58,6 +58,7 @@
   -o-object-fit: cover;
   object-fit: cover;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 @media screen and (min-width: 767px) {
   .user__avatar {
