@@ -1,24 +1,64 @@
-.event-container {
-  width: 1020px;
-  display: flex;
-  height: 624px;
-  justify-content: center;
-  background-color: #fff;
-  margin-left: 32px;
-  margin-right: 32px;
-  border-radius: 16px;
+/* Адаптивність для розмірів 375px */
+@media (min-width: 375px) {
+  .event-container {
+    width: 335px;
+    border-radius: 16px;
+    margin-top: 64px;
+    margin-bottom: 40px;
+    height: 684px;
+    background-color: #fff;
+  }
+  .dayCont {
+    margin-left: 32px;
+    position: absolute;
+    display: flex;
+    margin-top: 75px;
+  }
 }
 
-.dayCont {
-  margin-left: 600px;
-  position: absolute;
-  display: flex;
-  margin-top: 26px;
-  margin-top: 64px;
+/* Адаптивність для розмірів 768px */
+@media (min-width: 768px) {
+  .event-container {
+    width: 704px;
+    height: 854px;
+    margin-top: 62px;
+    margin-bottom: 34px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 16px;
+  }
+  .dayCont {
+    margin-left: 475px;
+    position: absolute;
+    display: flex;
+    margin-top: 95px;
+  }
 }
+
+@media (min-width: 1240px) {
+  .event-container {
+    display: flex;
+
+    margin-top: 62px;
+    margin-bottom: 34px;
+
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 16px;
+  }
+  .dayCont {
+    margin-left: 475px;
+    position: absolute;
+    display: flex;
+    margin-top: 95px;
+  }
+}
+
 .statisticsByDay::marker {
   color: #ffd2dd;
 }
+
 .statisticsByDay {
   color: #343434;
   font-family: Inter;
@@ -26,9 +66,10 @@
   font-style: normal;
   display: list-item;
   font-weight: 400;
-  margin-right: 39px;
+  margin-right: 21px;
   line-height: 18px;
 }
+
 .statisticsByMonth {
   color: #343434;
   font-family: Inter;
@@ -41,4 +82,23 @@
 
 .statisticsByMonth::marker {
   color: #3e85f3;
+}
+@media (min-width: 1440px) {
+  .event-container {
+    width: 1087px;
+    display: flex;
+    height: 752px;
+    justify-content: center;
+    background-color: #fff;
+    margin-left: 32px;
+    margin-right: 32px;
+    border-radius: 16px;
+  }
+  .dayCont {
+    margin-left: 714px;
+    position: absolute;
+    display: flex;
+
+    margin-top: 90px;
+  }
 }

@@ -186,25 +186,6 @@
   margin-top: 32px;
 }
 
-@media (max-width: 600px) {
-  .chart {
-    flex-direction: column;
-  }
-
-  .x-axis {
-    margin-top: 20px;
-  }
-}
-.statistickImg {
-  display: flex;
-  align-items: center;
-  width: 860px;
-  height: 440px;
-  border: 0.8px solid #e3f3ff;
-  border-radius: 29px;
-  margin-top: 142px;
-  margin-bottom: 104px;
-}
 .statistic_centr {
   display: flex;
   align-items: flex-end;
@@ -213,4 +194,325 @@
 }
 .x-axis-span {
   margin-bottom: 10px;
+}
+.bar-label_month {
+  color: #343434;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (min-width: 375px) {
+  .statistickImg {
+    display: flex;
+    align-items: center;
+    width: 307px;
+    height: 413px;
+    border: 0.8px solid #e3f3ff;
+    border-radius: 29px;
+    margin-top: 150px;
+    margin-left: 14px;
+  }
+  .bar-label_month {
+    font-size: 12px;
+    margin-left: -12px;
+  }
+  .statistic_centr {
+    margin-left: 14px;
+  }
+  .line {
+    width: 243px;
+    margin-left: 46px;
+    margin-top: -30px;
+  }
+  .line2 {
+    width: 243px;
+    margin-left: 46px;
+    margin-top: -120px;
+  }
+  .line3 {
+    width: 243px;
+    margin-left: 46px;
+    margin-top: 65px;
+  }
+  .line4 {
+    width: 243px;
+    margin-top: -215px;
+    margin-left: 46px;
+  }
+
+  .line5 {
+    width: 243px;
+    margin-top: 157px;
+    margin-left: 46px;
+  }
+  .line6 {
+    width: 243px;
+    margin-top: 250px;
+    margin-left: 46px;
+  }
+  .chart_todo {
+    margin-left: -4px;
+  }
+  .nameBar {
+    margin-left: 60px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .chart_in_progres {
+    margin-left: 20px;
+  }
+  .nameBar_progress {
+    margin-left: 126px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .bar-label {
+    font-size: 12px;
+  }
+  .chart_done {
+    margin-left: 16px;
+  }
+  .nameBar_done {
+    font-size: 12px;
+    margin-left: 215px;
+    line-height: 16px;
+  }
+  .x-axis-span_0 {
+    margin-top: 28px;
+  }
+
+  .x-axis-span_20 {
+    margin-top: 28px;
+  }
+
+  .x-axis-span_40 {
+    margin-top: 28px;
+  }
+
+  .x-axis-span_60 {
+    margin-top: 28px;
+  }
+
+  .x-axis-span_80 {
+    margin-top: 28px;
+  }
+}
+
+@media (min-width: 768px) {
+  .statistickImg {
+    display: flex;
+    align-items: center;
+    width: 640px;
+    height: 424px;
+    border: 0.8px solid #e3f3ff;
+    border-radius: 29px;
+  }
+  .chart_todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 74px;
+  }
+  .nameBar {
+    margin-left: 142px;
+  }
+  .nameBar_progress {
+    margin-left: 310px;
+  }
+  .nameBar_done {
+    margin-left: 510px;
+  }
+  .chart_in_progres {
+    margin-left: 127px;
+  }
+  .chart_done {
+    margin-left: 125px;
+  }
+  .line {
+    width: 505px;
+    margin-left: 110px;
+  }
+  .line2 {
+    width: 505px;
+    margin-left: 110px;
+  }
+  .line3 {
+    width: 505px;
+    margin-left: 110px;
+  }
+  .line4 {
+    width: 505px;
+    margin-left: 110px;
+  }
+
+  .line5 {
+    width: 505px;
+    margin-left: 110px;
+  }
+  .line6 {
+    width: 505px;
+    margin-left: 110px;
+  }
+}
+@media (min-width: 1240px) {
+  .statistickImg {
+    display: flex;
+    align-items: center;
+    height: 440px;
+    border: 0.8px solid #e3f3ff;
+    border-radius: 29px;
+  }
+}
+@media (min-width: 1440px) {
+  .statistickImg {
+    display: flex;
+    align-items: center;
+    width: 860px;
+    height: 440px;
+    border: 0.8px solid #e3f3ff;
+    border-radius: 29px;
+    margin-top: 142px;
+    margin-bottom: 104px;
+  }
+  .x-axis {
+    display: flex;
+    justify-content: center;
+    margin-top: -28px;
+    flex-direction: column-reverse;
+    margin-left: 40px;
+  }
+
+  .x-axis span {
+    margin-right: 20px;
+  }
+
+  .x-axis-span_0 {
+    margin-top: 32px;
+  }
+
+  .x-axis-span_20 {
+    margin-top: 32px;
+  }
+
+  .x-axis-span_40 {
+    margin-top: 32px;
+  }
+
+  .x-axis-span_60 {
+    margin-top: 32px;
+  }
+
+  .x-axis-span_80 {
+    margin-top: 32px;
+  }
+  .line {
+    border-bottom: 2px solid #e3f3ff;
+    width: 694px;
+    display: block;
+    margin-left: 136px;
+    margin-top: -20px;
+    position: absolute;
+    z-index: auto;
+  }
+  .line2 {
+    border-bottom: 2px solid #e3f3ff;
+    width: 694px;
+    display: block;
+    margin-left: 136px;
+    margin-top: -135px;
+    position: absolute;
+  }
+  .line3 {
+    border-bottom: 2px solid #e3f3ff;
+    width: 694px;
+    display: block;
+    margin-left: 136px;
+    margin-top: 70px;
+    position: absolute;
+  }
+  .line4 {
+    border-bottom: 2px solid #e3f3ff;
+    width: 694px;
+    display: block;
+    margin-left: 136px;
+    margin-top: -230px;
+    position: absolute;
+  }
+  .line5 {
+    border-bottom: 2px solid #e3f3ff;
+    width: 694px;
+    display: block;
+    margin-left: 136px;
+    margin-top: 170px;
+    position: absolute;
+  }
+  .line6 {
+    border-bottom: 2px solid #e3f3ff;
+    width: 694px;
+    display: block;
+    margin-left: 136px;
+    margin-top: 278px;
+    position: absolute;
+  }
+  .chart_done {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 170px;
+  }
+  .bar-label_month {
+    font-size: 16px;
+    margin-left: 0px;
+  }
+  .bar-label {
+    font-size: 16px;
+  }
+  .nameBar_done {
+    color: #343434;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 5px;
+    position: absolute;
+    text-align: center;
+    margin-left: 673px;
+    margin-bottom: -20px;
+  }
+  .nameBar_progress {
+    color: #343434;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 5px;
+    position: absolute;
+    text-align: center;
+    margin-left: 423px;
+    margin-bottom: -20px;
+  }
+  .chart_in_progres {
+    margin-left: 170px;
+  }
+  .chart_todo {
+    margin-left: 105px;
+  }
+  .nameBar {
+    color: #343434;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 5px;
+    position: absolute;
+    text-align: center;
+    margin-left: 214px;
+    margin-bottom: -20px;
+  }
 }
