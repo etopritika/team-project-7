@@ -24,17 +24,17 @@ const taskFormSchema = Yup.object().shape({
   priority: Yup.string()
     .oneOf(['low', 'medium', 'high'])
     .required('Priority is required'),
-  date: Yup.date()
-    .required('Date is required')
-    .transform((value, originalValue) => {
-      if (originalValue) {
-        return parse(originalValue, 'yyyy-MM-dd', new Date());
-      }
-      return value;
-    }),
-  category: Yup.string()
-    .oneOf(['to-do', 'in-progress', 'done'])
-    .required('Category is required'),
+  // date: Yup.date()
+  //   .required('Date is required')
+  //   .transform((value, originalValue) => {
+  //     if (originalValue) {
+  //       return parse(originalValue, 'yyyy-MM-dd', new Date());
+  //     }
+  //     return value;
+  //   }),
+  // category: Yup.string()
+  //   .oneOf(['to-do', 'in-progress', 'done'])
+  //   .required('Category is required'),
 });
 
 export default taskFormSchema;

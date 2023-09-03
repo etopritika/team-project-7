@@ -94,7 +94,7 @@ feedbackFormCloseBtn:focus {
 .radioLabel {
   position: relative;
   padding-right: 16px;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   color: var(--secondary-text-color);
   font-family: Inter;
@@ -104,21 +104,48 @@ feedbackFormCloseBtn:focus {
   line-height: 1.28;
 
   cursor: pointer;
+
 }
 
 .radioInput {
   margin-right: 4px;
+  opacity: 0;
   cursor: pointer;
 }
 
-/* .radioSpan{
+.radioSpan{
   position: absolute;
   left: 0;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: orangered;
-} */
+  /* background-color: grey; */
+}
+.radioInput[value="low"] + .radioSpan{
+  background-color: #72C2F8;
+}
+.radioInput[value="medium"] + .radioSpan{
+  background-color: #F3B249;
+}
+.radioInput[value="high"] + .radioSpan{
+  background-color: #EA3D65;
+}
+
+.radioInput[value="low"]:checked + .radioSpan {
+  background-color: #72C2F8;
+  outline: 1.2px solid #72c2f8;
+  outline-offset: 1px;
+}
+.radioInput[value="medium"]:checked + .radioSpan {
+  background-color: #F3B249;
+  outline: 1.2px solid #f3b249;
+  outline-offset: 1px;
+}
+.radioInput[value="high"]:checked + .radioSpan {
+  background-color: #EA3D65;
+  outline: 1.2px solid #ea3d65;
+  outline-offset: 1px;
+}
 
 .taskFormBtnContainer {
   display: flex;
@@ -135,7 +162,7 @@ feedbackFormCloseBtn:focus {
   height: 48px;
   border-radius: 8px;
   border: none;
-  background: var(--main-blue-color);
+  background-color: var(--main-blue-color);
   color: var(--white-color);
   font-family: Inter;
   font-size: 14px;
