@@ -99,6 +99,7 @@ export const PeriodPaginator = ({ activePage }) => {
           </div>
         </>
       )}
+      
 
       {activePage === 'day' && (
         <>
