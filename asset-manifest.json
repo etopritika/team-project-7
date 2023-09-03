@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/team-project-7/static/css/main.d4b53db2.css",
-    "main.js": "/team-project-7/static/js/main.bd4345fc.js",
-    "static/css/796.15441df4.chunk.css": "/team-project-7/static/css/796.15441df4.chunk.css",
-    "static/js/796.50318e09.chunk.js": "/team-project-7/static/js/796.50318e09.chunk.js",
+    "main.js": "/team-project-7/static/js/main.4d016b67.js",
+    "static/css/796.f981f253.chunk.css": "/team-project-7/static/css/796.f981f253.chunk.css",
+    "static/js/796.c8b0eafe.chunk.js": "/team-project-7/static/js/796.c8b0eafe.chunk.js",
     "static/css/786.757f11ab.chunk.css": "/team-project-7/static/css/786.757f11ab.chunk.css",
     "static/js/786.5c61f2eb.chunk.js": "/team-project-7/static/js/786.5c61f2eb.chunk.js",
     "static/css/745.02525295.chunk.css": "/team-project-7/static/css/745.02525295.chunk.css",
@@ -43,9 +43,9 @@
     "static/media/icons.svg": "/team-project-7/static/media/icons.6365382479516b998a50567efd112470.svg",
     "index.html": "/team-project-7/index.html",
     "main.d4b53db2.css.map": "/team-project-7/static/css/main.d4b53db2.css.map",
-    "main.bd4345fc.js.map": "/team-project-7/static/js/main.bd4345fc.js.map",
-    "796.15441df4.chunk.css.map": "/team-project-7/static/css/796.15441df4.chunk.css.map",
-    "796.50318e09.chunk.js.map": "/team-project-7/static/js/796.50318e09.chunk.js.map",
+    "main.4d016b67.js.map": "/team-project-7/static/js/main.4d016b67.js.map",
+    "796.f981f253.chunk.css.map": "/team-project-7/static/css/796.f981f253.chunk.css.map",
+    "796.c8b0eafe.chunk.js.map": "/team-project-7/static/js/796.c8b0eafe.chunk.js.map",
     "786.757f11ab.chunk.css.map": "/team-project-7/static/css/786.757f11ab.chunk.css.map",
     "786.5c61f2eb.chunk.js.map": "/team-project-7/static/js/786.5c61f2eb.chunk.js.map",
     "745.02525295.chunk.css.map": "/team-project-7/static/css/745.02525295.chunk.css.map",
@@ -61,6 +61,6 @@
   },
   "entrypoints": [
     "static/css/main.d4b53db2.css",
-    "static/js/main.bd4345fc.js"
+    "static/js/main.4d016b67.js"
   ]
 }
