@@ -10,14 +10,13 @@ const getCustomDateArray = currentDate => {
     end: endOfTheWeek,
   });
 
-  const formattedDatesTablet = dateInterval.map(date =>
-    format(date, 'E d', { locale: enGB })
-  );
-  const formattedDatesMobile = dateInterval.map(date =>
-    format(date, 'EEEEE d', { locale: enGB })
-  );
+  const formattedDates = dateInterval.map(date => ({
+    url: format(date, 'ddMMMMyyyy', { locale: enGB }),
+    tablet: format(date, 'E d', { locale: enGB }),
+    desktop: format(date, 'EEEEE d', { locale: enGB }),
+  }));
 
-  return { formattedDatesTablet, formattedDatesMobile };
+  return formattedDates;
 };
 
 export default getCustomDateArray;
