@@ -9,6 +9,7 @@
 
 .buttons_container {
     display: flex;
+    margin-left: 8px;
    
 }
 
