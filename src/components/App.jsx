@@ -27,6 +27,7 @@ export const App = () => {
   const dispatch = useDispatch();
   const currentDate = useDate();
   const currentMonth = useMemo(() => format(currentDate, 'MMMMyyyy'), [currentDate]);
+  const currentDay = useMemo(() => format(currentDate, 'ddMMMMyyyy'), [currentDate])
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -103,7 +104,7 @@ export const App = () => {
               />
             }
           >
-            <Route index element={ <Navigate to={`day/${currentMonth}`} replace/>}/>
+            <Route index element={ <Navigate to={`day/${currentDay}`} replace/>}/>
             <Route
             path="day/:current"
             element={
