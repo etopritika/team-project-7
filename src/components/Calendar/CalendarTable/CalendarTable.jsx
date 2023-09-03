@@ -5,9 +5,9 @@ import Calendar from 'react-calendar';
 import { format, isToday, addMonths, subMonths } from 'date-fns';
 import { useParams } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
-import tasks from '../CalendarTable/tasks.json';
+// import tasks from '../CalendarTable/tasks.json';
 
-export default function CalendarTable() {
+export default function CalendarTable({ tasks }) {
   const [, /*selectedDate*/ setSelectedDate] = useState(null);
   const { current } = useParams();
 
@@ -59,9 +59,9 @@ export default function CalendarTable() {
     switch (priority) {
       case 'low':
         return styles['todo-bg-item-low'];
-      case 'Medium':
+      case 'medium':
         return styles['todo-bg-item-medium'];
-      case 'High':
+      case 'high':
         return styles['todo-bg-item-high'];
       default:
         return '';
