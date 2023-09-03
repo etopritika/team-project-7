@@ -188,7 +188,6 @@ export function UserForm() {
                       id="birthday"
                       type="date"
                       calendarStartDay={1}
-                      value={values.birthday}
                       showMonthDropdown
                       showYearDropdown
                       dropdownMode="select"
