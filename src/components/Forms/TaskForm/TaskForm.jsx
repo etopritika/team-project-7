@@ -1,9 +1,9 @@
 import { IoCloseOutline } from 'react-icons/io5';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { SlPencil } from 'react-icons/sl';
+// import { SlPencil } from 'react-icons/sl';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './TaskForm.module.css';
-import taskFormSchema from './taskFormValidation';
+// import taskFormSchema from './taskFormValidation';
 // import { useParams } from 'react-router-dom';
 // import { addTask, editTask } from 'redux/tasks/taskOperations';
 import { useState } from 'react';
@@ -18,10 +18,10 @@ export default function TaskForm({
   column,
   taskToEdit,
 }) {
-  const [title, setTitle] = useState('');
-  const [start, setStart] = useState('');
-  const [end, setEnd] = useState('');
-  const [priority, setPriority] = useState('low');
+  const [title, /*setTitle*/] = useState('');
+  const [start, /*setStart*/] = useState('');
+  const [end, /*setEnd*/] = useState('');
+  const [priority, /*setPriority*/] = useState('low');
   const dispatch = useDispatch();
   // let id, title, start, end, priority, date;
 
