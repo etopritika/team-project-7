@@ -1,9 +1,9 @@
 import { IoCloseOutline } from 'react-icons/io5';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { SlPencil } from 'react-icons/sl';
+// import { SlPencil } from 'react-icons/sl';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './TaskForm.module.css';
-import taskFormSchema from './taskFormValidation';
+// import taskFormSchema from './taskFormValidation';
 // import { useParams } from 'react-router-dom';
 // import { addTask, editTask } from 'redux/tasks/taskOperations';
 import { useState } from 'react';
@@ -35,6 +35,11 @@ export default function TaskForm({
   //   if (action === 'add') {
   //     addTask(values);
   //   }
+
+  console.log(setTitle);
+  console.log(setStart);
+  console.log(setEnd);
+  console.log(setPriority);
 
   const onSubmitTask = async values => {
     const newTask = {

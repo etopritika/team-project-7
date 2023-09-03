@@ -44,14 +44,16 @@ export default function TasksColumnList({ tasks }) {
         <li className={css.listItem}>
           <TasksColumn
             date={newCurrentDay}
-            title={'to-do'}
+            title={'To do'}
+            category={'to-do'}
             tasks={filteredTasks.filter(task => task.category === 'to-do')}
           />
         </li>
         <li className={css.listItem}>
           <TasksColumn
             date={newCurrentDay}
-            title={'in-progress'}
+            title={'In progress'}
+            category={'in-progress'}
             tasks={filteredTasks.filter(
               task => task.category === 'in-progress'
             )}
@@ -60,7 +62,8 @@ export default function TasksColumnList({ tasks }) {
         <li className={css.listItem}>
           <TasksColumn
             date={newCurrentDay}
-            title={'done'}
+            title={'Done'}
+            category={'done'}
             tasks={filteredTasks.filter(task => task.category === 'done')}
           />
         </li>
