@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { parse } from 'date-fns';
 import css from './DayCalendarHead.module.css';
@@ -6,43 +6,38 @@ import getCustomDateArray from './daysHelper';
 
 export default function DayCalendarHead() {
   const { current } = useParams();
-  const currentDate = parse(current, 'ddMMMMyyyy', new Date());
-  const { formattedDatesTablet, formattedDatesMobile } =
-    getCustomDateArray(currentDate);
-  const [daysOfWeek, setDaysOfWeek] = useState(formattedDatesTablet);
-
-  //   const formatCurrent = current.split('/').pop();
-  //   const date = parse(formatCurrent, 'ddMMMMyyyy', new Date());
-
-  const handleResize = useCallback(() => {
-    if (window.innerWidth < 768) {
-      setDaysOfWeek(formattedDatesMobile);
-    } else {
-      setDaysOfWeek(formattedDatesTablet);
-    }
-  }, [formattedDatesMobile, formattedDatesTablet]);
+  const currentDate = useMemo(() => {
+    return parse(current, 'ddMMMMyyyy', new Date());
+  }, [current]);
+  const [daysOfWeek, setDaysOfWeek] = useState([]);
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
+    const handleResize = () => {
+      const { formattedDatesTablet, formattedDatesMobile } = getCustomDateArray(currentDate);
+      if (window.innerWidth < 768) {
+        setDaysOfWeek(formattedDatesMobile);
+      } else {
+        setDaysOfWeek(formattedDatesTablet);
+      }
+    };
 
+    handleResize(); // Initialize daysOfWeek when the component mounts or currentDate changes
+
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [handleResize]);
+  }, [currentDate]);
 
-  console.log('daysOfWeek: ', daysOfWeek);
   return (
     <ul className={css.container}>
       {daysOfWeek.map(day => {
-        const [weekday, date] = day.split(' '); // Розбиваємо рядок на дві частини
-
+        const [weekday, date] = day.split(' ');
         return (
           <li key={day}>
             <button className={css.list__btn} type="button">
               <span className={css.day__name}>{weekday}</span>{' '}
-              {/* Тут буде "Mon" */}
               <span className={css.day__number}>{date}</span>{' '}
-              {/* Тут буде "7" */}
             </button>
           </li>
         );
