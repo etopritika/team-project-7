@@ -14,6 +14,7 @@ import { fetchOwnReview } from 'redux/reviews/reviewsOperations';
 
 function Header({ openBurgerMenu, isSidebarOpen }) {
   const [currentPage, setCurrentPage] = useState('');
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
@@ -31,10 +32,23 @@ function Header({ openBurgerMenu, isSidebarOpen }) {
     setCurrentPage(path);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <header className={styles.header}>
       {!isSidebarOpen && <OpenSidebarBtn openBurgerMenu={openBurgerMenu} />}
-      <HeaderTitle currentPage={currentPage} />
+      {windowWidth >= 1440 && <HeaderTitle currentPage={currentPage} />}
       <div className={styles.userInfo}>
         <AddFeedbackBtn toggleModal={toggleModal} />
         <ThemeToggler />
