@@ -3,7 +3,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { SlPencil } from 'react-icons/sl';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './TaskForm.module.css';
-// import taskFormSchema from './taskFormValidation';
+import taskFormSchema from './taskFormValidation';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask, editTask } from 'redux/tasks/taskOperations';
@@ -70,7 +70,7 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
         end: (task && task.end) || end,
         priority: (task && task.priority) || priority,
       }}
-      // validationSchema={taskFormSchema}
+      validationSchema={taskFormSchema}
       //схему пока закомментил - из-за нее не работал сабмит данных, хотя все поля были заполнены - надо смотреть!
       onSubmit={onSubmitTask}
     >
@@ -125,7 +125,7 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
                 value="low"
                 className={styles.radioInput}
               />
-              {/* <span className={styles.radioSpan}></span> */}
+              <span className={styles.radioSpan}></span>
               Low
             </label>
             <label className={styles.radioLabel}>
@@ -135,7 +135,7 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
                 value="medium"
                 className={styles.radioInput}
               />
-              {/* <span className={styles.radioSpan}></span> */}
+              <span className={styles.radioSpan}></span>
               Medium
             </label>
             <label className={styles.radioLabel}>
@@ -145,7 +145,7 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
                 value="high"
                 className={styles.radioInput}
               />
-              {/* <span className={styles.radioSpan}></span> */}
+              <span className={styles.radioSpan}></span>
               High
             </label>
           </div>
