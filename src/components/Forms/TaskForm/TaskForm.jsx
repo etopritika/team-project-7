@@ -36,6 +36,11 @@ export default function TaskForm({
   //     addTask(values);
   //   }
 
+  console.log(setTitle);
+  console.log(setStart);
+  console.log(setEnd);
+  console.log(setPriority);
+
   const onSubmitTask = async values => {
     const newTask = {
       title: values.title,

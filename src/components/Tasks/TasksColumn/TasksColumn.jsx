@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import TaskForm from 'components/Forms/TaskForm/TaskForm';
 
-export default function TasksColumn({ title, tasks, date }) {
+export default function TasksColumn({ title, category, tasks, date }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -20,7 +20,7 @@ export default function TasksColumn({ title, tasks, date }) {
         <Modal toggleModal={toggleModal}>
           <TaskForm
             toggleModal={toggleModal}
-            category={title}
+            category={category}
             currentDate={date}
           />
         </Modal>
