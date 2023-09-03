@@ -56,19 +56,19 @@ const BarChart = ({ events, selectedDate, updateEvent }) => {
 
   return (
     <div className="statistickImg">
-      <div className="line"></div>
-      <div className="line2"></div>
-      <div className="line3"></div>
-      <div className="line4"></div>
-      <div className="line5"></div>
-      <div className="line6"></div>
       <div className="statistic_centr">
+        <div className="line"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
+        <div className="line4"></div>
+        <div className="line5"></div>
+        <div className="line6"></div>
         <div className="x-axis">
-          <span className="x-axis-span_0">0</span>
-          <span className="x-axis-span_20">20</span>
-          <span className="x-axis-span_40">40</span>
-          <span className="x-axis-span_60">60</span>
-          <span className="x-axis-span_80">80</span>
+          <span className="x-axis-span">0</span>
+          <span className="x-axis-span">20</span>
+          <span className="x-axis-span">40</span>
+          <span className="x-axis-span">60</span>
+          <span className="x-axis-span">80</span>
           <span>100</span>
           <span className="tasks_text">Tasks</span>
         </div>
@@ -84,7 +84,7 @@ const BarChart = ({ events, selectedDate, updateEvent }) => {
         <span className="nameBar">To Do</span>
         <div className="chart">
           <div className="bar" style={{ height: `${heightForTodoMonth}px` }}>
-            <span className="bar-label">
+            <span className="bar-label_month">
               {todoPercentageForMonth.toFixed(2)}%
             </span>
           </div>
@@ -95,7 +95,7 @@ const BarChart = ({ events, selectedDate, updateEvent }) => {
             className="bar_day"
             style={{ height: `${heightForInProgressDay}px` }}
           >
-            <span className="bar-label">
+            <span className="bar-label_inProgresDay">
               {inProgressPercentageForDay.toFixed(2)}%
             </span>
           </div>
@@ -107,7 +107,7 @@ const BarChart = ({ events, selectedDate, updateEvent }) => {
             className="bar"
             style={{ height: `${heightForInProgressMonth}px` }}
           >
-            <span className="bar-label">
+            <span className="bar-label_inProgres">
               {inProgressPercentageForMonth.toFixed(2)}%
             </span>
           </div>
@@ -115,7 +115,7 @@ const BarChart = ({ events, selectedDate, updateEvent }) => {
 
         <div className="chart_done">
           <div className="bar_day" style={{ height: `${heightForDoneDay}px` }}>
-            <span className="bar-label">
+            <span className="bar-label_todo">
               {donePercentageForDay.toFixed(2)}%
             </span>
           </div>
@@ -123,7 +123,7 @@ const BarChart = ({ events, selectedDate, updateEvent }) => {
         <span className="nameBar_done">Done</span>
         <div className="chart">
           <div className="bar" style={{ height: `${heightForDoneMonth}px` }}>
-            <span className="bar-label">
+            <span className="bar-label_month">
               {donePercentageForMonth.toFixed(2)}%
             </span>
           </div>
