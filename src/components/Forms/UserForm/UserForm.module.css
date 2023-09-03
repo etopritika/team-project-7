@@ -57,12 +57,13 @@
   border-radius: 50%;
   -o-object-fit: cover;
   object-fit: cover;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 @media screen and (min-width: 767px) {
   .user__avatar {
     width: 124px;
     height: 124px;
-    margin-bottom: 20px;
   }
 }
 
@@ -71,7 +72,7 @@
   width: 14px;
   height: 14px;
   bottom: -4px;
-  right: 15px;
+  right: 26px;
   z-index: 1;
 }
 @media screen and (min-width: 767px) {
@@ -320,6 +321,7 @@ input[type='text'].is_invalid {
   border-radius: 50%;
 }
 .myCustomIcon {
+  position: absolute;
   width: 24px;
   height: 24px;
   z-index: 1;
