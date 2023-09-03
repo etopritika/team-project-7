@@ -2,76 +2,76 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 14px;
+  /* margin-left: 14px; */
 }
 .chart_todo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 104px;
+  /* margin-left: 104px; */
 }
 .chart_in_progres {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 170px;
+  /* margin-left: 170px; */
 }
 .line {
   z-index: 888;
   border-bottom: 2px solid #e3f3ff;
-  width: 694px;
+  /* width: 694px; */
   display: block;
-  margin-left: 136px;
-  margin-top: -20px;
+  /* margin-left: 136px; */
+  /* margin-top: -20px; */
 }
 .line {
   border-bottom: 2px solid #e3f3ff;
-  width: 694px;
+  /* width: 694px; */
   display: block;
-  margin-left: 136px;
-  margin-top: -20px;
-  position: absolute;
-  z-index: auto;
+  /* margin-left: 136px; */
+  /* margin-top: -20px; */
+  /* position: absolute; */
+  /* z-index: auto; */
 }
 .line2 {
   border-bottom: 2px solid #e3f3ff;
-  width: 694px;
+  /* width: 694px; */
   display: block;
-  margin-left: 136px;
-  margin-top: -135px;
+  /* margin-left: 136px; */
+  /* margin-top: -135px; */
   position: absolute;
 }
 .line3 {
   border-bottom: 2px solid #e3f3ff;
-  width: 694px;
+  /* width: 694px; */
   display: block;
-  margin-left: 136px;
-  margin-top: 70px;
-  position: absolute;
+  /* margin-left: 136px; */
+  /* margin-top: 70px; */
+  /* position: absolute; */
 }
 .line4 {
   border-bottom: 2px solid #e3f3ff;
-  width: 694px;
+  /* width: 694px; */
   display: block;
-  margin-left: 136px;
-  margin-top: -230px;
-  position: absolute;
+  /* margin-left: 136px; */
+  /* margin-top: -230px; */
+  /* position: absolute; */
 }
 .line5 {
   border-bottom: 2px solid #e3f3ff;
-  width: 694px;
+  /* width: 694px; */
   display: block;
-  margin-left: 136px;
-  margin-top: 170px;
-  position: absolute;
+  /* margin-left: 136px; */
+  /* margin-top: 170px; */
+  /* position: absolute; */
 }
 .line6 {
   border-bottom: 2px solid #e3f3ff;
-  width: 694px;
+  /* width: 694px; */
   display: block;
-  margin-left: 136px;
-  margin-top: 278px;
-  position: absolute;
+  /* margin-left: 136px; */
+  /* margin-top: 278px; */
+  /* position: absolute; */
 }
 .tasks_text {
   color: var(--primary-text-color);
@@ -86,7 +86,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 170px;
+  /* margin-left: 170px; */
 }
 .bar_day {
   width: 14px;
@@ -128,8 +128,8 @@
   margin-top: 5px;
   position: absolute;
   text-align: center;
-  margin-left: 176px;
-  margin-bottom: -20px;
+  /* margin-left: 176px; */
+  /* margin-bottom: -20px; */
 }
 .nameBar_progress {
   color: var(--primary-text-color);
@@ -140,8 +140,8 @@
   margin-top: 5px;
   position: absolute;
   text-align: center;
-  margin-left: 380px;
-  margin-bottom: -20px;
+  /* margin-left: 380px; */
+  /* margin-bottom: -20px; */
 }
 .nameBar_done {
   color: var(--primary-text-color);
@@ -152,66 +152,66 @@
   margin-top: 5px;
   position: absolute;
   text-align: center;
-  margin-left: 627px;
-  margin-bottom: -20px;
+  /* margin-left: 627px; */
+  /* margin-bottom: -20px; */
 }
 .x-axis {
   display: flex;
   justify-content: center;
-  margin-top: -28px;
+  /* margin-top: -28px; */
   flex-direction: column-reverse;
   color:var(--primary-text-color);
 }
 
 .x-axis span {
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .x-axis-span_0 {
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 
 .x-axis-span_20 {
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 
 .x-axis-span_40 {
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 
 .x-axis-span_60 {
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 
 .x-axis-span_80 {
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 
-@media (max-width: 600px) {
+@media screen and(min-width: 768px) {
   .chart {
     flex-direction: column;
   }
 
   .x-axis {
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 }
 .statistickImg {
   display: flex;
   align-items: center;
-  width: 860px;
-  height: 440px;
+  /* width: 860px; */
+  /* height: 440px; */
   border: 0.8px solid var(--color-border-form);
   border-radius: 29px;
-  margin-top: 142px;
-  margin-bottom: 104px;
+  /* margin-top: 142px; */
+  /* margin-bottom: 104px; */
 }
 .statistic_centr {
   display: flex;
   align-items: flex-end;
-  margin-left: 40px;
+  /* margin-left: 40px; */
   position: absolute;
 }
 .x-axis-span {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
