@@ -5,7 +5,7 @@ import Calendar from 'react-calendar';
 import { format, isToday, addMonths, subMonths } from 'date-fns';
 import { useParams } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
-import tasks from "../CalendarTable/tasks.json"
+import tasks from '../CalendarTable/tasks.json';
 
 export default function CalendarTable() {
   const [, /*selectedDate*/ setSelectedDate] = useState(null);
@@ -54,6 +54,20 @@ export default function CalendarTable() {
     });
   };
 
+  const getPriorityClass = priority => {
+    console.log(priority);
+    switch (priority) {
+      case 'low':
+        return styles['todo-bg-item-low'];
+      case 'Medium':
+        return styles['todo-bg-item-medium'];
+      case 'High':
+        return styles['todo-bg-item-high'];
+      default:
+        return '';
+    }
+  };
+
   const tileContent = ({ date }) => {
     const currentDay = format(date, 'ddMMMMyyyy');
     const dayTasks = getTasksForDate(date);
@@ -82,7 +96,12 @@ export default function CalendarTable() {
           <ul className={styles['calendar-day-task']}>
             {/* Відображаємо завдання для цього дня */}
             {dayTasks.map(task => (
-              <li key={task.title} className={styles['todo-items']}>
+              <li
+                key={task.title}
+                className={`${styles['todo-items']} ${getPriorityClass(
+                  task.priority
+                )}`}
+              >
                 {task.title}
               </li>
             ))}
