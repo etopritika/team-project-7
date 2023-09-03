@@ -13,6 +13,7 @@ import { useLocation } from 'react-router-dom';
 export const PeriodPaginator = ({ activePage }) => {
   const [activeBtn, setActiveBtn] = useState('');
   const [visibleDate, setVisibleDate] = useState(useDate());
+  console.log(activePage)
 
   const navigate = useNavigate();
   const location = useLocation(); 
@@ -136,7 +137,7 @@ export const PeriodPaginator = ({ activePage }) => {
           </div>
         </>
       )}
-      {activePage === '/statistics/day' && (
+      {activePage === 'statistics/day' && (
         <>
           <div className={styles.name_container_day}>
             <h1 className={styles.name}>{format(visibleDate, 'd MMM yyyy')}</h1>
