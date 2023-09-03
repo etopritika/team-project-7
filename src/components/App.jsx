@@ -10,6 +10,7 @@ import Spinner from './Spinner/Spinner';
 import MainLayout from './MainLayout/MainLayout';
 import ChoosedDay from '../components/ChoosedDay/ChoosedDay';
 import ChoosedMonth from "../components/ChoosedMonth/ChoosedMonth";
+import StatisticsChart from "../components/StatisticsChart/StatisticsChart"
 import { refreshUser } from '../redux/auth/authOperations';
 import { format } from 'date-fns';
 import {useDate} from "../hooks/useDate"
@@ -101,7 +102,15 @@ export const App = () => {
                 component={<StatisticsPage />}
               />
             }
+          >
+            <Route index element={ <Navigate to={`day/${currentMonth}`} replace/>}/>
+            <Route
+            path="day/:current"
+            element={
+              <PrivateRoute redirectTo="/" component={<StatisticsChart />} />
+            }
           />
+          </Route>
           
         </Route>
         <Route path="*" element={<NotFoundPage />} />
