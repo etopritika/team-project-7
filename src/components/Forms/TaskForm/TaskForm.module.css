@@ -12,6 +12,23 @@
   border: none;
   cursor: pointer;
   color: var(--btn-close-feedback);
+  transition: transform 0.3s var(--transition-timing-function);
+  transform: scale(1);
+}
+
+.taskFormCloseBtn:hover,
+feedbackFormCloseBtn:focus {
+  transform: var(--transition);
+}
+
+.close {
+  color: var(--primary-text-color);
+  transition: color 0.3s var(--transition-timing-function);
+}
+
+.close:hover,
+.close:focus {
+  color: var(--hover-blue);
 }
 
 .taskFormSubtitle {
@@ -143,8 +160,7 @@
   cursor: pointer;
 }
 
-
-.btnIcon{
+.btnIcon {
   width: 18px;
   height: 18px;
 }

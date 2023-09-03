@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://group-project-7.onrender.com';
 
 export const fetchTasks = createAsyncThunk(
-  '/api/tasks',
+  'tasks/tetchTasks',
   async (_, thunkAPI) => {
     try {
       const res = await axios.get('/api/tasks');
@@ -16,10 +16,17 @@ export const fetchTasks = createAsyncThunk(
 );
 
 export const addTask = createAsyncThunk(
-  '/api/tasks',
-  async (text, thunkAPI) => {
+  'tasks/createTask',
+  async ({ title, start, end, priority, date, category }, thunkAPI) => {
     try {
-      const response = await axios.post('/api/tasks', text);
+      const response = await axios.post('/api/tasks', {
+        title,
+        start,
+        end,
+        priority,
+        date,
+        category,
+      });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -28,10 +35,10 @@ export const addTask = createAsyncThunk(
 );
 
 export const editTask = createAsyncThunk(
-  '/api/tasks',
-  async (taskId, thunkAPI) => {
+  'tasks/updateTask',
+  async ({ taskId, updatedData }, thunkAPI) => {
     try {
-      const response = await axios.patch(`/api/tasks/${taskId}`);
+      const response = await axios.patch(`/api/tasks/${taskId}`, updatedData);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -40,7 +47,7 @@ export const editTask = createAsyncThunk(
 );
 
 export const deleteTask = createAsyncThunk(
-  '/api/tasks',
+  'tasks/deleteTask',
   async (taskId, thunkAPI) => {
     try {
       const response = await axios.delete(`/api/tasks/${taskId}`);
