@@ -4,7 +4,7 @@
     "title": "Portfolio add task test tes test",
     "start": "9:00",
     "end": "12:00",
-    "priority": "low",
+    "priority": "Medium",
     "date": "2023-09-08",
     "category": "to-do",
     "owner": {
@@ -49,7 +49,7 @@
       "title": "Review and update my portfolio",
       "start": "9:00",
       "end": "12:00",
-      "priority": "low",
+      "priority": "High",
       "date": "2023-09-11",
       "category": "to-do",
       "owner": {
@@ -65,7 +65,7 @@
         "title": "wwwww dfdfdf",
         "start": "9:00",
         "end": "12:00",
-        "priority": "low",
+        "priority": "Medium",
         "date": "2023-09-11",
         "category": "to-do",
         "owner": {

@@ -37,9 +37,9 @@
   margin-top: 4px;
 }
 
+
+  
 .todo-items {
-  position: relative;
-  background-color: var(--bg-color-to-do);
   color: var(--main-blue-color);
   border-radius: 8px;
   font-size: 10px;
@@ -54,6 +54,21 @@
     font-size: 14px;
   }
 }
+
+.todo-bg-item-low{
+  background-color: #72C2F8;
+  color: #3E85F3;
+  }
+  .todo-bg-item-medium{
+  background-color: #FCF0D4;
+  color: #F3B249;
+  }
+  .todo-bg-item-high{
+  background-color: #FFD2DD;
+  color: #EA3D65;
+  }
+
+
 
 .todo-items:not(:last-child) {
   margin-bottom: 3px;
