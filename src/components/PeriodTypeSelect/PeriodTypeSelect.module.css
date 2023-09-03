@@ -22,7 +22,7 @@
     line-height: 18px;
     text-decoration: none;
     color: var(--main-blue-color);
-    background-color: #e3f3ff; 
+    background-color: var(--background-day-color);
     align-items: center;
 
     padding: 8px 25px;
@@ -59,7 +59,7 @@
     .activeLink_day {
         font-size: 16px;
         line-height: 18px;
-        color: var(-- white-color); 
+        color: var(-- white-color);
             }
 }
 
@@ -97,8 +97,8 @@
     font-size: 14px;
     line-height: 18px;
     text-decoration: none;
-    color: var(--main-blue-color);
-    background-color: #cae8ff;
+    color: var(--color-month);
+    background-color: var(--background-month-color);
     align-items: center;
     padding: 8px 16px;
     border-right: 1px solid rgba(62, 133, 243, 0.2);

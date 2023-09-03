@@ -11,7 +11,7 @@
   --account-bg-color: #21222c;
   --dark-sidebar-bg-color: #13151a;
   --main-blue-color: #3e85f3;
-  --bg-color-to-do: #CEEEFD;
+  --bg-color-to-do: #ceeefd;
   --hover-blue: #2b78ef;
   --blue2-color: #dcebf7;
   --pink-color: #ffd2dd;
@@ -41,7 +41,15 @@
   --input-background-color: #f6f6f6;
   --input-form-text: #343434;
   --btn-close-feedback: #111111;
-  --color-border-form: #E3F3FF;
+  --color-border-form: #e3f3ff;
+  --background-calendar-color: #fff;
+  --color-number: #21222c;
+  --background-month-color: #cae8ff;
+  --color-month: #3e85f3;
+  --background-day-color: #e3f3ff;
+  --color-active-number: #3e85f3;
+  --color-paginator-button: rgba(255, 255, 255, 0.9);
+  --add-task-btn: #e3f3ff;
 }
 
 html[data-theme='dark'] {
@@ -78,8 +86,20 @@ html[data-theme='dark'] {
   --btn-close-feedback: #fff;
   --btn-edit-feedback: #353647;
 
+  /* Statistic */
+  --color-border-form: rgba(227, 243, 255, 0.15);
 
-/* Statistic */
---color-border-form: rgba(227, 243, 255, 0.15);
+  /* Calendar */
+  --background-calendar-color: #21222c;
+  --color-number: #fff;
+  --color-active-number: #fff;
 
+  --background-month-color: #3e85f3;
+  --color-month: #fff;
+  --background-day-color: #21222c;
+  /* Paginator */
+  --color-paginator-button: #21222c;
+  /* Task */
+  --add-task-btn: #3e85f3;
+  --placeholder-color: rgba(255, 255, 255, 0.15);
 }
