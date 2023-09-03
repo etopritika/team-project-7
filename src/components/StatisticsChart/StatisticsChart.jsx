@@ -68,11 +68,13 @@ const StatisticsChart = () => {
 
   return (
     <div className="event-container">
-      <div className="dayCont">
-        <p className="statisticsByDay">By Day</p>
-        <p className="statisticsByMonth">By Month</p>
+      <div className="dayCount">
+        <PeriodPaginator className="pagination" activePage={'statistics/day'} />
+        <div className="statistick_day_month">
+          <p className="statisticsByDay">By Day</p>
+          <p className="statisticsByMonth">By Month</p>
+        </div>
       </div>
-      <PeriodPaginator activePage={"statistics/day"}/>
 
       {selectedDate && (
         <div className="event-form">
