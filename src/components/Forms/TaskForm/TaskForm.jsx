@@ -1,48 +1,30 @@
 import { IoCloseOutline } from 'react-icons/io5';
 import { AiOutlinePlus } from 'react-icons/ai';
-// import { SlPencil } from 'react-icons/sl';
+import { SlPencil } from 'react-icons/sl';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './TaskForm.module.css';
 // import taskFormSchema from './taskFormValidation';
-// import { useParams } from 'react-router-dom';
-// import { addTask, editTask } from 'redux/tasks/taskOperations';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTask } from 'redux/tasks/taskOperations';
+import { addTask, editTask } from 'redux/tasks/taskOperations';
 
-export default function TaskForm({
-  toggleModal,
-  category,
-  currentDate,
-  action,
-  column,
-  taskToEdit,
-}) {
+export default function TaskForm({ toggleModal, category, currentDate, task }) {
+  //в пропсах передан task - это собственно уже готовая тудушка, по которой кликаешь
+  //и данные ее передаются сюда, чтоб заполнить поля автоматически и возпроизвести кнопку Edit
   const [title, setTitle] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
   const [priority, setPriority] = useState('low');
   const dispatch = useDispatch();
-  // let id, title, start, end, priority, date;
 
-  // if (typeof taskToEdit === 'object' && taskToEdit !== null && true) {
-  //   ({ _id: id, title, start, end, priority, date } = taskToEdit);
-  // }
-
-  // const { currentDate } = useParams();
-
-  // const handleSubmit = (values, actions) => {
-  //   if (action === 'add') {
-  //     addTask(values);
-  //   }
-
+  //временные логи, чтоб не было ошибки из-за неиспользования нижеперечисленных функций
   console.log(setTitle);
   console.log(setStart);
   console.log(setEnd);
   console.log(setPriority);
 
   const onSubmitTask = async values => {
-    const newTask = {
+    const taskData = {
       title: values.title,
       start: values.start,
       end: values.end,
@@ -51,42 +33,45 @@ export default function TaskForm({
       category,
     };
 
-    console.log(newTask);
+    if (!task) {
+      try {
+        const data = await dispatch(addTask(taskData));
+        if (!data.error) {
+          console.log(data.payload);
+          toggleModal();
+        } else {
+          console.error(data.error);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-    const data = await dispatch(addTask(newTask));
-    console.log(data);
-    toggleModal();
+    if (task) {
+      try {
+        const data = await dispatch(editTask(taskData));
+        if (!data.error) {
+          console.log(data.payload);
+          toggleModal();
+        } else {
+          console.error(data.error);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
   };
-
-  //   if (action === 'edit') {
-  //     editTask({ id, ...values });
-  //   }
-
-  //   action.resetForm();
-  //   toggleModal();
-  // };
-
-  // const setCategory = () => {
-  //   if (column === 'To do') return 'to-do';
-  //   if (column === 'In progress') return 'in-progress';
-  //   if (column === 'Done') return 'done';
-  // };
 
   return (
     <Formik
       initialValues={{
-        title,
-        start,
-        end,
-        priority,
-        // title: (action === 'edit' && title) || '',
-        // start: (action === 'edit' && start) || '09:00',
-        // end: (action === 'edit' && end) || '10:00',
-        // priority: (action === 'edit' && priority) || 'low',
-        // date: (action === 'edit' && date) || currentDate,
-        // category: setCategory(),
+        title: (task && task.title) || title,
+        start: (task && task.start) || start,
+        end: (task && task.end) || end,
+        priority: (task && task.priority) || priority,
       }}
       // validationSchema={taskFormSchema}
+      //схему пока закомментил - из-за нее не работал сабмит данных, хотя все поля были заполнены - надо смотреть!
       onSubmit={onSubmitTask}
     >
       {({ values, handleSubmit }) => (
@@ -165,24 +150,27 @@ export default function TaskForm({
             </label>
           </div>
           <div className={styles.taskFormBtnContainer}>
-            <button
-              type="submit"
-              className={styles.addBtn}
-              onClick={handleSubmit}
-              disabled={!values.title}
-            >
-              <AiOutlinePlus className={styles.btnIcon} />
-              Add
-            </button>
-            {/* <button
-              type="submit"
-              className={styles.addBtn}
-              onClick={handleSubmit}
-            >
-              <SlPencil className={styles.btnIcon} />
-              Edit
-            </button> */}
-
+            {!task && (
+              <button
+                type="submit"
+                className={styles.addBtn}
+                onClick={handleSubmit}
+                disabled={!values.title}
+              >
+                <AiOutlinePlus className={styles.btnIcon} />
+                Add
+              </button>
+            )}
+            {task && (
+              <button
+                type="submit"
+                className={styles.addBtn}
+                onClick={handleSubmit}
+              >
+                <SlPencil className={styles.btnIcon} />
+                Edit
+              </button>
+            )}
             <button
               type="button"
               className={styles.cancelBtn}

@@ -143,6 +143,17 @@ feedbackFormCloseBtn:focus {
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+  transition: background-color 0.3s var(--transition-timing-function);
+}
+
+.addBtn:hover,
+.addBtn:focus {
+  background-color: var(--hover-blue);
+}
+
+.addBtn:disabled {
+  background-color: #e5edfa;
+  color: var(--secondary-text-color);
 }
 
 .cancelBtn {
@@ -158,6 +169,12 @@ feedbackFormCloseBtn:focus {
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+  transition: background-color 0.3s var(--transition-timing-function);
+}
+
+.cancelBtn:hover,
+.cancelBtn:focus {
+  background-color: #cad9f3;
 }
 
 .btnIcon {
