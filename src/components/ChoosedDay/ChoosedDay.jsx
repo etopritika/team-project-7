@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/taskOperations';
 
 import TasksColumnList from '../Tasks/TasksColumnList/TasksColumnList';
+import DayCalendarHead from '../Calendar/DayCalendarHead/DayCalendarHead';
 
 export default function ChoosedDay() {
   const [tasks, setTasks] = useState([]);
@@ -23,6 +24,7 @@ export default function ChoosedDay() {
 
   return (
     <>
+      <DayCalendarHead />
       <TasksColumnList tasks={tasks} />
     </>
   );

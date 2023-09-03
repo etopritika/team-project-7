@@ -1,29 +1,20 @@
-import {
-  startOfMonth,
-  endOfMonth,
-  subDays,
-  addDays,
-  eachDayOfInterval,
-  format,
-} from 'date-fns';
+import { startOfWeek, endOfWeek, eachDayOfInterval, format } from 'date-fns';
+import { enGB } from 'date-fns/locale';
 
-const getCustomDateArray = () => {
-  const currentDate = new Date();
-  const startOfCurrentMonth = startOfMonth(currentDate);
-  const endOfCurrentMonth = endOfMonth(currentDate);
-
-  const last6DaysOfPreviousMonth = subDays(startOfCurrentMonth, 6);
-  const first6DaysOfNextMonth = addDays(endOfCurrentMonth, 6);
+const getCustomDateArray = currentDate => {
+  const startOfTheWeek = startOfWeek(currentDate, { locale: enGB });
+  const endOfTheWeek = endOfWeek(currentDate, { locale: enGB });
 
   const dateInterval = eachDayOfInterval({
-    start: last6DaysOfPreviousMonth,
-    end: first6DaysOfNextMonth,
+    start: startOfTheWeek,
+    end: endOfTheWeek,
   });
 
-  // Форматуємо кожну дату
-  const formattedDatesTablet = dateInterval.map(date => format(date, 'E d'));
+  const formattedDatesTablet = dateInterval.map(date =>
+    format(date, 'E d', { locale: enGB })
+  );
   const formattedDatesMobile = dateInterval.map(date =>
-    format(date, 'EEEEE d')
+    format(date, 'EEEEE d', { locale: enGB })
   );
 
   return { formattedDatesTablet, formattedDatesMobile };

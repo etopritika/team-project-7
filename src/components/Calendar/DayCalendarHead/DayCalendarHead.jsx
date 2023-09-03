@@ -1,12 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { parse } from 'date-fns';
-// import css from './DayCalendarHead.module.css';
+import { useParams } from 'react-router-dom';
+import { parse } from 'date-fns';
+import css from './DayCalendarHead.module.css';
 import getCustomDateArray from './daysHelper';
 
 export default function DayCalendarHead() {
-  //   const { current } = useParams();
-  const { formattedDatesTablet, formattedDatesMobile } = getCustomDateArray();
+  const { current } = useParams();
+  const currentDate = parse(current, 'ddMMMMyyyy', new Date());
+  const { formattedDatesTablet, formattedDatesMobile } =
+    getCustomDateArray(currentDate);
   const [daysOfWeek, setDaysOfWeek] = useState(formattedDatesTablet);
 
   //   const formatCurrent = current.split('/').pop();
@@ -28,24 +30,23 @@ export default function DayCalendarHead() {
     };
   }, [handleResize]);
 
-  console.log(daysOfWeek);
+  console.log('daysOfWeek: ', daysOfWeek);
+  return (
+    <ul className={css.container}>
+      {daysOfWeek.map(day => {
+        const [weekday, date] = day.split(' '); // Розбиваємо рядок на дві частини
 
-  //   return (
-  //     <ul className={css.container}>
-  //       {daysOfWeek.map(day => {
-  //         const [weekday, date] = day.split(' '); // Розбиваємо рядок на дві частини
-
-  //         return (
-  //           <li key={day}>
-  //             <button className={css.list__btn} type="button">
-  //               <span className={css.day__name}>{weekday}</span>{' '}
-  //               {/* Тут буде "Mon" */}
-  //               <span className={css.day__number}>{date}</span>{' '}
-  //               {/* Тут буде "7" */}
-  //             </button>
-  //           </li>
-  //         );
-  //       })}
-  //     </ul>
-  //   );
+        return (
+          <li key={day}>
+            <button className={css.list__btn} type="button">
+              <span className={css.day__name}>{weekday}</span>{' '}
+              {/* Тут буде "Mon" */}
+              <span className={css.day__number}>{date}</span>{' '}
+              {/* Тут буде "7" */}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
