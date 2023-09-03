@@ -1,5 +1,11 @@
 @import url(../../vars.css);
 
+.bodyContainer {
+  min-height: 100vh;
+
+  overflow: hidden;
+}
+
 .descrSection {
   margin-top: 64px;
 
@@ -33,15 +39,40 @@
   }
 }
 
+.hidden {
+  opacity: 0;
+  filter: blur(3px);
+  transform: translateX(-100%);
+}
+
+.hiddenReversed {
+  opacity: 0;
+  filter: blur(3px);
+  transform: translateX(100%);
+}
+
+.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+  transition: 0.8s;
+}
+
 .descrWrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   align-self: flex-start;
 
+  /* transition-delay: 200ms; */
+
   @media screen and (min-width: 1440px) {
     align-self: center;
   }
+}
+
+.img {
+  transition-delay: 200ms;
 }
 
 .descrWrapperSidebar {
