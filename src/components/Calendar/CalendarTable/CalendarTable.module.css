@@ -46,13 +46,17 @@
   font-weight: 700;
   padding: 4px 10px;
 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
 }
 
-.todo-text:not(:last-child) {
-  margin-bottom: 2px;
+.todo-items:not(:last-child) {
+  margin-bottom: 3px;
 }
 
 .date-content {

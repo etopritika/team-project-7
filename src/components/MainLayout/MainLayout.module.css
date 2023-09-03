@@ -35,6 +35,7 @@
 @media screen and (min-width: 1440px) {
   .content__wrapper {
     margin-left: 32px;
+    width: 1064px;
   }
 }
 
