@@ -13,7 +13,6 @@ import { useLocation } from 'react-router-dom';
 export const PeriodPaginator = ({ activePage }) => {
   const [activeBtn, setActiveBtn] = useState('');
   const [visibleDate, setVisibleDate] = useState(useDate());
-  console.log(activePage)
 
   const navigate = useNavigate();
   const location = useLocation(); 
