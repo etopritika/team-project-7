@@ -27,7 +27,7 @@
     font-size: 16px;
     line-height: 1.125;
     text-transform: uppercase;
-    color: rgb(97, 97, 97);
+    color: var(--secondary-text-color)
 
 }
 

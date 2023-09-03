@@ -72,7 +72,7 @@ const StatisticsChart = () => {
         <p className="statisticsByDay">By Day</p>
         <p className="statisticsByMonth">By Month</p>
       </div>
-      <PeriodPaginator />
+      <PeriodPaginator activePage={"statistics/day"}/>
 
       {selectedDate && (
         <div className="event-form">

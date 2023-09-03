@@ -1,16 +1,31 @@
 .event-container {
-  width: 1020px;
+  /* width: 1020px; */
   display: flex;
-  height: 624px;
+  height: 100vh;
   justify-content: center;
-  background-color: #fff;
-  margin-left: 32px;
-  margin-right: 32px;
+  background-color: var(--background-user-page);
+  margin-top: 64px;
+  margin-bottom: 40px;
+  /* margin-left: 32px; */
+  /* margin-right: 32px; */
   border-radius: 16px;
 }
 
+@media screen and(min-width: 768px) {
+  .event-container{
+    margin-top: 65px;
+  }
+}
+
+@media screen and(min-width: 1440px) {
+  .event-container{
+    margin-top: 33px;
+    margin-bottom: 32px;
+  }
+}
+
 .dayCont {
-  margin-left: 600px;
+  /* margin-left: 600px; */
   position: absolute;
   display: flex;
   margin-top: 26px;
@@ -20,7 +35,7 @@
   color: #ffd2dd;
 }
 .statisticsByDay {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -30,7 +45,7 @@
   line-height: 18px;
 }
 .statisticsByMonth {
-  color: #343434;
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 16px;
   font-style: normal;

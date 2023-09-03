@@ -36,20 +36,24 @@ export default function TasksColumnList({ tasks }) {
 
   const filteredTasks = tasks.filter(task => task.date === newCurrentDay);
 
-  console.log(newCurrentDay);
+  // console.log(newCurrentDay);
 
   return (
     <>
       <ul className={css.list}>
         <li className={css.listItem}>
           <TasksColumn
+            date={newCurrentDay}
             title={'To do'}
+            category={'to-do'}
             tasks={filteredTasks.filter(task => task.category === 'to-do')}
           />
         </li>
         <li className={css.listItem}>
           <TasksColumn
+            date={newCurrentDay}
             title={'In progress'}
+            category={'in-progress'}
             tasks={filteredTasks.filter(
               task => task.category === 'in-progress'
             )}
@@ -57,7 +61,9 @@ export default function TasksColumnList({ tasks }) {
         </li>
         <li className={css.listItem}>
           <TasksColumn
+            date={newCurrentDay}
             title={'Done'}
+            category={'done'}
             tasks={filteredTasks.filter(task => task.category === 'done')}
           />
         </li>

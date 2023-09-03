@@ -12,6 +12,23 @@
   border: none;
   cursor: pointer;
   color: var(--btn-close-feedback);
+  transition: transform 0.3s var(--transition-timing-function);
+  transform: scale(1);
+}
+
+.taskFormCloseBtn:hover,
+feedbackFormCloseBtn:focus {
+  transform: var(--transition);
+}
+
+.close {
+  color: var(--primary-text-color);
+  transition: color 0.3s var(--transition-timing-function);
+}
+
+.close:hover,
+.close:focus {
+  color: var(--hover-blue);
 }
 
 .taskFormSubtitle {
@@ -70,21 +87,38 @@
 
 .radioBtnContainer {
   margin-bottom: 32px;
+  display: flex;
+  /* gap: 16px; */
 }
 
 .radioLabel {
-  margin-right: 16px;
+  position: relative;
+  padding-right: 16px;
+  /* display: flex; */
+  align-items: center;
   color: var(--secondary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.28;
+
+  cursor: pointer;
 }
 
 .radioInput {
   margin-right: 4px;
+  cursor: pointer;
 }
+
+/* .radioSpan{
+  position: absolute;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: orangered;
+} */
 
 .taskFormBtnContainer {
   display: flex;
@@ -93,6 +127,10 @@
 }
 
 .addBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   width: 178px;
   height: 48px;
   border-radius: 8px;
@@ -105,6 +143,17 @@
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+  transition: background-color 0.3s var(--transition-timing-function);
+}
+
+.addBtn:hover,
+.addBtn:focus {
+  background-color: var(--hover-blue);
+}
+
+.addBtn:disabled {
+  background-color: #e5edfa;
+  color: var(--secondary-text-color);
 }
 
 .cancelBtn {
@@ -120,4 +169,15 @@
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+  transition: background-color 0.3s var(--transition-timing-function);
+}
+
+.cancelBtn:hover,
+.cancelBtn:focus {
+  background-color: #cad9f3;
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
 }

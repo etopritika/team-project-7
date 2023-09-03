@@ -18,6 +18,23 @@
   border: none;
   cursor: pointer;
   color: var(--btn-close-feedback);
+  transition: transform 0.3s var(--transition-timing-function);
+  transform: scale(1);
+}
+
+.feedbackFormCloseBtn:hover,
+feedbackFormCloseBtn:focus {
+  transform: var(--transition);
+}
+
+.close {
+  color: var(--primary-text-color);
+  transition: color 0.3s var(--transition-timing-function);
+}
+
+.close:hover,
+.close:focus {
+  color: var(--hover-blue);
 }
 
 .feedbackFormTopSubtitle {
@@ -91,7 +108,7 @@
   height: 48px;
   border-radius: 8px;
   border: none;
-  background: var(--main-blue-color);
+  background-color: var(--main-blue-color);
   color: var(--white-color);
   font-family: Inter;
   font-size: 14px;
@@ -99,6 +116,17 @@
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+  transition: background-color 0.3s var(--transition-timing-function);
+}
+
+.feedbackFormSaveBtn:hover,
+.feedbackFormSaveBtn:focus {
+  background-color: var(--hover-blue);
+}
+
+.feedbackFormSaveBtn:disabled {
+  background-color: #e5edfa;
+  color: var(--secondary-text-color);
 }
 
 @media (max-width: 480px) {
@@ -123,6 +151,12 @@
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+  transition: background-color 0.3s var(--transition-timing-function);
+}
+
+.feedbackFormEditSendBtn:hover,
+.feedbackFormEditSendBtn:focus {
+  background-color: var(--hover-blue);
 }
 
 @media (max-width: 480px) {
@@ -139,7 +173,7 @@
   height: 48px;
   border-radius: 8px;
   border: none;
-  background: #e5edfa;
+  background-color: #e5edfa;
   color: var(--secondary-text-color);
   font-family: Inter;
   font-size: 14px;
@@ -147,6 +181,12 @@
   font-weight: 600;
   line-height: 1.28;
   cursor: pointer;
+  transition: background-color 0.3s var(--transition-timing-function);
+}
+
+.feedbackFormCancelBtn:hover,
+.feedbackFormCancelBtn:focus {
+  background-color: #cad9f3;
 }
 
 @media (max-width: 480px) {
@@ -174,8 +214,17 @@
   height: 30px;
   border-radius: 50%;
   border: none;
-  background: var(--btn-edit-feedback);
+  background-color: var(--btn-edit-feedback);
   cursor: pointer;
+  color: var(--main-blue-color);
+  transition: background-color 0.3s var(--transition-timing-function),
+    color 0.3s var(--transition-timing-function);
+}
+
+.feedbackFormEditBtn:hover,
+.feedbackFormEditBtn:focus {
+  background-color: var(--main-blue-color);
+  color: var(--white-color);
 }
 
 .feedbackFormDeleteBtn {
@@ -183,8 +232,17 @@
   height: 30px;
   border-radius: 50%;
   border: none;
-  background: rgba(234, 61, 101, 0.2);
+  background-color: rgba(234, 61, 101, 0.2);
   cursor: pointer;
+  color: #ea3d65;
+  transition: background-color 0.3s var(--transition-timing-function),
+    color 0.3s var(--transition-timing-function);
+}
+
+.feedbackFormDeleteBtn:hover,
+.feedbackFormDeleteBtn:focus {
+  background-color: #ea3d65;
+  color: var(--white-color);
 }
 
 .invalidFeedback {

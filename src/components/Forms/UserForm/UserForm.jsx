@@ -19,14 +19,21 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './custom-datepicker.css';
 
-const userInfoKeys = ['name', 'email', 'birthday', 'phone', 'telegram'];
+const userInfoKeys = [
+  'name',
+  'email',
+  'birthday',
+  'phone',
+  'telegram',
+  'avatarURL',
+];
 
 export function UserForm() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUser);
-  const [isFormChanged /*setIsFormChanged*/] = useState(false);
 
-  const [, /*previewImageUrl*/ setPreviewImageUrl] = useState(null);
+  const [isFormChanged, setIsFormChanged] = useState(false);
+
   const [file, setFile] = useState(null);
 
   const initialUserInfo = {
@@ -35,7 +42,7 @@ export function UserForm() {
     name: userInfo.name,
     email: userInfo.email,
     birthday: userInfo.birthday ? new Date(userInfo.birthday) : new Date(),
-    avatarURL: userInfo.avatarURL,
+    avatarURL: userInfo.avatar || null,
   };
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -56,22 +63,9 @@ export function UserForm() {
     }
     try {
       dispatch(editData(formData));
+      console.log(formData);
     } catch (error) {}
     resetForm();
-  };
-
-  const handleAvatarChange = (e, setFieldValue) => {
-    const userAvatarPreviewImg = e.target.files[0];
-    setFile(userAvatarPreviewImg);
-    const reader = new FileReader();
-    const blob = new Blob([userAvatarPreviewImg], {
-      type: userAvatarPreviewImg.type,
-    });
-    reader.readAsDataURL(blob);
-    reader.onload = () => {
-      setPreviewImageUrl(reader.result);
-      setFieldValue('avatar-upload', !!userAvatarPreviewImg);
-    };
   };
 
   return (
@@ -92,7 +86,7 @@ export function UserForm() {
                       src={
                         typeof userInfo.avatarURL === 'string'
                           ? userInfo.avatarURL
-                          : URL.createObjectURL(userInfo.avatarURL)
+                          : URL.createObjectURL(userInfo.avatar)
                       }
                       alt="avatar"
                       className={css.circularAvatar}
@@ -108,26 +102,25 @@ export function UserForm() {
                       name="avatar"
                       type="file"
                       accept="image/*"
-                      onChange={e => handleAvatarChange(e, setFieldValue)}
+                      onChange={async e => {
+                        const file = e.target.files[0];
+                        setFile(file);
+                        setFieldValue('avatarURL', URL.createObjectURL(file));
+                        const formData = new FormData();
+                        formData.append('avatar', file);
+                        try {
+                          dispatch(editData(formData));
+                        } catch {}
+                        setIsFormChanged(false);
+                      }}
                       style={{ display: 'none' }}
                     />
+
                     <label
                       htmlFor="avatar-upload"
                       className={css.avatar_upload_btn}
                     >
                       <div className={css.icons}>
-                        <input
-                          type="file"
-                          id="avatar"
-                          name="avatar"
-                          accept="image/*,.png,.jpg,.gif,.web"
-                          onChange={e => {
-                            const file = e.target.files[0];
-                            console.log(file);
-                            setFile(file);
-                          }}
-                          style={{ display: 'none' }}
-                        />
                         <AiFillPlusCircle
                           className={`${css.icon} ${css.myCustomIcon}`}
                         />
@@ -140,7 +133,7 @@ export function UserForm() {
               </div>
               <div className={css.user_form}>
                 <label className={css.label}>
-                  <p className={css.labelText}>Username</p>
+                  <p className={css.labelText}>User Name</p>
                   <Field
                     id="name"
                     name="name"
@@ -157,7 +150,7 @@ export function UserForm() {
                   </div>
                 </label>
 
-                <label htmlFor="phone" className={css.user_form__label}>
+                <label htmlFor="phone" className={css.label}>
                   <p className={css.labelText}>Phone</p>
                   <Field
                     id="phone"
@@ -188,14 +181,13 @@ export function UserForm() {
                       id="birthday"
                       type="date"
                       calendarStartDay={1}
-                      value={values.birthday}
                       showMonthDropdown
                       showYearDropdown
                       dropdownMode="select"
                       yearDropdownItemNumber={100}
                       scrollableYearDropdown
                       selected={new Date(values.birthday)}
-                      dateFormat="dd-MM-yyyy"
+                      dateFormat="dd/MM/yyyy"
                       onChange={e => {
                         setFieldValue('birthday', e);
                         setTouched({ ...touched, birthday: true });
@@ -213,13 +205,13 @@ export function UserForm() {
                   </div>
                 </label>
 
-                <label htmlFor="telegram" className={css.label}>
-                  <p className={css.labelText}>Telegram</p>
+                <label htmlFor="Skype" className={css.label}>
+                  <p className={css.labelText}>Skype</p>
                   <Field
-                    id="telegram"
-                    name="telegram"
+                    id="skype"
+                    name="skype"
                     type="text"
-                    placeholder="Add a telegram nick"
+                    placeholder="Add a skype number"
                     className={css.user_form_input}
                   />
                   <div className={css.feedback}>

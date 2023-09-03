@@ -1,8 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTasks } from './taskOperations';
+import { addTask, editTask, fetchTasks } from './taskOperations';
 // , addTask, editTask, deleteTask
 
 const initialState = {
+  // items: [
+  //   { name: toDo, tasks: [] },
+  //   { name: inProgress, tasks: [] },
+  //   { name: done, tasks: [] },
+  // ],
+  // items: { toDo: [], inProgress: [], done: [] },
   items: [],
   isLoading: false,
   error: null,
@@ -37,7 +43,32 @@ export const taskSlice = createSlice({
           error: null,
           items: action.payload,
         };
+      })
+      .addCase(addTask.pending, handlePending)
+      .addCase(addTask.rejected, handleRejected)
+      .addCase(addTask.fulfilled, (state, action) => {
+        return {
+          ...state,
+          isLoading: false,
+          error: null,
+          items: state.items
+            ? [...state.items, action.payload]
+            : [action.payload],
+        };
+      })
+      .addCase(editTask.pending, handlePending)
+      .addCase(editTask.rejected, handleRejected)
+      .addCase(editTask.fulfilled, (state, action) => {
+        const updatedTask = action.payload;
+        const taskIdToUpdate = updatedTask._id;
+        const updatedItems = state.items.map(task =>
+          task._id === taskIdToUpdate ? updatedTask : task
+        );
+        state.items = updatedItems;
+        state.isLoading = false;
+        state.error = null;
       });
+
     // .addCase(addTask.fulfilled, (state, action) => {
     //   state.tasks.isLoading = false;
     //   state.tasks.error = null;
