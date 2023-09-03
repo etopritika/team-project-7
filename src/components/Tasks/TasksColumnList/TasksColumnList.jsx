@@ -36,7 +36,7 @@ export default function TasksColumnList({ tasks }) {
 
   const filteredTasks = tasks.filter(task => task.date === newCurrentDay);
 
-  console.log(newCurrentDay);
+  // console.log(newCurrentDay);
 
   return (
     <>
