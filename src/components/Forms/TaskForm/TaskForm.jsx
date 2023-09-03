@@ -18,10 +18,10 @@ export default function TaskForm({
   column,
   taskToEdit,
 }) {
-  const [title, /*setTitle*/] = useState('');
-  const [start, /*setStart*/] = useState('');
-  const [end, /*setEnd*/] = useState('');
-  const [priority, /*setPriority*/] = useState('low');
+  const [title, setTitle] = useState('');
+  const [start, setStart] = useState('');
+  const [end, setEnd] = useState('');
+  const [priority, setPriority] = useState('low');
   const dispatch = useDispatch();
   // let id, title, start, end, priority, date;
 
