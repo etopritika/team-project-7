@@ -2,25 +2,31 @@
 
 .list {
   display: flex;
-
   gap: 16px;
-  overflow-x: auto;
+
+  overflow-y: auto;
+  scroll-snap-type: x mandatory;
 }
 
 .listItem {
   min-width: 335px;
+  height: fit-content;
   padding: 18px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 
   border-radius: 8px;
   border: 1px solid var(--placeholder-color);
   background: var(--background-calendar-color);
 
+  scroll-snap-align: center;
+
   @media screen and (min-width: 768px) {
     min-width: 344px;
+    padding: 20px;
   }
 }

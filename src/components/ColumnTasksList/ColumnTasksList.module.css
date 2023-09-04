@@ -1,0 +1,5 @@
+.list {
+  /* max-height: 70vh; */
+  /* height: fit-content; */
+  overflow: auto;
+}

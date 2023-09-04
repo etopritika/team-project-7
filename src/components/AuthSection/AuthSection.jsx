@@ -18,9 +18,6 @@ export default function AuthSection() {
       <div className={css.authNav}>
         <NavLink to="/login" className={css.linkLogin}>
           Log in
-          {/* <svg className={css.iconLogin} width="18px" height="18px">
-            <use href={icons + '#log-in-01'}></use>
-          </svg> */}
           <FiLogIn size={18} />
         </NavLink>
 
