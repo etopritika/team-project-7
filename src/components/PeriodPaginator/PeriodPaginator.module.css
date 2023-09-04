@@ -10,13 +10,13 @@
 .buttons_container {
     display: flex;
     margin-left: 8px;
-   
+
 }
 
 .button {
     padding: 10px 10px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(220, 227, 229, 0.5);
+    background: var(--color-paginator-button);
+    border: 1px solid var(--change-month-button);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,8 +48,8 @@
     padding: 8px 12px;
     background: var(--main-blue-color);
     border-radius: 8px;
-   
-   
+
+
 }
 
 .name {

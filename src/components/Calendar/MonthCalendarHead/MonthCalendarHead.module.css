@@ -5,20 +5,20 @@
     list-style: none;
     display: flex;
     justify-content: space-around;
-    
+
     align-items: center;
     padding: 14px 0px;
     border: 1px solid var(--placeholder-color);
     border-radius: 8px;
-    background-color:var(--white-color);
+    background-color:var(--background-calendar-color);
     font-weight: 600;
     font-size: 14px;
     line-height: 1.286;
     color: var(--secondary-text-color);
   }
-  
+
   .day-of-week-header {
-   
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,13 +27,13 @@
     font-size: 16px;
     line-height: 1.125;
     text-transform: uppercase;
-    color: var(--secondary-text-color)
+    color: var(--color-number)
 
 }
 
 .month-calendar-head li:nth-last-child(-n+2) {
 
-  color:var(--main-blue-color); 
+  color:var(--main-blue-color);
 }
 
 

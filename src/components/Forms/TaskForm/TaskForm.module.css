@@ -47,13 +47,14 @@ feedbackFormCloseBtn:focus {
   height: 46px;
   padding: 14px 18px;
   border-radius: 8px;
-  background: #f6f6f6;
-  border: none;
+  background: var(--input-title-task);
+  border: 1px solid var(--border-title-task);
   margin-bottom: 18px;
+
 }
 
 .taskInput::placeholder {
-  color: var(--secondary-text-color);
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -80,9 +81,10 @@ feedbackFormCloseBtn:focus {
   height: 46px;
   padding: 14px 18px;
   border-radius: 8px;
-  background: #f6f6f6;
-  border: none;
+    background: var(--input-title-task);
+  border: 1px solid var(--border-title-task);
   margin-bottom: 28px;
+  color: var(--time-color);
 }
 
 .radioBtnContainer {
@@ -96,7 +98,7 @@ feedbackFormCloseBtn:focus {
   padding-right: 16px;
   display: flex;
   align-items: center;
-  color: var(--secondary-text-color);
+  color: var(--input-form-text);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -146,6 +148,12 @@ feedbackFormCloseBtn:focus {
   outline: 1.2px solid #ea3d65;
   outline-offset: 1px;
 }
+
+
+input[type='radio']#Yellow  {
+    accent-color: red;
+}
+
 
 .taskFormBtnContainer {
   display: flex;
