@@ -12,8 +12,8 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
   //в пропсах передан task - это собственно уже готовая тудушка, по которой кликаешь
   //и данные ее передаются сюда, чтоб заполнить поля автоматически и возпроизвести кнопку Edit
   const [title, setTitle] = useState('');
-  const [start, setStart] = useState('');
-  const [end, setEnd] = useState('');
+  const [start, setStart] = useState('00:00');
+  const [end, setEnd] = useState('00:00');
   const [priority, setPriority] = useState('low');
   const dispatch = useDispatch();
 

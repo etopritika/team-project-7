@@ -4,6 +4,12 @@
   background-color: var(--modal-background);
 }
 
+@media (max-width: 420px) {
+  .taskFormContainer {
+    padding: 48px 18px 40px 18px;
+  }
+}
+
 .taskFormCloseBtn {
   position: absolute;
   top: 14px;
@@ -50,11 +56,17 @@ feedbackFormCloseBtn:focus {
   background: var(--input-title-task);
   border: 1px solid var(--border-title-task);
   margin-bottom: 18px;
+}
 
+@media (max-width: 420px) {
+  .taskInput {
+    height: 42px;
+    width: calc(100vw - 72px);
+  }
 }
 
 .taskInput::placeholder {
-  color: var(--primary-text-color);
+  color: var(--secondary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -63,11 +75,9 @@ feedbackFormCloseBtn:focus {
 }
 
 .invalidFeedback {
-  .invalidFeedback {
-    color: var(--error-color);
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
+  color: var(--error-color);
+  font-size: 12px;
+  margin-bottom: 8px;
 }
 
 .timeInputContainer {
@@ -81,16 +91,33 @@ feedbackFormCloseBtn:focus {
   height: 46px;
   padding: 14px 18px;
   border-radius: 8px;
-    background: var(--input-title-task);
+  background: var(--input-title-task);
   border: 1px solid var(--border-title-task);
   margin-bottom: 28px;
   color: var(--time-color);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+@media (max-width: 420px) {
+  .timeInput {
+    height: 42px;
+    margin-bottom: 16px;
+    width: calc((100vw - 88px) / 2);
+  }
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  display: none;
 }
 
 .radioBtnContainer {
   margin-bottom: 32px;
   display: flex;
-  /* gap: 16px; */
+  gap: 16px;
 }
 
 .radioLabel {
@@ -106,7 +133,6 @@ feedbackFormCloseBtn:focus {
   line-height: 1.28;
 
   cursor: pointer;
-
 }
 
 .radioInput {
@@ -115,7 +141,7 @@ feedbackFormCloseBtn:focus {
   cursor: pointer;
 }
 
-.radioSpan{
+.radioSpan {
   position: absolute;
   left: 0;
   width: 10px;
@@ -123,37 +149,35 @@ feedbackFormCloseBtn:focus {
   border-radius: 50%;
   /* background-color: grey; */
 }
-.radioInput[value="low"] + .radioSpan{
-  background-color: #72C2F8;
+.radioInput[value='low'] + .radioSpan {
+  background-color: #72c2f8;
 }
-.radioInput[value="medium"] + .radioSpan{
-  background-color: #F3B249;
+.radioInput[value='medium'] + .radioSpan {
+  background-color: #f3b249;
 }
-.radioInput[value="high"] + .radioSpan{
-  background-color: #EA3D65;
+.radioInput[value='high'] + .radioSpan {
+  background-color: #ea3d65;
 }
 
-.radioInput[value="low"]:checked + .radioSpan {
-  background-color: #72C2F8;
+.radioInput[value='low']:checked + .radioSpan {
+  background-color: #72c2f8;
   outline: 1.2px solid #72c2f8;
   outline-offset: 1px;
 }
-.radioInput[value="medium"]:checked + .radioSpan {
-  background-color: #F3B249;
+.radioInput[value='medium']:checked + .radioSpan {
+  background-color: #f3b249;
   outline: 1.2px solid #f3b249;
   outline-offset: 1px;
 }
-.radioInput[value="high"]:checked + .radioSpan {
-  background-color: #EA3D65;
+.radioInput[value='high']:checked + .radioSpan {
+  background-color: #ea3d65;
   outline: 1.2px solid #ea3d65;
   outline-offset: 1px;
 }
 
-
-input[type='radio']#Yellow  {
-    accent-color: red;
+input[type='radio']#Yellow {
+  accent-color: red;
 }
-
 
 .taskFormBtnContainer {
   display: flex;
@@ -181,6 +205,14 @@ input[type='radio']#Yellow  {
   transition: background-color 0.3s var(--transition-timing-function);
 }
 
+@media (max-width: 420px) {
+  .addBtn {
+    height: 42px;
+    width: 100%;
+    max-width: 178px;
+  }
+}
+
 .addBtn:hover,
 .addBtn:focus {
   background-color: var(--hover-blue);
@@ -205,6 +237,14 @@ input[type='radio']#Yellow  {
   line-height: 1.28;
   cursor: pointer;
   transition: background-color 0.3s var(--transition-timing-function);
+}
+
+@media (max-width: 420px) {
+  .cancelBtn {
+    height: 42px;
+    width: 100%;
+    max-width: 144px;
+  }
 }
 
 .cancelBtn:hover,
