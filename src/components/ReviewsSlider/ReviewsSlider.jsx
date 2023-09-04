@@ -64,6 +64,7 @@ export default function ReviewsSlider() {
                       <div className={css.userAvatar}>
                         {owner ? (
                           <img
+                            loading='lazy'
                             src={owner.avatarURL}
                             alt={owner.name + ' avatar'}
                             className={css.avatar}
