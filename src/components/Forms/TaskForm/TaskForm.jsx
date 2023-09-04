@@ -7,6 +7,7 @@ import taskFormSchema from './taskFormValidation';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask, editTask } from 'redux/tasks/taskOperations';
+import Notiflix from 'notiflix';
 
 export default function TaskForm({ toggleModal, category, currentDate, task }) {
   //в пропсах передан task - это собственно уже готовая тудушка, по которой кликаешь
@@ -41,9 +42,13 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
           toggleModal();
         } else {
           console.error(data.error);
+          Notiflix.Notify.failure(
+            'Error creating a task: ' + data.error.message
+          );
         }
       } catch (error) {
         console.error(error);
+        Notiflix.Notify.failure('Error creating a task: ' + error.message);
       }
     }
 
@@ -55,9 +60,13 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
           toggleModal();
         } else {
           console.error(data.error);
+          Notiflix.Notify.failure(
+            'Error editing the task: ' + data.error.message
+          );
         }
       } catch (error) {
         console.error(error);
+        Notiflix.Notify.failure('Error editing the task: ' + error.message);
       }
     }
   };
