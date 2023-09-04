@@ -9,15 +9,12 @@ import { useDispatch } from 'react-redux';
 import { addTask, editTask } from 'redux/tasks/taskOperations';
 
 export default function TaskForm({ toggleModal, category, currentDate, task }) {
-  //в пропсах передан task - это собственно уже готовая тудушка, по которой кликаешь
-  //и данные ее передаются сюда, чтоб заполнить поля автоматически и возпроизвести кнопку Edit
   const [title, setTitle] = useState('');
   const [start, setStart] = useState('00:00');
   const [end, setEnd] = useState('00:00');
   const [priority, setPriority] = useState('low');
   const dispatch = useDispatch();
 
-  //временные логи, чтоб не было ошибки из-за неиспользования нижеперечисленных функций
   console.log(setTitle);
   console.log(setStart);
   console.log(setEnd);
@@ -29,8 +26,8 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
       start: values.start,
       end: values.end,
       priority: values.priority,
-      date: currentDate,
-      category,
+      date: task ? task.date : currentDate,
+      category: task ? task.category : category,
     };
 
     if (!task) {
@@ -49,7 +46,9 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
 
     if (task) {
       try {
-        const data = await dispatch(editTask(taskData));
+        const data = await dispatch(
+          editTask({ taskId: task._id, updatedData: taskData })
+        );
         if (!data.error) {
           console.log(data.payload);
           toggleModal();
