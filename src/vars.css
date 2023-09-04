@@ -55,6 +55,7 @@
   --input-title-task: #f6f6f6;
   --time-color: #343434;
   --change-month-button: rgba(220, 227, 229, 0.5);
+   --type-profile: #343434;
 }
 
 html[data-theme='dark'] {
@@ -74,6 +75,7 @@ html[data-theme='dark'] {
 
   /* UserInfo */
   --name-color: #fff;
+  --type-profile: rgba(250, 250, 250, 0.30);
 
   --primary-text-color: #fff;
 
