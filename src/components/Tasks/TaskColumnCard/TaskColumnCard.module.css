@@ -1,0 +1,55 @@
+.containerCard {
+  width: 300px;
+  height: 112px;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  background-color: #f7f6f9;
+  padding: 14px 14px 18px 14px;
+}
+
+.titleCard {
+  overflow: hidden;
+  color: #111;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  margin-bottom: 32px;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: end;
+}
+
+.avatarContainer {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  border: 1.8px solid #3e85f3;
+}
+
+.avatar {
+}
+
+.priorityContainer {
+  border-radius: 4px;
+  background-color: #ea3d65;
+  padding: 4px 12px;
+}
+
+.btnContainer {
+  display: flex;
+}
+
+.btn {
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: none;
+}
+
+.btnIcon {
+}
