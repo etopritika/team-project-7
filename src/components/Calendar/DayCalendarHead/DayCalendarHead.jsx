@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef  } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { parse } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
@@ -58,7 +58,7 @@ export default function DayCalendarHead() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [currentDate, dates]); 
+  }, [currentDate, dates]);
 
   // useEffect(() => {
   //   const handleResize = () => {
@@ -105,7 +105,13 @@ export default function DayCalendarHead() {
               type="button"
             >
               <span className={css.day__name}>{dayName}</span>
-              <span className={`${css.day__number} ${isActiveDay ? css.activeDay : ''}`}>{dayNumber}</span>
+              <span
+                className={`${css.day__number} ${
+                  isActiveDay ? css.activeDay : ''
+                }`}
+              >
+                {dayNumber}
+              </span>
             </button>
           </li>
         );
