@@ -88,7 +88,7 @@ export default function Description() {
                   media="(min-width: 1440px)"
                   srcSet={`${calendarDesk1x} 1x, ${calendarDesk2x} 2x`}
                 />
-                <img src={calendarMob1x} alt="Calendar" />
+                <img loading="lazy" src={calendarMob1x} alt="Calendar" />
               </picture>
             </li>
             <li
@@ -124,7 +124,7 @@ export default function Description() {
                   media="(min-width: 1440px)"
                   srcSet={`${sidebarDesk1x} 1x, ${sidebarDesk2x} 2x`}
                 />
-                <img src={sidebarMob1x} alt="Calendar" />
+                <img loading="lazy" src={sidebarMob1x} alt="Calendar" />
               </picture>
             </li>
             <li
@@ -160,7 +160,7 @@ export default function Description() {
                   media="(min-width: 1440px)"
                   srcSet={`${allInOneDesk1x} 1x, ${allInOneDesk2x} 2x`}
                 />
-                <img src={allInOneMob1x} alt="Calendar" />
+                <img loading="lazy" src={allInOneMob1x} alt="Calendar" />
               </picture>
             </li>
           </ul>
