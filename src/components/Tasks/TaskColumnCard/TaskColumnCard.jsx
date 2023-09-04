@@ -1,5 +1,5 @@
 import { useAuth } from 'hooks/useAuth'; 
-import { TaskToolbar } from '../TaskToolbar/TaskToolbar'; 
+import TaskToolbar from '../TaskToolbar/TaskToolbar'; 
 import css from './TaskColumnCard.module.css'; 
  
 export const TaskColumnCard = ({task}) => { 
@@ -40,3 +40,5 @@ export const TaskColumnCard = ({task}) => {
     </div> 
   ); 
 };
+
+export default TaskColumnCard;
