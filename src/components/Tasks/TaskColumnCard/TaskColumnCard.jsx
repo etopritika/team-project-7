@@ -2,7 +2,7 @@ import { useAuth } from 'hooks/useAuth';
 import TaskToolbar from '../TaskToolbar/TaskToolbar'; 
 import css from './TaskColumnCard.module.css'; 
  
-export const TaskColumnCard = ({task}) => { 
+export const TaskColumnCard = ({task, otherCategories}) => { 
   function getInitials(name) { 
     if (name) { 
       const initials = name 
@@ -37,7 +37,7 @@ export const TaskColumnCard = ({task}) => {
           </div> 
                   <p className={css.priorityTitle}>{task.priority}</p> 
         </div> 
-        <TaskToolbar /> 
+        <TaskToolbar task={task} otherCategories={otherCategories}/> 
       </div> 
     </div> 
   ); 
