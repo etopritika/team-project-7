@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectDate } from 'redux/tasks/selectors/selectDate';
+// import { useSelector } from 'react-redux';
+// import { selectDate } from '../../../redux/tasks/selectors';
 import icons from 'img/icons.svg';
 import css from './TaskToolbar.module.css';
 
-const TASK_MODAL_TYPES = {
-  add: 'Add',
-  edit: 'Edit',
-};
+// const TASK_MODAL_TYPES = {
+//   add: 'Add',
+//   edit: 'Edit',
+// };
 
-export const TaskToolbar = ({ task, otherCategories }) => {
+const TaskToolbar = ({ task, otherCategories }) => {
     const [isModalOpened, setModalOpening] = useState(false);
 
     const [isMenuOpened, setMenuOpening] = useState(false);
@@ -38,7 +38,7 @@ export const TaskToolbar = ({ task, otherCategories }) => {
         }
     };
     
-    const date = useSelector(selectDate);
+    // const date = useSelector(selectDate);
 
     const handleMoveClick = async category => {
         setMenuOpening(!isMenuOpened);
@@ -49,13 +49,13 @@ export const TaskToolbar = ({ task, otherCategories }) => {
     return (
         <>
             <div className={css.buttonsWrapper}>
-                <svg className={css.taskAction} {isMenuOpened ? 'active' : null}>
+                <svg className={`${css.taskAction} ${isMenuOpened ? 'active' : null}`}>
                     <use
                         href={`${icons}#arrow-circle-broken-right`}
                         onClick={() => handleMoveClick('done')}
                     />
                 </svg>
-                <svg className={css.taskAction} {isModalOpened ? 'active' : null}>
+                <svg className={`${css.taskAction} ${isMenuOpened ? 'active' : null}`}>
                     <use href={`${icons}#pencil-01`} onClick={handleToggleModal} />
                 </svg>
                 <svg className={css.taskAction}>
@@ -82,3 +82,5 @@ export const TaskToolbar = ({ task, otherCategories }) => {
         </>
     );
 };
+
+export default TaskToolbar;
