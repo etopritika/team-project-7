@@ -4,14 +4,11 @@ import styles from './CalendarTable.module.css';
 import Calendar from 'react-calendar';
 import { format, isToday, addMonths, subMonths } from 'date-fns';
 import { useParams } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import tasks from '../CalendarTable/tasks.json';
+
 
 export default function CalendarTable({ tasks }) {
   const [, /*selectedDate*/ setSelectedDate] = useState(null);
   const { current } = useParams();
-
-  // const tasks = useSelector(state => state.tasks.items);
 
   const dateClickHandler = date => {
     setSelectedDate(date);
@@ -43,9 +40,9 @@ export default function CalendarTable({ tasks }) {
   };
 
   const getTasksForDate = date => {
-    // Фільтруємо завдання, що належать до вказаної дати
+
     return tasks.filter(task => {
-      const taskDate = new Date(task.date); // date дата таски
+      const taskDate = new Date(task.date); 
       return (
         taskDate.getDate() === date.getDate() &&
         taskDate.getMonth() === date.getMonth() &&
@@ -55,7 +52,6 @@ export default function CalendarTable({ tasks }) {
   };
 
   const getPriorityClass = priority => {
-    console.log(priority);
     switch (priority) {
       case 'low':
         return styles['todo-bg-item-low'];
@@ -94,7 +90,6 @@ export default function CalendarTable({ tasks }) {
           </div>
 
           <ul className={styles['calendar-day-task']}>
-            {/* Відображаємо завдання для цього дня */}
             {dayTasks.map(task => (
               <li
                 key={task.title}
