@@ -1,7 +1,7 @@
 .taskCard {
   border: 1px solid red;
   height: 108px;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -74,4 +74,19 @@
   align-items: center;
   align-self: flex-end;
   background-color: #ea3d65;
+}
+
+.todo-bg-item-low {
+  background-color: #CEEEFD;
+  color: #3E85F3;
+}
+
+.todo-bg-item-medium {
+  background-color: #FCF0D4;
+  color: #F3B249;
+}
+
+.todo-bg-item-high {
+  background-color: #FFD2DD;
+  color: #EA3D65;
 }
