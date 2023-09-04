@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Notiflix from 'notiflix';
+
 import { IoIosArrowDown } from 'react-icons/io';
 import { AiFillPlusCircle } from 'react-icons/ai';
 
@@ -101,9 +103,19 @@ export function UserForm() {
                       id="avatar-upload"
                       name="avatar"
                       type="file"
-                      accept="image/*"
+                      accept="image/*,.png,.jpg,.gif"
                       onChange={async e => {
                         const file = e.target.files[0];
+                        if (file) {
+                          const maxSizeInBytes = 600 * 1024;
+                          if (file.size > maxSizeInBytes) {
+                            Notiflix.Notify.failure(
+                              'The uploaded file is too large. The maximum size is 600 KB.'
+                            );
+                            e.target.value = null;
+                            return;
+                          }
+                        }
                         setFile(file);
                         setFieldValue('avatarURL', URL.createObjectURL(file));
                         const formData = new FormData();
