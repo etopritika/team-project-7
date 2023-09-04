@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/team-project-7/static/css/main.36988f3f.css",
+    "main.css": "/team-project-7/static/css/main.af1f5d29.css",
     "main.js": "/team-project-7/static/js/main.31d8be93.js",
     "static/css/796.f981f253.chunk.css": "/team-project-7/static/css/796.f981f253.chunk.css",
     "static/js/796.5db26bae.chunk.js": "/team-project-7/static/js/796.5db26bae.chunk.js",
@@ -20,6 +20,9 @@
     "static/media/desktop-calendar@2x.png": "/team-project-7/static/media/desktop-calendar@2x.000904146e4f1a420d9b.png",
     "static/media/tablet-sidebar@2x.png": "/team-project-7/static/media/tablet-sidebar@2x.cccc7eb9eba58b8bc501.png",
     "static/media/desktop-sidebar@2x.png": "/team-project-7/static/media/desktop-sidebar@2x.39f69f47326db0a245df.png",
+    "static/media/Inter-Bold.ttf": "/team-project-7/static/media/Inter-Bold.88fa7ae373b07b41ecce.ttf",
+    "static/media/Inter-SemiBold.ttf": "/team-project-7/static/media/Inter-SemiBold.4d56bb21f2399db8ad48.ttf",
+    "static/media/Inter-Medium.ttf": "/team-project-7/static/media/Inter-Medium.6dcbc9bed1ec438907ee.ttf",
     "static/media/mobile-calendar@2x.png": "/team-project-7/static/media/mobile-calendar@2x.c78dd6f914cab95803ac.png",
     "static/media/desktop-all-in-one@2x.png": "/team-project-7/static/media/desktop-all-in-one@2x.12758fa82b883af7ba89.png",
     "static/media/tablet-calendar.png": "/team-project-7/static/media/tablet-calendar.c87d09dfb2ff6b544e53.png",
@@ -42,7 +45,7 @@
     "static/media/goose-login.png": "/team-project-7/static/media/goose-login.2db418b6ba73c6033221.png",
     "static/media/icons.svg": "/team-project-7/static/media/icons.6365382479516b998a50567efd112470.svg",
     "index.html": "/team-project-7/index.html",
-    "main.36988f3f.css.map": "/team-project-7/static/css/main.36988f3f.css.map",
+    "main.af1f5d29.css.map": "/team-project-7/static/css/main.af1f5d29.css.map",
     "main.31d8be93.js.map": "/team-project-7/static/js/main.31d8be93.js.map",
     "796.f981f253.chunk.css.map": "/team-project-7/static/css/796.f981f253.chunk.css.map",
     "796.5db26bae.chunk.js.map": "/team-project-7/static/js/796.5db26bae.chunk.js.map",
@@ -60,7 +63,7 @@
     "865.9e4d0e7c.chunk.js.map": "/team-project-7/static/js/865.9e4d0e7c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.36988f3f.css",
+    "static/css/main.af1f5d29.css",
     "static/js/main.31d8be93.js"
   ]
 }
