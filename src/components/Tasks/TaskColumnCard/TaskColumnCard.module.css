@@ -7,15 +7,17 @@
   gap: 32px;
   margin-bottom: 14px;
 
-  @media (min-width: 765px) {
-    height: 112px;
-    margin-bottom: 18px;
-  }
-
   border: 1px solid rgba(220, 227, 229, 0.8);
   background-color: #f7f6f9;
   border-radius: 8px;
   padding: 14px 14px 18px;
+}
+
+@media (min-width: 765px) {
+  .taskCard {
+    height: 112px;
+    margin-bottom: 18px;
+  }
 }
 
 .cardTitle {
@@ -45,9 +47,11 @@
   line-height: 1.3;
   color: black;
 
-  background: linear-gradient(0deg,
-      rgba(228, 216, 30, 0.7147233893557423) 9%,
-      rgba(241, 255, 13, 0.8155637254901961) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(228, 216, 30, 0.7147233893557423) 9%,
+    rgba(241, 255, 13, 0.8155637254901961) 100%
+  );
 
   & img {
     object-fit: cover;
@@ -77,16 +81,16 @@
 }
 
 .todo-bg-item-low {
-  background-color: #CEEEFD;
-  color: #3E85F3;
+  background-color: #ceeefd;
+  color: #3e85f3;
 }
 
 .todo-bg-item-medium {
-  background-color: #FCF0D4;
-  color: #F3B249;
+  background-color: #fcf0d4;
+  color: #f3b249;
 }
 
 .todo-bg-item-high {
-  background-color: #FFD2DD;
-  color: #EA3D65;
+  background-color: #ffd2dd;
+  color: #ea3d65;
 }
