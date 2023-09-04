@@ -1,112 +1,151 @@
+/* statitickChart.css */
+
 .event-container {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  background-color: var(--background-user-page);
   margin-top: 64px;
-  margin-bottom: 40px;
+  background-color: #fff;
   border-radius: 16px;
+  width: 335px;
+  height: 685px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  height: 854px;
+ 
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1087px;
+  height: 754px;
+ 
+  }
 }
 
 .dayCount {
-  position: absolute;
   display: flex;
-  margin-top: 64px;
+  flex-wrap: wrap;
+  padding: 28px 14px 40px 14px;
+
+}
+
+
+.statistick_day_month {
+  padding-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.statisticsByDay,
+.statisticsByMonth {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Змініть колір, якщо потрібно */
+}
+
+.statisticsByDay:hover,
+.statisticsByMonth:hover {
+  color: #007bff; /* Змініть колір при наведенні, якщо потрібно */
+}
+
+.event-form {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc; /* Змініть колір рамки, якщо потрібно */
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Змініть колір фону, якщо потрібно */
+}
+
+.event-form h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.event-form p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.event-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; /* Змініть колір рамки, якщо потрібно */
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.create-btn {
+  background-color: #007bff; /* Змініть колір кнопки, якщо потрібно */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.create-btn:hover {
+  background-color: #0056b3; /* Змініть колір при наведенні, якщо потрібно */
+}
+
+.event-list {
+  margin-bottom: 20px;
+}
+
+.event-list h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.event-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.event-card {
+  width: calc(33.33% - 20px);
+  border: 1px solid #ccc; /* Змініть колір рамки, якщо потрібно */
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9; /* Змініть колір фону, якщо потрібно */
+}
+
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.statisticsByDay {
-  color: var(--primary-text-color);
-  font-family: Inter;
+.event-date {
   font-size: 16px;
-  font-style: normal;
-  display: list-item;
-  font-weight: 400;
-  margin-right: 39px;
-  line-height: 18px;
-  margin-left: 280px;
+  font-weight: bold;
 }
 
-.statisticsByDay::marker {
-  color: #ffd2dd;
+.event-actions {
+  display: flex;
+  gap: 10px;
 }
 
-.statisticsByMonth {
-  color: var(--primary-text-color);
-  font-family: Inter;
+.update-btn,
+.delete-btn {
+  background-color: #007bff; /* Змініть колір кнопок, якщо потрібно */
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.update-btn:hover,
+.delete-btn:hover {
+  background-color: #0056b3; /* Змініть колір кнопок при наведенні, якщо потрібно */
+}
+
+.event-card-body {
+  padding-top: 10px;
+}
+
+.event-title {
   font-size: 16px;
-  font-style: normal;
-  display: list-item;
-  font-weight: 400;
-  line-height: 18px;
-}
-
-.statisticsByMonth::marker {
-  color: #3e85f3;
-}
-
-.dayCount {
-  margin-top: 40px;
-}
-
-@media screen and (min-width: 368px) {
-  .event-container {
-    margin-top: 65px;
-  }
-
-  .statisticsByDay {
-    margin-left: 0px;
-  }
-
-  .dayCount {
-    display: flex;
-    margin-left: -90px;
-  }
-  .pagination {
-    display: block;
-  }
-  .statistick_day_month {
-    display: flex;
-    margin-top: 65px;
-    margin-left: -203px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .statisticsByDay {
-    margin-left: 0px;
-  }
-
-  .dayCount {
-    position: absolute;
-    display: flex;
-    margin-top: 64px;
-    align-items: center;
-    margin-left: 0px;
-  }
-
-  .statistick_day_month {
-    margin-top: 0px;
-    margin-left: 278px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .event-container {
-    margin-top: 33px;
-    margin-bottom: 32px;
-  }
-
-  .statisticsByDay {
-    margin-left: 280px;
-  }
-
-  .dayCount {
-    margin-bottom: 32px;
-    margin-top: 38px;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .statistick_day_month {
-    margin-top: 0px;
-    margin-left: 30px;
-  }
 }
