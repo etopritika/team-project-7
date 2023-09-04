@@ -2,15 +2,18 @@
 
 .logo {
     width: 36px;
+    height: 35px;
 }
-@media screen and (max-width: 767px){
+@media screen and (min-width: 767px){
     .logo {
         width: 60px;
+        height: 58px;
     }
 }
 @media screen and (min-width: 1440px){
     .logo {
-        width: 70px;
+        width: 71px;
+        height: 68px;
     }
 }
 
