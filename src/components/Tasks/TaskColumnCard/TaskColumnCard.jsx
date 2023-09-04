@@ -23,8 +23,10 @@ export const TaskColumnCard = ({task}) => {
     <img src={userImgUrl} alt="UserPicture" /> 
   ) : ( 
     <p className="initials">{getInitials(name)}</p> 
-  ); 
- 
+    ); 
+
+
+
   return ( 
     <div className={css.taskCard}> 
       <h3 className={css.cardTitle}>{task.title}</h3> 
@@ -33,7 +35,7 @@ export const TaskColumnCard = ({task}) => {
           <div className={css.userLogo}> 
             {displayName} 
           </div> 
-          <p className={css.priorityTitle}>{task.priority}</p> 
+                  <p className={css.priorityTitle}>{task.priority}</p> 
         </div> 
         <TaskToolbar /> 
       </div> 
