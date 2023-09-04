@@ -30,43 +30,43 @@
 
 .line {
   border-bottom: 2px solid #e3f3ff;
-  width: 50%;
+width: 243;
   margin-left: 58px;
   position: absolute;
   margin-bottom: 7px;
 }
 .line2 {
   border-bottom: 2px solid #e3f3ff;
-  width: 50%;
-  margin-left: 58px;
+  width: 243;
+
   position: absolute;
   margin-bottom: 47px;
 }
 .line3 {
   border-bottom: 2px solid #e3f3ff;
-  width: 50%;
-  margin-left: 58px;
+  width: 243;
+ 
   position: absolute;
   margin-bottom: 87px;
 }
 .line4 {
   border-bottom: 2px solid #e3f3ff;
-  width: 50%;
-  margin-left: 58px;
+  width: 243;
+  
   position: absolute;
   margin-bottom: 127px;
 }
 .line5 {
   border-bottom: 2px solid #e3f3ff;
-  width: 50%;
-  margin-left: 58px;
+  width: 243;
+  
   position: absolute;
   margin-bottom: 162px;
 }
 .line6 {
   border-bottom: 2px solid #e3f3ff;
-  width: 50%;
-  margin-left: 58px;
+  width: 243;
+  
   position: absolute;
   margin-bottom: 200px;
 }
@@ -156,19 +156,31 @@
 }
 
 .statistickImg {
-  display: flex;
-  align-items: center;
-  margin-left: 15px;
-  margin-right: 15px;
-  border: 0.8px solid var(--color-border-form);
-  border-radius: 29px;
-  margin-top: 142px;
-  margin-bottom: 104px;
+  border: 1px solid var(--auth-bg-color);
+  border-radius: 20px;
+  margin-left: 14px;
+  margin-right: 14px;
+  padding-right: 14px;
+  padding-left: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 640px;
+    height: 424px;
+
+  }
+  @media screen and (min-width: 1440px) {
+    width: 860px;
+    height: 440px;
+  
+  }
+
+  
+
 }
 .statistic_centr {
   display: flex;
   align-items: flex-end;
-  margin: 0px 40px;
+
 }
 .bar-label_month {
   color: var(--primary-text-color);
@@ -200,12 +212,13 @@
   transform: translateX(-50%);
 }
 
-@media screen and (min-width: 400px) {
+
   .chart {
     flex-direction: column;
   }
   .statistic_centr {
-    margin: 0px 15px;
+    position: relative;
+   
   }
   .bar-label {
     font-size: 12px;
@@ -227,31 +240,91 @@
     margin-left: 10px;
   }
   .line {
-    width: 41%;
-    margin-left: 40px;
-  }
-  .line {
-    width: 41%;
-    margin-left: 40px;
+    width: 243px;
+    margin-left: 10px;
+    @media screen and (min-width: 768px) {
+      width: 580px;
+   
+   
+    }
+    @media screen and (min-width: 1440px) {
+      width: 782px;
+    
+   
+    }
   }
   .line2 {
-    width: 41%;
+    width: 243px;
     margin-left: 40px;
+    @media screen and (min-width: 768px) {
+      width: 522px;
+   
+   
+    }
+    @media screen and (min-width: 1440px) {
+      width: 694px;
+    
+   
+    }
   }
   .line3 {
-    width: 41%;
+    width: 243px;
     margin-left: 40px;
+    @media screen and (min-width: 768px) {
+      width: 522px;
+   
+   
+    }
+    @media screen and (min-width: 1440px) {
+      width: 694px;
+    
+   
+    }
   }
   .line4 {
-    width: 41%;
+    width: 243px;
     margin-left: 40px;
+    @media screen and (min-width: 768px) {
+      width: 522px;
+   
+   
+    }
+    @media screen and (min-width: 1440px) {
+      width: 694px;
+    
+   
+    }
   }
-  .line5 {
-    width: 41%;
-    margin-left: 40px;
+  .line5{
+    width: 243px;
+        margin-left: 40px;
+        @media screen and (min-width: 768px) {
+          width: 522px;
+       
+       
+        }
+        @media screen and (min-width: 1440px) {
+          width: 694px;
+        
+       
+        }
   }
   .line6 {
-    width: 41%;
+    width: 243px;
+    margin-left: 40px;
+    @media screen and (min-width: 768px) {
+      width: 522px;
+   
+   
+    }
+    @media screen and (min-width: 1440px) {
+      width: 694px;
+    
+   
+    }
+  }
+  .line {
+    width: 243px;
     margin-left: 40px;
   }
   .bar_day {
@@ -266,7 +339,6 @@
   .nameBar_done {
     font-size: 12px;
   }
-}
 
 @media screen and (min-width: 768px) {
   .bar-label {
@@ -314,42 +386,24 @@
   .nameBar_done {
     font-size: 14px;
   }
-  .line {
-    width: 46%;
-  }
-  .line2 {
-    width: 46%;
-  }
-  .line3 {
-    width: 46%;
-  }
-  .line4 {
-    width: 46%;
-  }
-  .line5 {
-    width: 46%;
-  }
-  .line6 {
-    width: 46%;
-  }
 }
 @media screen and (min-width: 1400px) {
   .line {
     width: 39%;
   }
-  .line2 {
+  .line {
     width: 39%;
   }
-  .line3 {
+  .line {
     width: 39%;
   }
-  .line4 {
+  .line {
     width: 39%;
   }
-  .line5 {
+  .line {
     width: 39%;
   }
-  .line6 {
+  .line {
     width: 39%;
   }
 }
