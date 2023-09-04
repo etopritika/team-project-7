@@ -30,6 +30,8 @@ function HeaderTitle({ currentPage }) {
           src={gloryToTheMentor}
           alt="Слава ментору"
           className={styles.image}
+          width="64"
+          height="60"
         />
       )}
 
