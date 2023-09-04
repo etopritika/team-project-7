@@ -12,6 +12,21 @@
   text-align: center;
 }
 
+
+.app-theme:dark {
+  background-color: black;
+  color: white;
+}
+
+/* .theme-light {
+  background: white;
+  color: black;
+} */
+
+
+
+
+
 @media screen and (min-width: 375px) {
   .container {
     width: 252px;
