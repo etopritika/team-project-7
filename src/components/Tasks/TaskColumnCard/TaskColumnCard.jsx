@@ -16,7 +16,8 @@ export const TaskColumnCard = ({task}) => {
     } 
   } 
  
-  const { name, userImgUrl } = useAuth(); 
+    const { user } = useAuth();
+    const {name, userImgUrl} = user;
  
   const displayName = userImgUrl ? ( 
     <img src={userImgUrl} alt="UserPicture" /> 
