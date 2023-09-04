@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Notiflix from 'notiflix';
 
 import MonthCalendarHead from 'components/Calendar/MonthCalendarHead/MonthCalendarHead';
 import styles from './ChoosedMonth.module.css';
@@ -7,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/taskOperations';
 
 export default function ChoosedMonth() {
-
   const [tasks, setTasks] = useState([]);
   const dispatch = useDispatch();
 
@@ -18,6 +18,7 @@ export default function ChoosedMonth() {
         setTasks(fetchedTasks.payload);
       } catch (error) {
         console.error('Error fetching tasks:', error);
+        Notiflix.Notify.failure(`Error: ${error.message}`);
       }
     };
 
