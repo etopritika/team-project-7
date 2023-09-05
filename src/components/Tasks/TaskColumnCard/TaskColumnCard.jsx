@@ -25,7 +25,18 @@ export const TaskColumnCard = ({task, otherCategories}) => {
     <p className="initials">{getInitials(name)}</p> 
     ); 
 
-
+    const getPriorityClass = priority => {
+      switch (priority) {
+        case 'low':
+          return css.todobgitemlow;
+        case 'medium':
+          return css.todobgitemmedium;
+        case 'high':
+          return css.todobgitemhigh;
+        default:
+          return '';
+      }
+    };
 
   return ( 
     <div className={css.taskCard}> 
@@ -35,7 +46,9 @@ export const TaskColumnCard = ({task, otherCategories}) => {
           <div className={css.userLogo}> 
             {displayName} 
           </div> 
-                  <p className={css.priorityTitle}>{task.priority}</p> 
+          <p className={`${css.priorityTitle} ${getPriorityClass(
+              task.priority
+            )}`}>{task.priority}</p> 
         </div> 
         <TaskToolbar task={task} otherCategories={otherCategories}/> 
       </div> 
