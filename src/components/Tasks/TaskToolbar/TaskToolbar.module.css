@@ -8,6 +8,9 @@
   border: none;
   color: var(--primary-text-color);
   transition: color 0.3s var(--transition-timing-function);
+  padding: 0;
+  cursor: pointer;
+  display: flex;
 }
 
 .btn:hover,
@@ -16,8 +19,16 @@
 }
 
 .btnIcon {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .btnIcon {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 .btnIconHover:hover,
