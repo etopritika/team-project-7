@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchTasks } from '../../redux/tasks/taskOperations';
 import './statistickChart.css';
 import BarChart from './barChart';
 import { PeriodPaginator } from '../PeriodPaginator/PeriodPaginator';
 
 const StatisticsChart = () => {
+  const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(null);
   const [eventName, setEventName] = useState('');
   const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await dispatch(fetchTasks());
+      console.log(res);
+      // Тут можна обробити відповідь, якщо це потрібно
+    };
+
+    fetchData();
+  }, [dispatch]);
 
   // const dateClickHandler = date => {
   //   setSelectedDate(date);
