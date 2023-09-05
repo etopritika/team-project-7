@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://group-project-7.onrender.com';
 
@@ -10,6 +11,7 @@ export const fetchTasks = createAsyncThunk(
       const res = await axios.get('/api/tasks');
       return res.data;
     } catch (e) {
+      Notiflix.Notify.failure('Error while loading tasks: ' + e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -29,6 +31,7 @@ export const addTask = createAsyncThunk(
       });
       return response.data;
     } catch (e) {
+      Notiflix.Notify.failure('Error creating task: ' + e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -41,6 +44,7 @@ export const editTask = createAsyncThunk(
       const response = await axios.patch(`/api/tasks/${taskId}`, updatedData);
       return response.data;
     } catch (e) {
+      Notiflix.Notify.failure('Task editing error: ' + e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
