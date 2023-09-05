@@ -1,5 +1,7 @@
 import TaskToolbar from '../TaskToolbar/TaskToolbar';
 import css from './TaskColumnCard.module.css';
+import { selectUser } from '../../../redux/auth/selectors';
+import { useSelector} from 'react-redux';
 
 export const TaskColumnCard = ({ task, otherCategories }) => {
   function getInitials(name) {
@@ -15,13 +17,15 @@ export const TaskColumnCard = ({ task, otherCategories }) => {
     }
   }
 
-  const { owner } = task; 
-  const userImgUrl = owner.avatarURL; 
+  const userInfo = useSelector(selectUser);
+  
+  const userImgUrl = userInfo.avatarURL; 
+  const name = userInfo.name;
 
   const displayName = userImgUrl ? (
     <img src={userImgUrl} alt="UserPicture" />
   ) : (
-    <p className="initials">{getInitials(owner.name)}</p>
+    <p className="initials">{getInitials(name)}</p>
   );
 
   const getPriorityClass = priority => {
