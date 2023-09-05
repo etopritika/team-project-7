@@ -9,16 +9,11 @@ import { useDispatch } from 'react-redux';
 import { addTask, editTask } from 'redux/tasks/taskOperations';
 
 export default function TaskForm({ toggleModal, category, currentDate, task }) {
-  const [title, setTitle] = useState('');
-  const [start, setStart] = useState('00:00');
-  const [end, setEnd] = useState('00:00');
-  const [priority, setPriority] = useState('low');
+  const [title] = useState('');
+  const [start] = useState('00:00');
+  const [end] = useState('00:00');
+  const [priority] = useState('low');
   const dispatch = useDispatch();
-
-  console.log(setTitle);
-  console.log(setStart);
-  console.log(setEnd);
-  console.log(setPriority);
 
   const onSubmitTask = async values => {
     const taskData = {
@@ -34,7 +29,6 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
       try {
         const data = await dispatch(addTask(taskData));
         if (!data.error) {
-          console.log(data.payload);
           toggleModal();
         } else {
           console.error(data.error);
@@ -70,7 +64,6 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
         priority: (task && task.priority) || priority,
       }}
       validationSchema={taskFormSchema}
-      //схему пока закомментил - из-за нее не работал сабмит данных, хотя все поля были заполнены - надо смотреть!
       onSubmit={onSubmitTask}
     >
       {({ values, handleSubmit }) => (
