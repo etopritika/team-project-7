@@ -1,6 +1,6 @@
 @import '../../../vars.css';
 
-.headerTitle, 
+.headerTitle,
 .container {
     display: none;
 }
@@ -47,9 +47,14 @@
 .text {
     color: var (--primary-text-color);
 }
-          
+
 
 .textLetgo {
     color: var(--main-blue-color);
             }
         }
+
+
+.textLetgo2 {
+    color: var( --text-let-go);
+            }

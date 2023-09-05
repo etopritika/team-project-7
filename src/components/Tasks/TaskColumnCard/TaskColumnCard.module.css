@@ -7,8 +7,8 @@
   gap: 32px;
   margin-bottom: 14px;
 
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background-color: #f7f6f9;
+  border: 1px solid var(--card-border-color);
+  background-color: var(--card-background-color);
   border-radius: 8px;
   padding: 14px 14px 18px;
 }

@@ -2,7 +2,7 @@
 
 .event-container {
   margin-top: 64px;
-  background-color: var(--white-color);
+  background-color: var(--background-calendar-color);
   border-radius: 16px;
   width: 335px;
   height: 685px;
@@ -10,12 +10,12 @@
   @media screen and (min-width: 768px) {
     width: 704px;
   height: 854px;
- 
+
   }
   @media screen and (min-width: 1440px) {
     width: 1087px;
   height: 754px;
- 
+
   }
 }
 
@@ -26,11 +26,11 @@
 
   @media screen and (min-width: 768px) {
     padding: 132px 64px 40px 64px;
- 
+
   }
   @media screen and (min-width: 1440px) {
     padding: 134px 153px 40px 153px;
- 
+
   }
 }
 
@@ -42,9 +42,9 @@
   margin-left: 12px;
 
   @media screen and (min-width: 768px) {
-    
+
     margin-left: auto;
- 
+
   }
 }
 
@@ -61,7 +61,7 @@
   content: '';
   width: 8px;
   height: 8px;
-  background-color:#FFD2DD; 
+  background-color:#FFD2DD;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
@@ -83,7 +83,7 @@
   content: '';
   width: 8px;
   height: 8px;
-  background-color:#3E85F3; 
+  background-color:#3E85F3;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
@@ -96,9 +96,9 @@
 .event-form {
   margin-bottom: 20px;
   padding: 20px;
-  border: 1px solid #ccc; 
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: var(--white-color); 
+  background-color: var(--white-color);
 }
 
 .event-form h2 {
@@ -115,13 +115,13 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc; 
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
 }
 
 .create-btn {
-  background-color:var(--nav-color); 
+  background-color:var(--nav-color);
   color: var(--white-color);
   padding: 10px 20px;
   border: none;
@@ -131,7 +131,7 @@
 }
 
 .create-btn:hover {
-  background-color:var(--hover-blue); 
+  background-color:var(--hover-blue);
 }
 
 .event-list {
@@ -175,7 +175,7 @@
 
 .update-btn,
 .delete-btn {
-  background-color: var(--main-blue-color); 
+  background-color: var(--main-blue-color);
   color: #fff;
   padding: 5px 10px;
   border: none;
@@ -186,7 +186,7 @@
 
 .update-btn:hover,
 .delete-btn:hover {
-  background-color: var(--hover-blue); 
+  background-color: var(--hover-blue);
 }
 
 .event-card-body {
