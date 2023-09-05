@@ -26,7 +26,10 @@
   line-height: 1.3;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: var(--card-title-color);
+  color: #111;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .cardInfo {
