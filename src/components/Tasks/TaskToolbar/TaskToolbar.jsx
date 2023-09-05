@@ -7,6 +7,7 @@ import styles from './TaskToolbar.module.css';
 import Modal from 'components/Modal/Modal';
 import TaskForm from 'components/Forms/TaskForm/TaskForm';
 import { deleteTask, editTask } from 'redux/tasks/taskOperations';
+import Notiflix from 'notiflix';
 
 const TaskToolbar = ({ task }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,8 +22,43 @@ const TaskToolbar = ({ task }) => {
     setIsMenuOpen(prevState => !prevState);
   };
 
-  const handleDeleteBtn = () => {
+  const showConfirm = () => {
+    Notiflix.Confirm.show(
+      'Delete Task',
+      'Are you sure you want to delete this task?',
+      'Yes',
+      'No',
+      function okCb() {
+        handleConfirmDelete();
+        setTimeout(() => {
+          Notiflix.Confirm.hide();
+        }, 100);
+      },
+      function cancelCb() {
+        setTimeout(() => {
+          Notiflix.Confirm.hide();
+        }, 100);
+      },
+      {
+        width: '320px',
+        borderRadius: '8px',
+        titleColor: 'black',
+        messageColor: 'black',
+        okButtonBackground: '#3e85f3',
+        cancelButtonBackground: '#e5edfa',
+        cancelButtonColor: '#343434',
+        fontFamily: 'Inter',
+      }
+    );
+  };
+
+  const handleConfirmDelete = () => {
     dispatch(deleteTask(task._id));
+    Notiflix.Notify.success('Deleted successfully!');
+  };
+
+  const handleDeleteBtn = () => {
+    showConfirm();
   };
 
   const categories = ['to-do', 'in-progress', 'done'];
