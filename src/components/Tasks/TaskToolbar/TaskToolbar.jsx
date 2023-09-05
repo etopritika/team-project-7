@@ -8,18 +8,23 @@ import TaskForm from 'components/Forms/TaskForm/TaskForm';
 
 const TaskToolbar = ({ task }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(prevState => !prevState);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(prevState => !prevState);
+  };
+
   return (
     <div className={styles.btnContainer}>
-      <button className={styles.btn}>
-        <RiLoginCircleLine className={styles.btnIcon} />
+      <button className={`${styles.btn} ${styles.btnMenu}`}>
+        <RiLoginCircleLine className={styles.btnIcon} onClick={toggleMenu} />
       </button>
-      <button className={styles.btn}>
-        <SlPencil className={styles.btnIcon} onClick={toggleModal} />
+      <button className={styles.btn} onClick={toggleModal}>
+        <SlPencil className={styles.btnIcon} />
       </button>
       <button className={styles.btn}>
         <PiTrashSimple className={styles.btnIcon} />
@@ -28,6 +33,24 @@ const TaskToolbar = ({ task }) => {
         <Modal toggleModal={toggleModal}>
           <TaskForm toggleModal={toggleModal} task={task} />
         </Modal>
+      )}
+      {isMenuOpen && (
+        <div className={styles.menu}>
+          <div className={styles.menuItem}>
+            <p className={styles.menuText}>In progress</p>
+            <RiLoginCircleLine
+              className={styles.btnIcon}
+              onClick={toggleMenu}
+            />
+          </div>
+          <div className={styles.menuItem}>
+            <p className={styles.menuText}>Done</p>
+            <RiLoginCircleLine
+              className={styles.btnIcon}
+              onClick={toggleMenu}
+            />
+          </div>
+        </div>
       )}
     </div>
   );
