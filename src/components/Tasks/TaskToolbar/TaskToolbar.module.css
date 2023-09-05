@@ -20,6 +20,11 @@
   height: 14px;
 }
 
+.btnIconHover:hover,
+.btnIconHover:focus {
+  color: var(--hover-blue);
+}
+
 .btnMenu {
   position: relative;
 }
