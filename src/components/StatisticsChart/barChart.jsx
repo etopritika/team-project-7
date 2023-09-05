@@ -1,33 +1,49 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchTasks } from '../../redux/tasks/taskOperations';
 import './barChart.css';
+const BarChart = () => {
+  const dispatch = useDispatch();
+  const [events, setEvents] = useState([]);
+  const currentDate = new Date();
 
-const BarChart = ({ events, selectedDate, updateEvent }) => {
-  const todoForMonth = events.filter(event => event.status === 'todo');
-  const inProgressForMonth = events.filter(
-    event => event.status === 'in progress'
-  );
-  const doneForMonth = events.filter(event => event.status === 'done');
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await dispatch(fetchTasks());
+      console.log(res.payload); // Тут приходять таски
+      // Тут можна обробити відповідь, якщо це потрібно
+      setEvents(res.payload);
+    };
 
-  const totalTasksForMonth =
-    todoForMonth.length + inProgressForMonth.length + doneForMonth.length;
+    fetchData();
+  }, [dispatch]);
 
-  const todoByDay = events.filter(
-    event =>
-      event.date.toDateString() === selectedDate.toDateString() &&
-      event.status === 'todo'
+  const todaysTasks = events.filter(event => {
+    const eventDate = new Date(event.date);
+    return (
+      eventDate.getFullYear() === currentDate.getFullYear() &&
+      eventDate.getMonth() === currentDate.getMonth() &&
+      eventDate.getDate() === currentDate.getDate()
+    );
+  });
+
+  const tasksForMonth = events.filter(event => {
+    const eventDate = new Date(event.date);
+    const today = new Date();
+    return (
+      eventDate.getFullYear() === today.getFullYear() &&
+      eventDate.getMonth() === today.getMonth()
+    );
+  });
+  const todoByDay = todaysTasks.filter(
+    event => event.category === 'to-do'
   ).length;
-  const inProgressByDay = events.filter(
-    event =>
-      event.date.toDateString() === selectedDate.toDateString() &&
-      event.status === 'in progress'
+  const inProgressByDay = todaysTasks.filter(
+    event => event.category === 'in-progress'
   ).length;
-  const doneByDay = events.filter(
-    event =>
-      event.date.toDateString() === selectedDate.toDateString() &&
-      event.status === 'done'
+  const doneByDay = todaysTasks.filter(
+    event => event.category === 'done'
   ).length;
-
   const allTasksByDay = todoByDay + inProgressByDay + doneByDay;
 
   const todoPercentageForDay =
@@ -37,12 +53,21 @@ const BarChart = ({ events, selectedDate, updateEvent }) => {
   const donePercentageForDay =
     allTasksByDay > 0 ? (doneByDay / allTasksByDay) * 100 : 0;
 
-  const todoPercentageForMonth =
-    (todoForMonth.length / totalTasksForMonth) * 100 || 0;
+  const todoForMonth = tasksForMonth.filter(
+    event => event.category === 'to-do'
+  ).length;
+  const inProgressForMonth = tasksForMonth.filter(
+    event => event.category === 'in-progress'
+  ).length;
+  const doneForMonth = tasksForMonth.filter(
+    event => event.category === 'done'
+  ).length;
+  const totalTasksForMonth = todoForMonth + inProgressForMonth + doneForMonth;
+
+  const todoPercentageForMonth = (todoForMonth / totalTasksForMonth) * 100 || 0;
   const inProgressPercentageForMonth =
-    (inProgressForMonth.length / totalTasksForMonth) * 100 || 0;
-  const donePercentageForMonth =
-    (doneForMonth.length / totalTasksForMonth) * 100 || 0;
+    (inProgressForMonth / totalTasksForMonth) * 100 || 0;
+  const donePercentageForMonth = (doneForMonth / totalTasksForMonth) * 100 || 0;
 
   const maxHeight = 268;
   const heightForTodoDay = (maxHeight * todoPercentageForDay) / 100;
