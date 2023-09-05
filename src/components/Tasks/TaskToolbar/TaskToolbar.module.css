@@ -44,6 +44,16 @@
   z-index: 777;
 }
 
+@media (max-width: 767px) {
+  .menu {
+    left: 168px;
+    top: -88px;
+    padding: 14px;
+    width: 115px;
+    height: 70px;
+  }
+}
+
 .menuItem {
   display: flex;
   justify-content: space-between;
@@ -57,4 +67,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: 1.28;
+}
+
+@media (max-width: 767px) {
+  .menuText {
+    font-size: 12px;
+    line-height: 1.16;
+  }
 }
