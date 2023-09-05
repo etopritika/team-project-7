@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchTasks } from '../../redux/tasks/taskOperations';
 import './barChart.css';
+
 const BarChart = () => {
   const dispatch = useDispatch();
   const [events, setEvents] = useState([]);
-  const currentDate = new Date();
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +20,10 @@ const BarChart = () => {
     fetchData();
   }, [dispatch]);
 
+  useEffect(() => {
+    setCurrentMonth(currentDate.getMonth());
+  }, [currentDate]);
+
   const todaysTasks = events.filter(event => {
     const eventDate = new Date(event.date);
     return (
@@ -29,12 +35,9 @@ const BarChart = () => {
 
   const tasksForMonth = events.filter(event => {
     const eventDate = new Date(event.date);
-    const today = new Date();
-    return (
-      eventDate.getFullYear() === today.getFullYear() &&
-      eventDate.getMonth() === today.getMonth()
-    );
+    return eventDate.getMonth() === currentMonth;
   });
+
   const todoByDay = todaysTasks.filter(
     event => event.category === 'to-do'
   ).length;
@@ -69,7 +72,7 @@ const BarChart = () => {
     (inProgressForMonth / totalTasksForMonth) * 100 || 0;
   const donePercentageForMonth = (doneForMonth / totalTasksForMonth) * 100 || 0;
 
-  const maxHeight = 268;
+  const maxHeight = 234;
   const heightForTodoDay = (maxHeight * todoPercentageForDay) / 100;
   const heightForInProgressDay = (maxHeight * inProgressPercentageForDay) / 100;
   const heightForDoneDay = (maxHeight * donePercentageForDay) / 100;
@@ -79,8 +82,24 @@ const BarChart = () => {
     (maxHeight * inProgressPercentageForMonth) / 100;
   const heightForDoneMonth = (maxHeight * donePercentageForMonth) / 100;
 
+  const handlePreviousDay = () => {
+    const previousDate = new Date(currentDate);
+    previousDate.setDate(previousDate.getDate() - 1);
+    setCurrentDate(previousDate);
+  };
+
+  const handleNextDay = () => {
+    const nextDate = new Date(currentDate);
+    nextDate.setDate(nextDate.getDate() + 1);
+    setCurrentDate(nextDate);
+  };
+
   return (
     <div className="statistickImg">
+      <div>
+        <button onClick={handlePreviousDay}>Попередній день</button>
+        <button onClick={handleNextDay}>Наступний день</button>
+      </div>
       <div className="statistic_centr">
         <div className="line"></div>
         <div className="line2"></div>

@@ -27,7 +27,10 @@ export const PeriodPaginator = ({ activePage }) => {
     const newVisibleDate = addMonths(visibleDate, 1);
     setVisibleDate(newVisibleDate);
 
-    const newPath = `/user/calendar/month/${format(newVisibleDate, 'MMMMyyyy')}`;
+    const newPath = `/user/calendar/month/${format(
+      newVisibleDate,
+      'MMMMyyyy'
+    )}`;
     navigate(newPath);
   };
 
@@ -37,7 +40,10 @@ export const PeriodPaginator = ({ activePage }) => {
     const newVisibleDate = subMonths(visibleDate, 1);
     setVisibleDate(newVisibleDate);
 
-    const newPath = `/user/calendar/month/${format(newVisibleDate, 'MMMMyyyy')}`;
+    const newPath = `/user/calendar/month/${format(
+      newVisibleDate,
+      'MMMMyyyy'
+    )}`;
     navigate(newPath);
   };
 
@@ -47,9 +53,10 @@ export const PeriodPaginator = ({ activePage }) => {
     const newVisibleDate = addDays(visibleDate, 1);
     setVisibleDate(newVisibleDate);
 
-    const newPath = activePage === 'statistics/day'
-      ? `/user/statistics/day/${format(newVisibleDate, 'ddMMMMyyyy')}`
-      : `/user/calendar/day/${format(newVisibleDate, 'ddMMMMyyyy')}`;
+    const newPath =
+      activePage === 'statistics/day'
+        ? `/user/statistics/day/${format(newVisibleDate, 'ddMMMMyyyy')}`
+        : `/user/calendar/day/${format(newVisibleDate, 'ddMMMMyyyy')}`;
     navigate(newPath);
   };
 
@@ -59,9 +66,10 @@ export const PeriodPaginator = ({ activePage }) => {
     const newVisibleDate = subDays(visibleDate, 1);
     setVisibleDate(newVisibleDate);
 
-    const newPath = activePage === 'statistics/day'
-      ? `/user/statistics/day/${format(newVisibleDate, 'ddMMMMyyyy')}`
-      : `/user/calendar/day/${format(newVisibleDate, 'ddMMMMyyyy')}`;
+    const newPath =
+      activePage === 'statistics/day'
+        ? `/user/statistics/day/${format(newVisibleDate, 'ddMMMMyyyy')}`
+        : `/user/calendar/day/${format(newVisibleDate, 'ddMMMMyyyy')}`;
     navigate(newPath);
   };
 
