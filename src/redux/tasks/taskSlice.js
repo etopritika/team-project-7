@@ -1,14 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addTask, editTask, fetchTasks } from './taskOperations';
-// , addTask, editTask, deleteTask
+import { addTask, deleteTask, editTask, fetchTasks } from './taskOperations';
 
 const initialState = {
-  // items: [
-  //   { name: toDo, tasks: [] },
-  //   { name: inProgress, tasks: [] },
-  //   { name: done, tasks: [] },
-  // ],
-  // items: { toDo: [], inProgress: [], done: [] },
   items: [],
   isLoading: false,
   error: null,
@@ -67,37 +60,15 @@ export const taskSlice = createSlice({
         state.items = updatedItems;
         state.isLoading = false;
         state.error = null;
+      })
+      .addCase(deleteTask.pending, handlePending)
+      .addCase(deleteTask.rejected, handleRejected)
+      .addCase(deleteTask.fulfilled, (state, action) => {
+        const deletedTaskId = action.payload;
+        state.items = state.items.filter(task => task._id !== deletedTaskId);
+        state.isLoading = false;
+        state.error = null;
       });
-
-    // .addCase(addTask.fulfilled, (state, action) => {
-    //   state.tasks.isLoading = false;
-    //   state.tasks.error = null;
-    //   state.tasks.items.push(action.payload);
-    // })
-    // .addCase(addTask.rejected, handleRejected)
-    // .addCase(deleteTask.pending, handlePending)
-    // .addCase(deleteTask.fulfilled, (state, action) => {
-    //   state.tasks.isLoading = false;
-    //   state.tasks.error = null;
-    //   const index = state.tasks.items.findIndex(
-    //     task => task.id === action.payload
-    //   );
-    //   if (index !== -1) {
-    //     state.tasks.items.splice(index, 1);
-    //   }
-    // })
-    // .addCase(deleteTask.rejected, handleRejected)
-    // .addCase(editTask.pending, handlePending);
-    // .addCase(editTask.fulfilled, (state, action) => {
-    //   state.tasks.isLoading = false;
-    //   state.tasks.error = null;
-    //   const index = state.tasks.items.findIndex(
-    //     task => task.id === action.payload
-    //   );
-    //   if (index !== -1) {
-
-    //   }
-    // });
   },
 });
 
