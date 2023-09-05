@@ -1,11 +1,14 @@
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import TasksColumn from '../TasksColumn/TasksColumn';
 
 import css from './TasksColumnList.module.css';
+import { selectTasks } from 'redux/tasks/selectors';
 
-import SimpleBar from 'simplebar-react';
+// import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
+import { Scrollbar } from './HorizontalScroll.styled';
 
 function formatDate(date) {
   const dateParts = date.match(/(\d{2})([A-Za-z]+)(\d{4})/);
@@ -33,14 +36,8 @@ function formatDate(date) {
   return `${year}-${monthMap[month]}-${day}`;
 }
 
-const classNames = {
-  content: 'simplebar-content',
-  scrollContent: 'simplebar-scroll-content',
-  scrollbar: 'simplebar-scrollbar',
-  rack: 'simplebar-track',
-};
-
-export default function TasksColumnList({ tasks }) {
+export default function TasksColumnList() {
+  const tasks = useSelector(selectTasks);
   const { current } = useParams();
   const newCurrentDay = formatDate(current);
 
@@ -48,7 +45,7 @@ export default function TasksColumnList({ tasks }) {
 
   return (
     <>
-      <SimpleBar classNames={classNames} autoHide={false}>
+      <Scrollbar autoHide={false}>
         <ul className={css.list}>
           <li className={css.listItem}>
             <TasksColumn
@@ -77,7 +74,7 @@ export default function TasksColumnList({ tasks }) {
             />
           </li>
         </ul>
-      </SimpleBar>
+      </Scrollbar>
     </>
   );
 }
