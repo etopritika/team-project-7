@@ -14,7 +14,7 @@ const StatisticsChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await dispatch(fetchTasks());
-      //console.log(res.payload); тут приходять таски
+      console.log(res.payload); //тут приходять таски
       // Тут можна обробити відповідь, якщо це потрібно
     };
 
