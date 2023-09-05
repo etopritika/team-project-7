@@ -18,15 +18,20 @@ const TaskToolbar = ({ task }) => {
     setIsMenuOpen(prevState => !prevState);
   };
 
+  const deleteTask = () => {};
+
   return (
     <div className={styles.btnContainer}>
-      <button className={`${styles.btn} ${styles.btnMenu}`}>
-        <RiLoginCircleLine className={styles.btnIcon} onClick={toggleMenu} />
+      <button
+        className={`${styles.btn} ${styles.btnMenu}`}
+        onClick={toggleMenu}
+      >
+        <RiLoginCircleLine className={styles.btnIcon} />
       </button>
       <button className={styles.btn} onClick={toggleModal}>
         <SlPencil className={styles.btnIcon} />
       </button>
-      <button className={styles.btn}>
+      <button className={styles.btn} onClick={deleteTask}>
         <PiTrashSimple className={styles.btnIcon} />
       </button>
       {isModalOpen && (
