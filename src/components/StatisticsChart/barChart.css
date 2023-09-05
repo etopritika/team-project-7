@@ -19,7 +19,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-left: 104px; */
+  margin-left: 10px;
+  @media screen and (min-width: 768px) {
+    margin-left: 30px;
+
+  }
+ 
 }
 .chart_in_progres {
   display: flex;
@@ -34,6 +39,14 @@ width: 243;
   margin-left: 58px;
   position: absolute;
   margin-bottom: 7px;
+
+  @media screen and (min-width: 768px) {
+          width: 522px;
+    
+        }
+        @media screen and (min-width: 1440px) {
+           width: 782px;
+        }
 }
 .line2 {
   border-bottom: 2px solid #e3f3ff;
@@ -163,9 +176,21 @@ width: 243;
   padding-right: 14px;
   padding-left: 14px;
 
+  height: 413px;
+  padding-top: 40px;
+
   @media screen and (min-width: 768px) {
     width: 640px;
     height: 424px;
+
+    border-radius: 29px;
+
+    padding-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    margin-left: auto;
+    margin-right: auto;
 
   }
   @media screen and (min-width: 1440px) {
@@ -241,14 +266,13 @@ width: 243;
   }
   .line {
     width: 243px;
-    margin-left: 10px;
+    margin-left: 40px;
     @media screen and (min-width: 768px) {
-      width: 580px;
-   
+      width: 522px;
    
     }
     @media screen and (min-width: 1440px) {
-      width: 782px;
+      width: 694px;
     
    
     }
@@ -263,36 +287,33 @@ width: 243;
     }
     @media screen and (min-width: 1440px) {
       width: 694px;
-    
-   
+
     }
   }
+
   .line3 {
     width: 243px;
     margin-left: 40px;
+
     @media screen and (min-width: 768px) {
       width: 522px;
-   
-   
     }
     @media screen and (min-width: 1440px) {
       width: 694px;
-    
    
     }
   }
+
   .line4 {
     width: 243px;
     margin-left: 40px;
+
     @media screen and (min-width: 768px) {
       width: 522px;
-   
-   
     }
+
     @media screen and (min-width: 1440px) {
       width: 694px;
-    
-   
     }
   }
   .line5{
@@ -323,10 +344,7 @@ width: 243;
    
     }
   }
-  .line {
-    width: 243px;
-    margin-left: 40px;
-  }
+
   .bar_day {
     margin-left: 0px;
   }
@@ -345,13 +363,7 @@ width: 243;
     font-size: 16px;
     margin-left: -17px;
   }
-  .statistickImg {
-    margin-left: 35px;
-    margin-right: 35px;
-  }
-  .statistic_centr {
-    margin: 0px 34px;
-  }
+ 
   .bar-label_todo {
     margin-left: 3px;
     font-size: 16px;
@@ -372,13 +384,29 @@ width: 243;
     font-size: 14px;
   }
   .chart_todo {
-    margin-left: 104px;
+    
+
+    @media screen and (min-width: 1440px) {
+      
+      margin-left: 80px;
+   
+    }
   }
   .chart_done {
     margin-left: 130px;
+    @media screen and (min-width: 1440px) {
+      
+      margin-left: 165px;
+   
+    }
   }
   .chart_in_progres {
     margin-left: 127px;
+    @media screen and (min-width: 1440px) {
+      
+      margin-left: 165px;
+   
+    }
   }
   .nameBar_progress {
     font-size: 14px;
@@ -387,23 +415,4 @@ width: 243;
     font-size: 14px;
   }
 }
-@media screen and (min-width: 1400px) {
-  .line {
-    width: 39%;
-  }
-  .line {
-    width: 39%;
-  }
-  .line {
-    width: 39%;
-  }
-  .line {
-    width: 39%;
-  }
-  .line {
-    width: 39%;
-  }
-  .line {
-    width: 39%;
-  }
-}
+
