@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Notiflix from 'notiflix';
 import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/taskOperations';
 
@@ -15,6 +16,7 @@ export default function ChoosedDay() {
         const fetchedTasks = await dispatch(fetchTasks());
         setTasks(fetchedTasks.payload);
       } catch (error) {
+        Notiflix.Notify.failure(`Something went wrong: ${error.message}`);
         console.error('Error fetching tasks:', error);
       }
     };
