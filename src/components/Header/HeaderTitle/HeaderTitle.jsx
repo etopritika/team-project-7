@@ -39,8 +39,10 @@ function HeaderTitle({ currentPage }) {
         <h1 className={styles.headerTitle}>{pageTitle}</h1>
         {gooseActive && (
           <p className={styles.text}>
-            <span className={styles.textLetgo}>Let go</span> of the past and
-            focus on the present!
+            <span className={styles.textLetgo}>Let go</span>{' '}
+            <span className={styles.textLetgo2}>
+              of the past and focus on the present!
+            </span>
           </p>
         )}
       </div>

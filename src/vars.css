@@ -1,5 +1,5 @@
 :root {
-  --primary-text-color: #111111;
+  --primary-text-color: #111;
   --secondary-text-color: #343434;
   --secondary-background-color: #f7f6f9;
   --title-text-color: #171820;
@@ -55,12 +55,17 @@
   --input-title-task: #f6f6f6;
   --time-color: #343434;
   --change-month-button: rgba(220, 227, 229, 0.5);
-   --type-profile: #343434;
+  --type-profile: #343434;
+  --text-let-go: #111;
+  --card-border-color: rgba(220, 227, 229, 0.8);
+  --card-background-color: #f7f6f9;
+  --card-title-color: #111;
 }
 
 html[data-theme='dark'] {
   --user-bg-color: #171820;
   --gray-color: #fff;
+   --primary-text-color: #fff;
 
   --secondary-background-color: #171820;
 
@@ -75,7 +80,7 @@ html[data-theme='dark'] {
 
   /* UserInfo */
   --name-color: #fff;
-  --type-profile: rgba(250, 250, 250, 0.30);
+  --type-profile: rgba(250, 250, 250, 0.3);
 
   --primary-text-color: #fff;
 
@@ -117,4 +122,11 @@ html[data-theme='dark'] {
   --border-title-task: rgba(255, 255, 255, 0.15);
   --input-title-task: #171820;
   --time-color: #fff;
+  /* TextLog */
+  --text-let-go: #fff;
+  /* TaskCard */
+  --card-border-color: rgba(255, 255, 255, 0.15);
+  --card-background-color: #171820;
+  --card-title-color: #fff;
+  --card-btn-color: #fff;
 }
