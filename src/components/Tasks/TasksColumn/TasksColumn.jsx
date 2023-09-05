@@ -11,6 +11,7 @@ export default function TasksColumn({ title, category, tasks, date }) {
   const toggleModal = () => {
     setIsModalOpen(prevState => !prevState);
   };
+
   return (
     <>
       <ColumnHeadBar title={title} toggleModal={toggleModal} />
