@@ -64,7 +64,9 @@ export const logOut = createAsyncThunk(
       await axios.post('/api/auth/logout');
       // After a successful logout, remove the token from the HTTP header
       clearAuthHeader();
+      Notiflix.Notify.success('You have been logged out successfully!');
     } catch (error) {
+      Notiflix.Notify.failure('Logout failed. Please try again.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
