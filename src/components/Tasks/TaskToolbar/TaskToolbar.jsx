@@ -49,7 +49,6 @@ const TaskToolbar = ({ task }) => {
       category,
     };
 
-    console.log(updateTaskData);
     dispatch(editTask({ taskId: task._id, updatedData: updateTaskData }));
     toggleMenu();
   };
