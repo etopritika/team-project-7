@@ -8,18 +8,18 @@ import Modal from 'components/Modal/Modal';
 import TaskForm from 'components/Forms/TaskForm/TaskForm';
 import { deleteTask, editTask } from 'redux/tasks/taskOperations';
 import Notiflix from 'notiflix';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { usePopupState, bindMenu } from 'material-ui-popup-state/hooks';
 
 const TaskToolbar = ({ task }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dispatch = useDispatch();
+
+  const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' });
 
   const toggleModal = () => {
     setIsModalOpen(prevState => !prevState);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(prevState => !prevState);
   };
 
   const showConfirm = () => {
@@ -86,17 +86,33 @@ const TaskToolbar = ({ task }) => {
     };
 
     dispatch(editTask({ taskId: task._id, updatedData: updateTaskData }));
-    toggleMenu();
   };
 
   return (
     <div className={styles.btnContainer}>
       <button
         className={`${styles.btn} ${styles.btnMenu}`}
-        onClick={toggleMenu}
+        onClick={popupState.toggle}
       >
         <RiLoginCircleLine className={styles.btnIcon} />
       </button>
+      <Menu
+        {...bindMenu(popupState)}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        className={styles.menu}
+      >
+        {filteredCategories.map(category => (
+          <MenuItem key={category} onClick={() => updateCategory(category)}>
+            <div className={styles.menuItem}>
+              <p className={styles.menuText}>{formatCategory(category)}</p>
+              <RiLoginCircleLine
+                className={`${styles.btnIcon} ${styles.btnIconHover}`}
+              />
+            </div>
+          </MenuItem>
+        ))}
+      </Menu>
       <button className={styles.btn} onClick={toggleModal}>
         <SlPencil className={styles.btnIcon} />
       </button>
@@ -107,19 +123,6 @@ const TaskToolbar = ({ task }) => {
         <Modal toggleModal={toggleModal}>
           <TaskForm toggleModal={toggleModal} task={task} />
         </Modal>
-      )}
-      {isMenuOpen && (
-        <div className={styles.menu}>
-          {filteredCategories.map(category => (
-            <div className={styles.menuItem} key={category}>
-              <p className={styles.menuText}>{formatCategory(category)}</p>
-              <RiLoginCircleLine
-                className={`${styles.btnIcon} ${styles.btnIconHover}`}
-                onClick={() => updateCategory(category)}
-              />
-            </div>
-          ))}
-        </div>
       )}
     </div>
   );
