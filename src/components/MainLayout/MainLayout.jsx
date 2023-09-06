@@ -18,6 +18,7 @@ function MainLayout() {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+ 
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
@@ -40,7 +41,7 @@ function MainLayout() {
           <div className={styles.backdrop} onClick={toggleSidebar} />
         )}
 
-        <SideBar isOpen={isSidebarOpen} isClose={toggleSidebar} />
+        <SideBar isOpen={isSidebarOpen} isClose={closeSidebar} />
 
         <div className={styles.content__wrapper}>
           <Header
