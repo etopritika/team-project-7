@@ -9,28 +9,39 @@ const BarChart = () => {
   const dispatch = useDispatch();
   const { current } = useParams();
   const parsedDate = parse(current, 'ddMMMMyyyy', new Date());
+  const monthOfInterest = parsedDate.getMonth();
   const formattedDate = format(parsedDate, 'yyyy-MM-dd');
   const [events, setEvents] = useState([]);
+  const [monthEvents, setMonthEvents] = useState([]);
   const [currentDate, /*setCurrentDate*/] = useState(new Date());
-  const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
+  const [currentMonth, /*setCurrentMonth*/] = useState(currentDate.getMonth());
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await dispatch(fetchTasks());
-        const filteredPayload = res.payload.filter(task => 
+        const dayFilteredPayload = res.payload.filter(task => 
           task.date === formattedDate
         );
-        setEvents([...filteredPayload])
+        const monthFilteredPayload = res.payload.filter(task => {
+          const taskDate = new Date(task.date);
+          return taskDate.getMonth() === monthOfInterest;
+        })
+        setEvents([...dayFilteredPayload])
+        setMonthEvents([...monthFilteredPayload])
       } catch (error) {console.log(error)}
     };
     
     fetchData();
-  }, [dispatch, formattedDate]);
+  }, [dispatch, formattedDate, monthOfInterest ]);
  
-  useEffect(() => {
-    setCurrentMonth(currentDate.getMonth());
-  }, [currentDate]);
+  console.log("events: ",events)
+  console.log("monthEvents: ", monthEvents)
+  
+ 
+ // useEffect(() => {
+  //   setCurrentMonth(currentDate.getMonth());
+  // }, [currentDate]);
 
   const todaysTasks = events.filter(event => {
     const eventDate = new Date(event.date);
