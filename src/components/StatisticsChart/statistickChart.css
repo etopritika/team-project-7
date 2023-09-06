@@ -50,7 +50,6 @@
 
 .statisticsByDay {
 
-  cursor: pointer;
   font-size: 16px;
   font-style: normal;
   font-family: Poppins;
@@ -77,7 +76,6 @@
 
 
 .statisticsByMonth {
-  cursor: pointer;
   font-size: 16px;
   font-style: normal;
   font-family: Poppins;

@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   border: none;
+  cursor: pointer;
 }
 .button:focus {
   background: var(--hover-blue);
