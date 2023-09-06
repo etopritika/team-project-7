@@ -5,14 +5,12 @@
   align-items: center;
   padding-top: 24px;
 
-  
+  @media screen and (min-width: 1440px) {
+      padding-top: 40px;
+    }
 }
 
-@media screen and (min-width: 1440px) {
-  .header {
-    padding-top: 40px;
-  }
-}
+
 
 .userInfo {
   display: flex;
