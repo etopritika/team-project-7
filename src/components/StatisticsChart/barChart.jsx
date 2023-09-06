@@ -11,7 +11,7 @@ const BarChart = () => {
   const parsedDate = parse(current, 'ddMMMMyyyy', new Date());
   const formattedDate = format(parsedDate, 'yyyy-MM-dd');
   const [events, setEvents] = useState([]);
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, /*setCurrentDate*/] = useState(new Date());
   const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const BarChart = () => {
     
     fetchData();
   }, [dispatch, formattedDate]);
-  console.log(events)
+ 
   useEffect(() => {
     setCurrentMonth(currentDate.getMonth());
   }, [currentDate]);
@@ -90,24 +90,20 @@ const BarChart = () => {
     (maxHeight * inProgressPercentageForMonth) / 100;
   const heightForDoneMonth = (maxHeight * donePercentageForMonth) / 100;
 
-  const handlePreviousDay = () => {
-    const previousDate = new Date(currentDate);
-    previousDate.setDate(previousDate.getDate() - 1);
-    setCurrentDate(previousDate);
-  };
+  // const handlePreviousDay = () => {
+  //   const previousDate = new Date(currentDate);
+  //   previousDate.setDate(previousDate.getDate() - 1);
+  //   setCurrentDate(previousDate);
+  // };
 
-  const handleNextDay = () => {
-    const nextDate = new Date(currentDate);
-    nextDate.setDate(nextDate.getDate() + 1);
-    setCurrentDate(nextDate);
-  };
+  // const handleNextDay = () => {
+  //   const nextDate = new Date(currentDate);
+  //   nextDate.setDate(nextDate.getDate() + 1);
+  //   setCurrentDate(nextDate);
+  // };
 
   return (
     <div className="statistickImg">
-      <div>
-        <button onClick={handlePreviousDay}>Попередній день</button>
-        <button onClick={handleNextDay}>Наступний день</button>
-      </div>
       <div className="statistic_centr">
         <div className="line"></div>
         <div className="line2"></div>
