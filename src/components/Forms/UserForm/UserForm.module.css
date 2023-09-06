@@ -312,6 +312,7 @@ input[type='text'].is_invalid {
   width: 18px;
   height: 18px;
   margin-left: 11px;
+  cursor: pointer;
 }
 .circularAvatar {
   width: 100%;

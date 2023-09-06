@@ -41,7 +41,11 @@
   fill: var(--nav-color);
 }
 
-.nav.active{
+.nav.active,
+.nav.active:hover {
   color: var(--nav-color);
   background-color: var(--nav-background);
+}
+.nav.active .icons {
+  fill: var(--nav-color);
 }
