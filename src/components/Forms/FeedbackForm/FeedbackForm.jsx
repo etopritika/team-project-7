@@ -100,9 +100,7 @@ export default function FeedbackForm({ toggleModal }) {
                   <FaStar
                     size={24}
                     className={styles.feedbackFormStar}
-                    color={
-                      currentRating <= (hover || rating) ? '#FFAC33' : ''
-                    }
+                    color={currentRating <= (hover || rating) ? '#FFAC33' : ''}
                     onMouseEnter={() => setHover(currentRating)}
                     onMouseLeave={() => setHover(null)}
                   />
@@ -114,7 +112,7 @@ export default function FeedbackForm({ toggleModal }) {
             <div className={styles.feedbackFormReviewBtnContainer}>
               <h3 className={styles.feedbackFormTopSubtitle}>Review</h3>
               <div className={styles.feedbackFormTopBtnContainer}>
-                {values.text && (
+                {ownReview.text && (
                   <>
                     <button
                       type="button"
