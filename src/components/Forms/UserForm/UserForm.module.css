@@ -313,6 +313,9 @@ input[type='text'].is_invalid {
   height: 18px;
   margin-left: 11px;
 }
+.icon :hover {
+  fill: var(--hover-blue);
+}
 .circularAvatar {
   width: 100%;
   height: 100%;
