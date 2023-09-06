@@ -51,7 +51,9 @@
     margin-left: 63px;
   }
 }
-
+.items{
+  min-height: auto;
+}
 .menuItem {
   display: flex;
   justify-content: space-between;

@@ -103,7 +103,7 @@ const TaskToolbar = ({ task }) => {
         className={styles.menu}
       >
         {filteredCategories.map(category => (
-          <MenuItem key={category} onClick={() => updateCategory(category)}>
+          <MenuItem key={category} onClick={() => updateCategory(category)} className={styles.items}>
             <div className={styles.menuItem}>
               <p className={styles.menuText}>{formatCategory(category)}</p>
               <RiLoginCircleLine
