@@ -64,8 +64,12 @@ export const taskSlice = createSlice({
       .addCase(deleteTask.pending, handlePending)
       .addCase(deleteTask.rejected, handleRejected)
       .addCase(deleteTask.fulfilled, (state, action) => {
-        const deletedTaskId = action.payload;
-        state.items = state.items.filter(task => task._id !== deletedTaskId);
+        // const deletedTaskId = action.payload;
+        // state.items = state.items.filter(task => task._id !== deletedTaskId);
+        const index = state.items.findIndex(
+          task => task._id === action.payload._id
+        );
+        state.items.splice(index, 1);
         state.isLoading = false;
         state.error = null;
       });
