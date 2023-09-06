@@ -4,7 +4,7 @@ import styles from './CalendarTable.module.css';
 import Calendar from 'react-calendar';
 import { format, isToday, addMonths, subMonths } from 'date-fns';
 import { useParams } from 'react-router-dom';
-
+import { nanoid } from 'nanoid';
 
 export default function CalendarTable({ tasks }) {
   const [, /*selectedDate*/ setSelectedDate] = useState(null);
@@ -40,9 +40,8 @@ export default function CalendarTable({ tasks }) {
   };
 
   const getTasksForDate = date => {
-
     return tasks.filter(task => {
-      const taskDate = new Date(task.date); 
+      const taskDate = new Date(task.date);
       return (
         taskDate.getDate() === date.getDate() &&
         taskDate.getMonth() === date.getMonth() &&
@@ -67,6 +66,7 @@ export default function CalendarTable({ tasks }) {
   const tileContent = ({ date }) => {
     const currentDay = format(date, 'ddMMMMyyyy');
     const dayTasks = getTasksForDate(date);
+
     return (
       <Link
         to={`/user/calendar/day/${currentDay}`}
@@ -92,7 +92,7 @@ export default function CalendarTable({ tasks }) {
           <ul className={styles['calendar-day-task']}>
             {dayTasks.map(task => (
               <li
-                key={task.title}
+                key={nanoid()}
                 className={`${styles['todo-items']} ${getPriorityClass(
                   task.priority
                 )}`}
