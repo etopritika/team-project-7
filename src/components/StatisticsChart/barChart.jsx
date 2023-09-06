@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchTasks } from '../../redux/tasks/taskOperations';
-import { format, parse } from 'date-fns';
+import { format, parse, isSameDay, isSameMonth } from 'date-fns';
 import './barChart.css';
 
 const BarChart = () => {
@@ -13,49 +13,41 @@ const BarChart = () => {
   const formattedDate = format(parsedDate, 'yyyy-MM-dd');
   const [events, setEvents] = useState([]);
   const [monthEvents, setMonthEvents] = useState([]);
-  const [currentDate, /*setCurrentDate*/] = useState(new Date());
-  const [currentMonth, /*setCurrentMonth*/] = useState(currentDate.getMonth());
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await dispatch(fetchTasks());
-        const dayFilteredPayload = res.payload.filter(task => 
-          task.date === formattedDate
+        const dayFilteredPayload = res.payload.filter(task =>
+          isSameDay(new Date(task.date), parsedDate)
         );
         const monthFilteredPayload = res.payload.filter(task => {
           const taskDate = new Date(task.date);
           return taskDate.getMonth() === monthOfInterest;
-        })
-        setEvents([...dayFilteredPayload])
-        setMonthEvents([...monthFilteredPayload])
-      } catch (error) {console.log(error)}
+        });
+        setEvents([...dayFilteredPayload]);
+        setMonthEvents([...monthFilteredPayload]);
+      } catch (error) {
+        console.log(error);
+      }
     };
-    
+
     fetchData();
-  }, [dispatch, formattedDate, monthOfInterest ]);
- 
-  console.log("events: ",events)
-  console.log("monthEvents: ", monthEvents)
-  
- 
- // useEffect(() => {
+  }, [dispatch, formattedDate, monthOfInterest]);
+
+  console.log('events: ', events);
+  console.log('monthEvents: ', monthEvents);
+
+  // useEffect(() => {
   //   setCurrentMonth(currentDate.getMonth());
   // }, [currentDate]);
 
-  const todaysTasks = events.filter(event => {
-    const eventDate = new Date(event.date);
-    return (
-      eventDate.getFullYear() === currentDate.getFullYear() &&
-      eventDate.getMonth() === currentDate.getMonth() &&
-      eventDate.getDate() === currentDate.getDate()
-    );
-  });
-
-  const tasksForMonth = events.filter(event => {
-    const eventDate = new Date(event.date);
-    return eventDate.getMonth() === currentMonth;
-  });
+  const todaysTasks = events.filter(event =>
+    isSameDay(new Date(event.date), parsedDate)
+  );
+  const tasksForMonth = monthEvents.filter(event =>
+    isSameMonth(new Date(event.date), parsedDate)
+  );
 
   const todoByDay = todaysTasks.filter(
     event => event.category === 'to-do'
