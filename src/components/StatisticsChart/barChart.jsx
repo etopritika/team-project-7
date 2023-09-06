@@ -1,25 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { fetchTasks } from '../../redux/tasks/taskOperations';
+import { format, parse } from 'date-fns';
 import './barChart.css';
 
 const BarChart = () => {
   const dispatch = useDispatch();
+  const { current } = useParams();
+  const parsedDate = parse(current, 'ddMMMMyyyy', new Date());
+  const formattedDate = format(parsedDate, 'yyyy-MM-dd');
   const [events, setEvents] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await dispatch(fetchTasks());
-      console.log(res.payload); // Тут приходять таски
-      // Тут можна обробити відповідь, якщо це потрібно
-      setEvents(res.payload);
+      try {
+        const res = await dispatch(fetchTasks());
+        const filteredPayload = res.payload.filter(task => 
+          task.date === formattedDate
+        );
+        setEvents([...filteredPayload])
+      } catch (error) {console.log(error)}
     };
-
+    
     fetchData();
-  }, [dispatch]);
-
+  }, [dispatch, formattedDate]);
+  console.log(events)
   useEffect(() => {
     setCurrentMonth(currentDate.getMonth());
   }, [currentDate]);
