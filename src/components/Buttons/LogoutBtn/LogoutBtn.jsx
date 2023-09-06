@@ -10,7 +10,7 @@ const LogoutBtn = () => {
   const navigate = useNavigate();
   const handleClick = async() => {
     await dispatch(logOut())
-    navigate("/")
+    navigate("/login")
   }
 
   return (
