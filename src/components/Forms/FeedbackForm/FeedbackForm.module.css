@@ -2,6 +2,7 @@
   padding: 32px;
   position: relative;
   background-color: var(--modal-background);
+
 }
 
 @media (max-width: 480px) {
@@ -63,11 +64,12 @@ feedbackFormCloseBtn:focus {
   width: 404px;
   height: 127px;
   padding: 14px 18px;
-  border: none;
+  /* border: none; */
   border-radius: 8px;
-  background: var(--input-background-color);
+  background: var(--modal-input-background);
   resize: none;
   color: var(--input-form-text);
+ border: 1px solid var( --border-title-task);
 }
 
 @media (max-width: 480px) {
@@ -94,6 +96,7 @@ feedbackFormCloseBtn:focus {
   cursor: pointer;
   margin-bottom: 24px;
   margin-right: 2px;
+  color: var(--star-color-feedback);
 }
 
 .feedbackFormBtnContainer {
@@ -173,8 +176,8 @@ feedbackFormCloseBtn:focus {
   height: 48px;
   border-radius: 8px;
   border: none;
-  background-color: #e5edfa;
-  color: var(--secondary-text-color);
+  background-color: var(--btn-cancel-feedback);
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;

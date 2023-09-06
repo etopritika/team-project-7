@@ -56,6 +56,7 @@ feedbackFormCloseBtn:focus {
   background: var(--input-title-task);
   border: 1px solid var(--border-title-task);
   margin-bottom: 18px;
+
 }
 
 @media (max-width: 420px) {
@@ -66,7 +67,7 @@ feedbackFormCloseBtn:focus {
 }
 
 .taskInput::placeholder {
-  color: var(--secondary-text-color);
+  color: var(--primary-text-color);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;

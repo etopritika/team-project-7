@@ -37,6 +37,7 @@
   --label-user-page: #111111;
   --border-user-color: rgba(17, 17, 17, 0.15);
   --modal-background: #ffffff;
+  --modal-input-background: #f6f6f6;
   --subtitle-color: rgba(52, 52, 52, 0.8);
   --input-background-color: #f6f6f6;
   --input-form-text: #343434;
@@ -60,12 +61,14 @@
   --card-border-color: rgba(220, 227, 229, 0.8);
   --card-background-color: #f7f6f9;
   --card-title-color: #111;
+  --btn-cancel-feedback: #e5edfa;
+  --star-color-feedback: rgb(206, 201, 193);
 }
 
 html[data-theme='dark'] {
   --user-bg-color: #171820;
   --gray-color: #fff;
-   --primary-text-color: #fff;
+  --primary-text-color: #fff;
 
   --secondary-background-color: #171820;
 
@@ -97,6 +100,9 @@ html[data-theme='dark'] {
   --input-form-text: #fff;
   --btn-close-feedback: #fff;
   --btn-edit-feedback: #353647;
+  --btn-cancel-feedback: #21222c;
+  --modal-input-background: #171820;
+  --star-color-feedback: #353647;
 
   /* Statistic */
   --color-border-form: rgba(227, 243, 255, 0.15);
@@ -106,13 +112,14 @@ html[data-theme='dark'] {
   --color-number: #fff;
   --color-active-number: #fff;
   --auth-bg-color: rgba(250, 250, 250, 0.15);
-
   --background-month-color: #3e85f3;
   --color-month: #fff;
   --background-day-color: #21222c;
+
   /* Paginator */
   --color-paginator-button: #21222c;
   --change-month-button: rgba(250, 250, 250, 0.15);
+
   /* Task */
   --add-task-btn: #3e85f3;
   --placeholder-color: rgba(255, 255, 255, 0.15);
@@ -122,8 +129,10 @@ html[data-theme='dark'] {
   --border-title-task: rgba(255, 255, 255, 0.15);
   --input-title-task: #171820;
   --time-color: #fff;
+
   /* TextLog */
   --text-let-go: #fff;
+
   /* TaskCard */
   --card-border-color: rgba(255, 255, 255, 0.15);
   --card-background-color: #171820;

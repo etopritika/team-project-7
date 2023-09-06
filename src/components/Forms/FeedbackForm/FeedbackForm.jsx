@@ -101,7 +101,7 @@ export default function FeedbackForm({ toggleModal }) {
                     size={24}
                     className={styles.feedbackFormStar}
                     color={
-                      currentRating <= (hover || rating) ? '#FFAC33' : '#CEC9C1'
+                      currentRating <= (hover || rating) ? '#FFAC33' : ''
                     }
                     onMouseEnter={() => setHover(currentRating)}
                     onMouseLeave={() => setHover(null)}
