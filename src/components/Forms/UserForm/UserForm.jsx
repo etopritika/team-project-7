@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
-
 import Notiflix from 'notiflix';
-
 import { IoIosArrowDown } from 'react-icons/io';
 import { AiFillPlusCircle } from 'react-icons/ai';
-
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from '../../../redux/auth/selectors';
 import { editData } from '../../../redux/auth/authOperations';
-
-import moment from 'moment';
+import { format } from 'date-fns';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { userFormValidation } from './consts/userFormValidation';
 import icons from '../../../img/icons.svg';
-
 import css from './UserForm.module.css';
 import SaveChangesBtn from '../../Buttons/SaveChangesBtn/SaveChangesBtn';
-
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './custom-datepicker.css';
@@ -35,7 +29,6 @@ export function UserForm() {
   const userInfo = useSelector(selectUser);
 
   const [isFormChanged, setIsFormChanged] = useState(false);
-
   const [file, setFile] = useState(null);
 
   const initialUserInfo = {
@@ -54,7 +47,7 @@ export function UserForm() {
         return;
       }
       if (key === 'birthday') {
-        const birthday = moment(values[key]).format('YYYY-MM-DD');
+        const birthday = format(values[key], 'yyyy-MM-dd');
         formData.append('birthday', birthday);
         return;
       }
