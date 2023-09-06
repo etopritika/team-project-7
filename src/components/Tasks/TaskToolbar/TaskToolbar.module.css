@@ -41,14 +41,28 @@
 }
 
 .menu {
-  margin-top: -100px;
-  margin-left: 110px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  top: -96px;
+  width: 147px;
+  height: 90px;
+  padding: 20px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15); 
+  background-color: var(--card-background-color);
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  z-index: 777;
 }
 
 @media (max-width: 767px) {
   .menu {
-    margin-top: -105px;
-    margin-left: 63px;
+    left: 168px;
+    top: -88px;
+    padding: 14px;
+    width: 115px;
+    height: 70px;
   }
 }
 
@@ -57,13 +71,6 @@
   justify-content: space-between;
   align-items: center;
   color: var(--primary-text-color);
-  width: 99px;
-}
-
-@media (max-width: 767px) {
-  .menuItem {
-    width: 87px;
-  }
 }
 
 .menuText {
