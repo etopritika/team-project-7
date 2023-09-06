@@ -52,9 +52,14 @@
 
   cursor: pointer;
   font-size: 16px;
-  font-weight: bold;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 1,125;
   color: var(--primary-text-color);
   position: relative;
+  padding-left: 8px;
+  margin-right: 20px;
 }
 
 .statisticsByDay::before {
@@ -74,9 +79,14 @@
 .statisticsByMonth {
   cursor: pointer;
   font-size: 16px;
-  font-weight: bold;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 1,125;
   color: var(--primary-text-color);
   position: relative;
+  padding-left: 8px;
+
 }
 
 .statisticsByMonth::before {

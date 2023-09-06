@@ -96,10 +96,12 @@
 }
 
 .bar {
-  width: 14px;
+  width: 27px;
   background: linear-gradient(360deg, #3e85f3 0%, rgba(62, 133, 243, 0) 100%);
   margin-bottom: 9px;
   position: relative;
+  border-radius: 5px;
+  flex-shrink: 0;
 }
 
 .bar-label {
@@ -109,7 +111,7 @@
   font-style: normal;
 
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1,125;
   transform: translateX(-50%);
 }
 .bar-label_inProgres {
