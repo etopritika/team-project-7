@@ -39,7 +39,6 @@ function Header({ openBurgerMenu, isSidebarOpen }) {
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
