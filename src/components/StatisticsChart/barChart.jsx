@@ -19,7 +19,7 @@ const BarChart = () => {
       try {
         const res = await dispatch(fetchTasks());
         const dayFilteredPayload = res.payload.filter(task =>
-          isSameDay(new Date(task.date), parsedDate)
+          task.date === formattedDate
         );
         const monthFilteredPayload = res.payload.filter(task => {
           const taskDate = new Date(task.date);
