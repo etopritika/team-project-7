@@ -86,6 +86,7 @@ const TaskToolbar = ({ task }) => {
     };
 
     dispatch(editTask({ taskId: task._id, updatedData: updateTaskData }));
+    Notiflix.Notify.success('Task moved successfully!');
   };
 
   return (
