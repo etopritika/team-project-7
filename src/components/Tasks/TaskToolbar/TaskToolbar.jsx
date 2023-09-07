@@ -31,12 +31,12 @@ const TaskToolbar = ({ task }) => {
       function okCb() {
         handleConfirmDelete();
         setTimeout(() => {
-          Notiflix.Confirm.hide();
+          Notiflix.Notify.success('Deleted successfully!');
         }, 100);
       },
       function cancelCb() {
         setTimeout(() => {
-          Notiflix.Confirm.hide();
+          Notiflix.Notify.info('Deletion canceled.');
         }, 100);
       },
       {
@@ -54,7 +54,6 @@ const TaskToolbar = ({ task }) => {
 
   const handleConfirmDelete = () => {
     dispatch(deleteTask(task._id));
-    Notiflix.Notify.success('Deleted successfully!');
   };
 
   const handleDeleteBtn = () => {
@@ -103,7 +102,11 @@ const TaskToolbar = ({ task }) => {
         className={styles.menu}
       >
         {filteredCategories.map(category => (
-          <MenuItem key={category} onClick={() => updateCategory(category)} className={styles.items}>
+          <MenuItem
+            key={category}
+            onClick={() => updateCategory(category)}
+            className={styles.items}
+          >
             <div className={styles.menuItem}>
               <p className={styles.menuText}>{formatCategory(category)}</p>
               <RiLoginCircleLine

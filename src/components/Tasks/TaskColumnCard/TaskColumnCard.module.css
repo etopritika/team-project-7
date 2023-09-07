@@ -33,7 +33,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .cardInfo {
