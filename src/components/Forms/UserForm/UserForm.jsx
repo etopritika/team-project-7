@@ -181,13 +181,10 @@ export function UserForm() {
                   <p className={css.labelText}>Birthday</p>
                   <label className={css.birthday__label}>
                     <DatePicker
-                      className={css.user_form_input}
                       name="birthday"
                       id="birthday"
                       type="date"
                       calendarStartDay={1}
-                      showMonthDropdown
-                      showYearDropdown
                       dropdownMode="select"
                       yearDropdownItemNumber={100}
                       scrollableYearDropdown
@@ -244,7 +241,6 @@ export function UserForm() {
                     />
                   </div>
                 </label>
-
                 <SaveChangesBtn isChanged={!dirty && !isFormChanged} />
               </div>
             </Form>

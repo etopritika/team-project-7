@@ -13,13 +13,15 @@
   .user {
     margin-top: 64px;
     display: flex;
-    padding: 40px 175px 40px 175px;
+    padding: 0 175px 0 175px;
+    height: 854px;
   }
 }
 @media screen and (min-width: 1440px) {
   .user {
-    padding: 60px 165px 60px 165px;
+    padding: 0 165px 0 165px;
     margin-top: 32px;
+    height: 752px;
   }
 }
 
