@@ -56,7 +56,7 @@ feedbackFormCloseBtn:focus {
   background: var(--input-title-task);
   border: 1px solid var(--border-title-task);
   margin-bottom: 18px;
-
+color: var(--primary-text-color);
 }
 
 @media (max-width: 420px) {
@@ -229,8 +229,8 @@ input[type='radio']#Yellow {
   height: 48px;
   border-radius: 8px;
   border: none;
-  background: #e5edfa;
-  color: var(--secondary-text-color);
+  background: var(--card-btn-color);
+  color: #111;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
