@@ -2,10 +2,12 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { SlPencil } from 'react-icons/sl';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import styles from './TaskForm.module.css';
-import taskFormSchema from './taskFormValidation';
+import Notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+import styles from './TaskForm.module.css';
+import taskFormSchema from './taskFormValidation';
 import { addTask, editTask } from 'redux/tasks/taskOperations';
 
 export default function TaskForm({ toggleModal, category, currentDate, task }) {
@@ -30,6 +32,7 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
         const data = await dispatch(addTask(taskData));
         if (!data.error) {
           toggleModal();
+          Notiflix.Notify.success('Task added successfully!');
         } else {
           console.error(data.error);
         }
@@ -44,8 +47,8 @@ export default function TaskForm({ toggleModal, category, currentDate, task }) {
           editTask({ taskId: task._id, updatedData: taskData })
         );
         if (!data.error) {
-          console.log(data.payload);
           toggleModal();
+          Notiflix.Notify.success('Task edited successfully!');
         } else {
           console.error(data.error);
         }

@@ -3,14 +3,15 @@ import { useDispatch } from 'react-redux';
 import { RiLoginCircleLine } from 'react-icons/ri';
 import { SlPencil } from 'react-icons/sl';
 import { PiTrashSimple } from 'react-icons/pi';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { usePopupState, bindMenu } from 'material-ui-popup-state/hooks';
+import Notiflix from 'notiflix';
+
 import styles from './TaskToolbar.module.css';
 import Modal from 'components/Modal/Modal';
 import TaskForm from 'components/Forms/TaskForm/TaskForm';
 import { deleteTask, editTask } from 'redux/tasks/taskOperations';
-import Notiflix from 'notiflix';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { usePopupState, bindMenu } from 'material-ui-popup-state/hooks';
 
 const TaskToolbar = ({ task }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,12 +32,12 @@ const TaskToolbar = ({ task }) => {
       function okCb() {
         handleConfirmDelete();
         setTimeout(() => {
-          Notiflix.Notify.success('Deleted successfully!');
+          Notiflix.Notify.success('Task deleted successfully!');
         }, 100);
       },
       function cancelCb() {
         setTimeout(() => {
-          Notiflix.Notify.info('Deletion canceled.');
+          Notiflix.Notify.info('Task deletion canceled!');
         }, 100);
       },
       {

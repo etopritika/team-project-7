@@ -3,16 +3,18 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { SlPencil } from 'react-icons/sl';
 import { BiTrash } from 'react-icons/bi';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import styles from './FeedbackForm.module.css';
-import feedbackFormSchema from './feedbackFormValidation';
+import Notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import styles from './FeedbackForm.module.css';
+import feedbackFormSchema from './feedbackFormValidation';
 import {
   createOwnReview,
   deleteOwnReview,
   updateOwnReview,
 } from 'redux/reviews/reviewsOperations';
-import { useSelector } from 'react-redux';
 
 export default function FeedbackForm({ toggleModal }) {
   const ownReview = useSelector(state => state.reviews.ownReview);
@@ -30,10 +32,9 @@ export default function FeedbackForm({ toggleModal }) {
     if (!ownReview.text) {
       try {
         const data = await dispatch(createOwnReview(reviewData));
-        console.log(data);
         if (!data.error) {
-          console.log(data.payload);
           toggleModal();
+          Notiflix.Notify.success('Review saved successfully!');
         } else {
           console.error(data.error);
         }
@@ -44,10 +45,9 @@ export default function FeedbackForm({ toggleModal }) {
     if (ownReview.text) {
       try {
         const data = await dispatch(updateOwnReview(reviewData));
-        console.log(data);
         if (!data.error) {
-          console.log(data.payload);
           toggleModal();
+          Notiflix.Notify.success('Review edited successfully!');
         } else {
           console.error(data.error);
         }
@@ -60,6 +60,7 @@ export default function FeedbackForm({ toggleModal }) {
   const handleDeleteBtn = () => {
     dispatch(deleteOwnReview());
     toggleModal();
+    Notiflix.Notify.success('Review deleted successfully!');
   };
 
   const handleEditBtn = () => {
