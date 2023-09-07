@@ -35,7 +35,7 @@
   --btn-edit-feedback: #e3f3ff;
   --background-user-page: #fff;
   --label-user-page: #111111;
-  --border-user-color: rgba(17, 17, 17, 0.15);
+  --border-user-color: none;
   --modal-background: #ffffff;
   --modal-input-background: #f6f6f6;
   --subtitle-color: rgba(52, 52, 52, 0.8);
@@ -63,7 +63,8 @@
   --card-title-color: #111;
   --btn-cancel-feedback: #e5edfa;
   --star-color-feedback: rgb(206, 201, 193);
-
+  --card-btn-color: #efefef;
+  /* --card-btn-cancel: #111; */
   .css-pwxzbm {
     background-color: var(--card-background-color);
   }
@@ -141,8 +142,9 @@ html[data-theme='dark'] {
   --card-background-color: #171820;
   --card-title-color: #fff;
   --card-btn-color: #fff;
+  --card-btn-cancel: #111;
 }
 
- .css-pwxzbm {
-    background-color: var(--card-background-color);
-  }
+.css-pwxzbm {
+  background-color: var(--card-background-color);
+}
