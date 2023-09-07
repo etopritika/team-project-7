@@ -127,7 +127,7 @@ const BarChart = () => {
         <div className="chart_todo">
           <div className="bar_day" style={{ height: `${heightForTodoDay}px` }}>
             <span className="bar-label">
-              {todoPercentageForDay.toFixed(2)}%
+              {todoPercentageForDay.toFixed(0)}%
             </span>
           </div>
         </div>
@@ -136,7 +136,7 @@ const BarChart = () => {
         <div className="chart">
           <div className="bar" style={{ height: `${heightForTodoMonth}px` }}>
             <span className="bar-label_month">
-              {todoPercentageForMonth.toFixed(2)}%
+              {todoPercentageForMonth.toFixed(0)}%
             </span>
           </div>
         </div>
@@ -147,7 +147,7 @@ const BarChart = () => {
             style={{ height: `${heightForInProgressDay}px` }}
           >
             <span className="bar-label_inProgresDay">
-              {inProgressPercentageForDay.toFixed(2)}%
+              {inProgressPercentageForDay.toFixed(0)}%
             </span>
           </div>
         </div>
@@ -159,7 +159,7 @@ const BarChart = () => {
             style={{ height: `${heightForInProgressMonth}px` }}
           >
             <span className="bar-label_inProgres">
-              {inProgressPercentageForMonth.toFixed(2)}%
+              {inProgressPercentageForMonth.toFixed(0)}%
             </span>
           </div>
         </div>
@@ -167,7 +167,7 @@ const BarChart = () => {
         <div className="chart_done">
           <div className="bar_day" style={{ height: `${heightForDoneDay}px` }}>
             <span className="bar-label_todo">
-              {donePercentageForDay.toFixed(2)}%
+              {donePercentageForDay.toFixed(0)}%
             </span>
           </div>
         </div>
@@ -175,7 +175,7 @@ const BarChart = () => {
         <div className="chart">
           <div className="bar" style={{ height: `${heightForDoneMonth}px` }}>
             <span className="bar-label_month">
-              {donePercentageForMonth.toFixed(2)}%
+              {donePercentageForMonth.toFixed(0)}%
             </span>
           </div>
         </div>
