@@ -61,9 +61,8 @@ display: none;
 .sidebarstyle.isOpenSidebarTest {
     transform: translateX(0);
     z-index: 999;
-    transition-property: transform;
-        transition-duration: 250ms;
-        transition-timing-function: var
+        transition-duration: 455ms;
+       
   }
 
 @media screen and (max-width: 1439px){
@@ -75,8 +74,7 @@ display: none;
         padding: 24px 20px;
         background-color:var(--sidebar-background);
         transform: translateX(-100%);
-        transition-property: transform;
-        transition-duration: 250ms;
+  
         transition-timing-function: var(--transition-timing-function);
     }
 
