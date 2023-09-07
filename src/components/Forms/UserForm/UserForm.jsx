@@ -58,7 +58,6 @@ export function UserForm() {
     }
     try {
       dispatch(editData(formData));
-      console.log(formData);
     } catch (error) {}
     resetForm();
   };
