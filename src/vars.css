@@ -64,6 +64,7 @@
   --btn-cancel-feedback: #e5edfa;
   --star-color-feedback: rgb(206, 201, 193);
   --card-btn-color: #efefef;
+  --input-color: #11111126;
   /* --card-btn-cancel: #111; */
   .css-pwxzbm {
     background-color: var(--card-background-color);
