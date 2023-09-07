@@ -36,3 +36,9 @@
   stroke: var(--primary-text-color);
   fill: var(--add-task-modal);
 }
+
+.btnIcon:hover{
+  stroke: var(--hover-blue);
+  /* transform: var(--transition); */
+    transition: var(--tr-delay);
+}

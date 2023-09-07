@@ -18,6 +18,11 @@
   font-size: 14px;
   font-weight: 600;
 }
+.btn:hover {
+  background-color:var(--nav-background);
+
+  transition: var(--tr-delay);
+}
 
 .btnIcon {
   stroke: currentColor;
