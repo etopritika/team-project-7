@@ -35,8 +35,6 @@ const BarChart = () => {
     fetchData();
   }, [dispatch, formattedDate, monthOfInterest]);
 
-  console.log('events: ', events);
-  console.log('monthEvents: ', monthEvents);
 
   // useEffect(() => {
   //   setCurrentMonth(currentDate.getMonth());
@@ -133,7 +131,7 @@ const BarChart = () => {
         </div>
 
         <span className="nameBar">To Do</span>
-        <div className="chart">
+        <div className="chart month_todo">
           <div className="bar" style={{ height: `${heightForTodoMonth}px` }}>
             <span className="bar-label_month">
               {todoPercentageForMonth.toFixed(0)}%
@@ -153,7 +151,7 @@ const BarChart = () => {
         </div>
         <span className="nameBar_progress">In Progress</span>
 
-        <div className="chart">
+        <div className="chart month_progress">
           <div
             className="bar"
             style={{ height: `${heightForInProgressMonth}px` }}
@@ -172,7 +170,7 @@ const BarChart = () => {
           </div>
         </div>
         <span className="nameBar_done">Done</span>
-        <div className="chart">
+        <div className="chart month_done">
           <div className="bar" style={{ height: `${heightForDoneMonth}px` }}>
             <span className="bar-label_month">
               {donePercentageForMonth.toFixed(0)}%
