@@ -25,7 +25,7 @@ export const register = createAsyncThunk(
       const res = await axios.post('/api/auth/register', credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
-      console.log('res.data:', res.data);
+      // console.log('res.data:', res.data);
       return res.data;
     } catch (error) {
       Notiflix.Notify.failure(`${credentials.email} is already in use`);
@@ -114,7 +114,7 @@ export const editData = createAsyncThunk(
       setAuthHeader(persistedToken);
       const res = await axios.patch('/api/users/edit', credentials);
       // setAuthHeader(res.data.token);
-      console.log('res.data:', res.data);
+      // console.log('res.data:', res.data);
       Notiflix.Notify.success('User data updated successfully!');
       return res.data;
     } catch (error) {
