@@ -29,9 +29,11 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--primary-text-color);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: end;
 }
 
 .cardInfo {
@@ -85,16 +87,16 @@
 }
 
 .todobgitemlow {
-  background-color: #72C2F8;
+  background-color: #72c2f8;
   color: var(--white-color);
 }
 
 .todobgitemmedium {
-  background-color: #F3B249;
-  color:var(--white-color);
+  background-color: #f3b249;
+  color: var(--white-color);
 }
 
 .todobgitemhigh {
-  background-color: #EA3D65;
-  color:var(--white-color);
+  background-color: #ea3d65;
+  color: var(--white-color);
 }
