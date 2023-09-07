@@ -17,6 +17,10 @@
     }
 }
 
+.logoOO{
+    font-style: italic;
+}
+
 .logoDiv {
     display: flex;
     width: 136px;

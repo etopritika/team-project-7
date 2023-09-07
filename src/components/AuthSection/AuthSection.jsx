@@ -12,7 +12,7 @@ export default function AuthSection() {
       <img src={logo} alt="logo" className={css.logo} />
 
       <h1 className={css.heroTitle}>
-        G<span className={css.heroTitleSpan}>oo</span>seTrack
+        T<span className={css.heroTitleSpan}>a</span>skW<span className={css.heroTitleSpan}>a</span>ve
       </h1>
 
       <div className={css.authNav}>

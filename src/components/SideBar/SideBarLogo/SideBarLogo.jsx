@@ -8,7 +8,7 @@ export default function SideBarLogo() {
       <div className={css.logoDiv}>
         <img width="71" height="68" src={logo} alt="SideBarLogo" className={css.logo}></img>
         <h1 className={css.logoName}>
-          G<i className={css.logoOO}>oo</i>seTrack
+          T<span className={css.logoOO}>a</span>skW<span className={css.logoOO}>a</span>ve
         </h1>
       </div>
     </>
