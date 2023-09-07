@@ -44,8 +44,7 @@ export const RegisterForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     setIsLoading(true);
     try {
-      const response = await dispatch(register(values));
-      console.log('Registration successful:', response);
+      await dispatch(register(values));
       await navigate('/user/calendar');
       resetForm();
     } catch (error) {

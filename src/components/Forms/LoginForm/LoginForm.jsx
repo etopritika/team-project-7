@@ -46,7 +46,7 @@ export const LoginForm = () => {
     try {
       const response = await dispatch(logIn(values));
       if (!response.hasOwnProperty('error')) {
-        console.log('Login successful:', response);
+        //console.log('Login successful:', response);
         await navigate('/user/calendar');
         resetForm();
       } else {
