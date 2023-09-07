@@ -63,8 +63,10 @@
   --card-title-color: #111;
   --btn-cancel-feedback: #e5edfa;
   --star-color-feedback: rgb(206, 201, 193);
+  .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+    background-color: var(--card-background-color);
+  }
 }
-
 html[data-theme='dark'] {
   --user-bg-color: #171820;
   --gray-color: #fff;
