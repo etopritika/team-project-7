@@ -29,17 +29,19 @@
   font-size: 44px;
   font-weight: 700;
   line-height: 48px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 100px;
-    line-height: 130px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    font-size: 120px;
-    line-height: 150px;
-  }
 }
+
+@media screen and (min-width: 768px) {
+  .heroTitle{font-size: 100px;
+    line-height: 130px;}
+}
+
+@media screen and (min-width: 1440px) {
+  .heroTitle{font-size: 120px;
+    line-height: 150px;}
+}
+
+
 
 .heroTitleSpan {
   margin-left: -2px;
