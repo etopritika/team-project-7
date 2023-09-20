@@ -61,114 +61,117 @@ export const LoginForm = () => {
 
   return (
     <>
-      <div className={isLoading ? css.spinner : css.hidden}>
-        <Spinner />;
-      </div>
-      <div className={css.container}>
-        <div className={css2.bgimages}></div>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className={css.container}>
+          <div className={css2.bgimages}></div>
 
-        <Formik
-          const
-          initialValues={INITIAL_STATE}
-          validationSchema={loginSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ values, errors, touched }) => (
-            <Form autoComplete="off" className={css.form}>
-              <h1 className={css.title}>Log In</h1>
+          <Formik
+            const
+            initialValues={INITIAL_STATE}
+            validationSchema={loginSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ values, errors, touched }) => (
+              <Form autoComplete="off" className={css.form}>
+                <h1 className={css.title}>Log In</h1>
 
-              <label
-                className={
-                  errors.email && touched.email
-                    ? css.isInvalidLabel
-                    : touched.email
-                    ? css.isValidLabel
-                    : css.label
-                }
-              >
-                <p className={css.labelText}>Email</p>
-                <Field
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter email"
-                  value={values.email}
+                <label
                   className={
                     errors.email && touched.email
-                      ? css.isInvalid
+                      ? css.isInvalidLabel
                       : touched.email
-                      ? css.isValid
-                      : css.input
+                      ? css.isValidLabel
+                      : css.label
                   }
-                />
-                {touched.email && (
-                  <span className={css.validationIcon}>
-                    {errors.email ? (
-                      <AiOutlineExclamationCircle className={css.invalidIcon} />
+                >
+                  <p className={css.labelText}>Email</p>
+                  <Field
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter email"
+                    value={values.email}
+                    className={
+                      errors.email && touched.email
+                        ? css.isInvalid
+                        : touched.email
+                        ? css.isValid
+                        : css.input
+                    }
+                  />
+                  {touched.email && (
+                    <span className={css.validationIcon}>
+                      {errors.email ? (
+                        <AiOutlineExclamationCircle
+                          className={css.invalidIcon}
+                        />
+                      ) : (
+                        <AiOutlineCheckCircle className={css.validIcon} />
+                      )}
+                    </span>
+                  )}
+                  <div className={css.feedback}>
+                    {touched.email && !errors.email ? (
+                      <div className={css.validFeedback}>
+                        This is an CORRECT email
+                      </div>
                     ) : (
-                      <AiOutlineCheckCircle className={css.validIcon} />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className={css.invalidFeedback}
+                      ></ErrorMessage>
                     )}
-                  </span>
-                )}
-                <div className={css.feedback}>
-                  {touched.email && !errors.email ? (
-                    <div className={css.validFeedback}>
-                      This is an CORRECT email
-                    </div>
-                  ) : (
+                  </div>
+                </label>
+                <label
+                  className={
+                    errors.password && touched.password
+                      ? css.isInvalidLabel
+                      : touched.password
+                      ? css.isValidLabel
+                      : css.label
+                  }
+                >
+                  <p className={css.labelText}>Password</p>
+                  <Field
+                    id="password"
+                    name="password"
+                    type={type}
+                    placeholder="Enter password"
+                    className={
+                      errors.password && touched.password
+                        ? css.isInvalid
+                        : touched.password
+                        ? css.isValid
+                        : css.input
+                    }
+                  />
+                  <button
+                    className={css.btnToggle}
+                    type="button"
+                    onClick={handleShowPassword}
+                  >
+                    <div className={css.spanIcon}>{icon}</div>
+                  </button>
+                  <div className={css.feedback}>
                     <ErrorMessage
-                      name="email"
+                      name="password"
                       component="div"
                       className={css.invalidFeedback}
                     ></ErrorMessage>
-                  )}
-                </div>
-              </label>
-              <label
-                className={
-                  errors.password && touched.password
-                    ? css.isInvalidLabel
-                    : touched.password
-                    ? css.isValidLabel
-                    : css.label
-                }
-              >
-                <p className={css.labelText}>Password</p>
-                <Field
-                  id="password"
-                  name="password"
-                  type={type}
-                  placeholder="Enter password"
-                  className={
-                    errors.password && touched.password
-                      ? css.isInvalid
-                      : touched.password
-                      ? css.isValid
-                      : css.input
-                  }
-                />
-                <button
-                  className={css.btnToggle}
-                  type="button"
-                  onClick={handleShowPassword}
-                >
-                  <div className={css.spanIcon}>{icon}</div>
-                </button>
-                <div className={css.feedback}>
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className={css.invalidFeedback}
-                  ></ErrorMessage>
-                </div>
-              </label>
+                  </div>
+                </label>
 
-              <AuthBtn title={'Log In'} icon={`${icons}#log-in-01`} />
-            </Form>
-          )}
-        </Formik>
-        <AuthNavigate formType="login" />
-      </div>
+                <AuthBtn title={'Log In'} icon={`${icons}#log-in-01`} />
+              </Form>
+            )}
+          </Formik>
+          <AuthNavigate formType="login" />
+        </div>
+      )}
     </>
   );
 };

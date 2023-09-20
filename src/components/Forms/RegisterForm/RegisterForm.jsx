@@ -56,147 +56,150 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <div className={isLoading ? css.spinner : css.hidden}>
-        <Spinner />;
-      </div>
-      <div className={css.container}>
-        <div className={css.bgImages}></div>
-        <div className={css.bgImagesMsg}>
-          <p className={css.bgImagesText}>
-            Quickly <span className={css.span}>register</span> and familiarize
-            yourself with the application!
-          </p>
-        </div>
-        <Formik
-          const
-          initialValues={INITIAL_STATE}
-          validationSchema={registerSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ errors, touched }) => (
-            <Form autoComplete="off" className={css.form}>
-              <h1 className={css.title}>Sign Up</h1>
-              <label
-                className={
-                  errors.name && touched.name
-                    ? css.isInvalidLabel
-                    : touched.name
-                    ? css.isValidLabel
-                    : css.label
-                }
-              >
-                <p className={css.labelText}>Name</p>
-                <Field
-                  id="name"
-                  name="name"
-                  type="name"
-                  placeholder="Enter your name"
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className={css.container}>
+          <div className={css.bgImages}></div>
+          <div className={css.bgImagesMsg}>
+            <p className={css.bgImagesText}>
+              Quickly <span className={css.span}>register</span> and familiarize
+              yourself with the application!
+            </p>
+          </div>
+          <Formik
+            const
+            initialValues={INITIAL_STATE}
+            validationSchema={registerSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ errors, touched }) => (
+              <Form autoComplete="off" className={css.form}>
+                <h1 className={css.title}>Sign Up</h1>
+                <label
                   className={
                     errors.name && touched.name
-                      ? css.isInvalid
+                      ? css.isInvalidLabel
                       : touched.name
-                      ? css.isValid
-                      : css.input
+                      ? css.isValidLabel
+                      : css.label
                   }
-                />
-                <div className={css.feedback}>
-                  <ErrorMessage
+                >
+                  <p className={css.labelText}>Name</p>
+                  <Field
+                    id="name"
                     name="name"
-                    component="div"
-                    className={css.invalidFeedback}
-                  ></ErrorMessage>
-                </div>
-              </label>
-              <label
-                className={
-                  errors.email && touched.email
-                    ? css.isInvalidLabel
-                    : touched.email
-                    ? css.isValidLabel
-                    : css.label
-                }
-              >
-                <p className={css.labelText}>Email</p>
-                <Field
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter email"
-                  className={
-                    errors.email && touched.email
-                      ? css.isInvalid
-                      : touched.email
-                      ? css.isValid
-                      : css.input
-                  }
-                />
-                {touched.email && (
-                  <span className={css.validationIcon}>
-                    {errors.email ? (
-                      <AiOutlineExclamationCircle className={css.invalidIcon} />
-                    ) : (
-                      <AiOutlineCheckCircle className={css.validIcon} />
-                    )}
-                  </span>
-                )}
-                <div className={css.feedback}>
-                  {touched.email && !errors.email ? (
-                    <div className={css.validFeedback}>
-                      This is an CORRECT email
-                    </div>
-                  ) : (
+                    type="name"
+                    placeholder="Enter your name"
+                    className={
+                      errors.name && touched.name
+                        ? css.isInvalid
+                        : touched.name
+                        ? css.isValid
+                        : css.input
+                    }
+                  />
+                  <div className={css.feedback}>
                     <ErrorMessage
-                      name="email"
+                      name="name"
                       component="div"
                       className={css.invalidFeedback}
                     ></ErrorMessage>
+                  </div>
+                </label>
+                <label
+                  className={
+                    errors.email && touched.email
+                      ? css.isInvalidLabel
+                      : touched.email
+                      ? css.isValidLabel
+                      : css.label
+                  }
+                >
+                  <p className={css.labelText}>Email</p>
+                  <Field
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter email"
+                    className={
+                      errors.email && touched.email
+                        ? css.isInvalid
+                        : touched.email
+                        ? css.isValid
+                        : css.input
+                    }
+                  />
+                  {touched.email && (
+                    <span className={css.validationIcon}>
+                      {errors.email ? (
+                        <AiOutlineExclamationCircle
+                          className={css.invalidIcon}
+                        />
+                      ) : (
+                        <AiOutlineCheckCircle className={css.validIcon} />
+                      )}
+                    </span>
                   )}
-                </div>
-              </label>
-              <label
-                className={
-                  errors.password && touched.password
-                    ? css.isInvalidLabel
-                    : touched.password
-                    ? css.isValidLabel
-                    : css.label
-                }
-              >
-                <p className={css.labelText}>Password</p>
-                <Field
-                  id="password"
-                  name="password"
-                  type={type}
-                  placeholder="Enter password"
+                  <div className={css.feedback}>
+                    {touched.email && !errors.email ? (
+                      <div className={css.validFeedback}>
+                        This is an CORRECT email
+                      </div>
+                    ) : (
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className={css.invalidFeedback}
+                      ></ErrorMessage>
+                    )}
+                  </div>
+                </label>
+                <label
                   className={
                     errors.password && touched.password
-                      ? css.isInvalid
+                      ? css.isInvalidLabel
                       : touched.password
-                      ? css.isValid
-                      : css.input
+                      ? css.isValidLabel
+                      : css.label
                   }
-                />
-                <button
-                  className={css.btnToggle}
-                  type="button"
-                  onClick={handleShowPassword}
                 >
-                  <div className={css.spanIcon}>{icon}</div>
-                </button>
-                <div className={css.feedback}>
-                  <ErrorMessage
+                  <p className={css.labelText}>Password</p>
+                  <Field
+                    id="password"
                     name="password"
-                    component="div"
-                    className={css.invalidFeedback}
-                  ></ErrorMessage>
-                </div>
-              </label>
-              <AuthBtn title={'Sign Up'} icon={`${icons}#log-in-01`} />
-            </Form>
-          )}
-        </Formik>
-        <AuthNavigate formType="register" />
-      </div>
+                    type={type}
+                    placeholder="Enter password"
+                    className={
+                      errors.password && touched.password
+                        ? css.isInvalid
+                        : touched.password
+                        ? css.isValid
+                        : css.input
+                    }
+                  />
+                  <button
+                    className={css.btnToggle}
+                    type="button"
+                    onClick={handleShowPassword}
+                  >
+                    <div className={css.spanIcon}>{icon}</div>
+                  </button>
+                  <div className={css.feedback}>
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className={css.invalidFeedback}
+                    ></ErrorMessage>
+                  </div>
+                </label>
+                <AuthBtn title={'Sign Up'} icon={`${icons}#log-in-01`} />
+              </Form>
+            )}
+          </Formik>
+          <AuthNavigate formType="register" />
+        </div>
+      )}
     </>
   );
 };
